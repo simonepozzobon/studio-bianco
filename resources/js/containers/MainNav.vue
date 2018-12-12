@@ -1,5 +1,5 @@
 <template lang="html">
-    <nav class="navbar navbar-light navbar-expand-md bg-light">
+    <nav class="navbar navbar-light navbar-expand-md bg-light" ref="navbar">
         <a class="navbar-brand" href="#">
             <nav-logo :width="214"/>
         </a>
@@ -37,6 +37,9 @@ export default {
     name: 'MainNav',
     components: {
         NavLogo,
+    },
+    mounted: function() {
+        this.$root.navbarHeight = this.$refs.navbar.offsetHeight
     }
 }
 </script>

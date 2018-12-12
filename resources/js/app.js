@@ -25,4 +25,28 @@ const app = new Vue({
     components: {
         MainTemplate,
     },
+    data: function() {
+        return {
+            window: {
+                w: 0,
+                h: 0,
+            },
+            navbarHeight: 0,
+        }
+    },
+    methods: {
+        getWindowSize: function() {
+            this.window = {
+                w: window.innerWidth,
+                h: window.innerHeight
+            }
+        }
+    },
+    mounted: function() {
+        this.getWindowSize()
+
+        window.addEventListener('resize', () => {
+            this.getWindowSize()
+        })
+    }
 }).$mount('#app');

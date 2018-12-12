@@ -14338,7 +14338,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(66);
+module.exports = __webpack_require__(71);
 
 
 /***/ }),
@@ -14374,6 +14374,31 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   router: router,
   components: {
     MainTemplate: __WEBPACK_IMPORTED_MODULE_2__containers_MainTemplate_vue___default.a
+  },
+  data: function data() {
+    return {
+      window: {
+        w: 0,
+        h: 0
+      },
+      navbarHeight: 0
+    };
+  },
+  methods: {
+    getWindowSize: function getWindowSize() {
+      this.window = {
+        w: window.innerWidth,
+        h: window.innerHeight
+      };
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.getWindowSize();
+    window.addEventListener('resize', function () {
+      _this.getWindowSize();
+    });
   }
 }).$mount('#app');
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, "/"))
@@ -50679,6 +50704,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: 'MainNav',
   components: {
     NavLogo: __WEBPACK_IMPORTED_MODULE_0__ui__["a" /* NavLogo */]
+  },
+  mounted: function mounted() {
+    this.$root.navbarHeight = this.$refs.navbar.offsetHeight;
   }
 });
 
@@ -50908,7 +50936,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "nav",
-    { staticClass: "navbar navbar-light navbar-expand-md bg-light" },
+    {
+      ref: "navbar",
+      staticClass: "navbar navbar-light navbar-expand-md bg-light"
+    },
     [
       _c(
         "a",
@@ -51041,7 +51072,7 @@ var normalizeComponent = __webpack_require__(4)
 /* script */
 var __vue_script__ = __webpack_require__(64)
 /* template */
-var __vue_template__ = __webpack_require__(65)
+var __vue_template__ = __webpack_require__(70)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51090,13 +51121,13 @@ var content = __webpack_require__(63);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("0c5e5cca", content, false, {});
+var update = __webpack_require__(3)("a14dd160", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-63cd6604\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-63cd6604\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue");
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-63cd6604\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-63cd6604\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -51114,7 +51145,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -51125,25 +51156,279 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_HomeSplitMenu_vue__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_HomeSplitMenu_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_HomeSplitMenu_vue__);
 //
 //
 //
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Home'
+  name: 'Home',
+  components: {
+    HomeSplitMenu: __WEBPACK_IMPORTED_MODULE_0__components_HomeSplitMenu_vue___default.a
+  }
 });
 
 /***/ }),
 /* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(66)
+}
+var normalizeComponent = __webpack_require__(4)
+/* script */
+var __vue_script__ = __webpack_require__(68)
+/* template */
+var __vue_template__ = __webpack_require__(69)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/HomeSplitMenu.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-b2f2e7c2", Component.options)
+  } else {
+    hotAPI.reload("data-v-b2f2e7c2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(67);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("5fda2d79", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b2f2e7c2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HomeSplitMenu.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b2f2e7c2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HomeSplitMenu.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.homesplit {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.homesplit .homesplit-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 700px;\n}\n.homesplit .homesplit-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: end;\n          -ms-flex-pack: end;\n              justify-content: flex-end;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.homesplit .homesplit-container > div > svg {\n        margin-bottom: 2rem;\n}\n.homesplit .homesplit-container > div h1 {\n        display: block;\n}\n.homesplit .homesplit-container .homesplit-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #EBB29D;\n      color: #fff;\n}\n.homesplit .homesplit-container .homesplit-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #283745;\n      color: #BFD3DD;\n}\n.homesplit .homesplit-container .homesplit-divider {\n      margin-bottom: 1rem;\n}\n.homesplit .homesplit-container .homesplit-v-div {\n      margin-top: 1rem;\n      border-left: 1px solid #fff;\n      -webkit-transform: translate(-50%);\n              transform: translate(-50%);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 68 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__HomeHorizontalSep_vue__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__HomeHorizontalSep_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__HomeHorizontalSep_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HomeIllustLeft_vue__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HomeIllustLeft_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__HomeIllustLeft_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__HomeIllustRight_vue__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__HomeIllustRight_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__HomeIllustRight_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'HomeSplitMenu',
+  components: {
+    HomeHorizontalSep: __WEBPACK_IMPORTED_MODULE_0__HomeHorizontalSep_vue___default.a,
+    HomeIllustLeft: __WEBPACK_IMPORTED_MODULE_1__HomeIllustLeft_vue___default.a,
+    HomeIllustRight: __WEBPACK_IMPORTED_MODULE_2__HomeIllustRight_vue___default.a
+  },
+  watch: {
+    '$root.window.h': function $rootWindowH(value) {
+      this.viewport = value;
+      this.fillScreen();
+    }
+  },
+  data: function data() {
+    return {
+      viewport: 0
+    };
+  },
+  methods: {
+    getVerticalDividerHeight: function getVerticalDividerHeight() {
+      var content = this.$refs.content.offsetHeight,
+          illust = this.$refs.illust.$el.scrollHeight,
+          title = this.$refs.title.offsetHeight,
+          divider = this.$refs.divider.$el.scrollHeight,
+          call = this.$refs.call.offsetHeight,
+          result = content - (illust + title + divider + call);
+      return Math.floor(result / 2);
+    },
+    fillScreen: function fillScreen(height) {
+      this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px';
+      this.$refs.container.style.height = this.viewport + 'px';
+      var dividerHeight = this.getVerticalDividerHeight();
+      this.$refs.vDividerL.style.paddingTop = dividerHeight + 'px';
+      this.$refs.vDividerR.style.paddingTop = dividerHeight + 'px';
+    }
+  }
+});
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [_vm._v("\n    Home\n")])
+  return _c("div", { staticClass: "homesplit" }, [
+    _c("div", { ref: "container", staticClass: "homesplit-container" }, [
+      _c(
+        "div",
+        { ref: "content", staticClass: "homesplit-left" },
+        [
+          _c("home-illust-left", { ref: "illust", attrs: { width: "40%" } }),
+          _vm._v(" "),
+          _c("h1", { ref: "title" }, [_vm._v("Odontoiatria")]),
+          _vm._v(" "),
+          _c("home-horizontal-sep", {
+            ref: "divider",
+            staticClass: "homesplit-divider",
+            attrs: { color: "#283745", width: "8%" }
+          }),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              ref: "call",
+              staticClass: "btn btn-outline-white text-blue",
+              attrs: { href: "#" }
+            },
+            [_vm._v("Scopri di più")]
+          ),
+          _vm._v(" "),
+          _c("div", { ref: "vDividerL", staticClass: "homesplit-v-div" })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "homesplit-right" },
+        [
+          _c("home-illust-right", { attrs: { width: "40%" } }),
+          _vm._v(" "),
+          _c("h1", [_vm._v("Medicina Estetica")]),
+          _vm._v(" "),
+          _c("home-horizontal-sep", {
+            staticClass: "homesplit-divider",
+            attrs: { color: "#BFD3DD", width: "8%" }
+          }),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-outline-cyan text-white",
+              attrs: { href: "#" }
+            },
+            [_vm._v("Scopri di più")]
+          ),
+          _vm._v(" "),
+          _c("div", { ref: "vDividerR", staticClass: "homesplit-v-div" })
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-b2f2e7c2", module.exports)
+  }
+}
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "main" },
+    [_c("home-split-menu", { ref: "splitMenu" })],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -51156,10 +51441,4485 @@ if (false) {
 }
 
 /***/ }),
-/* 66 */
+/* 71 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(76)
+}
+var normalizeComponent = __webpack_require__(4)
+/* script */
+var __vue_script__ = __webpack_require__(78)
+/* template */
+var __vue_template__ = __webpack_require__(79)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/HomeIllustLeft.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-237c66de", Component.options)
+  } else {
+    hotAPI.reload("data-v-237c66de", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(77);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("87f319ac", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-237c66de\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HomeIllustLeft.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-237c66de\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HomeIllustLeft.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 78 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'HomeIllustLeft',
+  props: {
+    width: {
+      type: String,
+      default: '32px'
+    }
+  }
+});
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "svg",
+    {
+      attrs: {
+        xmlns: "http://www.w3.org/2000/svg",
+        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+        viewBox: "0 0 303.69 393.85",
+        width: _vm.width
+      }
+    },
+    [
+      _c(
+        "defs",
+        [
+          _c(
+            "filter",
+            {
+              attrs: {
+                id: "5aabd33a-ade9-4e27-abc9-b20413fe58ee",
+                x: "133.76",
+                y: "-9196.14",
+                width: "1.8",
+                height: "32766",
+                filterUnits: "userSpaceOnUse",
+                "color-interpolation-filters": "sRGB"
+              }
+            },
+            [
+              _c("feFlood", { attrs: { "flood-color": "#fff", result: "bg" } }),
+              _vm._v(" "),
+              _c("feBlend", { attrs: { in: "SourceGraphic", in2: "bg" } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "mask",
+            {
+              attrs: {
+                id: "4fd75c9e-24db-4759-a753-a7d945fa04cc",
+                x: "133.76",
+                y: "-9196.14",
+                width: "1.8",
+                height: "32766",
+                maskUnits: "userSpaceOnUse"
+              }
+            },
+            [
+              _c("g", {
+                staticStyle: {
+                  filter: "url(#5aabd33a-ade9-4e27-abc9-b20413fe58ee)"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "linearGradient",
+            {
+              attrs: {
+                id: "51aaf95b-42a1-4886-8759-b665b4d37c83",
+                "data-name": "ÅÂÁ˚ÏﬂÌÌ˚È „‡‰ËÂÌÚ 9",
+                x1: "-54.44",
+                y1: "4173.21",
+                x2: "-53.17",
+                y2: "4174.06",
+                gradientTransform:
+                  "matrix(-0.49, 0.87, -0.87, -0.49, 3755.04, 2462.25)",
+                gradientUnits: "userSpaceOnUse"
+              }
+            },
+            [
+              _c("stop", { attrs: { offset: "0", "stop-color": "#fff" } }),
+              _vm._v(" "),
+              _c("stop", {
+                attrs: { offset: "0.19", "stop-color": "#fbfbfb" }
+              }),
+              _vm._v(" "),
+              _c("stop", {
+                attrs: { offset: "0.36", "stop-color": "#f0f0f0" }
+              }),
+              _vm._v(" "),
+              _c("stop", { attrs: { offset: "0.54", "stop-color": "#ddd" } }),
+              _vm._v(" "),
+              _c("stop", { attrs: { offset: "0.7", "stop-color": "#c2c2c2" } }),
+              _vm._v(" "),
+              _c("stop", {
+                attrs: { offset: "0.87", "stop-color": "#a1a1a1" }
+              }),
+              _vm._v(" "),
+              _c("stop", { attrs: { offset: "1", "stop-color": "gray" } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "linearGradient",
+            {
+              attrs: {
+                id: "3c4e84c3-bb1f-4e9f-93b0-c1ffb533eda8",
+                "data-name": "ÅÂÁ˚ÏﬂÌÌ˚È „‡‰ËÂÌÚ 82",
+                x1: "859.34",
+                y1: "136.66",
+                x2: "863.34",
+                y2: "136.66",
+                gradientTransform: "translate(-799.02 316.54) rotate(-12.78)",
+                gradientUnits: "userSpaceOnUse"
+              }
+            },
+            [
+              _c("stop", { attrs: { offset: "0", "stop-color": "#f0f3f9" } }),
+              _vm._v(" "),
+              _c("stop", { attrs: { offset: "0.1", "stop-color": "#f6f8fc" } }),
+              _vm._v(" "),
+              _c("stop", {
+                attrs: { offset: "0.34", "stop-color": "#fdfefe" }
+              }),
+              _vm._v(" "),
+              _c("stop", { attrs: { offset: "1", "stop-color": "#fff" } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("linearGradient", {
+            attrs: {
+              id: "d5455123-3168-4555-822a-e2af873a6a7f",
+              x1: "840.48",
+              y1: "125.76",
+              x2: "844.47",
+              y2: "125.76",
+              "xlink:href": "#3c4e84c3-bb1f-4e9f-93b0-c1ffb533eda8"
+            }
+          }),
+          _vm._v(" "),
+          _c("linearGradient", {
+            attrs: {
+              id: "56fd26ff-dd7f-48ab-bada-cbeaf9f13be6",
+              x1: "889.19",
+              y1: "46.24",
+              x2: "893.18",
+              y2: "46.24",
+              "xlink:href": "#3c4e84c3-bb1f-4e9f-93b0-c1ffb533eda8"
+            }
+          }),
+          _vm._v(" "),
+          _c("linearGradient", {
+            attrs: {
+              id: "6b49d587-7781-488a-926a-e56ca354b8c1",
+              x1: "870.32",
+              y1: "35.34",
+              x2: "874.32",
+              y2: "35.34",
+              "xlink:href": "#3c4e84c3-bb1f-4e9f-93b0-c1ffb533eda8"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "filter",
+            {
+              attrs: {
+                id: "3e4206ab-cf3a-4af6-9f95-c075e72933df",
+                x: "133.76",
+                y: "384.14",
+                width: "1.8",
+                height: "1.7",
+                filterUnits: "userSpaceOnUse",
+                "color-interpolation-filters": "sRGB"
+              }
+            },
+            [
+              _c("feFlood", { attrs: { "flood-color": "#fff", result: "bg" } }),
+              _vm._v(" "),
+              _c("feBlend", { attrs: { in: "SourceGraphic", in2: "bg" } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "mask",
+            {
+              attrs: {
+                id: "eb59c6a7-6e57-4c2b-8483-7f4c783de8ee",
+                x: "133.76",
+                y: "384.14",
+                width: "1.8",
+                height: "1.7",
+                maskUnits: "userSpaceOnUse"
+              }
+            },
+            [
+              _c(
+                "g",
+                {
+                  staticStyle: {
+                    mask: "url(#4fd75c9e-24db-4759-a753-a7d945fa04cc)",
+                    filter: "url(#3e4206ab-cf3a-4af6-9f95-c075e72933df)"
+                  }
+                },
+                [
+                  _c("path", {
+                    staticStyle: {
+                      "mix-blend-mode": "multiply",
+                      fill: "url(#51aaf95b-42a1-4886-8759-b665b4d37c83)"
+                    },
+                    attrs: {
+                      d:
+                        "M134,384.9a.87.87,0,0,1,.41.69.28.28,0,0,1-.1.25l1.24-.74a2.43,2.43,0,0,0-.58-1l-1.22.72A.3.3,0,0,1,134,384.9Z"
+                    }
+                  })
+                ]
+              )
+            ]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("title", [_vm._v("home-illustrazione-1")]),
+      _vm._v(" "),
+      _c(
+        "g",
+        {
+          attrs: {
+            id: "5cb66851-79e4-4316-a049-7d04298502f9",
+            "data-name": "home-illustrazione-1"
+          }
+        },
+        [
+          _c("g", [
+            _c("g", [
+              _c("g", [
+                _c("path", {
+                  staticStyle: { fill: "#413d52" },
+                  attrs: {
+                    d:
+                      "M118.89,255.75H65.66A53.94,53.94,0,0,0,64.53,265c0,18.66,8.31,55.56,10.8,57,7.87,4.55,11.33-28.19,23-43,7.17-9.07,14.15-16.4,20.53-17.56Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#413d52" },
+                  attrs: {
+                    d:
+                      "M203.1,329.54c-19-13.1-36.34-47-53.79-79.24l27.21-18.46Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#413d52" },
+                  attrs: {
+                    d:
+                      "M87.13,196.61c-4-7.69-79.55,121.57-73.35,134.21,9.42-1.54,60.27-97,87.57-98.88Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#f2f2f2" },
+                  attrs: {
+                    d:
+                      "M208.59,120.8a37.89,37.89,0,0,0-14.18-14.18c-12.7-7.33-27.9-7.5-37.22-12.86-9.15-5.3-22.33-30.82-46.76-28.69C82.09,67.53,76.08,79.23,54.82,93.38,32,108.62,23.62,94.64,8.59,118.15c-12.81,20,5.9,66.47,5.85,87.12,0,14-14.4,54.18-14.44,68.41,0,18.66,8.31,55.56,10.8,57,7.87,4.55,11.33-28.18,23-43,9.2-11.63,18.07-20.4,25.78-17C67.45,276.3,82,290.29,90,313.42c9.64,28.19,14.94,70.89,23.8,72.21,6.32.95,34.56-35.64,39.75-58.86,6-26.77,9.7-60.19,14.66-61.6,13.24-3.79,27.49,67.06,37.71,65,3.95-.8,12.17-28.75,10.52-55-1.61-25.9-14.07-52.84-14-66.81C202.42,187.64,229.11,156.33,208.59,120.8Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#fff" },
+                  attrs: {
+                    d:
+                      "M208.59,120.8a37.89,37.89,0,0,0-14.18-14.18c-12.7-7.33-27.9-7.5-37.22-12.86-9.15-5.3-22.33-30.82-46.76-28.69C82.09,67.53,76.08,79.23,54.82,93.38,32,108.62,23.62,94.64,8.59,118.15c-12.81,20,5.9,66.47,5.85,87.12,0,14-14.4,54.18-14.44,68.41,0,18.66,8.31,55.56,10.8,57,7.87,4.55,11.33-28.18,23-43,9.2-11.63,18.07-20.4,25.78-17C67.45,276.3,82,290.29,90,313.42c9.64,28.19,14.94,70.89,23.8,72.21,6.32.95,34.56-35.64,39.75-58.86,6-26.77,9.7-60.19,14.66-61.6,13.24-3.79,27.49,67.06,37.71,65,3.95-.8,12.17-28.75,10.52-55-1.61-25.9-14.07-52.84-14-66.81C202.42,187.64,229.11,156.33,208.59,120.8Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    d:
+                      "M169.54,253.9c.92-3.16,3.33-19.08.26-20.26-4.73-1.83-13.6,12.25-17.29,15.45-9.89,8.58-14.79,41.2-16.38,73.75-.91,18.67-12.43,46.23-22.32,62.8,2.2.25,7-3.89,12.49-10.38h0l.75-.88v0l.75-.91,0-.05.73-.9.06-.08.72-.89.08-.11.7-.89.11-.15c.22-.29.45-.58.67-.88a1.09,1.09,0,0,0,.13-.17l.66-.88.14-.18.66-.88.16-.23.63-.86.19-.27.6-.83c.07-.11.15-.21.22-.31l.57-.82.24-.34c.19-.26.37-.53.55-.8l.27-.38.52-.77.29-.43.5-.74.29-.45.49-.73.3-.48c.16-.24.32-.48.47-.72l.32-.5.45-.7.33-.54.43-.68.33-.55.42-.68.34-.57.4-.65.36-.62.37-.62c.12-.21.24-.43.37-.64l.34-.6.36-.64.35-.61c.12-.23.25-.45.37-.67l.32-.58.37-.69.3-.56c.13-.23.25-.46.37-.69s.19-.37.29-.56l.36-.71c.1-.18.19-.36.28-.54l.35-.69.28-.56.33-.69.27-.55.33-.71.26-.53.33-.73c.07-.17.15-.34.23-.51s.21-.48.32-.73.15-.33.22-.5.21-.49.31-.74l.2-.47.31-.76.19-.46c.09-.24.18-.47.28-.71l.18-.49c.1-.25.19-.49.28-.74l.16-.45c.09-.24.18-.49.26-.73s.11-.3.16-.44.14-.44.22-.66.11-.34.16-.51l.21-.66.15-.48c.07-.24.13-.47.2-.7L153,329c.07-.23.12-.46.18-.7s.08-.27.11-.41c.1-.37.19-.73.26-1.1C158.63,302.72,165.72,267.07,169.54,253.9Z"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#bfd3dd" },
+                attrs: {
+                  d:
+                    "M75.86,118.25S92,116.17,87.62,106.57c-3.26-7.21-7.16-13.44,7-5.12a50.11,50.11,0,0,0,22.61,6.93c12.47,1.38,35.17-12.31,27,0-10.34,15.61,12.3,36.91,2.6,32.92-28.31-11.63-52.29-3.64-61.35,6.6-1.12,1.27-2.61,2.51-3.42.37-.9-2.39.09-5.27.21-7.72a15,15,0,0,0-1.57-8.38c-1.89-3.34-5.07-5.11-8.54-6.44-1.67-.65-4.58-1.82-5-3.53S72.11,118.66,75.86,118.25Z"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("g", [
+                _c("g", [
+                  _c("g", [
+                    _c("polygon", {
+                      staticStyle: { fill: "#bfd3dd" },
+                      attrs: {
+                        points:
+                          "248.64 245.07 227.97 233.21 227.97 229.55 248.64 241.41 248.64 245.07"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#fbfaef" },
+                      attrs: {
+                        points:
+                          "287.52 219.21 287.52 222.87 248.74 245.13 248.64 245.07 248.64 241.41 248.74 241.47 287.52 219.21"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#eac88b" },
+                      attrs: {
+                        points:
+                          "267.08 207.48 287.52 219.21 248.74 241.47 227.97 229.55 267.08 207.48"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("polygon", {
+                      staticStyle: { fill: "#eac88b" },
+                      attrs: {
+                        points:
+                          "266.69 202.05 287.52 214.08 266.56 226.18 245.72 214.16 266.69 202.05"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#e9eaed" },
+                      attrs: {
+                        points:
+                          "266.55 226.19 266.55 226.18 266.55 226.18 266.56 226.18 266.55 226.19 266.55 226.19"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#fbfaef" },
+                      attrs: {
+                        points:
+                          "266.56 226.18 266.56 226.18 287.52 214.08 287.51 219.48 261.92 233.91 266.56 226.18"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#bfd3dd" },
+                      attrs: {
+                        points:
+                          "245.72 214.16 266.56 226.19 261.92 233.91 242.56 221.32 245.72 214.16"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("g", [
+                  _c("g", [
+                    _c("g", [
+                      _c("path", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          d:
+                            "M238.24,233.4v-110l7.21,4.17v110Zm.66-108.86V233l5.89,3.39V127.94Z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("g", [
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 131.69 238.57 131.11 245.12 134.9 245.12 135.47 238.57 131.69"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 139.55 238.57 138.98 245.12 142.76 245.12 143.33 238.57 139.55"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 147.42 238.57 146.84 245.12 150.63 245.12 151.2 238.57 147.42"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 155.28 238.57 154.71 245.12 158.49 245.12 159.06 238.57 155.28"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 163.15 238.57 162.57 245.12 166.35 245.12 166.93 238.57 163.15"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 171.01 238.57 170.44 245.12 174.22 245.12 174.79 238.57 171.01"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 178.87 238.57 178.3 245.12 182.08 245.12 182.66 238.57 178.87"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 186.74 238.57 186.16 245.12 189.95 245.12 190.52 238.57 186.74"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 194.6 238.57 194.03 245.12 197.81 245.12 198.38 238.57 194.6"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 202.47 238.57 201.89 245.12 205.68 245.12 206.25 238.57 202.47"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 210.33 238.57 209.76 245.12 213.54 245.12 214.11 238.57 210.33"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 218.2 238.57 217.62 245.12 221.41 245.12 221.98 238.57 218.2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 226.06 238.57 225.49 245.12 229.27 245.12 229.84 238.57 226.06"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 131.24 244.82 127.31 245.18 127.91 238.88 131.84 238.51 131.24"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 138.87 244.82 134.94 245.18 135.55 238.88 139.47 238.51 138.87"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.64 146.97 244.94 143.04 245.3 143.65 239 147.57 238.64 146.97"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 154.76 244.82 150.84 245.18 151.44 238.88 155.37 238.51 154.76"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 162.63 244.82 158.7 245.18 159.3 238.88 163.23 238.51 162.63"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 170.49 244.82 166.56 245.18 167.17 238.88 171.1 238.51 170.49"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.49 178.34 244.79 174.41 245.16 175.02 238.85 178.95 238.49 178.34"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 186.22 244.82 182.29 245.18 182.9 238.88 186.83 238.51 186.22"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 194.09 244.82 190.16 245.18 190.76 238.88 194.69 238.51 194.09"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.49 201.79 244.79 197.86 245.16 198.46 238.85 202.39 238.49 201.79"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.49 209.65 244.79 205.72 245.16 206.33 238.85 210.26 238.49 209.65"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 217.68 244.82 213.75 245.18 214.35 238.88 218.28 238.51 217.68"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 225.25 244.82 221.32 245.18 221.92 238.88 225.85 238.51 225.25"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.49 233.03 244.79 229.1 245.16 229.71 238.85 233.63 238.49 233.03"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          d:
+                            "M244.91,237.56v-110l7.22-4.17v110Zm.67-109.62V236.41l5.88-3.39V124.54Z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("g", [
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 131.69 251.8 131.11 245.25 134.9 245.25 135.47 251.8 131.69"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 139.55 251.8 138.98 245.25 142.76 245.25 143.33 251.8 139.55"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 147.42 251.8 146.84 245.25 150.63 245.25 151.2 251.8 147.42"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 155.28 251.8 154.71 245.25 158.49 245.25 159.06 251.8 155.28"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 163.15 251.8 162.57 245.25 166.35 245.25 166.93 251.8 163.15"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 171.01 251.8 170.44 245.25 174.22 245.25 174.79 251.8 171.01"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 178.87 251.8 178.3 245.25 182.08 245.25 182.66 251.8 178.87"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 186.74 251.8 186.16 245.25 189.95 245.25 190.52 251.8 186.74"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 194.6 251.8 194.03 245.25 197.81 245.25 198.38 251.8 194.6"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 202.47 251.8 201.89 245.25 205.68 245.25 206.25 251.8 202.47"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 210.33 251.8 209.76 245.25 213.54 245.25 214.11 251.8 210.33"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 218.2 251.8 217.62 245.25 221.41 245.25 221.98 251.8 218.2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 226.06 251.8 225.49 245.25 229.27 245.25 229.84 251.8 226.06"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 131.24 245.55 127.31 245.19 127.91 251.49 131.84 251.85 131.24"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 138.87 245.55 134.94 245.19 135.55 251.49 139.47 251.85 138.87"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.73 146.97 245.43 143.04 245.07 143.65 251.37 147.57 251.73 146.97"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 154.76 245.55 150.84 245.19 151.44 251.49 155.37 251.85 154.76"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 162.63 245.55 158.7 245.19 159.3 251.49 163.23 251.85 162.63"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 170.49 245.55 166.56 245.19 167.17 251.49 171.1 251.85 170.49"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.88 178.34 245.57 174.41 245.21 175.02 251.51 178.95 251.88 178.34"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 186.22 245.55 182.29 245.19 182.9 251.49 186.83 251.85 186.22"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 194.09 245.55 190.16 245.19 190.76 251.49 194.69 251.85 194.09"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.88 201.79 245.57 197.86 245.21 198.46 251.51 202.39 251.88 201.79"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.88 209.65 245.57 205.72 245.21 206.33 251.51 210.26 251.88 209.65"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 217.68 245.55 213.75 245.19 214.35 251.49 218.28 251.85 217.68"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 225.25 245.55 221.32 245.19 221.92 251.49 225.85 251.85 225.25"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.88 233.03 245.57 229.1 245.21 229.71 251.51 233.63 251.88 233.03"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("g", [
+                      _c("path", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          d:
+                            "M238.24,124.12v-110l7.21,4.17v110Zm.66-108.85V123.74l5.89,3.4V18.66Z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("g", [
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 22.41 238.57 21.84 245.12 25.62 245.12 26.19 238.57 22.41"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 30.28 238.57 29.7 245.12 33.49 245.12 34.06 238.57 30.28"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 38.14 238.57 37.57 245.12 41.35 245.12 41.92 238.57 38.14"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 46.01 238.57 45.43 245.12 49.22 245.12 49.79 238.57 46.01"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 53.87 238.57 53.3 245.12 57.08 245.12 57.65 238.57 53.87"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 61.73 238.57 61.16 245.12 64.94 245.12 65.52 238.57 61.73"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 69.6 238.57 69.03 245.12 72.81 245.12 73.38 238.57 69.6"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 77.46 238.57 76.89 245.12 80.67 245.12 81.25 238.57 77.46"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 85.33 238.57 84.76 245.12 88.54 245.12 89.11 238.57 85.33"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 93.19 238.57 92.62 245.12 96.4 245.12 96.97 238.57 93.19"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 101.06 238.57 100.48 245.12 104.27 245.12 104.84 238.57 101.06"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 108.92 238.57 108.35 245.12 112.13 245.12 112.7 238.57 108.92"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "238.57 116.79 238.57 116.21 245.12 120 245.12 120.57 238.57 116.79"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 21.96 244.82 18.03 245.18 18.64 238.88 22.57 238.51 21.96"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 29.6 244.82 25.67 245.18 26.27 238.88 30.2 238.51 29.6"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.64 37.7 244.94 33.77 245.3 34.37 239 38.3 238.64 37.7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 61.22 244.82 57.29 245.18 57.89 238.88 61.82 238.51 61.22"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.49 69.07 244.79 65.14 245.16 65.75 238.85 69.67 238.49 69.07"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 76.95 244.82 73.02 245.18 73.62 238.88 77.55 238.51 76.95"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 84.81 244.82 80.88 245.18 81.49 238.88 85.42 238.51 84.81"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.49 92.51 244.79 88.59 245.16 89.19 238.85 93.12 238.49 92.51"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.49 100.38 244.79 96.45 245.16 97.05 238.85 100.98 238.49 100.38"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 108.41 244.82 104.48 245.18 105.08 238.88 109.01 238.51 108.41"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.51 115.97 244.82 112.04 245.18 112.65 238.88 116.58 238.51 115.97"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.49 123.76 244.79 119.83 245.16 120.43 238.85 124.36 238.49 123.76"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          d:
+                            "M244.91,128.29v-110l7.22-4.17v110Zm.67-109.63V127.14l5.88-3.4V15.27Z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("g", [
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 22.41 251.8 21.84 245.25 25.62 245.25 26.19 251.8 22.41"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 30.28 251.8 29.7 245.25 33.49 245.25 34.06 251.8 30.28"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 38.14 251.8 37.57 245.25 41.35 245.25 41.92 251.8 38.14"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 46.01 251.8 45.43 245.25 49.22 245.25 49.79 251.8 46.01"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 53.87 251.8 53.3 245.25 57.08 245.25 57.65 251.8 53.87"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 61.73 251.8 61.16 245.25 64.94 245.25 65.52 251.8 61.73"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 69.6 251.8 69.03 245.25 72.81 245.25 73.38 251.8 69.6"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 77.46 251.8 76.89 245.25 80.67 245.25 81.25 251.8 77.46"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 85.33 251.8 84.76 245.25 88.54 245.25 89.11 251.8 85.33"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 93.19 251.8 92.62 245.25 96.4 245.25 96.97 251.8 93.19"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 101.06 251.8 100.48 245.25 104.27 245.25 104.84 251.8 101.06"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 108.92 251.8 108.35 245.25 112.13 245.25 112.7 251.8 108.92"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            points:
+                              "251.8 116.79 251.8 116.21 245.25 120 245.25 120.57 251.8 116.79"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 21.96 245.55 18.03 245.19 18.64 251.49 22.57 251.85 21.96"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 29.6 245.55 25.67 245.19 26.27 251.49 30.2 251.85 29.6"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 45.49 245.55 41.56 245.19 42.16 251.49 46.09 251.85 45.49"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 53.35 245.55 49.42 245.19 50.03 251.49 53.96 251.85 53.35"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 61.22 245.55 57.29 245.19 57.89 251.49 61.82 251.85 61.22"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.88 69.07 245.57 65.14 245.21 65.75 251.51 69.67 251.88 69.07"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 76.95 245.55 73.02 245.19 73.62 251.49 77.55 251.85 76.95"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 84.81 245.55 80.88 245.19 81.49 251.49 85.42 251.85 84.81"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.88 92.51 245.57 88.59 245.21 89.19 251.51 93.12 251.88 92.51"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.88 100.38 245.57 96.45 245.21 97.05 251.51 100.98 251.88 100.38"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 108.41 245.55 104.48 245.19 105.08 251.49 109.01 251.85 108.41"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.85 115.97 245.55 112.04 245.19 112.65 251.49 116.58 251.85 115.97"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "251.88 123.76 245.57 119.83 245.21 120.43 251.51 124.36 251.88 123.76"
+                        }
+                      })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("g", [
+                  _c("g", [
+                    _c("path", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        d:
+                          "M245.58,49.31,149,105.1V96.75L245.58,41Zm-96,54.63,95.29-55V42.12l-95.29,55Z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "156.07 100.6 155.57 100.89 155.57 93.32 156.07 93.03 156.07 100.6"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "162.98 96.61 162.47 96.9 162.47 89.33 162.98 89.04 162.98 96.61"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "169.89 92.63 169.38 92.92 169.38 85.34 169.89 85.05 169.89 92.63"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "176.79 88.64 176.29 88.93 176.29 81.35 176.79 81.06 176.79 88.64"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "183.7 84.65 183.2 84.94 183.2 77.36 183.7 77.07 183.7 84.65"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "190.61 80.66 190.11 80.95 190.11 73.37 190.61 73.08 190.61 80.66"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "197.52 76.67 197.01 76.96 197.01 69.39 197.52 69.09 197.52 76.67"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "204.43 72.68 203.92 72.97 203.92 65.4 204.43 65.11 204.43 72.68"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "211.33 68.69 210.83 68.98 210.83 61.41 211.33 61.12 211.33 68.69"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "218.24 64.71 217.74 65 217.74 57.42 218.24 57.13 218.24 64.71"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "225.15 60.72 224.65 61.01 224.65 53.43 225.15 53.14 225.15 60.72"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "232.06 56.73 231.56 57.02 231.56 49.44 232.06 49.15 232.06 56.73"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "238.97 52.74 238.46 53.03 238.46 45.46 238.97 45.16 238.97 52.74"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "155.7 100.88 149.06 97.43 149.4 96.81 156.05 100.26 155.7 100.88"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "162.41 97.01 155.76 93.56 156.11 92.94 162.76 96.39 162.41 97.01"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "169.46 92.79 162.81 89.34 163.16 88.72 169.81 92.17 169.46 92.79"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "176.37 88.95 169.72 85.5 170.07 84.88 176.72 88.33 176.37 88.95"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "183.28 84.96 176.63 81.51 176.98 80.89 183.62 84.34 183.28 84.96"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "190.19 80.97 183.54 77.52 183.89 76.9 190.53 80.35 190.19 80.97"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "197.09 77.01 190.45 73.56 190.79 72.94 197.44 76.39 197.09 77.01"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "204 72.99 197.35 69.54 197.7 68.92 204.35 72.38 204 72.99"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "210.91 69 204.26 65.55 204.61 64.94 211.26 68.39 210.91 69"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "217.69 65.12 211.04 61.67 211.39 61.05 218.03 64.5 217.69 65.12"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "224.59 61.13 217.95 57.68 218.29 57.06 224.94 60.51 224.59 61.13"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "231.63 57.04 224.99 53.59 225.33 52.97 231.98 56.42 231.63 57.04"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "238.28 53.2 231.63 49.75 231.98 49.13 238.63 52.59 238.28 53.2"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        d:
+                          "M142.28,93l96-55.44,7.27,4.2-96,55.44Zm96-54.67L143.62,93l5.93,3.42,94.69-54.67Z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "231.57 41.81 232.07 41.53 238.67 45.34 238.17 45.63 231.57 41.81"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "224.71 45.78 225.21 45.49 231.81 49.3 231.31 49.59 224.71 45.78"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "217.84 49.74 218.34 49.45 224.94 53.26 224.44 53.55 217.84 49.74"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "210.97 53.7 211.47 53.42 218.08 57.23 217.58 57.52 210.97 53.7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "204.11 57.67 204.61 57.38 211.21 61.19 210.71 61.48 204.11 57.67"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "197.25 61.63 197.75 61.34 204.35 65.16 203.85 65.44 197.25 61.63"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "190.38 65.59 190.88 65.31 197.48 69.12 196.98 69.41 190.38 65.59"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "183.51 69.56 184.01 69.27 190.62 73.08 190.12 73.37 183.51 69.56"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "176.65 73.52 177.15 73.23 183.75 77.05 183.25 77.33 176.65 73.52"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "169.78 77.49 170.28 77.2 176.89 81.01 176.39 81.3 169.78 77.49"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "162.92 81.45 163.42 81.16 170.02 84.97 169.52 85.26 162.92 81.45"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "156.06 85.41 156.56 85.12 163.16 88.94 162.66 89.22 156.06 85.41"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          points:
+                            "149.19 89.38 149.69 89.09 156.29 92.9 155.79 93.19 149.19 89.38"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "231.88 41.57 244.83 41.42 244.85 41.83 231.9 41.98 231.88 41.57"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "225.21 45.42 238.17 45.27 238.19 45.68 225.23 45.83 225.21 45.42"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "218.33 49.54 231.29 49.39 231.31 49.8 218.35 49.95 218.33 49.54"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "211.34 53.43 224.3 53.28 224.32 53.69 211.36 53.84 211.34 53.43"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "204.48 57.39 217.43 57.24 217.45 57.66 204.5 57.8 204.48 57.39"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "197.61 61.35 210.57 61.21 210.59 61.62 197.63 61.76 197.61 61.35"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "190.72 65.31 203.68 65.16 203.7 65.57 190.74 65.72 190.72 65.31"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "183.88 69.28 196.84 69.14 196.86 69.55 183.9 69.69 183.88 69.28"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "177.02 73.25 189.97 73.1 189.99 73.51 177.03 73.66 177.02 73.25"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "170.26 77.12 183.22 76.97 183.23 77.38 170.28 77.53 170.26 77.12"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "163.39 81.08 176.35 80.94 176.37 81.35 163.41 81.49 163.39 81.08"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "156.42 85.14 169.38 84.99 169.4 85.4 156.44 85.55 156.42 85.14"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "149.82 88.95 162.77 88.8 162.79 89.21 149.84 89.36 149.82 88.95"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "142.99 92.87 155.94 92.72 155.96 93.13 143.01 93.28 142.99 92.87"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("g", [
+                  _c("g", [
+                    _c("polygon", {
+                      staticStyle: { fill: "#bfd3dd" },
+                      attrs: {
+                        points:
+                          "238.19 16.53 238.19 12.97 239.31 13.61 239.82 14.49 239.82 17.44 238.19 16.53"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("polygon", {
+                        staticStyle: { fill: "#eac88b" },
+                        attrs: {
+                          points:
+                            "247.23 7.94 248.25 8.53 239.31 13.61 238.19 12.97 247.23 7.94"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#fbfaef" },
+                        attrs: {
+                          points:
+                            "239.82 14.49 248.69 9.39 248.69 12.35 239.81 17.45 239.82 14.49"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#eac88b" },
+                        attrs: {
+                          points:
+                            "248.69 9.39 248.25 8.53 239.31 13.61 239.82 14.49 248.69 9.39"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("polygon", {
+                      staticStyle: { fill: "#bfd3dd" },
+                      attrs: {
+                        points:
+                          "241.64 18.44 241.64 14.88 242.76 15.53 243.26 16.4 243.26 19.36 241.64 18.44"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("polygon", {
+                        staticStyle: { fill: "#eac88b" },
+                        attrs: {
+                          points:
+                            "250.67 9.86 251.7 10.45 242.76 15.53 241.64 14.89 250.67 9.86"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#fbfaef" },
+                        attrs: {
+                          points:
+                            "243.26 16.4 252.13 11.31 252.13 14.26 243.26 19.36 243.26 16.4"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#eac88b" },
+                        attrs: {
+                          points:
+                            "252.13 11.31 251.7 10.45 242.76 15.53 243.26 16.4 252.13 11.31"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("polygon", {
+                      staticStyle: { fill: "#a2a0a3" },
+                      attrs: {
+                        points:
+                          "245.91 11.25 245.93 11.24 245.91 11.23 245.91 11.25"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#a2a0a3" },
+                      attrs: {
+                        points:
+                          "247.52 5.81 247.52 5.81 247.52 5.81 247.52 5.81"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#bfd3dd" },
+                      attrs: {
+                        points:
+                          "244.34 8.58 247.53 10.33 247.53 10.33 248.58 6.43 248.58 6.43 245.57 4.92 245.57 4.92 243.96 4.13 243.96 4.13 242.76 7.7 244.34 8.58 244.34 8.58"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#bfd3dd" },
+                      attrs: {
+                        points:
+                          "247.53 10.33 244.34 8.58 244.34 8.58 242.76 7.7 242.76 10.33 247.52 13.04 247.53 10.33 247.53 10.33"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      staticStyle: { fill: "#eac88b" },
+                      attrs: {
+                        d:
+                          "M245.57,4.92h0l3,1.51,1.51-.81,1.67-.9-3.18-1.55h0L247,2.39l-3,1.74h0Zm2,.89Z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#fbfaef" },
+                      attrs: {
+                        points:
+                          "250.09 5.62 250.09 5.62 248.58 6.43 248.58 6.43 247.53 10.33 247.53 10.33 247.53 10.33 247.52 13.04 251.75 10.58 251.76 4.72 250.09 5.62"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("g", [
+                  _c("g", [
+                    _c("polygon", {
+                      staticStyle: { fill: "#bfd3dd" },
+                      attrs: {
+                        points:
+                          "133.63 108.04 133.63 104.13 134.9 104.84 135.47 105.79 135.47 109.04 133.63 108.04"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("polygon", {
+                        staticStyle: { fill: "#eac88b" },
+                        attrs: {
+                          points:
+                            "143.87 98.6 145.03 99.25 134.9 104.84 133.63 104.13 143.87 98.6"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#fbfaef" },
+                        attrs: {
+                          points:
+                            "135.47 105.79 145.53 100.2 145.53 103.44 135.47 109.05 135.47 105.79"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#eac88b" },
+                        attrs: {
+                          points:
+                            "145.53 100.2 145.03 99.25 134.9 104.84 135.47 105.79 145.53 100.2"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("polygon", {
+                      staticStyle: { fill: "#bfd3dd" },
+                      attrs: {
+                        points:
+                          "138.36 110.34 138.37 106.43 139.63 107.14 140.21 108.1 140.21 111.35 138.36 110.34"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("polygon", {
+                        staticStyle: { fill: "#eac88b" },
+                        attrs: {
+                          points:
+                            "148.6 100.91 149.76 101.56 139.63 107.14 138.36 106.43 148.6 100.91"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#fbfaef" },
+                        attrs: {
+                          points:
+                            "140.21 108.1 150.26 102.5 150.26 105.75 140.2 111.35 140.21 108.1"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        staticStyle: { fill: "#eac88b" },
+                        attrs: {
+                          points:
+                            "150.26 102.5 149.76 101.56 139.63 107.14 140.21 108.1 150.26 102.5"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("polygon", {
+                      staticStyle: { fill: "#a2a0a3" },
+                      attrs: {
+                        points:
+                          "142.49 102.4 142.51 102.39 142.49 102.38 142.49 102.4"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#a2a0a3" },
+                      attrs: {
+                        points:
+                          "144.49 95.83 144.49 95.83 144.49 95.83 144.49 95.83"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#bfd3dd" },
+                      attrs: {
+                        points:
+                          "140.53 99.18 144.5 101.29 144.5 101.29 145.82 96.57 145.82 96.57 142.06 94.75 142.06 94.75 140.06 93.8 140.06 93.8 138.57 98.11 140.53 99.18 140.53 99.18"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#bfd3dd" },
+                      attrs: {
+                        points:
+                          "144.5 101.29 140.53 99.18 140.53 99.18 138.57 98.11 138.57 101.29 144.49 104.56 144.5 101.29 144.5 101.29"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      staticStyle: { fill: "#eac88b" },
+                      attrs: {
+                        d:
+                          "M142.06,94.75h0l3.76,1.82,1.88-1,2.08-1.08-4-1.87h0l-2-1-3.74,2.11h0Zm2.43,1.08Z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#fbfaef" },
+                      attrs: {
+                        points:
+                          "147.7 95.59 147.7 95.59 145.82 96.57 145.82 96.57 144.5 101.29 144.5 101.29 144.5 101.29 144.49 104.56 149.77 101.6 149.78 94.51 147.7 95.59"
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#413d52" },
+                  attrs: {
+                    points:
+                      "146.6 95.09 146.22 94.64 247.04 7.71 247.42 8.16 146.6 95.09"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("g", [
+                _c("g", [
+                  _c("path", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      d:
+                        "M300.31,17.69l-48.72,28V37.39l48.72-28ZM252.09,44.75,299.64,17.3V10.5L252.09,38Z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "259.16 41.06 258.65 41.35 258.65 33.77 259.16 33.48 259.16 41.06"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "266.07 37.07 265.56 37.36 265.56 29.79 266.07 29.5 266.07 37.07"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "272.97 33.08 272.47 33.37 272.47 25.8 272.97 25.51 272.97 33.08"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "279.88 29.09 279.38 29.39 279.38 21.81 279.88 21.52 279.88 29.09"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "286.79 25.11 286.29 25.4 286.29 17.82 286.79 17.53 286.79 25.11"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "293.7 21.12 293.19 21.41 293.19 13.83 293.7 13.54 293.7 21.12"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "258.73 41.37 252.09 37.92 252.43 37.3 259.08 40.75 258.73 41.37"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "265.64 37.38 258.99 33.93 259.34 33.31 265.99 36.76 265.64 37.38"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "272.42 33.49 265.77 30.04 266.12 29.43 272.76 32.88 272.42 33.49"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "279.33 29.51 272.68 26.06 273.03 25.44 279.67 28.89 279.33 29.51"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "286.36 25.42 279.72 21.97 280.06 21.35 286.71 24.8 286.36 25.42"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "293.01 21.58 286.36 18.13 286.71 17.51 293.36 20.96 293.01 21.58"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "299.86 17.65 293.21 14.2 293.56 13.58 300.21 17.03 299.86 17.65"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("g", [
+                  _c("path", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      d:
+                        "M244.81,33.75,293,5.82l7.27,4.2L252.09,38ZM293,6.59,246,33.83l5.93,3.43L299,10Z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "286.3 10.1 286.8 9.81 293.4 13.62 292.9 13.91 286.3 10.1"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "279.44 14.06 279.94 13.77 286.54 17.58 286.04 17.87 279.44 14.06"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "272.57 18.02 273.07 17.73 279.67 21.55 279.17 21.84 272.57 18.02"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "265.71 21.99 266.21 21.7 272.81 25.51 272.31 25.8 265.71 21.99"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "258.84 25.95 259.34 25.66 265.94 29.47 265.44 29.76 258.84 25.95"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "251.98 29.91 252.48 29.63 259.08 33.44 258.58 33.73 251.98 29.91"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        points:
+                          "245.11 33.88 245.61 33.59 252.21 37.4 251.71 37.69 245.11 33.88"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "286.61 9.85 299.57 9.71 299.58 10.12 286.63 10.26 286.61 9.85"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "279.94 13.7 292.9 13.55 292.92 13.96 279.96 14.11 279.94 13.7"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "273.06 17.82 286.02 17.67 286.04 18.08 273.08 18.23 273.06 17.82"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "266.07 21.71 279.03 21.56 279.05 21.97 266.09 22.12 266.07 21.71"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "259.21 25.67 272.16 25.53 272.18 25.94 259.23 26.08 259.21 25.67"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "252.34 29.64 265.3 29.49 265.32 29.9 252.36 30.05 252.34 29.64"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "245.46 33.59 258.41 33.44 258.43 33.85 245.47 34 245.46 33.59"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      points:
+                        "238.61 37.56 251.57 37.42 251.59 37.83 238.63 37.97 238.61 37.56"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("g", [
+                  _c("g", [
+                    _c("polygon", {
+                      staticStyle: { fill: "#bfd3dd" },
+                      attrs: {
+                        points:
+                          "282.27 23.7 270.89 17.16 270.89 15.15 282.27 21.68 282.27 23.7"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#fbfaef" },
+                      attrs: {
+                        points:
+                          "303.69 9.46 303.69 11.47 282.33 23.73 282.27 23.7 282.27 21.68 282.33 21.72 303.69 9.46"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#eac88b" },
+                      attrs: {
+                        points:
+                          "292.43 2.99 303.69 9.46 282.33 21.72 270.89 15.15 292.43 2.99"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("polygon", {
+                      staticStyle: { fill: "#eac88b" },
+                      attrs: {
+                        points:
+                          "292.21 0 303.69 6.63 292.14 13.29 280.67 6.67 292.21 0"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#e9eaed" },
+                      attrs: {
+                        points:
+                          "292.14 13.3 292.14 13.29 292.14 13.29 292.14 13.29 292.14 13.3 292.14 13.3"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#fbfaef" },
+                      attrs: {
+                        points:
+                          "292.14 13.3 292.14 13.3 303.69 6.63 303.69 9.61 290.05 17.29 292.14 13.3"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      staticStyle: { fill: "#bfd3dd" },
+                      attrs: {
+                        points:
+                          "280.67 6.68 292.15 13.3 290.05 17.29 279.03 10.6 280.67 6.68"
+                      }
+                    })
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("g", [
+                _c("polygon", {
+                  staticStyle: { fill: "#fbfaef" },
+                  attrs: {
+                    points:
+                      "38.36 361.64 48.59 253.94 49.63 254.26 39.4 361.96 38.36 361.64"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "41.99 359.56 52.22 251.87 49.63 254.26 39.4 361.96 41.99 359.56"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    points:
+                      "59.53 356.82 39.01 350.46 43.26 346.53 63.78 352.89 59.53 356.82"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "39.01 350.46 39.28 351.62 59.8 357.98 59.53 356.82 39.01 350.46"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "63.78 352.89 64.04 354.05 59.8 357.98 59.53 356.82 63.78 352.89"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    points:
+                      "61.05 340.86 40.53 334.5 44.78 330.57 65.3 336.93 61.05 340.86"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "40.53 334.5 40.79 335.66 61.31 342.02 61.05 340.86 40.53 334.5"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "65.3 336.93 65.56 338.09 61.31 342.02 61.05 340.86 65.3 336.93"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    points:
+                      "62.62 325.12 42.1 318.76 46.35 314.83 66.87 321.19 62.62 325.12"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "42.1 318.76 42.36 319.92 62.88 326.28 62.62 325.12 42.1 318.76"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "66.87 321.19 67.13 322.35 62.88 326.28 62.62 325.12 66.87 321.19"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    points:
+                      "64.1 308.98 43.58 302.61 47.82 298.68 68.34 305.05 64.1 308.98"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "43.58 302.61 43.84 303.77 64.36 310.13 64.1 308.98 43.58 302.61"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "68.34 305.05 68.61 306.21 64.36 310.13 64.1 308.98 68.34 305.05"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    points:
+                      "65.61 293 45.09 286.64 49.34 282.71 69.86 289.07 65.61 293"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "45.09 286.64 45.36 287.8 65.88 294.16 65.61 293 45.09 286.64"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "69.86 289.07 70.12 290.23 65.88 294.16 65.61 293 69.86 289.07"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    points:
+                      "67.13 277.02 46.61 270.66 50.85 266.73 71.37 273.1 67.13 277.02"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "46.61 270.66 46.87 271.82 67.39 278.18 67.13 277.02 46.61 270.66"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "71.37 273.1 71.64 274.25 67.39 278.18 67.13 277.02 71.37 273.1"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#fbfaef" },
+                  attrs: {
+                    points:
+                      "59.17 368.09 69.4 260.39 70.44 260.71 60.21 368.41 59.17 368.09"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "62.8 366.02 73.03 258.32 70.44 260.71 60.21 368.41 62.8 366.02"
+                  }
+                }),
+                _vm._v(" "),
+                _c("g", [
+                  _c("polygon", {
+                    staticStyle: {
+                      fill: "url(#3c4e84c3-bb1f-4e9f-93b0-c1ffb533eda8)"
+                    },
+                    attrs: {
+                      points:
+                        "70.44 260.71 69.4 260.39 71.99 258 73.03 258.32 70.44 260.71"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: {
+                      fill: "url(#d5455123-3168-4555-822a-e2af873a6a7f)"
+                    },
+                    attrs: {
+                      points:
+                        "49.63 254.26 48.59 253.94 51.18 251.54 52.22 251.87 49.63 254.26"
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("g", [
+                _c("polygon", {
+                  staticStyle: { fill: "#fbfaef" },
+                  attrs: {
+                    points:
+                      "47.48 266.85 57.7 159.16 58.74 159.48 48.52 267.18 47.48 266.85"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "51.1 264.78 61.33 157.09 58.74 159.48 48.52 267.18 51.1 264.78"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    points:
+                      "68.64 262.04 48.13 255.68 52.37 251.75 72.89 258.11 68.64 262.04"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "48.13 255.68 48.39 256.84 68.91 263.2 68.64 262.04 48.13 255.68"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "72.89 258.11 73.15 259.27 68.91 263.2 68.64 262.04 72.89 258.11"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    points:
+                      "70.16 246.07 49.64 239.71 53.89 235.78 74.41 242.15 70.16 246.07"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "49.64 239.71 49.91 240.87 70.42 247.24 70.16 246.07 49.64 239.71"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "74.41 242.15 74.67 243.31 70.42 247.24 70.16 246.07 74.41 242.15"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    points:
+                      "71.73 230.34 51.21 223.97 55.46 220.04 75.98 226.41 71.73 230.34"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "51.21 223.97 51.47 225.13 71.99 231.5 71.73 230.34 51.21 223.97"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "75.98 226.41 76.24 227.57 71.99 231.5 71.73 230.34 75.98 226.41"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    points:
+                      "73.21 214.19 52.69 207.83 56.94 203.9 77.45 210.26 73.21 214.19"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "52.69 207.83 52.95 208.99 73.47 215.35 73.21 214.19 52.69 207.83"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "77.45 210.26 77.72 211.42 73.47 215.35 73.21 214.19 77.45 210.26"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    points:
+                      "74.72 198.22 54.2 191.86 58.45 187.93 78.97 194.29 74.72 198.22"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "54.2 191.86 54.47 193.02 74.99 199.38 74.72 198.22 54.2 191.86"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "78.97 194.29 79.23 195.45 74.99 199.38 74.72 198.22 78.97 194.29"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    points:
+                      "76.24 182.24 55.72 175.88 59.97 171.95 80.49 178.31 76.24 182.24"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "55.72 175.88 55.98 177.04 76.5 183.4 76.24 182.24 55.72 175.88"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "80.49 178.31 80.75 179.47 76.5 183.4 76.24 182.24 80.49 178.31"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#fbfaef" },
+                  attrs: {
+                    points:
+                      "68.28 273.31 78.52 165.61 79.56 165.93 69.33 273.63 68.28 273.31"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "71.91 271.23 82.14 163.54 79.56 165.93 69.33 273.63 71.91 271.23"
+                  }
+                }),
+                _vm._v(" "),
+                _c("g", [
+                  _c("polygon", {
+                    staticStyle: {
+                      fill: "url(#56fd26ff-dd7f-48ab-bada-cbeaf9f13be6)"
+                    },
+                    attrs: {
+                      points:
+                        "79.56 165.93 78.52 165.61 81.1 163.21 82.14 163.54 79.56 165.93"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("polygon", {
+                    staticStyle: {
+                      fill: "url(#6b49d587-7781-488a-926a-e56ca354b8c1)"
+                    },
+                    attrs: {
+                      points:
+                        "58.74 159.48 57.7 159.16 60.29 156.76 61.33 157.09 58.74 159.48"
+                    }
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("path", {
+                staticStyle: { fill: "#fff" },
+                attrs: {
+                  d:
+                    "M164.38,384.1l-4.92,2.54a2.16,2.16,0,0,1-2-.1h0a2.18,2.18,0,0,0-2-.09l-1.67.86a2.16,2.16,0,0,1-1.95-.09h0a.6.6,0,0,1,0-1.13L156,384a.6.6,0,0,0,.06-1.13h0a2.15,2.15,0,0,0-2-.09l-8.47,4.36c-.56.29-.58.8-.06,1.13h0c.53.34.51.85,0,1.13l-4.18,2.16a.6.6,0,0,0-.05,1.13h0a2.18,2.18,0,0,0,2,.09l5-2.59a2.19,2.19,0,0,1,1.95.09h0a.6.6,0,0,1-.05,1.13l-2,1c-.56.29-.58.79-.05,1.13h0a2.13,2.13,0,0,0,2,.09l16.18-8.34a.6.6,0,0,0,.05-1.13h0A2.15,2.15,0,0,0,164.38,384.1Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("g", [
+                _c("path", {
+                  staticStyle: { fill: "#fff" },
+                  attrs: {
+                    d:
+                      "M155,377.1a1.84,1.84,0,0,0,.73-1.69A5.73,5.73,0,0,0,153,371a1.81,1.81,0,0,0-1.83-.15l-18.47,11,3.76,6.28Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    d:
+                      "M136.5,388.14a1.81,1.81,0,0,1-1.83-.15,5.73,5.73,0,0,1-2.66-4.44,1.58,1.58,0,0,1,2.57-1.53,5.7,5.7,0,0,1,2.65,4.44A1.78,1.78,0,0,1,136.5,388.14Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#413d52" },
+                  attrs: {
+                    d:
+                      "M134.65,387a3.91,3.91,0,0,1-1.81-3c0-1.12.77-1.59,1.75-1a3.91,3.91,0,0,1,1.81,3C136.42,387.12,135.64,387.59,134.65,387Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#283745" },
+                  attrs: {
+                    d:
+                      "M134.64,386.16a2.21,2.21,0,0,1-1-1.72c0-.64.43-.91,1-.6a2.25,2.25,0,0,1,1,1.73C135.65,386.21,135.2,386.48,134.64,386.16Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#413d52" },
+                  attrs: {
+                    d:
+                      "M134.27,385.87l1.29-.77a2.43,2.43,0,0,0-.58-1l-1.23.73-.07-4.27a3,3,0,0,1,.65-1.72l8.46-10.81a4,4,0,0,0,.89-2.43l-.3-19.53-1.13,0,.31,19.53a3,3,0,0,1-.65,1.72l-8.46,10.81a4,4,0,0,0-.89,2.43l.06,4.33a1,1,0,0,0,1.65.92Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    d:
+                      "M144.78,364.5c.63-.38.82-.9.59-1.36l-.75-1.46-3.12,0-.7,1.49c-.23.47,0,1,.62,1.34A3.72,3.72,0,0,0,144.78,364.5Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    d:
+                      "M144.22,362.6a.8.8,0,0,0,.46-.67l-.24-15.84-3.24.05.24,15.84a.83.83,0,0,0,.49.66A2.53,2.53,0,0,0,144.22,362.6Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: {
+                    d:
+                      "M141.68,346.8a.71.71,0,0,1,0-1.33,2.53,2.53,0,0,1,2.29,0,.82.82,0,0,1,.49.65.81.81,0,0,1-.47.67A2.53,2.53,0,0,1,141.68,346.8Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "g",
+                  {
+                    staticStyle: {
+                      mask: "url(#eb59c6a7-6e57-4c2b-8483-7f4c783de8ee)"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      staticStyle: { fill: "#413d52" },
+                      attrs: {
+                        d:
+                          "M134,384.9a.87.87,0,0,1,.41.69.28.28,0,0,1-.1.25l1.24-.74a2.43,2.43,0,0,0-.58-1l-1.22.72A.3.3,0,0,1,134,384.9Z"
+                      }
+                    })
+                  ]
+                )
+              ])
+            ])
+          ])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-237c66de", module.exports)
+  }
+}
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(81)
+}
+var normalizeComponent = __webpack_require__(4)
+/* script */
+var __vue_script__ = __webpack_require__(83)
+/* template */
+var __vue_template__ = __webpack_require__(84)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/HomeIllustRight.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-ed54e256", Component.options)
+  } else {
+    hotAPI.reload("data-v-ed54e256", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(82);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("6d113e3a", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ed54e256\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HomeIllustRight.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ed54e256\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HomeIllustRight.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 83 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'HomeIllustRight',
+  props: {
+    width: {
+      type: String,
+      default: '100%'
+    }
+  }
+});
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "svg",
+    {
+      attrs: {
+        xmlns: "http://www.w3.org/2000/svg",
+        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+        viewBox: "0 0 303.69 393.85",
+        width: _vm.width
+      }
+    },
+    [
+      _c("defs", [
+        _c(
+          "clipPath",
+          { attrs: { id: "f70e5fa1-aa35-41f2-841a-33ad57ab4991" } },
+          [
+            _c("path", {
+              staticStyle: { fill: "none" },
+              attrs: {
+                d:
+                  "M258,288h0l.1-.12Zm.74-3.13a7.42,7.42,0,0,1-.34,1.06,6.89,6.89,0,0,1-.4.82,10.7,10.7,0,0,1-.69,1.06c-.27.34-.66.77-1,1.09s-.66.62-.95.87-.56.44-.81.63-.62.43-.89.61-.86.51-1.24.72l-1.18.59c-.41.19-1,.43-1.39.59a29.21,29.21,0,0,1-2.87.95c-1.67.45-3.08.68-3.1.68-1,.14-2.27.3-3.25.4-.5,0-1.17.07-1.67.09s-1.17,0-1.67,0-1.17,0-1.67-.05-1.71-.09-3.31-.33a32.36,32.36,0,0,1-3.22-.62c-.45-.11-1.05-.27-1.49-.41s-1.1-.34-1.56-.51a24.69,24.69,0,0,1-2.82-1.22c-.34-.19-.79-.42-1.12-.62s-.9-.56-1.27-.82-.59-.43-.82-.63l-1.75,13.67c1.28,16.93-1.91,5.75-1.94,6-2.24,19.94-7.46-12-7.58-12.34s-6.59-4.64-6.67-4.94c-.84-3.69-7.74-60.18-2.72-63,8.42-4.69,71.07-9.71,79.26-4.85C283.38,227.3,259.56,281.31,258.72,284.9Z"
+              }
+            })
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("title", [_vm._v("home-illustrazione-2")]),
+      _vm._v(" "),
+      _c(
+        "g",
+        {
+          attrs: {
+            id: "8e7b3dcd-98b0-4c85-8caa-14d8781f830f",
+            "data-name": "home-illustrazione-2"
+          }
+        },
+        [
+          _c("g", [
+            _c("g", [
+              _c("g", [
+                _c("rect", {
+                  staticStyle: { fill: "#413d52" },
+                  attrs: {
+                    x: "41.77",
+                    y: "289",
+                    width: "11.14",
+                    height: "3.79"
+                  }
+                }),
+                _vm._v(" "),
+                _c("rect", {
+                  staticStyle: { fill: "#413d52" },
+                  attrs: {
+                    x: "127.48",
+                    y: "289",
+                    width: "11.14",
+                    height: "3.6"
+                  }
+                }),
+                _vm._v(" "),
+                _c("ellipse", {
+                  staticStyle: { fill: "#283745" },
+                  attrs: { cx: "90.19", cy: "293.03", rx: "48.42", ry: "26.59" }
+                }),
+                _vm._v(" "),
+                _c("ellipse", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: { cx: "90.19", cy: "288.27", rx: "48.42", ry: "26.59" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("g", [
+                _c("rect", {
+                  staticStyle: { fill: "#283745" },
+                  attrs: { x: "51.15", y: "281", width: "8.98", height: "3.66" }
+                }),
+                _vm._v(" "),
+                _c("rect", {
+                  staticStyle: { fill: "#283745" },
+                  attrs: {
+                    x: "120.26",
+                    y: "281",
+                    width: "8.98",
+                    height: "3.83"
+                  }
+                }),
+                _vm._v(" "),
+                _c("ellipse", {
+                  staticStyle: { fill: "#283745" },
+                  attrs: { cx: "90.19", cy: "284.66", rx: "39.04", ry: "21.44" }
+                }),
+                _vm._v(" "),
+                _c("ellipse", {
+                  staticStyle: { fill: "#eac88b" },
+                  attrs: { cx: "90.19", cy: "279.1", rx: "39.04", ry: "21.44" }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("polygon", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  points:
+                    "90.19 282.14 83.63 278.35 83.63 93.17 90.19 96.95 90.19 282.14"
+                }
+              }),
+              _vm._v(" "),
+              _c("polygon", {
+                staticStyle: { fill: "#eac88b" },
+                attrs: {
+                  points:
+                    "90.2 282.14 96.76 278.35 96.76 93.17 90.2 96.95 90.2 282.14"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("path", {
+                staticStyle: { fill: "#fff" },
+                attrs: {
+                  d:
+                    "M143.86,140s18.32,50.68-26.54,78.07-88.56-43.7-88.56-43.7S41,162.1,84.11,147,143.86,140,143.86,140Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#fff" },
+                attrs: {
+                  d:
+                    "M116.54,142.48s-8.54-4.66-8.15-29L66.05,105s5,45.25-10.1,55.35C56,160.35,106.44,172.39,116.54,142.48Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#bfd3dd" },
+                attrs: {
+                  d:
+                    "M112.78,129.22c-10.61,13.16-24.69,8.4-29.54,12.87s-6.32,20.39-5.15,23.11,6.6,7.76,16.7,10.09c0,0-14.76.39-26.8-9.32,0,0-30.47,9.29-31,18.82l-8.27-10.66s2.45-3,11.11-7.77,20-10.1,20-10.1a93,93,0,0,0,6.79-40.78Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#bfd3dd" },
+                attrs: {
+                  d:
+                    "M102,133.64s-23.11,1.85-42.92-24.57c-16.9-26.21-9.32-59.71-5.54-67s27.09-37,62.92-14.56c0,0,13.05,8.12,16.64,30.55a19.73,19.73,0,0,1-1.59,11.31Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#fff" },
+                attrs: {
+                  d:
+                    "M67.22,77.73c0,30.88,15.56,55.91,34.76,55.91,12.32,1.07,25.48-20.12,30.34-40.44,1.31-5.47.29-12.73.56-17.25C137.26,41,121.18,31.87,102,31.87S67.22,46.85,67.22,77.73Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#bfd3dd" },
+                attrs: {
+                  d:
+                    "M108.6,222.16s-26.53.11-44.3-11.12C43.55,197.92,31,173.23,28.76,174.33c-1.47,1.55-2.59,3.31-4.33,11.25C24.43,185.58,56.76,236.77,108.6,222.16Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#bfd3dd" },
+                attrs: {
+                  d:
+                    "M58.3,101.41s-10.14-4.2-13.06-9c0,0-4.81-9.76.6-12.48S57.39,92.11,57.39,92.11,57.05,98.42,58.3,101.41Z"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("g", [
+                _c("ellipse", {
+                  staticStyle: { fill: "#ebb29d" },
+                  attrs: {
+                    cx: "237.63",
+                    cy: "327.01",
+                    rx: "21.67",
+                    ry: "11.31"
+                  }
+                }),
+                _vm._v(" "),
+                _c("g", [
+                  _c("path", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      d:
+                        "M258.81,284.46c.59-3.45-1.37-7-5.92-9.73-8.19-4.85-21.66-5-30.09-.3h0c-5,2.79-7.12,6.66-6.27,10.36q1.83,7.93,3.65,15.89h6.4l-1.07-7.44c8,3.19,18.91,2.91,26.34-.9.56.27,1.1.55,1.62.86a18.75,18.75,0,0,1,2.12,1.47,10.2,10.2,0,0,0,3.74-5.43A7.3,7.3,0,0,0,258.81,284.46Z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#fbfaef" },
+                    attrs: {
+                      d:
+                        "M255.4,305.32c-.35.31-.84.69-1.21,1a9.86,9.86,0,0,1-.92.62c-.37.23-.87.53-1.25.74l-1.18.59a25.61,25.61,0,0,1-2.72,1.07c-.44.13-1,.32-1.46.44s-1,.27-1.47.36-1.06.23-1.53.3c-.93.14-2.18.31-3.12.38-.48,0-1.12.09-1.6.09s-1.12,0-1.6,0-1.12,0-1.6,0c-.89,0-1.6-.12-3.17-.31,0,0-1.45-.2-3.1-.6-.44-.11-1-.27-1.45-.4s-1.07-.34-1.52-.5a24.7,24.7,0,0,1-2.79-1.21c-.34-.18-.8-.42-1.13-.62s-.92-.58-1.3-.85-.61-.44-.86-.65-.92-.82-1.29-1.19a9.65,9.65,0,0,1-.84-1l3.81,21.39c.34,1.93,1.78,3.81,4.32,5.32,6,3.54,15.83,3.64,22,.22C251.12,329,252.67,327,253,325L257,303.65A13,13,0,0,1,255.4,305.32Z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#fff" },
+                    attrs: {
+                      d:
+                        "M256.55,294.14l-.29-.42c-1.27,4.11-2.65,8.19-3.84,12.32a16.35,16.35,0,0,0,1.58-1.12Z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#fff" },
+                    attrs: {
+                      d: "M257,292.31l1.74-7.41c-.57,2.41-1.23,4.79-2,7.16Z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#fbfaef" },
+                    attrs: {
+                      d:
+                        "M253.82,273.38c-8.69-5.15-23-5.29-31.92-.32h0c-5.32,3-7.54,7.06-6.64,11,.61,2.67,2.67,5.26,6.19,7.34,8.69,5.15,23,5.29,31.92.32,3.77-2.09,6-4.76,6.63-7.54C260.9,280.36,258.85,276.36,253.82,273.38ZM258.38,286a8.76,8.76,0,0,1-.39.82,10.79,10.79,0,0,1-.7,1.06c-.26.34-.65.77-1,1.09s-.65.62-.94.87-.57.44-.81.63-.62.43-.9.61-.85.51-1.23.72-.82.42-1.19.59-1,.43-1.38.59a30.12,30.12,0,0,1-2.87.95c-1.67.45-3.09.68-3.1.68-1,.14-2.28.3-3.26.4-.5,0-1.16.07-1.66.09s-1.18,0-1.68,0-1.17,0-1.67-.05-1.71-.09-3.31-.33c-.87-.12-2-.33-3.22-.62-.45-.11-1-.27-1.49-.41s-1.09-.34-1.56-.51a23.16,23.16,0,0,1-2.81-1.22c-.34-.19-.8-.42-1.13-.62s-.9-.56-1.27-.82-.58-.43-.82-.63a16.06,16.06,0,0,1-1.22-1.11c-.31-.34-.7-.8-1-1.17s-.39-.58-.55-.84a8.89,8.89,0,0,1-.46-1,8,8,0,0,1-.31-1c-.84-3.7,1.25-7.56,6.27-10.35,8.43-4.69,21.9-4.55,30.09.3,4.74,2.81,6.68,6.58,5.83,10.17A6.33,6.33,0,0,1,258.38,286Z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#bfd3dd" },
+                    attrs: {
+                      d:
+                        "M214,284.92a12,12,0,0,1-.14-1.46c0-.32,0-.73,0-1s.07-.51.11-.73.13-.59.2-.84.17-.52.26-.74a11.7,11.7,0,0,1,.7-1.47,15.65,15.65,0,0,1,1-1.51,14,14,0,0,1,1.23-1.33c.38-.34.88-.81,1.3-1.11s.73-.55,1.05-.76,1.06-.66,1.52-.93a.63.63,0,0,1,.6.06c-8.94,5-9.14,13.17-.45,18.32s23,5.29,31.92.32,9.14-13.17.45-18.32-23-5.29-31.92-.32a.63.63,0,0,0-.6-.06h0l1.35-.69c.48-.23,1.13-.51,1.63-.71a31.15,31.15,0,0,1,3.09-1c1.64-.46,3-.7,3.46-.78,1.62-.28,2.92-.39,3.55-.44s1.87-.14,3.58-.13c1.5,0,2.77.12,3.56.2a36.31,36.31,0,0,1,6.85,1.32,27.13,27.13,0,0,1,6.07,2.61A19.65,19.65,0,0,1,257,275.1c.27.22.62.52.87.77s.73.75,1,1.09a8.7,8.7,0,0,1,.6.76c.25.37.59.87.8,1.27a7.29,7.29,0,0,1,.37.74c.17.43.38,1,.51,1.44a10.39,10.39,0,0,1,.26,1.46c0,.25,0,.59,0,.84a8.41,8.41,0,0,1-.15,1.58c-.57,3.06-2.93,6-7.08,8.33-9.42,5.24-24.48,5.09-33.64-.34C216.69,290.74,214.5,287.87,214,284.92Z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#fbfaef" },
+                    attrs: {
+                      d:
+                        "M216.4,298.57,214,284.91c.52,2.95,2.72,5.83,6.6,8.13,9.16,5.43,24.22,5.58,33.64.34,4.15-2.31,6.52-5.28,7.08-8.34h0q-1.26,6.82-2.51,13.65c-.51,2.74-2.62,5.4-6.34,7.46-8.44,4.7-21.92,4.56-30.12-.3C218.84,303.79,216.87,301.22,216.4,298.57Z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#ebb29d" },
+                    attrs: {
+                      d:
+                        "M252.44,306.15c-8.44,4.7-21.92,4.56-30.12-.3a15,15,0,0,1-4-3.35v1a9.65,9.65,0,0,0,.84,1c.37.37.89.85,1.29,1.19s.59.46.86.65.9.6,1.3.85.79.44,1.13.62A24.7,24.7,0,0,0,226.5,309c.45.16,1.06.36,1.52.5s1,.29,1.45.4c1.65.4,3.08.6,3.1.6,1.57.19,2.28.28,3.17.31.48,0,1.12,0,1.6,0s1.12,0,1.6,0,1.12-.05,1.6-.09c.94-.07,2.19-.24,3.12-.38.47-.07,1.07-.21,1.53-.3s1-.24,1.47-.36,1-.31,1.46-.44a25.61,25.61,0,0,0,2.72-1.07l1.18-.59c.38-.21.88-.51,1.25-.74a9.86,9.86,0,0,0,.92-.62c.37-.28.86-.66,1.21-1a13,13,0,0,0,1.57-1.67v-1.17A15.06,15.06,0,0,1,252.44,306.15Z"
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "g",
+                {
+                  staticStyle: {
+                    "clip-path": "url(#f70e5fa1-aa35-41f2-841a-33ad57ab4991)"
+                  }
+                },
+                [
+                  _c("g", [
+                    _c("g", [
+                      _c("g", [
+                        _c("path", {
+                          staticStyle: { fill: "#373b47" },
+                          attrs: {
+                            d:
+                              "M241.54,315.1a1.34,1.34,0,0,1-1.23,0c-.35-.2-.34-.52,0-.71a1.36,1.36,0,0,1,1.24,0C241.89,314.59,241.89,314.91,241.54,315.1Z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#eac88b" },
+                          attrs: {
+                            points:
+                              "239.19 264.27 240.05 314.73 241.79 314.75 243.92 264.31 239.19 264.27"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#fbfaef" },
+                          attrs: {
+                            d:
+                              "M243.9,264h0l-.2-13.54-4-.17-.53,13.65h0c-.13.42.09.88.65,1.21a3.72,3.72,0,0,0,3.36.05C243.8,264.86,244,264.41,243.9,264Z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            d:
+                              "M243.14,251.23a3.14,3.14,0,0,1-2.83,0,.86.86,0,0,1,0-1.63,3.11,3.11,0,0,1,2.82,0A.86.86,0,0,1,243.14,251.23Z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#ebb29d" },
+                          attrs: {
+                            d:
+                              "M243,251.14a2.76,2.76,0,0,1-2.49,0,.76.76,0,0,1,0-1.44,2.73,2.73,0,0,1,2.49,0A.76.76,0,0,1,243,251.14Z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#ebb29d" },
+                          attrs: {
+                            d:
+                              "M240,250.57l-3.91-8.7s5.76-3.66,11.27.14c-.44,1-3.57,7.3-3.9,8.6Z"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", [
+                        _c("g", [
+                          _c("path", {
+                            staticStyle: { fill: "#373b47" },
+                            attrs: {
+                              d:
+                                "M241,333.78a1.64,1.64,0,0,1-1.49.14.45.45,0,0,1-.09-.85,1.67,1.67,0,0,1,1.49-.15A.46.46,0,0,1,241,333.78Z"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            staticStyle: { fill: "#eac88b" },
+                            attrs: {
+                              points:
+                                "231.49 273.22 239.2 333.53 241.29 333.33 237.16 272.65 231.49 273.22"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            staticStyle: { fill: "#ebb29d" },
+                            attrs: {
+                              d:
+                                "M237.08,272.26h0l-2-16.18-4.79.33,1.18,16.4h0c-.1.53.22,1,.94,1.37a4.46,4.46,0,0,0,4-.39C237.09,273.32,237.29,272.75,237.08,272.26Z"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("ellipse", {
+                            staticStyle: { fill: "#413d52" },
+                            attrs: {
+                              cx: "232.69",
+                              cy: "256.28",
+                              rx: "2.4",
+                              ry: "1.39",
+                              transform: "translate(-22.61 22.52) rotate(-5.28)"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            staticStyle: { fill: "#bfd3dd" },
+                            attrs: {
+                              d:
+                                "M234.28,257a3.3,3.3,0,0,1-3,.29c-.88-.4-1-1.17-.18-1.73a3.33,3.33,0,0,1,3-.28C235,255.67,235.06,256.45,234.28,257Z"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#bfd3dd" },
+                          attrs: {
+                            d:
+                              "M230.64,256.71s-.86-3-2.21-10.25l6.61-.65s0,8.9-.24,10.5Z"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", [
+                        _c("path", {
+                          staticStyle: { fill: "#eac88b" },
+                          attrs: {
+                            d:
+                              "M229.46,274s-3.91,8.86-3.68,12.22l-5.08,1.44c-2.65-3.78-10-8.34-10-8.34l-3.09-11,18.79-5.32Z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#eac88b" },
+                          attrs: {
+                            d:
+                              "M231.36,314.55c-1.43.41-8.57-11.51-9.66-15.33s-1.08-11.88-1.08-11.88l5.08-1.44s4.35,7.34,5.3,10.69S232.8,314.14,231.36,314.55Z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#ebb29d" },
+                          attrs: {
+                            points:
+                              "210.14 277.45 228.93 272.13 226.37 262.91 207.58 268.23 210.14 277.45"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            d:
+                              "M226.37,262.91c.19.67-3.86,2.4-9.05,3.87s-9.55,2.12-9.74,1.45,3.87-2.4,9-3.87S226.18,262.24,226.37,262.91Z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#ebb29d" },
+                          attrs: {
+                            d:
+                              "M228.93,272.13c.19.66-3.86,2.4-9.05,3.87s-9.55,2.11-9.74,1.45,3.87-2.4,9.05-3.87S228.74,271.46,228.93,272.13Z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#bfd3dd" },
+                          attrs: {
+                            d:
+                              "M212.89,251.56c-4.82,1.37-8.59,2.58-8.61,2.5l3.88,13.71c.18.62,4.23,0,9.06-1.35s8.59-3,8.42-3.6l-3.89-13.71S217.72,250.2,212.89,251.56Z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#fbfaef" },
+                          attrs: {
+                            d:
+                              "M212.89,251.56l-8.61,2.5,3.88,13.71c.18.62,4.23,0,9.06-1.35s8.59-3,8.42-3.6l-3.89-13.71Zm9.53,11.84c.16.59-2.82,2-6.67,3s-7.11,1.5-7.28.9l-3.7-13.08,13.94-3.95h0Z"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("g", [
+                        _c("path", {
+                          staticStyle: { fill: "#373b47" },
+                          attrs: {
+                            d:
+                              "M243,326.08a1.38,1.38,0,0,1-1.18-.35c-.28-.29-.19-.6.2-.69a1.36,1.36,0,0,1,1.18.36C243.5,325.68,243.4,326,243,326.08Z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("polygon", {
+                          staticStyle: { fill: "#eac88b" },
+                          attrs: {
+                            points:
+                              "254.74 276.56 241.69 325.32 243.36 325.82 259.27 277.9 254.74 276.56"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#fbfaef" },
+                          attrs: {
+                            d:
+                              "M259.34,277.58h0l3.53-13.08-3.78-1.25-4.25,13h0a1.07,1.07,0,0,0,.29,1.34,3.69,3.69,0,0,0,3.21,1C259,278.4,259.35,278,259.34,277.58Z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            d:
+                              "M262.12,265.12a3.14,3.14,0,0,1-2.71-.82c-.61-.66-.41-1.36.46-1.56a3.14,3.14,0,0,1,2.71.81C263.2,264.21,263,264.91,262.12,265.12Z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#ebb29d" },
+                          attrs: {
+                            d:
+                              "M262.63,264.63h0a14.19,14.19,0,0,0,2-4.28c.85-2.86.1-6.38.12-8.92-1.25,2.21-3.88,4.55-4.77,7.53a17.36,17.36,0,0,0-.71,4.55.93.93,0,0,0,.31.76A2.79,2.79,0,0,0,262,265a1,1,0,0,0,.61-.36h0Z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          staticStyle: { fill: "#413d52" },
+                          attrs: {
+                            d:
+                              "M259.7,264.38a25.61,25.61,0,0,1,.93-5.29c.85-3.17,3.19-5,4.11-7.67a11.11,11.11,0,0,1-1.37,3,15.35,15.35,0,0,0-2.28,4.85,48.89,48.89,0,0,0-.92,5.44A1.07,1.07,0,0,1,259.7,264.38Z"
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        staticStyle: { fill: "#eac88b" },
+                        attrs: {
+                          d:
+                            "M242.67,320.09c-3.4-.52-3.25-4-2.47-9s5.64-28.59,5.64-28.59l4.56.7s-2.47,24.51-3.15,29S246.07,320.61,242.67,320.09Z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticStyle: { fill: "#fbfaef" },
+                        attrs: {
+                          d:
+                            "M249.63,284.08a3.69,3.69,0,0,1-3.31-.51c-.84-.67-.71-1.53.28-1.91a3.69,3.69,0,0,1,3.31.51C250.75,282.84,250.62,283.7,249.63,284.08Z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticStyle: { fill: "#413d52" },
+                        attrs: {
+                          d:
+                            "M248.86,283.47a1.82,1.82,0,0,1-1.63-.25c-.42-.33-.36-.76.14-1a1.82,1.82,0,0,1,1.63.25C249.42,282.86,249.36,283.28,248.86,283.47Z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticStyle: { fill: "#fbfaef" },
+                        attrs: {
+                          d:
+                            "M251.73,261.39l-.64-.1-3.26,21.33a.84.84,0,0,0,0,.39.25.25,0,0,0,.46.07.88.88,0,0,0,.14-.36Z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticStyle: { fill: "#fbfaef" },
+                        attrs: {
+                          d:
+                            "M253.87,246.37c-.75-.12-4.23,7.93-4.66,10.71s1.72,5.22,1.72,5.22l.65.1s2.81-2,3.19-4.47S254.62,246.48,253.87,246.37Z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        staticStyle: { fill: "#bfd3dd" },
+                        attrs: {
+                          d:
+                            "M249.64,257.18c.39-2.56,3.36-9.55,4.42-10.59-.06-.13-.12-.21-.19-.22-.75-.12-4.23,7.93-4.66,10.71s1.72,5.22,1.72,5.22l.39.06A7.22,7.22,0,0,1,249.64,257.18Z"
+                        }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("g", [
+                _c("path", {
+                  staticStyle: { fill: "#ebb29d" },
+                  attrs: {
+                    d:
+                      "M121,345.12a1.92,1.92,0,0,0,1,1.58h0l0,0,.06,0,2.47-6.42v0a2,2,0,0,0-1.79.51A4.41,4.41,0,0,0,121,345.12Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    d:
+                      "M132.28,330.2A8.06,8.06,0,0,1,139,333c1.41,1.84.7,3.58-1.59,3.88a8,8,0,0,1-6.7-2.8C129.28,332.24,130,330.5,132.28,330.2Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "128.43 337.17 130.02 331.76 139.47 335.69 136.66 340.59 128.43 337.17"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    d:
+                      "M128,337.12a11.13,11.13,0,0,1,9.27,3.87c1.95,2.55,1,4.95-2.2,5.37a11.13,11.13,0,0,1-9.27-3.87C123.8,339.94,124.78,337.54,128,337.12Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "133.48 355.04 138.06 344.42 124.97 338.92 120.44 349.45 133.48 355.04"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#283745" },
+                  attrs: {
+                    d:
+                      "M123.37,347.75a11.13,11.13,0,0,1,9.27,3.87c2,2.55,1,4.95-2.2,5.37a11.13,11.13,0,0,1-9.27-3.87C119.22,350.57,120.2,348.17,123.37,347.75Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    points:
+                      "130.41 355.64 128.64 361.76 119.2 357.84 122.18 352.23 130.41 355.64"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#bfd3dd" },
+                  attrs: {
+                    d:
+                      "M124.08,351a7,7,0,0,1,5.83,2.43c1.22,1.6.61,3.11-1.38,3.38a7,7,0,0,1-5.83-2.43C121.47,352.76,122.09,351.25,124.08,351Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#ebb29d" },
+                  attrs: {
+                    d:
+                      "M134.28,350.2a1.92,1.92,0,0,0,1,1.56l51.33,21.08c.59.24.69-.34,1.45-1a6.66,6.66,0,0,0,2.2-5.59c-.16-1,0-1.17-.6-1.37l-51.83-19.47v0A2,2,0,0,0,136,346,4.36,4.36,0,0,0,134.28,350.2Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#283745" },
+                  attrs: {
+                    d:
+                      "M121.36,356.51a8,8,0,0,1,6.7,2.79c1.41,1.84.7,3.58-1.58,3.88a8,8,0,0,1-6.7-2.79C118.36,358.54,119.07,356.81,121.36,356.51Z"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#413d52" },
+                attrs: {
+                  d:
+                    "M190.73,366.72a8.86,8.86,0,0,1-2.32,5.51c-1.27,1.26-2.3.83-2.3-1a8.89,8.89,0,0,1,2.32-5.52C189.7,364.5,190.73,364.93,190.73,366.72Z"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("path", {
+                staticStyle: { fill: "#bfd3dd" },
+                attrs: {
+                  d:
+                    "M116.1,384.79l43.54,3.31.21-1.83L116.32,383v0a5,5,0,0,0-2.35.75C114,384.05,115.74,384.77,116.1,384.79Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("g", [
+                _c("path", {
+                  staticStyle: { fill: "#ebb29d" },
+                  attrs: {
+                    d:
+                      "M159.23,384.73a7.25,7.25,0,0,1-.49,4.83c-.69,1.28-1.59,1.2-2-.19a7.23,7.23,0,0,1,.49-4.82C157.91,383.27,158.81,383.35,159.23,384.73Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("polygon", {
+                  staticStyle: { fill: "#ebb29d" },
+                  attrs: {
+                    points:
+                      "184.93 393.83 157.7 390.45 158.4 383.67 185.94 385 184.93 393.83"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#413d52" },
+                  attrs: {
+                    d:
+                      "M187.05,386.4a9.49,9.49,0,0,1-.63,6.27c-.9,1.66-2.07,1.56-2.61-.24a9.36,9.36,0,0,1,.63-6.27C185.33,384.5,186.5,384.6,187.05,386.4Z"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#c3c7d4" },
+                attrs: {
+                  d:
+                    "M115.93,384.52a5.82,5.82,0,0,1-1.47-.6A9.76,9.76,0,0,1,116,384,.89.89,0,0,0,115.93,384.52Z"
+                }
+              })
+            ])
+          ])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-ed54e256", module.exports)
+  }
+}
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(86)
+}
+var normalizeComponent = __webpack_require__(4)
+/* script */
+var __vue_script__ = __webpack_require__(88)
+/* template */
+var __vue_template__ = __webpack_require__(89)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/HomeHorizontalSep.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3be2caa0", Component.options)
+  } else {
+    hotAPI.reload("data-v-3be2caa0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(87);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("dacbe1e6", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3be2caa0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HomeHorizontalSep.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3be2caa0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HomeHorizontalSep.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 88 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'HomeHorizontalSep',
+  props: {
+    color: {
+      type: String,
+      default: '#283745'
+    },
+    width: {
+      type: String,
+      default: '100%'
+    }
+  }
+});
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "svg",
+    {
+      attrs: {
+        id: "1aae5091-b9e1-4a7d-b14e-962f5ebc125c",
+        "data-name": "Layer 1",
+        xmlns: "http://www.w3.org/2000/svg",
+        viewBox: "0 0 56.77 6.77",
+        width: _vm.width
+      }
+    },
+    [
+      _c("title", [_vm._v("three-dots-divider")]),
+      _vm._v(" "),
+      _c("g", [
+        _c("circle", {
+          style: "fill: " + this.color,
+          attrs: { cx: "3.38", cy: "3.38", r: "3.38" }
+        }),
+        _vm._v(" "),
+        _c("circle", {
+          style: "fill: " + this.color,
+          attrs: { cx: "28.38", cy: "3.38", r: "3.38" }
+        }),
+        _vm._v(" "),
+        _c("circle", {
+          style: "fill: " + this.color,
+          attrs: { cx: "53.38", cy: "3.38", r: "3.38" }
+        })
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3be2caa0", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
