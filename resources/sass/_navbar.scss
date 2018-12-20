@@ -223,6 +223,19 @@
     .nav-link.show,
     .nav-link.active {
       color: $navbar-light-active-color;
+      // border-bottom: 1px solid $black;
+      position: relative;
+
+      &::after {
+        content: '';
+        width: calc(100% - 2rem);
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        height: 1px;
+        background-color: $black;
+        transform: translateX(-50%);
+      }
     }
   }
 

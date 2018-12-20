@@ -6577,6 +6577,22 @@ input[type="button"].btn-block {
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
   color: rgba(40, 55, 69, 0.9);
+  position: relative;
+}
+
+.navbar-light .navbar-nav .show > .nav-link::after,
+.navbar-light .navbar-nav .active > .nav-link::after,
+.navbar-light .navbar-nav .nav-link.show::after,
+.navbar-light .navbar-nav .nav-link.active::after {
+  content: '';
+  width: calc(100% - 2rem);
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 1px;
+  background-color: #283745;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .navbar-light .navbar-toggler {
