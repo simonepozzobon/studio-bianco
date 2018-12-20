@@ -59388,7 +59388,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.homesplit {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.homesplit .homesplit-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 700px;\n}\n.homesplit .homesplit-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: end;\n          -ms-flex-pack: end;\n              justify-content: flex-end;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.homesplit .homesplit-container > div > svg {\n        margin-bottom: 2rem;\n}\n.homesplit .homesplit-container > div h1 {\n        display: block;\n        font-size: 2em;\n}\n.homesplit .homesplit-container .homesplit-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #EBB29D;\n      color: #fff;\n}\n.homesplit .homesplit-container .homesplit-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #283745;\n      color: #c0d3dd;\n}\n.homesplit .homesplit-container .homesplit-divider {\n      margin-bottom: 1rem;\n}\n.homesplit .homesplit-container .homesplit-v-div {\n      margin-top: 1rem;\n      border-left: 1px solid #fff;\n      -webkit-transform: translate(-50%);\n              transform: translate(-50%);\n}\n", ""]);
+exports.push([module.i, "\n.homesplit {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.homesplit .homesplit-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 700px;\n}\n.homesplit .homesplit-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: end;\n          -ms-flex-pack: end;\n              justify-content: flex-end;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.homesplit .homesplit-container > div > svg {\n        margin-bottom: 2rem;\n}\n.homesplit .homesplit-container > div h1 {\n        display: block;\n        font-size: 2em;\n}\n.homesplit .homesplit-container .homesplit-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #EBB29D;\n      color: #fff;\n      position: relative;\n      width: auto;\n      /* tell the browser that initial height is auto */\n      overflow: hidden;\n}\n.homesplit .homesplit-container .homesplit-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #283745;\n      color: #c0d3dd;\n      position: relative;\n      width: auto;\n      /* tell the browser that initial height is auto */\n      overflow: hidden;\n}\n.homesplit .homesplit-container .homesplit-divider {\n      margin-bottom: 1rem;\n}\n.homesplit .homesplit-container .homesplit-v-div {\n      margin-top: 1rem;\n      border-left: 1px solid #fff;\n      -webkit-transform: translate(-50%);\n              transform: translate(-50%);\n}\n", ""]);
 
 // exports
 
@@ -59405,6 +59405,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HomeIllustLeft_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__HomeIllustLeft_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__HomeIllustRight_vue__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__HomeIllustRight_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__HomeIllustRight_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_gsap__ = __webpack_require__(166);
 //
 //
 //
@@ -59426,6 +59427,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
@@ -59467,6 +59469,82 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     setViewport: function setViewport(value) {
       this.viewport = value;
+    },
+    goTo: function goTo(e, value) {
+      e.preventDefault();
+
+      if (value == 1) {
+        this.animateToRight();
+      } else if (value == 2) {
+        this.animateToLeft();
+      }
+    },
+    animateToLeft: function animateToLeft() {
+      var panel = this.$refs.content;
+      var panelR = this.$refs.rightContent;
+      var master = new __WEBPACK_IMPORTED_MODULE_3_gsap__["a" /* TimelineMax */]({
+        paused: true,
+        reversed: true
+      });
+      TweenLite.set(panelR, {
+        transformOrigin: "left center 0"
+      });
+      var t1 = new __WEBPACK_IMPORTED_MODULE_3_gsap__["a" /* TimelineMax */]();
+      var t2 = new __WEBPACK_IMPORTED_MODULE_3_gsap__["a" /* TimelineMax */]();
+      master.add(t1, t2);
+      t1.to(panel, .6, {
+        width: 0,
+        autoAlpha: 0,
+        flexBasis: 0,
+        transformOrigin: "left center 0",
+        ease: Cubic.easeInOut
+      });
+      t2.to(panelR, .6, {
+        width: '100%',
+        scaleX: 1,
+        autoAlpha: 1,
+        display: "flex",
+        flexBasis: '100%',
+        maxWidth: '100%',
+        transformOrigin: "left top 0",
+        ease: Cubic.easeInOut
+      });
+      master.progress(1).progress(0);
+      master.play();
+    },
+    animateToRight: function animateToRight() {
+      var panel = this.$refs.content;
+      var panelR = this.$refs.rightContent;
+      var master = new __WEBPACK_IMPORTED_MODULE_3_gsap__["a" /* TimelineMax */]({
+        paused: true,
+        reversed: true
+      });
+      TweenLite.set(panel, {
+        transformOrigin: "right center 0"
+      }); //
+
+      var t1 = new __WEBPACK_IMPORTED_MODULE_3_gsap__["a" /* TimelineMax */]();
+      var t2 = new __WEBPACK_IMPORTED_MODULE_3_gsap__["a" /* TimelineMax */]();
+      master.add(t1, t2);
+      t1.to(panelR, .6, {
+        width: 0,
+        autoAlpha: 0,
+        flexBasis: 0,
+        transformOrigin: "right center 0",
+        ease: Cubic.easeInOut
+      });
+      t2.to(panel, .6, {
+        width: '100%',
+        scaleX: 1,
+        autoAlpha: 1,
+        display: "flex",
+        flexBasis: '100%',
+        maxWidth: '100%',
+        transformOrigin: "right top 0",
+        ease: Cubic.easeInOut
+      });
+      master.progress(1).progress(0);
+      master.play();
     }
   }
 });
@@ -63921,7 +63999,12 @@ var render = function() {
             {
               ref: "call",
               staticClass: "btn btn-outline-white text-blue",
-              attrs: { href: "#" }
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  _vm.goTo($event, 1)
+                }
+              }
             },
             [_vm._v("Scopri di più")]
           ),
@@ -63933,7 +64016,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "homesplit-right" },
+        { ref: "rightContent", staticClass: "homesplit-right" },
         [
           _c("home-illust-right", { attrs: { width: "40%" } }),
           _vm._v(" "),
@@ -63948,7 +64031,12 @@ var render = function() {
             "a",
             {
               staticClass: "btn btn-outline-cyan text-white",
-              attrs: { href: "#" }
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  _vm.goTo($event, 2)
+                }
+              }
             },
             [_vm._v("Scopri di più")]
           ),

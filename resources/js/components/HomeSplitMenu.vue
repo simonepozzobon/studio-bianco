@@ -5,14 +5,14 @@
                 <home-illust-left width="40%" ref="illust"/>
                 <h1 ref="title">Odontoiatria</h1>
                 <home-horizontal-sep color="#283745" width="8%" class="homesplit-divider" ref="divider"/>
-                <a href="#" class="btn btn-outline-white text-blue" ref="call">Scopri di più</a>
+                <a href="#" class="btn btn-outline-white text-blue" ref="call" @click="goTo($event, 1)">Scopri di più</a>
                 <div class="homesplit-v-div" ref="vDividerL"></div>
             </div>
-            <div class="homesplit-right">
+            <div class="homesplit-right" ref="rightContent">
                 <home-illust-right width="40%"/>
                 <h1>Medicina Estetica</h1>
                 <home-horizontal-sep color="#BFD3DD" width="8%" class="homesplit-divider"/>
-                <a href="#" class="btn btn-outline-cyan text-white">Scopri di più</a>
+                <a href="#" class="btn btn-outline-cyan text-white" @click="goTo($event, 2)">Scopri di più</a>
                 <div class="homesplit-v-div" ref="vDividerR"></div>
             </div>
         </div>
@@ -23,6 +23,7 @@
 import HomeHorizontalSep from './HomeHorizontalSep.vue'
 import HomeIllustLeft from './HomeIllustLeft.vue'
 import HomeIllustRight from './HomeIllustRight.vue'
+import { TimelineMax } from 'gsap'
 
 export default {
     name: 'HomeSplitMenu',
@@ -63,6 +64,96 @@ export default {
         },
         setViewport: function(value) {
             this.viewport = value
+        },
+        goTo: function(e, value) {
+            e.preventDefault()
+            if (value == 1) {
+                this.animateToRight()
+            } else if (value == 2) {
+                this.animateToLeft()
+            }
+        },
+        animateToLeft: function() {
+            let panel = this.$refs.content
+            let panelR = this.$refs.rightContent
+
+            let master = new TimelineMax({
+                paused: true,
+                reversed: true,
+            })
+
+
+            TweenLite.set(panelR, {
+                transformOrigin: "left center 0",
+            })
+
+            let t1 = new TimelineMax()
+            let t2 = new TimelineMax()
+
+            master.add(t1, t2)
+
+            t1.to(panel, .6, {
+                width: 0,
+                autoAlpha: 0,
+                flexBasis: 0,
+                transformOrigin: "left center 0",
+                ease: Cubic.easeInOut,
+            })
+
+            t2.to(panelR, .6, {
+                width: '100%',
+                scaleX: 1,
+                autoAlpha: 1,
+                display: "flex",
+                flexBasis: '100%',
+                maxWidth: '100%',
+                transformOrigin: "left top 0",
+                ease: Cubic.easeInOut,
+            })
+
+            master.progress(1).progress(0);
+            master.play()
+        },
+        animateToRight: function() {
+            let panel = this.$refs.content
+            let panelR = this.$refs.rightContent
+
+            let master = new TimelineMax({
+                paused: true,
+                reversed: true,
+            })
+
+
+            TweenLite.set(panel, {
+                transformOrigin: "right center 0",
+            })
+            //
+            let t1 = new TimelineMax()
+            let t2 = new TimelineMax()
+
+            master.add(t1, t2)
+
+            t1.to(panelR, .6, {
+                width: 0,
+                autoAlpha: 0,
+                flexBasis: 0,
+                transformOrigin: "right center 0",
+                ease: Cubic.easeInOut,
+            })
+
+            t2.to(panel, .6, {
+                width: '100%',
+                scaleX: 1,
+                autoAlpha: 1,
+                display: "flex",
+                flexBasis: '100%',
+                maxWidth: '100%',
+                transformOrigin: "right top 0",
+                ease: Cubic.easeInOut,
+            })
+
+            master.progress(1).progress(0);
+            master.play()
         }
     }
 }
@@ -99,12 +190,20 @@ export default {
             @include make-col(6);
             background-color: $pink;
             color: $white;
+            position: relative;
+
+            width:auto; /* tell the browser that initial height is auto */
+            overflow:hidden;
         }
 
         .homesplit-right {
             @include make-col(6);
             background-color: $blue;
             color: $cyan;
+            position: relative;
+
+            width:auto; /* tell the browser that initial height is auto */
+            overflow:hidden;
         }
 
         .homesplit-divider {
