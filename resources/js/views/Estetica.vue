@@ -14,17 +14,32 @@
                 <estetica-illust width="70%" ref="illust"/>
             </div>
         </div>
-      </div>
+        <div class="estetica-parcelle">
+            <div class="estetica-parcelle-container" ref="content">
+                <div class="estetica-content">
+                    <div class="estetica-bold-divider pink"></div>
+                    <h1 ref="title">Parcelle</h1>
+                    <div class="estetica-v-div pink"></div>
+                    <p>
+                        Le parcelle di Studio Bianco sono basate sulla competenza, l’esperienza ed il tempo necessari per trattare le vostre condizioni in modo brillante e duraturo. È nostra cura in tutte le situazioni selezionare i migliori strumenti ed i migliori materiali disponibili. Qualsiasi terapia non sarà intrapresa senza che il preventivo di spesa e le relative modalità di trattamento siano state accuratamente esposte, dopo la raccolta dei dati clinici e la formulazione del piano di trattamento, ed approvate dal paziente.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <convenzioni />
+    </div>
 </template>
 
 <script>
 import Accordion from '../components/Accordion.vue'
+import Convenzioni from '../components/Convenzioni.vue'
 import EsteticaIllust from '../components/EsteticaIllust.vue'
 import services from '../dummies/Aservices'
 export default {
     name: 'Odontoiatria',
     components: {
         Accordion,
+        Convenzioni,
         EsteticaIllust
     },
     watch: {
@@ -49,6 +64,8 @@ export default {
         }
     },
     mounted: function(){
+        this.$root.navColor = 1
+        this.$root.hasFooter = false
         let el = this.$refs.illust.$el
         let elSize = el.getBoundingClientRect()
         this.height = elSize.height
@@ -94,33 +111,70 @@ export default {
             @include make-col(6);
         }
 
-        .estetica-content {
-            padding: $spacer * 4;
-            width: 100%;
+    }
 
-            .estetica-bold-divider {
-                content: '';
-                width: 30px;
-                border-top: 6px solid $light-brown;
-                margin-bottom: $spacer;
-            }
+    .estetica-content {
+        padding: $spacer * 4;
+        width: 100%;
 
-            .estetica-v-div {
-                content: '';
-                height: 100px;
-                border-left: 1px solid $light-brown;
-                margin-bottom: $spacer;
-                margin-top: $spacer;
-            }
-        }
-
-        .estetica-subtitle {
-            font-size: $h4-font-size;
-            font-weight: 300;
-        }
-
-        .estetica-divider {
+        .estetica-bold-divider {
+            content: '';
+            width: 30px;
+            border-top: 6px solid $light-brown;
             margin-bottom: $spacer;
+
+            &.pink {
+                border-top: 6px solid $pink;
+            }
+
+            &.yellow {
+                border-top: 6px solid $yellow;
+            }
+        }
+
+        .estetica-v-div {
+            content: '';
+            height: 100px;
+            border-left: 1px solid $light-brown;
+            margin-bottom: $spacer;
+            margin-top: $spacer;
+
+            &.pink {
+                border-left: 1px solid $pink;
+            }
+
+            &.yellow {
+                border-left: 1px solid $yellow;
+            }
+        }
+    }
+
+    .estetica-subtitle {
+        font-size: $h4-font-size;
+        font-weight: 300;
+    }
+
+    .estetica-divider {
+        margin-bottom: $spacer;
+    }
+
+    .estetica-parcelle {
+        @include make-row();
+        background-color: $light;
+        min-height: 20vh;
+
+        .estetica-parcelle-container {
+            @include make-col(12);
+        }
+    }
+
+    .estetica-partner {
+        @include make-row();
+        background-color: $purple;
+        min-height: 20vh;
+
+        .estetica-parcelle-container {
+            @include make-col(12);
         }
     }
 }

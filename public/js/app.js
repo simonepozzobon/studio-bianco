@@ -67562,7 +67562,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.odontoiatria {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #c0d3dd;\n}\n.odontoiatria .odontoiatria-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 100vh;\n}\n.odontoiatria .odontoiatria-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.odontoiatria .odontoiatria-container > div > svg {\n        margin-bottom: 2rem;\n}\n.odontoiatria .odontoiatria-container > div h1 {\n        display: block;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-content {\n      padding: 4rem;\n      width: 100%;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-content .odontoiatria-bold-divider {\n        content: '';\n        width: 30px;\n        border-top: 6px solid #fbfaf0;\n        margin-bottom: 1rem;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-content .odontoiatria-v-div {\n        content: '';\n        height: 100px;\n        border-left: 1px solid #fbfaf0;\n        margin-bottom: 1rem;\n        margin-top: 1rem;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-subtitle {\n      font-size: 1.5rem;\n      font-weight: 300;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-divider {\n      margin-bottom: 1rem;\n}\n", ""]);
+exports.push([module.i, "\n.odontoiatria {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #c0d3dd;\n}\n.odontoiatria .odontoiatria-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 100vh;\n}\n.odontoiatria .odontoiatria-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.odontoiatria .odontoiatria-container > div > svg {\n        margin-bottom: 2rem;\n}\n.odontoiatria .odontoiatria-container > div h1 {\n        display: block;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.odontoiatria .odontoiatria-content {\n    padding: 4rem;\n    width: 100%;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-bold-divider {\n      content: '';\n      width: 30px;\n      border-top: 6px solid #fbfaf0;\n      margin-bottom: 1rem;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-bold-divider.pink {\n        border-top: 6px solid #EBB29D;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-bold-divider.yellow {\n        border-top: 6px solid #eac88c;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-v-div {\n      content: '';\n      height: 100px;\n      border-left: 1px solid #fbfaf0;\n      margin-bottom: 1rem;\n      margin-top: 1rem;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-v-div.pink {\n        border-left: 1px solid #EBB29D;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-v-div.yellow {\n        border-left: 1px solid #eac88c;\n}\n.odontoiatria .odontoiatria-subtitle {\n    font-size: 1.5rem;\n    font-weight: 300;\n}\n.odontoiatria .odontoiatria-divider {\n    margin-bottom: 1rem;\n}\n.odontoiatria .odontoiatria-parcelle {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    background-color: #FBFAEF;\n    min-height: 20vh;\n}\n.odontoiatria .odontoiatria-parcelle .odontoiatria-parcelle-container {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n}\n.odontoiatria .odontoiatria-partner {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    background-color: #413d52;\n    min-height: 20vh;\n}\n.odontoiatria .odontoiatria-partner .odontoiatria-parcelle-container {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -67575,9 +67575,11 @@ exports.push([module.i, "\n.odontoiatria {\n  width: 100%;\n  padding-right: 15p
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_OdontoiatriaIllust_vue__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_OdontoiatriaIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_OdontoiatriaIllust_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dummies_services__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_OdontoiatriaIllust_vue__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_OdontoiatriaIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_OdontoiatriaIllust_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dummies_services__ = __webpack_require__(144);
 //
 //
 //
@@ -67597,6 +67599,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -67604,7 +67620,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: 'Odontoiatria',
   components: {
     Accordion: __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue___default.a,
-    OdontoiatriaIllust: __WEBPACK_IMPORTED_MODULE_1__components_OdontoiatriaIllust_vue___default.a
+    Convenzioni: __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue___default.a,
+    OdontoiatriaIllust: __WEBPACK_IMPORTED_MODULE_2__components_OdontoiatriaIllust_vue___default.a
   },
   watch: {
     '$root.window.h': function $rootWindowH(value) {
@@ -67613,7 +67630,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   data: function data() {
     return {
-      services: __WEBPACK_IMPORTED_MODULE_2__dummies_services__["a" /* default */]
+      services: __WEBPACK_IMPORTED_MODULE_3__dummies_services__["a" /* default */]
     };
   },
   methods: {
@@ -67622,6 +67639,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   mounted: function mounted() {
+    this.$root.navColor = 1;
+    this.$root.hasFooter = false;
     this.positionIllustration();
   }
 });
@@ -68862,37 +68881,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "odontoiatria" }, [
-    _c("div", { ref: "container", staticClass: "odontoiatria-container" }, [
-      _c("div", { ref: "content", staticClass: "odontoiatria-left" }, [
+  return _c(
+    "div",
+    { staticClass: "odontoiatria" },
+    [
+      _c("div", { ref: "container", staticClass: "odontoiatria-container" }, [
+        _c("div", { ref: "content", staticClass: "odontoiatria-left" }, [
+          _c(
+            "div",
+            { staticClass: "odontoiatria-content" },
+            [
+              _c("div", { staticClass: "odontoiatria-bold-divider" }),
+              _vm._v(" "),
+              _c("h1", { ref: "title" }, [_vm._v("Servizi")]),
+              _vm._v(" "),
+              _c("span", { staticClass: "odontoiatria-subtitle" }, [
+                _vm._v("Odontoiatria")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "odontoiatria-v-div" }),
+              _vm._v(" "),
+              _c("accordion", { attrs: { items: _vm.services } })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
         _c(
           "div",
-          { staticClass: "odontoiatria-content" },
-          [
-            _c("div", { staticClass: "odontoiatria-bold-divider" }),
-            _vm._v(" "),
-            _c("h1", { ref: "title" }, [_vm._v("Servizi")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "odontoiatria-subtitle" }, [
-              _vm._v("Odontoiatria")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "odontoiatria-v-div" }),
-            _vm._v(" "),
-            _c("accordion", { attrs: { items: _vm.services } })
-          ],
+          { staticClass: "odontoiatria-right" },
+          [_c("odontoiatria-illust", { attrs: { width: "90%" } })],
           1
         )
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "odontoiatria-right" },
-        [_c("odontoiatria-illust", { attrs: { width: "90%" } })],
-        1
-      )
-    ])
-  ])
+      _c("div", { staticClass: "odontoiatria-parcelle" }, [
+        _c(
+          "div",
+          { ref: "content", staticClass: "odontoiatria-parcelle-container" },
+          [
+            _c("div", { staticClass: "odontoiatria-content" }, [
+              _c("div", { staticClass: "odontoiatria-bold-divider pink" }),
+              _vm._v(" "),
+              _c("h1", { ref: "title" }, [_vm._v("Parcelle")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "odontoiatria-v-div pink" }),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                    Le parcelle di Studio Bianco sono basate sulla competenza, l’esperienza ed il tempo necessari per trattare le vostre condizioni in modo brillante e duraturo. È nostra cura in tutte le situazioni selezionare i migliori strumenti ed i migliori materiali disponibili. Qualsiasi terapia non sarà intrapresa senza che il preventivo di spesa e le relative modalità di trattamento siano state accuratamente esposte, dopo la raccolta dei dati clinici e la formulazione del piano di trattamento, ed approvate dal paziente.\n                "
+                )
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("convenzioni")
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -68990,7 +69038,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.estetica {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #eac88c;\n}\n.estetica .estetica-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 100vh;\n}\n.estetica .estetica-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.estetica .estetica-container > div > svg {\n        margin-bottom: 2rem;\n}\n.estetica .estetica-container > div h1 {\n        display: block;\n}\n.estetica .estetica-container .estetica-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.estetica .estetica-container .estetica-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.estetica .estetica-container .estetica-content {\n      padding: 4rem;\n      width: 100%;\n}\n.estetica .estetica-container .estetica-content .estetica-bold-divider {\n        content: '';\n        width: 30px;\n        border-top: 6px solid #fbfaf0;\n        margin-bottom: 1rem;\n}\n.estetica .estetica-container .estetica-content .estetica-v-div {\n        content: '';\n        height: 100px;\n        border-left: 1px solid #fbfaf0;\n        margin-bottom: 1rem;\n        margin-top: 1rem;\n}\n.estetica .estetica-container .estetica-subtitle {\n      font-size: 1.5rem;\n      font-weight: 300;\n}\n.estetica .estetica-container .estetica-divider {\n      margin-bottom: 1rem;\n}\n", ""]);
+exports.push([module.i, "\n.estetica {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #eac88c;\n}\n.estetica .estetica-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 100vh;\n}\n.estetica .estetica-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.estetica .estetica-container > div > svg {\n        margin-bottom: 2rem;\n}\n.estetica .estetica-container > div h1 {\n        display: block;\n}\n.estetica .estetica-container .estetica-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.estetica .estetica-container .estetica-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.estetica .estetica-content {\n    padding: 4rem;\n    width: 100%;\n}\n.estetica .estetica-content .estetica-bold-divider {\n      content: '';\n      width: 30px;\n      border-top: 6px solid #fbfaf0;\n      margin-bottom: 1rem;\n}\n.estetica .estetica-content .estetica-bold-divider.pink {\n        border-top: 6px solid #EBB29D;\n}\n.estetica .estetica-content .estetica-bold-divider.yellow {\n        border-top: 6px solid #eac88c;\n}\n.estetica .estetica-content .estetica-v-div {\n      content: '';\n      height: 100px;\n      border-left: 1px solid #fbfaf0;\n      margin-bottom: 1rem;\n      margin-top: 1rem;\n}\n.estetica .estetica-content .estetica-v-div.pink {\n        border-left: 1px solid #EBB29D;\n}\n.estetica .estetica-content .estetica-v-div.yellow {\n        border-left: 1px solid #eac88c;\n}\n.estetica .estetica-subtitle {\n    font-size: 1.5rem;\n    font-weight: 300;\n}\n.estetica .estetica-divider {\n    margin-bottom: 1rem;\n}\n.estetica .estetica-parcelle {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    background-color: #FBFAEF;\n    min-height: 20vh;\n}\n.estetica .estetica-parcelle .estetica-parcelle-container {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n}\n.estetica .estetica-partner {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    background-color: #413d52;\n    min-height: 20vh;\n}\n.estetica .estetica-partner .estetica-parcelle-container {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -69003,9 +69051,11 @@ exports.push([module.i, "\n.estetica {\n  width: 100%;\n  padding-right: 15px;\n
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_EsteticaIllust_vue__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_EsteticaIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_EsteticaIllust_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dummies_Aservices__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_EsteticaIllust_vue__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_EsteticaIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_EsteticaIllust_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dummies_Aservices__ = __webpack_require__(155);
 //
 //
 //
@@ -69025,6 +69075,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -69032,7 +69096,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: 'Odontoiatria',
   components: {
     Accordion: __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue___default.a,
-    EsteticaIllust: __WEBPACK_IMPORTED_MODULE_1__components_EsteticaIllust_vue___default.a
+    Convenzioni: __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue___default.a,
+    EsteticaIllust: __WEBPACK_IMPORTED_MODULE_2__components_EsteticaIllust_vue___default.a
   },
   watch: {
     '$root.window.h': function $rootWindowH(value) {
@@ -69044,7 +69109,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       height: 0,
       viewport: 0,
-      services: __WEBPACK_IMPORTED_MODULE_2__dummies_Aservices__["a" /* default */]
+      services: __WEBPACK_IMPORTED_MODULE_3__dummies_Aservices__["a" /* default */]
     };
   },
   methods: {
@@ -69056,6 +69121,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   mounted: function mounted() {
+    this.$root.navColor = 1;
+    this.$root.hasFooter = false;
     var el = this.$refs.illust.$el;
     var elSize = el.getBoundingClientRect();
     this.height = elSize.height;
@@ -70186,37 +70253,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "estetica" }, [
-    _c("div", { ref: "container", staticClass: "estetica-container" }, [
-      _c("div", { ref: "content", staticClass: "estetica-left" }, [
+  return _c(
+    "div",
+    { staticClass: "estetica" },
+    [
+      _c("div", { ref: "container", staticClass: "estetica-container" }, [
+        _c("div", { ref: "content", staticClass: "estetica-left" }, [
+          _c(
+            "div",
+            { staticClass: "estetica-content" },
+            [
+              _c("div", { staticClass: "estetica-bold-divider" }),
+              _vm._v(" "),
+              _c("h1", { ref: "title" }, [_vm._v("Servizi")]),
+              _vm._v(" "),
+              _c("span", { staticClass: "estetica-subtitle" }, [
+                _vm._v("Medicina Estetica")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "estetica-v-div" }),
+              _vm._v(" "),
+              _c("accordion", { attrs: { items: _vm.services } })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
         _c(
           "div",
-          { staticClass: "estetica-content" },
-          [
-            _c("div", { staticClass: "estetica-bold-divider" }),
-            _vm._v(" "),
-            _c("h1", { ref: "title" }, [_vm._v("Servizi")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "estetica-subtitle" }, [
-              _vm._v("Medicina Estetica")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "estetica-v-div" }),
-            _vm._v(" "),
-            _c("accordion", { attrs: { items: _vm.services } })
-          ],
+          { staticClass: "estetica-right" },
+          [_c("estetica-illust", { ref: "illust", attrs: { width: "70%" } })],
           1
         )
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "estetica-right" },
-        [_c("estetica-illust", { ref: "illust", attrs: { width: "70%" } })],
-        1
-      )
-    ])
-  ])
+      _c("div", { staticClass: "estetica-parcelle" }, [
+        _c(
+          "div",
+          { ref: "content", staticClass: "estetica-parcelle-container" },
+          [
+            _c("div", { staticClass: "estetica-content" }, [
+              _c("div", { staticClass: "estetica-bold-divider pink" }),
+              _vm._v(" "),
+              _c("h1", { ref: "title" }, [_vm._v("Parcelle")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "estetica-v-div pink" }),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                    Le parcelle di Studio Bianco sono basate sulla competenza, l’esperienza ed il tempo necessari per trattare le vostre condizioni in modo brillante e duraturo. È nostra cura in tutte le situazioni selezionare i migliori strumenti ed i migliori materiali disponibili. Qualsiasi terapia non sarà intrapresa senza che il preventivo di spesa e le relative modalità di trattamento siano state accuratamente esposte, dopo la raccolta dei dati clinici e la formulazione del piano di trattamento, ed approvate dal paziente.\n                "
+                )
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("convenzioni")
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -70412,10 +70508,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     IconMap: __WEBPACK_IMPORTED_MODULE_1__ui__["b" /* IconMap */],
     IconArrowDown: __WEBPACK_IMPORTED_MODULE_1__ui__["a" /* IconArrowDown */]
   },
+  watch: {
+    '$root.window.h': function $rootWindowH(value) {
+      this.setViewport(value);
+      this.positionIllustration();
+    }
+  },
   data: function data() {
     return {
       formIsOpen: false,
-      master: null
+      master: null,
+      height: 0,
+      viewport: 0
     };
   },
   methods: {
@@ -70453,11 +70557,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.master.reverse();
         this.formIsOpen = false;
       }
+    },
+    setViewport: function setViewport(value) {
+      this.viewport = value;
+    },
+    positionIllustration: function positionIllustration() {
+      this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px';
     }
   },
   mounted: function mounted() {
+    this.$root.hasFooter = false;
     this.$root.navColor = 1;
     var form = this.$refs.form;
+    this.positionIllustration();
     TweenLite.set(form, {
       height: 0,
       autoAlpha: 0,
@@ -77255,6 +77367,348 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-72c3eb58", module.exports)
+  }
+}
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(186)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(188)
+/* template */
+var __vue_template__ = __webpack_require__(189)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/Convenzioni.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4d085c03", Component.options)
+  } else {
+    hotAPI.reload("data-v-4d085c03", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(187);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("22efaacd", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4d085c03\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Convenzioni.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4d085c03\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Convenzioni.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 187 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.convenzioni {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n  background-color: #413d52;\n  min-height: 20vh;\n}\n.convenzioni .convenzioni-container {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.convenzioni .convenzioni-container .convenzioni-content {\n      padding: 4rem;\n      width: 100%;\n}\n.convenzioni .convenzioni-container .convenzioni-content .convenzioni-bold-divider {\n        content: '';\n        width: 30px;\n        border-top: 6px solid #fbfaf0;\n        margin-bottom: 1rem;\n}\n.convenzioni .convenzioni-container .convenzioni-content .convenzioni-bold-divider.pink {\n          border-top: 6px solid #EBB29D;\n}\n.convenzioni .convenzioni-container .convenzioni-content .convenzioni-bold-divider.yellow {\n          border-top: 6px solid #eac88c;\n}\n.convenzioni .convenzioni-container .convenzioni-content .convenzioni-v-div {\n        content: '';\n        height: 100px;\n        border-left: 1px solid #fbfaf0;\n        margin-bottom: 1rem;\n        margin-top: 1rem;\n}\n.convenzioni .convenzioni-container .convenzioni-content .convenzioni-v-div.pink {\n          border-left: 1px solid #EBB29D;\n}\n.convenzioni .convenzioni-container .convenzioni-content .convenzioni-v-div.yellow {\n          border-left: 1px solid #eac88c;\n}\n.convenzioni .convenzioni-container .convenzioni-content .row .col-md-3, .convenzioni .convenzioni-container .convenzioni-content .row .col {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        margin-bottom: 4rem;\n}\n.convenzioni .convenzioni-container .convenzioni-content .row .col-md-3 img, .convenzioni .convenzioni-container .convenzioni-content .row .col img {\n          max-width: 100%;\n          max-height: 40%;\n}\n.convenzioni .convenzioni-container .convenzioni-content .row .col-md-3 img.no-max, .convenzioni .convenzioni-container .convenzioni-content .row .col img.no-max {\n            max-height: inherit;\n}\n.convenzioni .convenzioni-container .convenzioni-content .row .col-md-3 img.w-50, .convenzioni .convenzioni-container .convenzioni-content .row .col img.w-50 {\n            max-height: inherit;\n}\n.convenzioni .convenzioni-container .convenzioni-subtitle {\n      font-size: 1.5rem;\n      font-weight: 300;\n      position: relative;\n}\n.convenzioni .convenzioni-container .convenzioni-subtitle::after {\n        content: '';\n        width: 100%;\n        position: absolute;\n        bottom: -0.5rem;\n        height: 2px;\n        left: 50%;\n        background-color: #eac88c;\n        -webkit-transform: translateX(-50%);\n                transform: translateX(-50%);\n}\n.convenzioni .convenzioni-container .convenzioni-divider {\n      margin-bottom: 1rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 188 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Convenzioni'
+});
+
+/***/ }),
+/* 189 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "convenzioni" }, [
+    _c("div", { ref: "content", staticClass: "convenzioni-container" }, [
+      _c("div", { staticClass: "convenzioni-content" }, [
+        _c("div", { staticClass: "convenzioni-bold-divider yellow" }),
+        _vm._v(" "),
+        _c("h1", { ref: "title", staticClass: "text-white" }, [
+          _vm._v("Convenzioni")
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "convenzioni-subtitle text-white" }, [
+          _vm._v("Assicurazioni in convenzione diretta")
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("span", { staticClass: "convenzioni-subtitle text-white" }, [
+          _vm._v("Assicurazioni in convenzione indiretta")
+        ]),
+        _vm._v(" "),
+        _vm._m(1)
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row py-5 mt-5 justify-content-center" }, [
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("img", {
+          staticClass: "img-fluid no-max w-75",
+          attrs: { src: "/svg/unisalute.svg", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("img", {
+          staticClass: "img-fluid no-max w-75",
+          attrs: { src: "/svg/blueassistance.svg", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("img", {
+          staticClass: "img-fluid no-max w-75",
+          attrs: { src: "/svg/prontocare.svg", alt: "" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row py-5 justify-content-center" }, [
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: { src: "/svg/fasdac.svg", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: { src: "/svg/fasi.svg", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: { src: "/svg/faschim1.png", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: { src: "/svg/previmedical1.png", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "margin-auto" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: { src: "/svg/intesa.svg", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: { src: "/svg/rbm.svg", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("img", {
+          staticClass: "img-fluid no-max",
+          attrs: { src: "/svg/fondo1.png", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: { src: "/svg/fisde1.png", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "margin-auto" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("img", {
+          staticClass: "img-fluid w-50",
+          attrs: { src: "/svg/quas1.png", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: { src: "/svg/fiasid.svg", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("img", {
+          staticClass: "img-fluid w-50",
+          attrs: { src: "/svg/fasdip1.png", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: { src: "/svg/fasie1.png", alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: { src: "/svg/casagit1.png", alt: "" }
+        })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4d085c03", module.exports)
   }
 }
 

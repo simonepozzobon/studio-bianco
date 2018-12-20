@@ -83,10 +83,18 @@ export default {
         IconMap,
         IconArrowDown,
     },
+    watch: {
+        '$root.window.h': function(value) {
+            this.setViewport(value)
+            this.positionIllustration()
+        }
+    },
     data: function() {
         return {
             formIsOpen: false,
             master: null,
+            height: 0,
+            viewport: 0,
         }
     },
     methods: {
@@ -127,10 +135,19 @@ export default {
                 this.formIsOpen = false
             }
         },
+        setViewport: function(value) {
+            this.viewport = value
+        },
+        positionIllustration: function() {
+            this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
+        }
     },
     mounted: function() {
+        this.$root.hasFooter = false
         this.$root.navColor = 1
         let form = this.$refs.form
+        this.positionIllustration()
+
         TweenLite.set(form, {
             height: 0,
             autoAlpha: 0,

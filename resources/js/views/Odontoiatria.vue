@@ -14,17 +14,32 @@
                 <odontoiatria-illust width="90%"/>
             </div>
         </div>
-      </div>
+        <div class="odontoiatria-parcelle">
+            <div class="odontoiatria-parcelle-container" ref="content">
+                <div class="odontoiatria-content">
+                    <div class="odontoiatria-bold-divider pink"></div>
+                    <h1 ref="title">Parcelle</h1>
+                    <div class="odontoiatria-v-div pink"></div>
+                    <p>
+                        Le parcelle di Studio Bianco sono basate sulla competenza, l’esperienza ed il tempo necessari per trattare le vostre condizioni in modo brillante e duraturo. È nostra cura in tutte le situazioni selezionare i migliori strumenti ed i migliori materiali disponibili. Qualsiasi terapia non sarà intrapresa senza che il preventivo di spesa e le relative modalità di trattamento siano state accuratamente esposte, dopo la raccolta dei dati clinici e la formulazione del piano di trattamento, ed approvate dal paziente.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <convenzioni />
+    </div>
 </template>
 
 <script>
 import Accordion from '../components/Accordion.vue'
+import Convenzioni from '../components/Convenzioni.vue'
 import OdontoiatriaIllust from '../components/OdontoiatriaIllust.vue'
 import services from '../dummies/services'
 export default {
     name: 'Odontoiatria',
     components: {
         Accordion,
+        Convenzioni,
         OdontoiatriaIllust
     },
     watch: {
@@ -43,6 +58,8 @@ export default {
         }
     },
     mounted: function() {
+        this.$root.navColor = 1
+        this.$root.hasFooter = false
         this.positionIllustration()
     }
 }
@@ -84,34 +101,70 @@ export default {
         .odontoiatria-right {
             @include make-col(6);
         }
+    }
 
-        .odontoiatria-content {
-            padding: $spacer * 4;
-            width: 100%;
+    .odontoiatria-content {
+        padding: $spacer * 4;
+        width: 100%;
 
-            .odontoiatria-bold-divider {
-                content: '';
-                width: 30px;
-                border-top: 6px solid $light-brown;
-                margin-bottom: $spacer;
-            }
-
-            .odontoiatria-v-div {
-                content: '';
-                height: 100px;
-                border-left: 1px solid $light-brown;
-                margin-bottom: $spacer;
-                margin-top: $spacer;
-            }
-        }
-
-        .odontoiatria-subtitle {
-            font-size: $h4-font-size;
-            font-weight: 300;
-        }
-
-        .odontoiatria-divider {
+        .odontoiatria-bold-divider {
+            content: '';
+            width: 30px;
+            border-top: 6px solid $light-brown;
             margin-bottom: $spacer;
+
+            &.pink {
+                border-top: 6px solid $pink;
+            }
+
+            &.yellow {
+                border-top: 6px solid $yellow;
+            }
+        }
+
+        .odontoiatria-v-div {
+            content: '';
+            height: 100px;
+            border-left: 1px solid $light-brown;
+            margin-bottom: $spacer;
+            margin-top: $spacer;
+
+            &.pink {
+                border-left: 1px solid $pink;
+            }
+
+            &.yellow {
+                border-left: 1px solid $yellow;
+            }
+        }
+    }
+
+    .odontoiatria-subtitle {
+        font-size: $h4-font-size;
+        font-weight: 300;
+    }
+
+    .odontoiatria-divider {
+        margin-bottom: $spacer;
+    }
+
+    .odontoiatria-parcelle {
+        @include make-row();
+        background-color: $light;
+        min-height: 20vh;
+
+        .odontoiatria-parcelle-container {
+            @include make-col(12);
+        }
+    }
+
+    .odontoiatria-partner {
+        @include make-row();
+        background-color: $purple;
+        min-height: 20vh;
+
+        .odontoiatria-parcelle-container {
+            @include make-col(12);
         }
     }
 }
