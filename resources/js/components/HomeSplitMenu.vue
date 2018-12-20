@@ -127,7 +127,7 @@ export default {
             TweenLite.set(panel, {
                 transformOrigin: "right center 0",
             })
-            //
+
             let t1 = new TimelineMax()
             let t2 = new TimelineMax()
 

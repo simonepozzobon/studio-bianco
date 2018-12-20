@@ -59521,8 +59521,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
       TweenLite.set(panel, {
         transformOrigin: "right center 0"
-      }); //
-
+      });
       var t1 = new __WEBPACK_IMPORTED_MODULE_3_gsap__["a" /* TimelineMax */]();
       var t2 = new __WEBPACK_IMPORTED_MODULE_3_gsap__["a" /* TimelineMax */]();
       master.add(t1, t2);
