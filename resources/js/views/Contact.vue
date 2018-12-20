@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div class="contact-form">
+        <div class="contact-form" ref="row">
             <div class="contact-form-btn">
                 <button class="btn btn-primary" @click="toggleContact">
                     <span>contattami </span><icon-arrow-down  width="16px" ref="contactIcon"/>
@@ -115,7 +115,7 @@ export default {
                         autoAlpha: 1,
                         display: "block",
                         transformOrigin: "center top 0",
-                        ease: Cubic.easeInOut
+                        ease: Cubic.easeInOut,
                     })
 
                     this.master.progress(1).progress(0);
