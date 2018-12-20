@@ -2934,9 +2934,13 @@ module.exports = defaults;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__IconMap_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__IconMap_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__NavLogo_vue__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__NavLogo_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__NavLogo_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Logo_vue__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Logo_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Logo_vue__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__IconArrowDown_vue___default.a; });
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__IconMap_vue___default.a; });
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__NavLogo_vue___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_3__Logo_vue___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_2__NavLogo_vue___default.a; });
+
 
 
 
@@ -22018,7 +22022,8 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
       },
       navbarHeight: 0,
       navbarFullHeight: 0,
-      navColor: 1
+      navColor: 1,
+      hasFooter: false
     };
   },
   methods: {
@@ -58191,6 +58196,9 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MainNav_vue__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MainNav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__MainNav_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MainFooter_vue__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MainFooter_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__MainFooter_vue__);
+//
 //
 //
 //
@@ -58199,10 +58207,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'MainTemplate',
   components: {
-    MainNav: __WEBPACK_IMPORTED_MODULE_0__MainNav_vue___default.a
+    MainNav: __WEBPACK_IMPORTED_MODULE_0__MainNav_vue___default.a,
+    MainFooter: __WEBPACK_IMPORTED_MODULE_1__MainFooter_vue___default.a
   }
 });
 
@@ -58350,7 +58360,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'MainNav',
   components: {
-    NavLogo: __WEBPACK_IMPORTED_MODULE_0__ui__["c" /* NavLogo */]
+    NavLogo: __WEBPACK_IMPORTED_MODULE_0__ui__["d" /* NavLogo */]
   },
   props: {
     color: {
@@ -59122,7 +59132,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [_c("main-nav"), _vm._v(" "), _c("router-view")], 1)
+  return _c(
+    "div",
+    {},
+    [
+      _c("main-nav"),
+      _vm._v(" "),
+      _c("router-view"),
+      _vm._v(" "),
+      this.$root.hasFooter ? _c("main-footer") : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -64156,6 +64177,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   mounted: function mounted() {
+    this.$root.hasFooter = true;
     this.$root.navColor = 2;
     this.positionIllustration();
   }
@@ -76443,6 +76465,798 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(176)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(178)
+/* template */
+var __vue_template__ = __webpack_require__(179)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/containers/MainFooter.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3abeda3a", Component.options)
+  } else {
+    hotAPI.reload("data-v-3abeda3a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 176 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(177);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("41490f54", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3abeda3a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainFooter.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3abeda3a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainFooter.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 177 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.main-footer {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #fbfaf0;\n  min-height: 20vh;\n}\n.main-footer .main-footer-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n}\n.main-footer .main-footer-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.main-footer .main-footer-container > div > svg {\n        margin-bottom: 2rem;\n}\n.main-footer .main-footer-container > div h1 {\n        display: block;\n}\n.main-footer .main-footer-container .main-footer-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: end;\n          -ms-flex-align: end;\n              align-items: flex-end;\n}\n.main-footer .main-footer-container .main-footer-left svg {\n        padding-right: 4rem;\n}\n.main-footer .main-footer-container .main-footer-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: start;\n          -ms-flex-align: start;\n              align-items: flex-start;\n}\n.main-footer .main-footer-container .main-footer-right::before {\n        content: '';\n        position: absolute;\n        width: 1px;\n        height: 150px;\n        background-color: #283745;\n}\n.main-footer .main-footer-container .main-footer-content {\n      padding: 4rem;\n}\n.main-footer .main-footer-container .main-footer-content .main-footer-bold-divider {\n        content: '';\n        width: 30px;\n        border-top: 6px solid #283745;\n        margin-bottom: 1rem;\n}\n.main-footer .main-footer-container .main-footer-content .main-footer-v-div {\n        content: '';\n        height: 100px;\n        border-left: 1px solid #EBB29D;\n        margin-bottom: 1rem;\n        margin-top: 1rem;\n}\n.main-footer .main-footer-container .main-footer-content .main-footer-v-div.dark {\n          border-left: 1px solid #283745;\n}\n.main-footer .main-footer-container .main-footer-content .main-footer-v-div.light {\n          border-left: 1px solid #fff;\n}\n.main-footer .main-footer-container .main-footer-subtitle {\n      font-size: 1.5rem;\n      font-weight: 300;\n}\n.main-footer .main-footer-container .main-footer-divider {\n      margin-bottom: 1rem;\n}\n.main-footer .main-footer-privacy {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.main-footer .main-footer-privacy p {\n      font-size: 1.5rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 178 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui__ = __webpack_require__(7);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'MainFooter',
+  components: {
+    Logo: __WEBPACK_IMPORTED_MODULE_0__ui__["c" /* Logo */]
+  }
+});
+
+/***/ }),
+/* 179 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("footer", { staticClass: "main-footer" }, [
+    _c("div", { ref: "container", staticClass: "main-footer-container" }, [
+      _c(
+        "div",
+        { ref: "content", staticClass: "main-footer-left" },
+        [_c("logo", { attrs: { width: "150px" } })],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(0)
+    ]),
+    _vm._v(" "),
+    _vm._m(1)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "main-footer-right" }, [
+      _c("div", { staticClass: "main-footer-content" }, [
+        _c("div", { staticClass: "main-footer-bold-divider" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "main-footer-subtitle" }, [
+          _vm._v("Studio Bianco")
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("\n                    Indirizzo "),
+          _c("br"),
+          _vm._v("\n                    Telefono "),
+          _c("br"),
+          _vm._v("\n                    Email\n                ")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "main-footer-container" }, [
+      _c("div", { staticClass: "main-footer-privacy" }, [
+        _c("p", { staticClass: "text-center" }, [_vm._v("Privacy")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3abeda3a", module.exports)
+  }
+}
+
+/***/ }),
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(181)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(183)
+/* template */
+var __vue_template__ = __webpack_require__(184)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/ui/Logo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-72c3eb58", Component.options)
+  } else {
+    hotAPI.reload("data-v-72c3eb58", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 181 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(182);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("3f43e869", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-72c3eb58\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Logo.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-72c3eb58\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Logo.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 182 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 183 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Logo',
+  props: {
+    width: {
+      type: String,
+      default: '32px'
+    }
+  }
+});
+
+/***/ }),
+/* 184 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "svg",
+    {
+      ref: "logo",
+      attrs: {
+        xmlns: "http://www.w3.org/2000/svg",
+        viewBox: "0 0 149.73 163.65",
+        width: _vm.width
+      }
+    },
+    [
+      _c("title", [_vm._v("logo")]),
+      _vm._v(" "),
+      _c(
+        "g",
+        {
+          attrs: {
+            id: "decf5d78-5ffa-48b6-81b4-d31b77ab411a",
+            "data-name": "Logo"
+          }
+        },
+        [
+          _c("g", [
+            _c("g", [
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M74.86,113.31C34.16,113.31.67,82.42.34,82.11a1.05,1.05,0,0,1,0-1.55c.33-.31,33.82-31.2,74.52-31.2s74.2,30.89,74.53,31.2a1.05,1.05,0,0,1,0,1.55C149.06,82.42,115.57,113.31,74.86,113.31Zm-72.21-32c5.46,4.76,36,29.86,72.21,29.86s66.76-25.1,72.22-29.86c-5.46-4.77-36-29.86-72.22-29.86S8.1,76.57,2.65,81.34Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M148.67,82.39H1.06a1.06,1.06,0,1,1,0-2.11H148.67a1.06,1.06,0,1,1,0,2.11Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M74.86,113.32a32,32,0,1,1,31.56-32A31.81,31.81,0,0,1,74.86,113.32Zm0-61.84a29.86,29.86,0,1,0,29.43,29.86A29.68,29.68,0,0,0,74.86,51.48Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("g", [
+                _c("path", {
+                  staticStyle: { fill: "#283745" },
+                  attrs: {
+                    d:
+                      "M68.52,82.37a1,1,0,1,1,0-2.07,14.12,14.12,0,0,0,0-28.23,1,1,0,1,1,0-2.07,16.19,16.19,0,1,1,0,32.37Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#283745" },
+                  attrs: {
+                    d:
+                      "M68.52,112.68a1,1,0,1,1,0-2.08,14.12,14.12,0,0,0,0-28.23,1,1,0,1,1,0-2.07,16.19,16.19,0,0,1,0,32.38Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#283745" },
+                  attrs: {
+                    d:
+                      "M68.52,112.68a1,1,0,0,1-1-1V51a1,1,0,0,1,2.08,0v60.61A1,1,0,0,1,68.52,112.68Z"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M15.47,31.41l0,0a3.94,3.94,0,0,1,5.36-5.78v0a3.94,3.94,0,0,1-5.35,5.78Zm4.21-4.52h0a2.24,2.24,0,0,0-3.23.05,2.21,2.21,0,0,0,.17,3.2l0,0a2.25,2.25,0,0,0,3.23-.06A2.21,2.21,0,0,0,19.68,26.89Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M23.1,18.67l2.3-1.75a3.69,3.69,0,0,1,5.36.54v0a3.7,3.7,0,0,1-.88,5.33l-2.3,1.75Zm2.19.18L28,22.41l1-.77a2.1,2.1,0,0,0,.43-3.11v0a2.13,2.13,0,0,0-3.13-.42Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M35.57,14.42v0a3.83,3.83,0,0,1,1.72-5.22,3.79,3.79,0,0,1,5.24,1.56v0A3.82,3.82,0,0,1,40.82,16,3.8,3.8,0,0,1,35.57,14.42ZM41,11.57v0a2.25,2.25,0,0,0-3.06-1,2.21,2.21,0,0,0-.9,3.07v0a2.24,2.24,0,0,0,3.06,1A2.21,2.21,0,0,0,41,11.57Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M47,5l1.43-.46,4.7,3.3L51.76,3.44,53.29,3,55.54,10l-1.32.42L49.37,7l1.43,4.49L49.27,12Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M62,2.66,59.72,3,59.5,1.52,65.57.59l.22,1.48-2.23.34.9,5.84-1.61.25Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M71.29,3.79v0a3.94,3.94,0,0,1,7.87.11v0a3.84,3.84,0,0,1-4,3.76A3.79,3.79,0,0,1,71.29,3.79Zm6.17.1v0A2.26,2.26,0,0,0,75.25,1.5,2.22,2.22,0,0,0,73,3.77v0a2.25,2.25,0,0,0,2.2,2.37A2.23,2.23,0,0,0,77.46,3.89Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: { d: "M85.66.83l1.61.23-1,7.33-1.61-.23Z" }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M96.48,3l1.44.41,1,8.05L97.29,11l-.2-1.78-3-.86L93,9.73l-1.6-.45Zm.45,4.67-.29-2.59L95,7.1Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M106.81,8.29l-2-.93L105.38,6,111,8.51l-.62,1.37-2-.93-2.42,5.39-1.49-.67Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M116.54,11.56l2.84,1.84a3,3,0,0,1,1.4,1.81,2.27,2.27,0,0,1-.39,1.76v0a2.29,2.29,0,0,1-2.58,1.06l.08,3.21-1.6-1,0-2.85-1.08-.7-1.29,2-1.36-.89Zm.79,4.8a1.07,1.07,0,0,0,1.62-.2h0c.38-.59.17-1.16-.5-1.59l-1.35-.88L116,15.46Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: { d: "M126.86,18.94,128.11,20l-4.81,5.64-1.24-1.05Z" }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M134.87,26.52l1,1.12L132.43,35l-1.13-1.27.78-1.62L130,29.77l-1.69.61-1.11-1.24Zm-2.11,4.19,1.14-2.34-2.45.87Z"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M13.65,124.6,14.73,126l-1.26,3.47,3.67-.41,1.08,1.39L12.39,135l-1-1.27,3.81-3-3.78.31,0,0,1.19-3.56-3.78,3-1-1.26Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M20.88,133.27l4,3.89-1,1L21,135.44l-1,1.08,2.5,2.43-1,1L19,137.56l-1.09,1.12,2.89,2.8-1,1-4-3.93Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M27.6,139.49l2.32,1.73a3.68,3.68,0,0,1,1,5.3v0a3.72,3.72,0,0,1-5.38.62l-2.32-1.73Zm.43,2.15-2.67,3.59,1,.75a2.12,2.12,0,0,0,3.12-.44v0A2.12,2.12,0,0,0,29,142.4Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: { d: "M36,145.36l1.41.83-3.78,6.38-1.4-.83Z" }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M38.89,151.31v0A3.77,3.77,0,0,1,44,149.43a3.81,3.81,0,0,1,2.17,2.27l-1.44.65a2.75,2.75,0,0,0-1.37-1.56A2.2,2.2,0,0,0,40.45,152v0a2.21,2.21,0,0,0,1,3,2.72,2.72,0,0,0,2.13,0l.51,1.39a3.8,3.8,0,0,1-3.32-.08A3.74,3.74,0,0,1,38.89,151.31Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: { d: "M49.79,151.9l1.54.53-2.41,7-1.54-.53Z" }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M55,153.6l1.46.34,2.37,5.22,1-4.45,1.56.36-1.65,7.22L58.36,162l-2.44-5.39-1.05,4.59-1.57-.36Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M67.77,155.82l1.5.12,2.54,7.71-1.7-.14-.54-1.72-3.12-.26-.82,1.6L64,163Zm1.34,4.49-.78-2.48-1.18,2.31Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M80.55,156l5.55-.61.16,1.44-3.94.44.17,1.49L86,158.4l.16,1.44-3.47.39.17,1.55,4-.45.16,1.44-5.61.63Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M90.51,161.08l.68-1.34a3.43,3.43,0,0,0,2.36.37c.65-.15,1-.5.88-.93v0c-.1-.4-.39-.55-1.67-.57-1.55,0-2.58-.22-2.91-1.65v0a2.32,2.32,0,0,1,2-2.77,4.26,4.26,0,0,1,2.9.29l-.55,1.39a3.43,3.43,0,0,0-2-.27c-.61.14-.87.49-.78.84v0c.11.48.46.56,1.78.59,1.55,0,2.5.37,2.8,1.63v0c.34,1.43-.57,2.49-2.12,2.86A4.77,4.77,0,0,1,90.51,161.08Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M100.05,153.45l-2.12.77-.51-1.41,5.77-2.09.52,1.41-2.12.77,2,5.55-1.53.56Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M106.2,149.4l5-2.52.65,1.29L108.3,150l.67,1.34,3.13-1.57.65,1.29-3.12,1.58.7,1.39,3.59-1.81.66,1.29-5,2.54Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M116.51,145.37l-1.88,1.25-.83-1.25,5.1-3.4.84,1.25-1.88,1.25,3.28,4.91-1.36.9Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: { d: "M121.41,140l1.27-1,4.68,5.75-1.27,1Z" }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M128,139.37h0a4,4,0,0,1,2.91-6.69l.11,1.58A2.75,2.75,0,0,0,129,135a2.2,2.2,0,0,0,.11,3.15v0a2.2,2.2,0,0,0,3.17.13,2.68,2.68,0,0,0,.77-2h1.47a3.91,3.91,0,0,1-6.6,3.06Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M133.91,127.28l.91-1.2,7.86,2-1,1.36-1.73-.47-1.9,2.49.91,1.55-1,1.32Zm4.51,1.28-2.51-.67,1.32,2.24Z"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M35.52,38.79l1.71-2a5.78,5.78,0,0,0,3.61,1.33c.84,0,1.28-.28,1.28-.76v0c0-.48-.36-.72-1.89-1.08C37.87,35.66,36,35,36,32.72v0c0-2.07,1.64-3.56,4.3-3.56a7,7,0,0,1,4.58,1.48l-1.54,2.17a5.46,5.46,0,0,0-3.11-1.09c-.75,0-1.12.3-1.12.71v0c0,.51.38.73,1.94,1.08,2.54.56,4.13,1.38,4.13,3.47v0c0,2.27-1.79,3.62-4.49,3.62A7.81,7.81,0,0,1,35.52,38.79Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: { d: "M52.29,32H49v-2.7H58.7V32H55.37v8.42H52.29Z" }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M63.1,35.56V29.32h3.11V35.5c0,1.6.81,2.37,2.05,2.37s2.07-.74,2.07-2.29V29.32h3.11v6.16c0,3.58-2,5.17-5.21,5.17S63.1,39,63.1,35.56Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M78.44,29.32h4.3c4,0,6.26,2.29,6.26,5.49v0c0,3.21-2.33,5.59-6.32,5.59H78.44ZM81.52,32v5.68h1.25c1.86,0,3.09-1,3.09-2.82v0c0-1.78-1.23-2.83-3.09-2.83Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: { d: "M93.86,29.32h3.08V40.44H93.86Z" }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M101.78,34.91v0a5.82,5.82,0,0,1,6-5.78,5.77,5.77,0,0,1,6,5.75v0a6,6,0,0,1-12,0Zm8.82,0v0a2.87,2.87,0,0,0-2.85-3,2.83,2.83,0,0,0-2.82,3v0a2.89,2.89,0,0,0,2.86,3A2.83,2.83,0,0,0,110.6,34.91Z"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M37.52,122.45h5.32a3.91,3.91,0,0,1,2.83.92,2.35,2.35,0,0,1,.66,1.69v0a2.4,2.4,0,0,1-1.6,2.31,2.53,2.53,0,0,1,2.06,2.54v0c0,1.78-1.45,2.87-3.93,2.87H37.52Zm6,3.2c0-.58-.46-.89-1.3-.89H40.32v1.83h1.8c.88,0,1.38-.3,1.38-.91Zm-1,2.95H40.32v1.91h2.22c.89,0,1.38-.34,1.38-.95v0C43.92,129,43.47,128.6,42.51,128.6Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: { d: "M51.15,122.45H54v10.38H51.15Z" }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M62.47,122.38h2.78l4.41,10.45H66.58L65.84,131h-4l-.74,1.87h-3ZM65,128.72l-1.15-2.93-1.17,2.93Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M73.63,122.45h2.69l4.26,5.49v-5.49h2.85v10.38h-2.5l-4.45-5.7v5.7H73.63Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M87.89,127.67v0a5.32,5.32,0,0,1,5.46-5.4,5.12,5.12,0,0,1,4.4,2.15l-2.17,1.68a2.8,2.8,0,0,0-2.26-1.22,2.58,2.58,0,0,0-2.48,2.76v0a2.57,2.57,0,0,0,2.48,2.77,2.82,2.82,0,0,0,2.34-1.26l2.16,1.54a5.45,5.45,0,0,1-9.93-3Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M101.39,127.67v0a5.45,5.45,0,0,1,5.61-5.4,5.39,5.39,0,0,1,5.57,5.37v0a5.59,5.59,0,0,1-11.18,0Zm8.23,0v0a2.68,2.68,0,0,0-2.65-2.8,2.64,2.64,0,0,0-2.64,2.77v0a2.69,2.69,0,0,0,2.67,2.8A2.64,2.64,0,0,0,109.62,127.67Z"
+                }
+              })
+            ])
+          ])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-72c3eb58", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

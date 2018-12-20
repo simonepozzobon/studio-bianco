@@ -60,6 +60,7 @@
 import AboutIllust from '../components/AboutIllust.vue'
 import AboutPauraIllust from '../components/AboutPauraIllust.vue'
 import AboutSilviaIllust from '../components/AboutSilviaIllust.vue'
+
 export default {
     name: 'About',
     components: {
@@ -78,6 +79,7 @@ export default {
         }
     },
     mounted: function() {
+        this.$root.hasFooter = true
         this.$root.navColor = 2
         this.positionIllustration()
     }

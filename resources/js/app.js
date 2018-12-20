@@ -33,7 +33,8 @@ const app = new Vue({
             },
             navbarHeight: 0,
             navbarFullHeight: 0,
-            navColor: 1
+            navColor: 1,
+            hasFooter: false,
         }
     },
     methods: {
