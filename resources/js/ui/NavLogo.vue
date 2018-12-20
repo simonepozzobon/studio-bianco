@@ -2,7 +2,7 @@
     <div class="logo-header">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214 201" :width="width">
             <g id="c5d9b15b-020f-45c0-9bb5-703c0ca15941" data-name="bg-logo-header">
-                <path id="777f1913-3fc7-43af-8901-ea374dd59e47" data-name="bg" d="M213.2,0V83.7c0,64.5-44.4,116.8-99.2,116.8H99.2C44.4,200.5,0,148.2,0,83.7V0Z" style="fill: #fbfaef"/>
+                <path id="777f1913-3fc7-43af-8901-ea374dd59e47" data-name="bg" d="M213.2,0V83.7c0,64.5-44.4,116.8-99.2,116.8H99.2C44.4,200.5,0,148.2,0,83.7V0Z" :style="'fill: ' + this.navClass"/>
             </g>
             <g id="f0a8f3aa-ac1d-424a-8940-2f3d494e8c62" data-name="logo">
                 <path
@@ -24,9 +24,27 @@ export default {
             default: 32,
         }
     },
+    watch: {
+        '$root.navColor': function(value) {
+            switch (value) {
+                case 1:
+                    this.navClass = '#FBFAEF'
+                    break;
+                case 2:
+                    this.navClass = '#EBB29D'
+                    break;
+                default:
+            }
+        }
+    },
     computed: {
         bgWidth: function() {
             return Math.floor(this.width + 63.455)
+        }
+    },
+    data: function() {
+        return {
+            navClass: '#FBFAEF'
         }
     },
     mounted: function() {

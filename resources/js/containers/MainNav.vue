@@ -1,7 +1,7 @@
 <template lang="html">
-    <nav class="navbar navbar-light navbar-expand-md bg-light" ref="navbar">
+    <nav class="navbar navbar-light navbar-expand-md" ref="navbar" :class="this.navClass">
         <a class="navbar-brand" href="#">
-            <nav-logo :width="214"/>
+            <nav-logo :width="214" />
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +38,31 @@ export default {
     components: {
         NavLogo,
     },
+    props: {
+        color: {
+            type: Number,
+            default: 1,
+        }
+    },
+    watch: {
+        '$root.navColor': function(value) {
+            switch (value) {
+                case 1:
+                    this.navClass = 'bg-light'
+                    break;
+                case 2:
+                    this.navClass = 'bg-pink'
+                    break;
+                default:
+                    this.navClass = 'bg-light'
+            }
+        }
+    },
+    data: function() {
+        return {
+            navClass: 'bg-light'
+        }
+    },
     mounted: function() {
         this.$root.navbarHeight = this.$refs.navbar.offsetHeight
     }
@@ -48,5 +73,6 @@ export default {
 @import '~styles/shared';
 .navbar {
     min-height: 112px;
+    z-index: 9999;
 }
 </style>

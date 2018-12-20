@@ -48,6 +48,7 @@ $yellow:  #ffc107 !default;
 $green:   #28a745 !default;
 $teal:    #20c997 !default;
 $cyan:    #BFD3DD !default;
+$light-brown:   #fbfaf0 !default;
 
 
 
@@ -67,7 +68,8 @@ $colors: map-merge(
     "cyan":       $cyan,
     "white":      $white,
     "gray":       $gray-600,
-    "gray-dark":  $gray-800
+    "gray-dark":  $gray-800,
+    "light-brown": $light-brown,
   ),
   $colors
 );
@@ -107,6 +109,11 @@ $theme-colors: map-merge(
     "light":      $light,
     "dark":       $dark
   ),
+  $theme-colors
+);
+
+$theme-colors: map-merge(
+  $colors,
   $theme-colors
 );
 
@@ -277,7 +284,7 @@ $font-weight-light:           300 !default;
 $font-weight-normal:          400 !default;
 $font-weight-bold:            700 !default;
 
-$font-weight-base:            $font-weight-normal !default;
+$font-weight-base:            $font-weight-light !default;
 $line-height-base:            1.5 !default;
 
 $h1-font-size:                $font-size-base * 2.5 !default;
