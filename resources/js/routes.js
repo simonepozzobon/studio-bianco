@@ -8,6 +8,11 @@ const routes = [
         path: '/about',
         name: 'about',
         component: require('./views/About.vue')
+    },
+    {
+        path: '/contact',
+        name: 'contact',
+        component: require('./views/Contact.vue')
     }
 ]
 
