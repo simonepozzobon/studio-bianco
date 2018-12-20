@@ -53,7 +53,7 @@ export default {
 
             return Math.floor(result / 2)
         },
-        fillScreen: function(height) {
+        fillScreen: function(height = 0) {
             this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
             this.$refs.container.style.height = this.viewport + 'px'
 

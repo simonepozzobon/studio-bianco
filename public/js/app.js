@@ -14382,6 +14382,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         h: 0
       },
       navbarHeight: 0,
+      navbarFullHeight: 0,
       navColor: 1
     };
   },
@@ -50706,6 +50707,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'MainNav',
@@ -50741,6 +50746,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   mounted: function mounted() {
     this.$root.navbarHeight = this.$refs.navbar.offsetHeight;
+    var el = this.$refs.logo.$refs.logo;
+    var elSize = el.getBoundingClientRect();
+    this.$root.navbarFullHeight = elSize.height;
   }
 });
 
@@ -50926,6 +50934,7 @@ var render = function() {
     _c(
       "svg",
       {
+        ref: "logo",
         attrs: {
           xmlns: "http://www.w3.org/2000/svg",
           viewBox: "0 0 214 201",
@@ -51007,7 +51016,7 @@ var render = function() {
       _c(
         "a",
         { staticClass: "navbar-brand", attrs: { href: "#" } },
-        [_c("nav-logo", { attrs: { width: 214 } })],
+        [_c("nav-logo", { ref: "logo", attrs: { width: 214 } })],
         1
       ),
       _vm._v(" "),
@@ -51038,9 +51047,53 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _vm._m(1),
+            _c(
+              "li",
+              { staticClass: "nav-item" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-link",
+                    attrs: {
+                      tag: "a",
+                      to: { path: "/odontoiatria" },
+                      "exact-active-class": "active"
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                    Odontoiatria\n                "
+                    )
+                  ]
+                )
+              ],
+              1
+            ),
             _vm._v(" "),
-            _vm._m(2),
+            _c(
+              "li",
+              { staticClass: "nav-item" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-link",
+                    attrs: {
+                      tag: "a",
+                      to: { path: "/medicina-estetica" },
+                      "exact-active-class": "active"
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                    Medicina estetica\n                "
+                    )
+                  ]
+                )
+              ],
+              1
+            ),
             _vm._v(" "),
             _c(
               "li",
@@ -51107,26 +51160,6 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _vm._v("Odontoiatria")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _vm._v("Medicina estetica")
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -51391,7 +51424,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.homesplit {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.homesplit .homesplit-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 700px;\n}\n.homesplit .homesplit-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: end;\n          -ms-flex-pack: end;\n              justify-content: flex-end;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.homesplit .homesplit-container > div > svg {\n        margin-bottom: 2rem;\n}\n.homesplit .homesplit-container > div h1 {\n        display: block;\n        font-size: 2em;\n}\n.homesplit .homesplit-container .homesplit-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #EBB29D;\n      color: #fff;\n}\n.homesplit .homesplit-container .homesplit-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #283745;\n      color: #BFD3DD;\n}\n.homesplit .homesplit-container .homesplit-divider {\n      margin-bottom: 1rem;\n}\n.homesplit .homesplit-container .homesplit-v-div {\n      margin-top: 1rem;\n      border-left: 1px solid #fff;\n      -webkit-transform: translate(-50%);\n              transform: translate(-50%);\n}\n", ""]);
+exports.push([module.i, "\n.homesplit {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.homesplit .homesplit-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 700px;\n}\n.homesplit .homesplit-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: end;\n          -ms-flex-pack: end;\n              justify-content: flex-end;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.homesplit .homesplit-container > div > svg {\n        margin-bottom: 2rem;\n}\n.homesplit .homesplit-container > div h1 {\n        display: block;\n        font-size: 2em;\n}\n.homesplit .homesplit-container .homesplit-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #EBB29D;\n      color: #fff;\n}\n.homesplit .homesplit-container .homesplit-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #283745;\n      color: #c0d3dd;\n}\n.homesplit .homesplit-container .homesplit-divider {\n      margin-bottom: 1rem;\n}\n.homesplit .homesplit-container .homesplit-v-div {\n      margin-top: 1rem;\n      border-left: 1px solid #fff;\n      -webkit-transform: translate(-50%);\n              transform: translate(-50%);\n}\n", ""]);
 
 // exports
 
@@ -51460,7 +51493,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           result = content - (illust + title + divider + call);
       return Math.floor(result / 2);
     },
-    fillScreen: function fillScreen(height) {
+    fillScreen: function fillScreen() {
+      var height = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
       this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px';
       this.$refs.container.style.height = this.viewport + 'px';
       var dividerHeight = this.getVerticalDividerHeight();
@@ -56185,8 +56219,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   components: {
     AboutIllust: __WEBPACK_IMPORTED_MODULE_0__components_AboutIllust_vue___default.a
   },
+  watch: {
+    '$root.window.h': function $rootWindowH(value) {
+      this.positionIllustration();
+    }
+  },
+  methods: {
+    positionIllustration: function positionIllustration() {
+      this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px';
+    }
+  },
   mounted: function mounted() {
     this.$root.navColor = 2;
+    this.positionIllustration();
   }
 });
 
@@ -57840,7 +57885,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             scaleY: 1,
             autoAlpha: 1,
             display: "block",
-            //rotation: 0.01,
             transformOrigin: "center top 0",
             ease: Cubic.easeInOut
           });
@@ -63270,7 +63314,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -63296,6 +63340,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     width: {
       type: String,
       default: '32px'
+    },
+    color: {
+      type: String,
+      default: '#f6f5ea'
     }
   }
 });
@@ -63330,7 +63378,7 @@ var render = function() {
         },
         [
           _c("polygon", {
-            staticStyle: { fill: "#f6f5ea" },
+            style: "fill: " + _vm.color,
             attrs: {
               points:
                 "8 15.94 1.19 9.12 1.89 8.42 8 14.52 14.11 8.42 14.81 9.12 8 15.94"
@@ -71703,7 +71751,7 @@ var TweenMaxBase = TweenMax;
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(134)
+  __webpack_require__(143)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -71748,57 +71796,64 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 134 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(135);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("597305bc", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-23d233fc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Odontoiatria.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-23d233fc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Odontoiatria.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 135 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 134 */,
+/* 135 */,
 /* 136 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_OdontoiatriaIllust_vue__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_OdontoiatriaIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_OdontoiatriaIllust_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dummies_services__ = __webpack_require__(162);
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Odontoiatria'
+  name: 'Odontoiatria',
+  components: {
+    Accordion: __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue___default.a,
+    OdontoiatriaIllust: __WEBPACK_IMPORTED_MODULE_1__components_OdontoiatriaIllust_vue___default.a
+  },
+  watch: {
+    '$root.window.h': function $rootWindowH(value) {
+      this.positionIllustration();
+    }
+  },
+  data: function data() {
+    return {
+      services: __WEBPACK_IMPORTED_MODULE_2__dummies_services__["a" /* default */]
+    };
+  },
+  methods: {
+    positionIllustration: function positionIllustration() {
+      this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px';
+    }
+  },
+  mounted: function mounted() {
+    this.positionIllustration();
+  }
 });
 
 /***/ }),
@@ -71809,7 +71864,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { staticClass: "odontoiatria" }, [
+    _c("div", { ref: "container", staticClass: "odontoiatria-container" }, [
+      _c("div", { ref: "content", staticClass: "odontoiatria-left" }, [
+        _c(
+          "div",
+          { staticClass: "odontoiatria-content" },
+          [
+            _c("div", { staticClass: "odontoiatria-bold-divider" }),
+            _vm._v(" "),
+            _c("h1", { ref: "title" }, [_vm._v("Servizi")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "odontoiatria-subtitle" }, [
+              _vm._v("Odontoiatria")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "odontoiatria-v-div" }),
+            _vm._v(" "),
+            _c("accordion", { attrs: { items: _vm.services } })
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "odontoiatria-right" },
+        [_c("odontoiatria-illust", { attrs: { width: "90%" } })],
+        1
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -71828,7 +71913,7 @@ if (false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(139)
+  __webpack_require__(163)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -71873,57 +71958,73 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 139 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(140);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("62e988fc", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4bd2265e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Estetica.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4bd2265e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Estetica.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 140 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 139 */,
+/* 140 */,
 /* 141 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_EsteticaIllust_vue__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_EsteticaIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_EsteticaIllust_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dummies_Aservices__ = __webpack_require__(170);
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Estetica'
+  name: 'Odontoiatria',
+  components: {
+    Accordion: __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue___default.a,
+    EsteticaIllust: __WEBPACK_IMPORTED_MODULE_1__components_EsteticaIllust_vue___default.a
+  },
+  watch: {
+    '$root.window.h': function $rootWindowH(value) {
+      this.setViewport(value);
+      this.positionIllustration();
+    }
+  },
+  data: function data() {
+    return {
+      height: 0,
+      viewport: 0,
+      services: __WEBPACK_IMPORTED_MODULE_2__dummies_Aservices__["a" /* default */]
+    };
+  },
+  methods: {
+    setViewport: function setViewport(value) {
+      this.viewport = value;
+    },
+    positionIllustration: function positionIllustration() {
+      this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px';
+    }
+  },
+  mounted: function mounted() {
+    var el = this.$refs.illust.$el;
+    var elSize = el.getBoundingClientRect();
+    this.height = elSize.height;
+    this.positionIllustration();
+  }
 });
 
 /***/ }),
@@ -71934,7 +72035,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { staticClass: "estetica" }, [
+    _c("div", { ref: "container", staticClass: "estetica-container" }, [
+      _c("div", { ref: "content", staticClass: "estetica-left" }, [
+        _c(
+          "div",
+          { staticClass: "estetica-content" },
+          [
+            _c("div", { staticClass: "estetica-bold-divider" }),
+            _vm._v(" "),
+            _c("h1", { ref: "title" }, [_vm._v("Servizi")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "estetica-subtitle" }, [
+              _vm._v("Medicina Estetica")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "estetica-v-div" }),
+            _vm._v(" "),
+            _c("accordion", { attrs: { items: _vm.services } })
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "estetica-right" },
+        [_c("estetica-illust", { ref: "illust", attrs: { width: "70%" } })],
+        1
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -71945,6 +72076,2482 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-4bd2265e", module.exports)
   }
 }
+
+/***/ }),
+/* 143 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(144);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("3f461f7c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-23d233fc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Odontoiatria.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-23d233fc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Odontoiatria.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 144 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.odontoiatria {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #c0d3dd;\n}\n.odontoiatria .odontoiatria-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 100vh;\n}\n.odontoiatria .odontoiatria-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.odontoiatria .odontoiatria-container > div > svg {\n        margin-bottom: 2rem;\n}\n.odontoiatria .odontoiatria-container > div h1 {\n        display: block;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-content {\n      padding: 4rem;\n      width: 100%;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-content .odontoiatria-bold-divider {\n        content: '';\n        width: 30px;\n        border-top: 6px solid #fbfaf0;\n        margin-bottom: 1rem;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-content .odontoiatria-v-div {\n        content: '';\n        height: 100px;\n        border-left: 1px solid #fbfaf0;\n        margin-bottom: 1rem;\n        margin-top: 1rem;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-subtitle {\n      font-size: 1.5rem;\n      font-weight: 300;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-divider {\n      margin-bottom: 1rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 145 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(146)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(148)
+/* template */
+var __vue_template__ = __webpack_require__(149)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/OdontoiatriaIllust.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5c1f8a35", Component.options)
+  } else {
+    hotAPI.reload("data-v-5c1f8a35", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 146 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(147);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("50eef02a", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c1f8a35\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OdontoiatriaIllust.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c1f8a35\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OdontoiatriaIllust.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 147 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 148 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'OdontoiatriaIllust',
+  props: {
+    width: {
+      type: String,
+      default: '32px'
+    }
+  }
+});
+
+/***/ }),
+/* 149 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "svg",
+    {
+      attrs: {
+        xmlns: "http://www.w3.org/2000/svg",
+        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+        viewBox: "0 0 931.97 837.78",
+        width: _vm.width
+      }
+    },
+    [
+      _c("defs", [
+        _c(
+          "clipPath",
+          { attrs: { id: "592cb7ed-379b-4d1e-84ae-b86fa6871786" } },
+          [
+            _c("path", {
+              staticStyle: { fill: "none" },
+              attrs: {
+                d:
+                  "M193.93,224,785.51,20.4V203.31c-28.47,17.52-75.69,34.51-85.61,79.6-14.49,65.89,102.56,294.37-.33,354.5-50.13,29.3-209.15,85.77-262.38,110-38.74,17.65-40.65-235.08-40.65-235.08s-3.75-1.07-19.44-6.65c-5.89-2.1-13.7-5.3-23.3-8.64-8.17-2.85-17.35-3.4-30.47-1.69-45.79,5.94-97.76,57.94-97.76,57.94Z"
+              }
+            })
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("title", [_vm._v("illust-odontoiatria")]),
+      _vm._v(" "),
+      _c(
+        "g",
+        {
+          attrs: {
+            id: "07932d17-2790-4db3-a555-d9e6c43a048e",
+            "data-name": "illustrazione odontoiatria"
+          }
+        },
+        [
+          _c("g", [
+            _c("g", [
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M799.52,148.67a6.18,6.18,0,0,1-1.84,1.24,7.44,7.44,0,0,1-3.18.58,6,6,0,0,1-4.65-2,7.49,7.49,0,0,1-1.8-5.2v-.23a7.52,7.52,0,0,1,1.78-5.21,6.08,6.08,0,0,1,4.74-2,7.42,7.42,0,0,1,2.78.49,6.24,6.24,0,0,1,2,1.31v2.58H798l-.47-2a4,4,0,0,0-1.16-.64,4.58,4.58,0,0,0-1.62-.26,4.26,4.26,0,0,0-3.55,1.58A6.41,6.41,0,0,0,790,143v.25a6.59,6.59,0,0,0,1.21,4.12A4,4,0,0,0,794.5,149a6.32,6.32,0,0,0,1.91-.25,4.93,4.93,0,0,0,1.19-.54v-3.11l-2.33-.1v-1.41h4.25Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M806.75,150.49a4.46,4.46,0,0,1-3.51-1.47,5.52,5.52,0,0,1-1.3-3.81v-.43a5.4,5.4,0,0,1,1.34-3.76,4.12,4.12,0,0,1,3.18-1.5,4,4,0,0,1,3.22,1.29,5.09,5.09,0,0,1,1.1,3.44v1.2h-6.85l0,.05a4.11,4.11,0,0,0,.77,2.5,2.45,2.45,0,0,0,2.08,1,4.94,4.94,0,0,0,1.71-.28,3.9,3.9,0,0,0,1.28-.77l.75,1.25a4.56,4.56,0,0,1-1.5.92A6,6,0,0,1,806.75,150.49Zm-.29-9.45a2.07,2.07,0,0,0-1.65.81,3.83,3.83,0,0,0-.84,2.05l0,0h4.87v-.26a2.92,2.92,0,0,0-.61-1.89A2.14,2.14,0,0,0,806.46,141Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M812.39,149.05l1.6-.27v-7.55l-1.6-.27v-1.24h3.32l.13,1.57a3.81,3.81,0,0,1,1.32-1.3,3.58,3.58,0,0,1,1.82-.47,3.45,3.45,0,0,1,2.64,1,4.38,4.38,0,0,1,.94,3.09v5.17l1.59.27v1.23H819v-1.23l1.6-.27v-5.13a2.84,2.84,0,0,0-.56-2,2.2,2.2,0,0,0-1.68-.58,2.7,2.7,0,0,0-1.47.4,2.82,2.82,0,0,0-1,1.09v6.2l1.59.27v1.23h-5.11Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M825.46,145.2a6.94,6.94,0,0,1,1.11-4.11,3.57,3.57,0,0,1,3.08-1.57,3.76,3.76,0,0,1,1.75.39,3.43,3.43,0,0,1,1.26,1.14l.17-1.33h1.63v10.43a4.46,4.46,0,0,1-1.15,3.23,4.33,4.33,0,0,1-3.25,1.17,7.17,7.17,0,0,1-1.65-.21,6.49,6.49,0,0,1-1.56-.57l.5-1.49a6.11,6.11,0,0,0,2.69.65,2.32,2.32,0,0,0,1.89-.72,3.14,3.14,0,0,0,.6-2.06v-1a3.44,3.44,0,0,1-1.24,1,3.79,3.79,0,0,1-1.66.34,3.69,3.69,0,0,1-3.06-1.41,5.74,5.74,0,0,1-1.11-3.68Zm1.92.2a4.38,4.38,0,0,0,.68,2.56,2.32,2.32,0,0,0,2.05,1,2.48,2.48,0,0,0,1.45-.4,2.82,2.82,0,0,0,1-1.12v-4.86a3,3,0,0,0-1-1.07,2.53,2.53,0,0,0-1.43-.39,2.23,2.23,0,0,0-2.06,1.15,5.69,5.69,0,0,0-.69,3Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M836.77,149.05l1.59-.27v-7.55l-1.59-.27v-1.24h3.52v9.06l1.59.27v1.23h-5.11Zm3.52-12h-1.93v-2h1.93Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M847,141l-1.26.19,2.17,6,.18.76h.06l.18-.76,2.11-6-1.28-.19v-1.24h4.09V141l-.87.15-3.55,9.17h-1.45l-3.59-9.17-.87-.15v-1.24H847Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M861.25,150.28c-.06-.28-.1-.54-.13-.77a5.05,5.05,0,0,1-.07-.68,4.64,4.64,0,0,1-1.4,1.19,3.59,3.59,0,0,1-1.78.47,3.54,3.54,0,0,1-2.51-.81,3,3,0,0,1-.86-2.27,2.65,2.65,0,0,1,1.22-2.32,5.94,5.94,0,0,1,3.33-.81h2v-1.23a1.91,1.91,0,0,0-.59-1.47,2.31,2.31,0,0,0-1.63-.54,4.17,4.17,0,0,0-1.28.18,2.63,2.63,0,0,0-.89.51l-.2,1.11H855v-2.05a5.8,5.8,0,0,1,1.75-.92,7,7,0,0,1,2.23-.35,4.45,4.45,0,0,1,2.91.92,3.22,3.22,0,0,1,1.11,2.63v5.49l0,.39.78.1v1.23Zm-3.09-1.4a3.35,3.35,0,0,0,1.74-.46,2.88,2.88,0,0,0,1.14-1.1v-1.74h-2a2.93,2.93,0,0,0-1.87.54,1.65,1.65,0,0,0-.69,1.33,1.3,1.3,0,0,0,.43,1.06A1.92,1.92,0,0,0,858.16,148.88Z"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M798.5,191.77H797l-.36-2a3.56,3.56,0,0,0-1.17-.61,5.44,5.44,0,0,0-1.7-.25,3.72,3.72,0,0,0-2.35.65,2.07,2.07,0,0,0-.82,1.7,1.86,1.86,0,0,0,.83,1.55,8.23,8.23,0,0,0,2.7,1.09,7.5,7.5,0,0,1,3.41,1.64,3.49,3.49,0,0,1,1.17,2.68,3.25,3.25,0,0,1-1.4,2.76,6,6,0,0,1-3.67,1.05,7.4,7.4,0,0,1-2.91-.54,6,6,0,0,1-2.08-1.4V197.4h1.45l.37,2a4.39,4.39,0,0,0,1.33.75,5.07,5.07,0,0,0,1.84.3,3.83,3.83,0,0,0,2.3-.62,2,2,0,0,0,.85-1.67,2.11,2.11,0,0,0-.73-1.63,6.21,6.21,0,0,0-2.59-1.11,8.64,8.64,0,0,1-3.53-1.59,3.24,3.24,0,0,1-1.27-2.62,3.38,3.38,0,0,1,1.42-2.78,5.78,5.78,0,0,1,3.68-1.11,7,7,0,0,1,2.72.51,6.29,6.29,0,0,1,2,1.25Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M800.18,200.55l1.59-.27v-7.55l-1.59-.27v-1.24h3.32l.12,1.38a3.51,3.51,0,0,1,1.31-1.17,4.11,4.11,0,0,1,1.86-.41,3.31,3.31,0,0,1,1.81.49,3,3,0,0,1,1.14,1.47,3.87,3.87,0,0,1,1.32-1.43A3.44,3.44,0,0,1,813,191a3.18,3.18,0,0,1,2.56,1.11,5.1,5.1,0,0,1,.94,3.34v4.81l1.59.27v1.23h-5.12v-1.23l1.59-.27v-4.83a3.54,3.54,0,0,0-.53-2.21,1.94,1.94,0,0,0-1.6-.65,2,2,0,0,0-1.61.7,3.06,3.06,0,0,0-.71,1.79v5.2l1.59.27v1.23h-5.11v-1.23l1.6-.27v-4.83a3.47,3.47,0,0,0-.56-2.18,1.93,1.93,0,0,0-1.59-.68,2.66,2.66,0,0,0-1.45.36,2.32,2.32,0,0,0-.87,1v6.32l1.6.27v1.23h-5.11Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M826.35,201.78c-.06-.28-.11-.54-.14-.77s-.05-.45-.07-.68a4.6,4.6,0,0,1-1.39,1.19A3.59,3.59,0,0,1,823,202a3.52,3.52,0,0,1-2.51-.81,3,3,0,0,1-.86-2.27,2.65,2.65,0,0,1,1.22-2.32,5.94,5.94,0,0,1,3.33-.81h2v-1.23a1.9,1.9,0,0,0-.58-1.47,2.32,2.32,0,0,0-1.63-.54,4.17,4.17,0,0,0-1.28.18,2.63,2.63,0,0,0-.89.51l-.21,1.11h-1.48v-2.05a5.69,5.69,0,0,1,1.75-.92A6.91,6.91,0,0,1,824,191a4.47,4.47,0,0,1,2.91.92,3.22,3.22,0,0,1,1.11,2.63v5.49c0,.13,0,.26,0,.39l.78.1v1.23Zm-3.1-1.4a3.39,3.39,0,0,0,1.75-.46,2.79,2.79,0,0,0,1.13-1.1v-1.74h-2a3,3,0,0,0-1.87.54,1.64,1.64,0,0,0-.68,1.33A1.3,1.3,0,0,0,822,200,1.89,1.89,0,0,0,823.25,200.38Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M830.21,187.79v-1.24h3.51v13.73l1.59.27v1.23h-5.1v-1.23l1.59-.27V188.06Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M840.13,188.67v2.55h2v1.42h-2v6.42a1.43,1.43,0,0,0,.31,1.05,1.09,1.09,0,0,0,.81.3,4.13,4.13,0,0,0,.57,0l.54-.09.26,1.32a2.5,2.5,0,0,1-.8.29,5.37,5.37,0,0,1-1.06.11,2.49,2.49,0,0,1-1.86-.71,3.08,3.08,0,0,1-.69-2.22v-6.42h-1.67v-1.42h1.67v-2.55Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M843.91,196.4a5.79,5.79,0,0,1,1.27-3.86,4.24,4.24,0,0,1,3.44-1.52,4.31,4.31,0,0,1,3.47,1.52,5.77,5.77,0,0,1,1.27,3.86v.22a5.8,5.8,0,0,1-1.27,3.87,4.72,4.72,0,0,1-6.91,0,5.76,5.76,0,0,1-1.27-3.86Zm1.92.22a5,5,0,0,0,.71,2.77,2.54,2.54,0,0,0,4.18,0,4.94,4.94,0,0,0,.72-2.77v-.22a5,5,0,0,0-.72-2.76,2.32,2.32,0,0,0-2.1-1.1,2.29,2.29,0,0,0-2.08,1.1,5.05,5.05,0,0,0-.71,2.76Z"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M794.16,270.57a5.84,5.84,0,0,1,6.17,6.14v1.94a5.82,5.82,0,0,1-6.17,6.13h-5.95v-1.23l1.59-.27v-11.2l-1.59-.27v-1.24h5.95Zm-2.44,1.51v11.2h2.44a3.9,3.9,0,0,0,3.11-1.3,4.84,4.84,0,0,0,1.14-3.33v-2a4.83,4.83,0,0,0-1.14-3.31,3.9,3.9,0,0,0-3.11-1.3Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M807.06,285a4.46,4.46,0,0,1-3.51-1.47,5.52,5.52,0,0,1-1.3-3.81v-.43a5.44,5.44,0,0,1,1.34-3.76,4.14,4.14,0,0,1,3.18-1.5,4,4,0,0,1,3.23,1.29,5.15,5.15,0,0,1,1.1,3.44V280h-6.86l0,.05a4.18,4.18,0,0,0,.77,2.5,2.46,2.46,0,0,0,2.08,1,5,5,0,0,0,1.72-.28,4,4,0,0,0,1.27-.77l.75,1.25a4.46,4.46,0,0,1-1.5.92A6,6,0,0,1,807.06,285Zm-.29-9.45a2.07,2.07,0,0,0-1.65.81,3.83,3.83,0,0,0-.84,2l0,.05h4.87v-.26a3,3,0,0,0-.6-1.89A2.17,2.17,0,0,0,806.77,275.54Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M812.71,283.55l1.59-.27v-7.55l-1.59-.27v-1.24H816l.13,1.57a3.93,3.93,0,0,1,1.33-1.3,3.89,3.89,0,0,1,4.46.53,4.43,4.43,0,0,1,.93,3.09v5.17l1.59.27v1.23h-5.1v-1.23l1.59-.27v-5.13a2.84,2.84,0,0,0-.55-2,2.22,2.22,0,0,0-1.69-.58,2.7,2.7,0,0,0-1.47.4,3,3,0,0,0-1,1.09v6.2l1.59.27v1.23h-5.1Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M829.22,271.67v2.55h2v1.42h-2v6.42a1.43,1.43,0,0,0,.31,1.05,1.09,1.09,0,0,0,.81.3,4.13,4.13,0,0,0,.57-.05l.54-.09.26,1.32a2.5,2.5,0,0,1-.8.29,5.35,5.35,0,0,1-1,.11,2.49,2.49,0,0,1-1.87-.71,3.08,3.08,0,0,1-.69-2.22v-6.42h-1.67v-1.42h1.67v-2.55Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M833.19,283.55l1.59-.27v-7.55l-1.59-.27v-1.24h3.51v9.06l1.59.27v1.23h-5.1Zm3.51-12h-1.92v-2h1.92Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M839.47,283.55l1.6-.27v-7.55l-1.6-.27v-1.24h3.32l.13,1.57a3.81,3.81,0,0,1,1.32-1.3,3.58,3.58,0,0,1,1.82-.47,3.45,3.45,0,0,1,2.64,1,4.38,4.38,0,0,1,.94,3.09v5.17l1.59.27v1.23h-5.11v-1.23l1.6-.27v-5.13a2.84,2.84,0,0,0-.56-2,2.2,2.2,0,0,0-1.68-.58,2.7,2.7,0,0,0-1.47.4,2.82,2.82,0,0,0-1,1.09v6.2l1.59.27v1.23h-5.11Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M859.52,284.78c-.06-.28-.1-.54-.13-.77a5.05,5.05,0,0,1-.07-.68,4.72,4.72,0,0,1-1.39,1.19,3.63,3.63,0,0,1-1.79.47,3.54,3.54,0,0,1-2.51-.81,3,3,0,0,1-.85-2.27,2.64,2.64,0,0,1,1.21-2.32,6,6,0,0,1,3.34-.81h2v-1.23a1.91,1.91,0,0,0-.59-1.47,2.31,2.31,0,0,0-1.63-.54,4.1,4.1,0,0,0-1.27.18,2.59,2.59,0,0,0-.9.51l-.2,1.11h-1.49v-2a5.8,5.8,0,0,1,1.75-.92,7,7,0,0,1,2.23-.35,4.43,4.43,0,0,1,2.91.92,3.22,3.22,0,0,1,1.11,2.63v5.09c0,.13,0,.27,0,.4s0,.26,0,.39l.78.1v1.23Zm-3.09-1.4a3.42,3.42,0,0,0,1.75-.46,2.92,2.92,0,0,0,1.13-1.1v-1.74h-2a3,3,0,0,0-1.87.54,1.65,1.65,0,0,0-.69,1.33,1.3,1.3,0,0,0,.43,1.06A1.92,1.92,0,0,0,856.43,283.38Z"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M794.74,395.3a5,5,0,0,1,3.54,1.18,4.42,4.42,0,0,1,0,6.18,5.07,5.07,0,0,1-3.54,1.16h-3V408l1.59.27v1.23h-5.1v-1.23l1.59-.27v-11.2l-1.59-.28V395.3h6.53Zm-3,7h3a2.83,2.83,0,0,0,2.16-4.71,2.77,2.77,0,0,0-2.16-.79h-3Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M807.87,409.52c-.06-.28-.1-.54-.13-.77a5.23,5.23,0,0,1-.07-.68,4.69,4.69,0,0,1-1.39,1.18,4,4,0,0,1-4.3-.33,3,3,0,0,1-.86-2.27,2.65,2.65,0,0,1,1.22-2.32,6,6,0,0,1,3.34-.81h2v-1.23a1.91,1.91,0,0,0-.59-1.47,2.31,2.31,0,0,0-1.63-.54,4.1,4.1,0,0,0-1.27.18,2.31,2.31,0,0,0-.9.51l-.2,1.11h-1.49V400a5.8,5.8,0,0,1,1.75-.92,7,7,0,0,1,2.23-.35,4.43,4.43,0,0,1,2.91.92,3.22,3.22,0,0,1,1.11,2.63v5.08c0,.14,0,.27,0,.4s0,.27,0,.4l.78.1v1.23Zm-3.09-1.4a3.52,3.52,0,0,0,1.75-.46,2.94,2.94,0,0,0,1.13-1.11v-1.73h-2a3,3,0,0,0-1.87.54,1.65,1.65,0,0,0-.69,1.33,1.3,1.3,0,0,0,.43,1.06A2,2,0,0,0,804.78,408.12Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M812,400.2V399h3.31l.19,1.53a3.74,3.74,0,0,1,1.11-1.27,2.55,2.55,0,0,1,1.51-.46,2.45,2.45,0,0,1,.46,0,2,2,0,0,1,.37.07l-.26,1.79-1.09-.06a2.24,2.24,0,0,0-1.28.35,2.35,2.35,0,0,0-.8,1V408l1.59.27v1.23H812v-1.23l1.6-.27v-7.55Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M824.9,409.73a4.46,4.46,0,0,1-3.51-1.47,5.53,5.53,0,0,1-1.3-3.82V404a5.44,5.44,0,0,1,1.34-3.76,4.15,4.15,0,0,1,3.18-1.5,4,4,0,0,1,3.23,1.29,5.15,5.15,0,0,1,1.1,3.44v1.2h-6.86l0,.05a4.2,4.2,0,0,0,.77,2.5,2.45,2.45,0,0,0,2.08,1,5,5,0,0,0,1.72-.27,4.15,4.15,0,0,0,1.27-.77l.75,1.25a4.51,4.51,0,0,1-1.5.92A6,6,0,0,1,824.9,409.73Zm-.29-9.45a2.1,2.1,0,0,0-1.65.81,3.8,3.8,0,0,0-.84,2.05l0,.05H827v-.26a3,3,0,0,0-.6-1.89A2.17,2.17,0,0,0,824.61,400.28Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M834.19,396.41V399h2v1.42h-2v6.42a1.41,1.41,0,0,0,.31,1,1.06,1.06,0,0,0,.81.31,4.13,4.13,0,0,0,.57,0l.54-.09.26,1.32a2.77,2.77,0,0,1-.8.29,5.35,5.35,0,0,1-1,.11A2.49,2.49,0,0,1,833,409a3.08,3.08,0,0,1-.69-2.22v-6.42H830.6V399h1.67v-2.55Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M843,409.73a4.46,4.46,0,0,1-3.51-1.47,5.53,5.53,0,0,1-1.3-3.82V404a5.4,5.4,0,0,1,1.34-3.76,4.12,4.12,0,0,1,3.18-1.5,4,4,0,0,1,3.22,1.29,5.09,5.09,0,0,1,1.1,3.44v1.2h-6.85l0,.05a4.13,4.13,0,0,0,.77,2.5,2.44,2.44,0,0,0,2.08,1,5,5,0,0,0,1.71-.27,4.08,4.08,0,0,0,1.28-.77l.75,1.25a4.73,4.73,0,0,1-1.5.92A6,6,0,0,1,843,409.73Zm-.29-9.45a2.07,2.07,0,0,0-1.65.81,3.8,3.8,0,0,0-.84,2.05l0,.05h4.87v-.26a2.9,2.9,0,0,0-.61-1.89A2.14,2.14,0,0,0,842.69,400.28Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M866.37,402.52a7.58,7.58,0,0,1-1.78,5.16,5.86,5.86,0,0,1-4.62,2.05,5.58,5.58,0,0,1-4.47-2.05,7.75,7.75,0,0,1-1.72-5.16v-.2a7.75,7.75,0,0,1,1.72-5.16A5.55,5.55,0,0,1,860,395.1a5.84,5.84,0,0,1,4.62,2.06,7.58,7.58,0,0,1,1.78,5.16Zm-1.92-.22a6.52,6.52,0,0,0-1.19-4.05,3.89,3.89,0,0,0-3.29-1.57,3.66,3.66,0,0,0-3.14,1.57,6.8,6.8,0,0,0-1.12,4.05v.22a6.83,6.83,0,0,0,1.12,4.07,3.66,3.66,0,0,0,3.14,1.57,3.87,3.87,0,0,0,3.3-1.57,6.62,6.62,0,0,0,1.18-4.07Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M876.08,402.28h-1.45l-.31-1.27a2.6,2.6,0,0,0-.89-.53,3.21,3.21,0,0,0-1.2-.2,2.19,2.19,0,0,0-1.52.44,1.4,1.4,0,0,0-.5,1.09,1.17,1.17,0,0,0,.44,1,4.41,4.41,0,0,0,1.78.65,7.59,7.59,0,0,1,3,1.17,2.35,2.35,0,0,1,1,2,2.73,2.73,0,0,1-1.14,2.28,4.76,4.76,0,0,1-3,.87,7.59,7.59,0,0,1-2.16-.28,5.63,5.63,0,0,1-1.71-.81v-2.41h1.45l.36,1.42a2,2,0,0,0,.9.44,5.06,5.06,0,0,0,1.17.13,2.67,2.67,0,0,0,1.6-.41,1.28,1.28,0,0,0,.58-1.09,1.3,1.3,0,0,0-.48-1,4.38,4.38,0,0,0-1.83-.72,7.73,7.73,0,0,1-2.9-1.14,2.3,2.3,0,0,1-1-1.95,2.78,2.78,0,0,1,1.1-2.2,4.32,4.32,0,0,1,2.86-.91,7.22,7.22,0,0,1,2.16.31,4.67,4.67,0,0,1,1.59.87Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M886.27,402.28h-1.44l-.32-1.27a2.55,2.55,0,0,0-.88-.53,3.27,3.27,0,0,0-1.21-.2,2.21,2.21,0,0,0-1.52.44,1.43,1.43,0,0,0-.5,1.09,1.2,1.2,0,0,0,.44,1,4.41,4.41,0,0,0,1.79.65,7.65,7.65,0,0,1,3,1.17,2.34,2.34,0,0,1,1,2,2.72,2.72,0,0,1-1.13,2.28,4.77,4.77,0,0,1-3,.87,7.59,7.59,0,0,1-2.16-.28,5.68,5.68,0,0,1-1.7-.81v-2.41H880l.36,1.42a2,2,0,0,0,.9.44,5.12,5.12,0,0,0,1.17.13,2.7,2.7,0,0,0,1.61-.41,1.28,1.28,0,0,0,.58-1.09,1.3,1.3,0,0,0-.48-1,4.51,4.51,0,0,0-1.83-.72,7.66,7.66,0,0,1-2.9-1.14,2.28,2.28,0,0,1-1-1.95,2.75,2.75,0,0,1,1.1-2.2,4.29,4.29,0,0,1,2.85-.91,7.22,7.22,0,0,1,2.16.31,4.49,4.49,0,0,1,1.59.87Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M893.21,409.73a4.47,4.47,0,0,1-3.52-1.47,5.53,5.53,0,0,1-1.3-3.82V404a5.44,5.44,0,0,1,1.34-3.76,4.15,4.15,0,0,1,3.18-1.5,4,4,0,0,1,3.23,1.29,5.15,5.15,0,0,1,1.1,3.44v1.2h-6.86l0,.05a4.2,4.2,0,0,0,.77,2.5,2.46,2.46,0,0,0,2.09,1,5,5,0,0,0,1.71-.27,4.15,4.15,0,0,0,1.27-.77l.76,1.25a4.73,4.73,0,0,1-1.5.92A6,6,0,0,1,893.21,409.73Zm-.3-9.45a2.1,2.1,0,0,0-1.65.81,3.88,3.88,0,0,0-.84,2.05l0,.05h4.87v-.26a3,3,0,0,0-.6-1.89A2.16,2.16,0,0,0,892.91,400.28Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#283745" },
+                attrs: {
+                  d:
+                    "M906,409.52c-.06-.28-.11-.54-.14-.77s-.06-.45-.07-.68a4.57,4.57,0,0,1-1.39,1.18,4,4,0,0,1-4.29-.33,2.92,2.92,0,0,1-.86-2.27,2.64,2.64,0,0,1,1.21-2.32,6,6,0,0,1,3.34-.81h2v-1.23a1.9,1.9,0,0,0-.58-1.47,2.32,2.32,0,0,0-1.63-.54,4.12,4.12,0,0,0-1.28.18,2.2,2.2,0,0,0-.89.51l-.21,1.11h-1.48V400a5.69,5.69,0,0,1,1.75-.92,6.89,6.89,0,0,1,2.22-.35,4.43,4.43,0,0,1,2.91.92,3.2,3.2,0,0,1,1.12,2.63v5.48a2.69,2.69,0,0,0,0,.4l.78.1v1.23Zm-3.1-1.4a3.49,3.49,0,0,0,1.75-.46,2.87,2.87,0,0,0,1.13-1.11v-1.73h-2a3,3,0,0,0-1.87.54,1.65,1.65,0,0,0-.69,1.33,1.33,1.33,0,0,0,.43,1.06A2,2,0,0,0,902.93,408.12Z"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", [
+              _c("path", {
+                staticStyle: { fill: "#e6ad98" },
+                attrs: {
+                  d:
+                    "M129.85,701.8,592.3,440.69V186c-23.45,14.43-62.33,28.42-70.5,65.55-11.93,54.25-14,86.92-98.73,136.44-41.28,24.13-42.84,26.16-86.67,46.12-50,22.81-73.94,10.69-124.32-7.72-36.58-13.36-82.23,20.12-82.23,20.12"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#e6ad98" },
+                attrs: {
+                  d:
+                    "M129.85,701.8,592.3,440.69V186c-14.74,22-43.09,120.76-53,135.68-25.74,38.74-31.42,16.94-116.23,66.31C337.31,438,350.86,426.25,307.44,447.1c-30.38,14.59-43.78,17.33-93.35-3.18-49-20.26-84.24,2.62-84.24,2.62"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#f6f5ea" },
+                attrs: {
+                  d:
+                    "M136.84,450.54l134,67.25V798.14c0,11.75,2.52,25-22.88,14.15L138.61,757.77a15.84,15.84,0,0,1-8.76-14.16V446.54l14,8"
+                }
+              }),
+              _vm._v(" "),
+              _c("polyline", {
+                staticStyle: { fill: "#93c099" },
+                attrs: {
+                  points:
+                    "599.28 190.03 733.28 257.29 733.28 512.55 592.3 442.26 592.3 186.03 606.27 194.03"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#e6ad98" },
+                attrs: {
+                  d:
+                    "M733.28,370.24c0-18.52-10.42-47.86-22.58-61.82-29.42-33.76-9,69.33-21.74,80.81-47.68,43-34.71,17.46-136.72,81.44-84.07,52.73-75.16,39.08-118.58,59.92-30.38,14.59-59.41,2.94-109.22-17-43.85-17.51-47.38,26.14-47.38,101.21h0l-6.22-97.06-141-70.33c29.26-21.59,48.78-19.15,70.17-14.91,56.31,11.17,81.46,37.5,105.78,25.88C343.17,440.59,337.31,438,423.07,388c82.1-47.8,72.1-40.8,114-86.56,6.36-6.95,1-74.38.84-73.43l54.41-42h0l141,71.26Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#413d52" },
+                attrs: {
+                  d:
+                    "M270.84,517.77V803.54a11.76,11.76,0,0,0,17.54,10.24L727.31,565.93a11.74,11.74,0,0,0,6-10.23V257.27c-23.44,14.42-62.32,28.41-70.49,65.55-11.93,54.25-14,86.92-98.73,136.44-41.28,24.12-42.84,26.15-86.67,46.12-50.06,22.8-72.15,10.44-122.53-8-36.58-13.36-84,20.36-84,20.36"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#413d52" },
+                attrs: {
+                  d:
+                    "M270.84,817.38c17.3,0,31.32-9.63,31.32-21.5s-14-21.5-31.32-21.5"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#413d52" },
+                attrs: {
+                  d:
+                    "M292.56,538.11s30.77-42.75,111.5,3c29.57,16.74,93.3-26.79,125-41.23,27.76-12.65,49.28-31.51,76.58-44.62,63.17-30.33,71.59-98.64,83.42-131.78,6.54-18.3,15.48-17.19,30.33-26.33V549.84L292.56,790.51Z"
+                }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: {
+                  fill: "#413d52",
+                  stroke: "#fff",
+                  "stroke-miterlimit": "10"
+                },
+                attrs: {
+                  d:
+                    "M311.79,758.5,705.5,537.76V448.94c0-7.87,2-112.83,2-112.83-7.06,3.69-8.19,4.63-12.44,22-5.61,22.94-20.67,85.62-85.24,112.49-18.77,7.81-51.62,24-70.25,32.5-21.28,9.69-122,65.3-141.93,54.24-59.16-32.81-84.89-8.07-84.89-8.07Z"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "g",
+                {
+                  staticStyle: {
+                    "clip-path": "url(#592cb7ed-379b-4d1e-84ae-b86fa6871786)"
+                  }
+                },
+                [
+                  _c("g", [
+                    _c("path", {
+                      staticStyle: { fill: "#fff" },
+                      attrs: {
+                        d:
+                          "M329.26,310.88A53,53,0,0,1,349.13,291c17.78-10.27,39.06-10.51,52.11-18,12.81-7.42,31.26-43.15,65.47-40.18,39.68,3.46,48.1,19.84,77.87,39.66,32,21.33,43.69,1.76,64.75,34.68,17.93,28-8.27,93.08-8.2,122,0,19.55,20.17,75.86,20.22,95.78.07,26.13-11.63,77.81-15.12,79.82-11,6.37-15.87-39.46-32.25-60.17-12.88-16.28-25.31-28.57-36.1-23.75-11,7.78-31.39,27.36-42.48,59.75-13.51,39.47-20.92,99.27-33.33,101.12-8.86,1.32-46.42-50.42-55.67-82.42-13.31-46-4.74-80.58-11.68-82.56-18.55-5.3-47.34,90.2-61.65,87.29-5.53-1.12-17-40.25-14.74-77.09C320.6,490.68,338,453,338,433.39,337.91,404.48,300.53,360.64,329.26,310.88Z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      staticStyle: { fill: "#f6f5ea" },
+                      attrs: {
+                        d:
+                          "M453.93,321c-18.57,2.73-37.74,9.72-52.22,23.38-46.43,43.77-3.4,107.76-3.32,139.27-8,81.57,9.37,126,22.32,147.62,13.83,23.11,28.17,45.6,40.92,51,11.78,4.95,21.24-67.47,35-110.18,11.27-35,28-44,41.27-51.16,8.85-4.2,23.16-4.7,36,13.15,15.94,22.2,21,72,32.78,65.1,3.59-2.09,9.34-53.9,9.28-82.17-.06-21.56-14.45-54.06-16.23-75.14-.66-7.86,7-50,9.58-60.58,12-48.53,6.69-65.5-1.81-77.57a51.39,51.39,0,0,0-16-14.78s-6.31-2.55-27.58-7c-12.95-6.49-25.53-13.68-25.53-13.68s-33.87,0-46.47,35C481.62,317.82,453.93,321,453.93,321Z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      staticStyle: { fill: "#e5c386" },
+                      attrs: {
+                        d:
+                          "M601.44,433.73c1.74,19.34,20.52,73.18,20.57,93,.07,25.95-11.51,77.34-15,79.26-11.54,6.32-16.45-39.37-32-59.75-12.52-16.37-27.2-27.44-35.85-23.58-12.94,6.59-28.59,26.31-39.6,58.47-13.42,39.2-23.35,99.43-35.68,101.27-8.79,1.31-24.88-31.13-26.51-64.16-2.47-49.74,3.65-55.28,1.32-87.61-.07-28.91-23.05-55.58,5.68-105.34a53,53,0,0,1,19.87-19.85c17.78-10.27,39.06-10.5,52.11-18,12.81-7.42,32.06-38.73,66.27-35.75,0,0,24.47,1.8,28.76,21.33,0,0-4.27,22.65-7.54,38.14C602.84,415.73,600.79,426.51,601.44,433.73Z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      staticStyle: { fill: "#e6ad98" },
+                      attrs: {
+                        d:
+                          "M572.15,479.47c4.91,3.63,20.47,19.72,23.7,42.86,1.75,12.56,2.91,31.75-.57,32-6.42.46-11.14-20-18.9-29.85C562,506.22,548.25,502.6,539.57,503.1S520.35,513,513.7,524c-15.12,25-25.16,75.77-31.08,74.36-6.38-1.52-2.52-17.61-3.64-36.81-.88-14.92,5-29.13,8.11-52,0-14.13-12.79-22.93,1.25-47.25,2.62-4.55,8.28-6.71,12-8.85,8.69-5,19.09-5.13,25.47-8.8s15.67-18.93,32.39-17.47c0,0,17.71,1.34,12.56,29.5C570.32,459,566.66,475.41,572.15,479.47Z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      staticStyle: { fill: "#baced8" },
+                      attrs: {
+                        d:
+                          "M500.77,305.11S484,303,488.56,293c3.39-7.49,7.44-14-7.31-5.31a52.15,52.15,0,0,1-23.47,7.19c-12.95,1.44-36.52-12.77-28.06,0,10.73,16.21-12.78,38.31-2.7,34.18,29.39-12.07,54.28-3.79,63.68,6.85,1.16,1.31,2.71,2.61,3.55.38.93-2.48-.09-5.47-.22-8a15.57,15.57,0,0,1,1.64-8.7c2-3.47,5.25-5.31,8.86-6.69,1.73-.67,4.76-1.88,5.18-3.66S504.67,305.53,500.77,305.11Z"
+                      }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("path", {
+                staticStyle: { fill: "#f6f5ea" },
+                attrs: {
+                  d:
+                    "M270.84,774.38c-17.3,0-31.32,9.63-31.32,21.5s14,21.5,31.32,21.5"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("line", {
+              staticStyle: {
+                fill: "none",
+                stroke: "#f6f5ea",
+                "stroke-miterlimit": "10"
+              },
+              attrs: { x1: "592.3", y1: "389.96", x2: "775.31", y2: "287.53" }
+            }),
+            _vm._v(" "),
+            _c("line", {
+              staticStyle: {
+                fill: "none",
+                stroke: "#f6f5ea",
+                "stroke-miterlimit": "10"
+              },
+              attrs: { x1: "682.73", y1: "467.58", x2: "775.31", y2: "415.76" }
+            }),
+            _vm._v(" "),
+            _c("line", {
+              staticStyle: {
+                fill: "none",
+                stroke: "#f6f5ea",
+                "stroke-miterlimit": "10"
+              },
+              attrs: { x1: "592.3", y1: "307.48", x2: "775.31", y2: "205.05" }
+            }),
+            _vm._v(" "),
+            _c("line", {
+              staticStyle: {
+                fill: "none",
+                stroke: "#f6f5ea",
+                "stroke-miterlimit": "10"
+              },
+              attrs: { x1: "623.84", y1: "238.45", x2: "775.31", y2: "153.67" }
+            })
+          ])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5c1f8a35", module.exports)
+  }
+}
+
+/***/ }),
+/* 150 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(151)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(153)
+/* template */
+var __vue_template__ = __webpack_require__(159)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/Accordion.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-17d98b6d", Component.options)
+  } else {
+    hotAPI.reload("data-v-17d98b6d", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 151 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(152);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("3b33c6b1", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-17d98b6d\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Accordion.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-17d98b6d\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Accordion.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 152 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 153 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AccordionItem_vue__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AccordionItem_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__AccordionItem_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Accordion',
+  components: {
+    AccordionItem: __WEBPACK_IMPORTED_MODULE_0__AccordionItem_vue___default.a
+  },
+  props: {
+    items: {
+      type: Array,
+      default: function _default() {}
+    }
+  }
+});
+
+/***/ }),
+/* 154 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(160)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(157)
+/* template */
+var __vue_template__ = __webpack_require__(158)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/AccordionItem.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-bf6d92c0", Component.options)
+  } else {
+    hotAPI.reload("data-v-bf6d92c0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 155 */,
+/* 156 */,
+/* 157 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HomeHorizontalSep_vue__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HomeHorizontalSep_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__HomeHorizontalSep_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'AccordionItem',
+  components: {
+    IconArrowDown: __WEBPACK_IMPORTED_MODULE_0__ui__["a" /* IconArrowDown */],
+    HomeHorizontalSep: __WEBPACK_IMPORTED_MODULE_1__HomeHorizontalSep_vue___default.a
+  },
+  props: {
+    idx: {
+      type: Number,
+      default: 0
+    },
+    title: {
+      type: String,
+      default: 'Titolo'
+    }
+  },
+  data: function data() {
+    return {
+      formIsOpen: false,
+      headerColorClass: null,
+      master: null,
+      panelHeight: 0,
+      even: false
+    };
+  },
+  watch: {
+    formIsOpen: function formIsOpen(value) {
+      if (value && !this.even) {
+        this.$refs.header.style.backgroundColor = '#f6f5ea';
+      } else if (!value && !this.even) {
+        this.$refs.header.style.backgroundColor = 'inherit';
+      }
+    }
+  },
+  methods: {
+    isEven: function isEven(n) {
+      return n % 2 == 0;
+    },
+    setHeaderColor: function setHeaderColor() {
+      if (this.isEven(this.idx)) {
+        this.headerColorClass = 'f6f5ea';
+        this.$refs.header.style.backgroundColor = '#f6f5ea';
+        this.even = true;
+      }
+    },
+    togglePanel: function togglePanel() {
+      var panel = this.$refs.content;
+
+      if (!this.formIsOpen) {
+        if (this.master) {
+          this.master.play();
+          this.formIsOpen = true;
+        } else {
+          this.master = new TimelineMax({
+            paused: true,
+            reversed: true
+          });
+          TweenLite.set(panel, {
+            height: 0,
+            autoAlpha: 0,
+            display: 'none',
+            transformOrigin: "left top 0"
+          });
+          this.master.to(panel, .6, {
+            height: this.panelHeight,
+            scaleY: 1,
+            autoAlpha: 1,
+            display: "block",
+            transformOrigin: "left top 0",
+            ease: Cubic.easeInOut
+          });
+          this.master.progress(1).progress(0);
+          this.master.play();
+          this.formIsOpen = true;
+        }
+      } else {
+        this.master.reverse();
+        this.formIsOpen = false;
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.setHeaderColor();
+    var form = this.$refs.content;
+    this.panelHeight = form.offsetHeight;
+    TweenLite.set(form, {
+      height: 0,
+      autoAlpha: 0,
+      display: 'none',
+      transformOrigin: "left top 0"
+    });
+  }
+});
+
+/***/ }),
+/* 158 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "accordion-item" }, [
+    _c(
+      "div",
+      {
+        ref: "header",
+        staticClass: "accordion-header",
+        on: { click: _vm.togglePanel }
+      },
+      [
+        _c("div", { staticClass: "accordion-title" }, [
+          _vm._v(_vm._s(_vm.title))
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c("icon-arrow-down", {
+              attrs: { width: "16px", color: "#283745" }
+            })
+          ],
+          1
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { ref: "content", staticClass: "accordion-content" },
+      [
+        _c("h3", [_vm._v(_vm._s(_vm.title))]),
+        _vm._v(" "),
+        _c("home-horizontal-sep", {
+          attrs: { width: "50px", color: "#e5c386" }
+        }),
+        _vm._v(" "),
+        _vm._m(0)
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v(
+        "\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae dictum ligula, imperdiet convallis neque. Praesent pulvinar placerat mattis. Praesent pulvinar, nisl ut posuere ornare, tortor massa mollis arcu, eu rutrum odio urna sed neque. Pellentesque lacus mi, dapibus eget pulvinar ut, cursus sed nisi. Quisque placerat, purus pellentesque sollicitudin finibus, odio lectus scelerisque ipsum, id porta sapien felis vitae turpis. Donec blandit magna vel sapien sodales, in sollicitudin enim tempus. Nunc non posuere enim. Nullam non sodales enim. Duis viverra tortor nec lacus sollicitudin ullamcorper. Phasellus placerat vulputate luctus. Pellentesque volutpat purus odio, quis viverra magna commodo at. Nulla enim felis, vulputate nec lacus vitae, porta volutpat sapien. Vivamus molestie sit amet erat ac elementum.\n            "
+      ),
+      _c("br"),
+      _c("br"),
+      _vm._v(
+        "\n            Vivamus sed eleifend risus. Nam gravida sem dolor, nec mattis ligula tincidunt in. Nunc in malesuada tortor. Cras velit augue, posuere in nibh in, aliquam tincidunt mauris. Pellentesque eu nisi in turpis blandit euismod non non erat. Nunc quis ante massa. Maecenas eleifend dui id felis blandit, et interdum ipsum suscipit.\n            "
+      ),
+      _c("br"),
+      _c("br"),
+      _vm._v(
+        "\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae dictum ligula, imperdiet convallis neque. Praesent pulvinar placerat mattis. Praesent pulvinar, nisl ut posuere ornare, tortor massa mollis arcu, eu rutrum odio urna sed neque. Pellentesque lacus mi, dapibus eget pulvinar ut, cursus sed nisi. Quisque placerat, purus pellentesque sollicitudin finibus, odio lectus scelerisque ipsum, id porta sapien felis vitae turpis. Donec blandit magna vel sapien sodales, in sollicitudin enim tempus. Nunc non posuere enim. Nullam non sodales enim. Duis viverra tortor nec lacus sollicitudin ullamcorper. Phasellus placerat vulputate luctus. Pellentesque volutpat purus odio, quis viverra magna commodo at. Nulla enim felis, vulputate nec lacus vitae, porta volutpat sapien. Vivamus molestie sit amet erat ac elementum.\n            "
+      ),
+      _c("br"),
+      _c("br"),
+      _vm._v(
+        "\n\n            Vivamus sed eleifend risus. Nam gravida sem dolor, nec mattis ligula tincidunt in. Nunc in malesuada tortor. Cras velit augue, posuere in nibh in, aliquam tincidunt mauris. Pellentesque eu nisi in turpis blandit euismod non non erat. Nunc quis ante massa. Maecenas eleifend dui id felis blandit, et interdum ipsum suscipit.\n            "
+      ),
+      _c("br"),
+      _c("br"),
+      _vm._v(
+        "\n\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae dictum ligula, imperdiet convallis neque. Praesent pulvinar placerat mattis. Praesent pulvinar, nisl ut posuere ornare, tortor massa mollis arcu, eu rutrum odio urna sed neque. Pellentesque lacus mi, dapibus eget pulvinar ut, cursus sed nisi. Quisque placerat, purus pellentesque sollicitudin finibus, odio lectus scelerisque ipsum, id porta sapien felis vitae turpis. Donec blandit magna vel sapien sodales, in sollicitudin enim tempus. Nunc non posuere enim. Nullam non sodales enim. Duis viverra tortor nec lacus sollicitudin ullamcorper. Phasellus placerat vulputate luctus. Pellentesque volutpat purus odio, quis viverra magna commodo at. Nulla enim felis, vulputate nec lacus vitae, porta volutpat sapien. Vivamus molestie sit amet erat ac elementum.\n            "
+      ),
+      _c("br"),
+      _c("br"),
+      _vm._v(
+        "\n\n            Vivamus sed eleifend risus. Nam gravida sem dolor, nec mattis ligula tincidunt in. Nunc in malesuada tortor. Cras velit augue, posuere in nibh in, aliquam tincidunt mauris. Pellentesque eu nisi in turpis blandit euismod non non erat. Nunc quis ante massa. Maecenas eleifend dui id felis blandit, et interdum ipsum suscipit.\n        "
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-bf6d92c0", module.exports)
+  }
+}
+
+/***/ }),
+/* 159 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "accordion" },
+    _vm._l(_vm.items, function(item, i) {
+      return _c("accordion-item", {
+        key: i,
+        attrs: { idx: i, title: item.title, content: item.content }
+      })
+    }),
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-17d98b6d", module.exports)
+  }
+}
+
+/***/ }),
+/* 160 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(161);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("3bb0e094", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bf6d92c0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AccordionItem.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bf6d92c0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AccordionItem.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 161 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.accordion-item {\n  width: 100%;\n}\n.accordion-header {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  padding-top: 0.25rem;\n  padding-bottom: 0.25rem;\n  padding-left: 1rem;\n  padding-right: 1rem;\n}\n.accordion-header .accordion-title {\n    font-weight: normal;\n    text-transform: capitalize;\n}\n.accordion-content {\n  background-color: #fff;\n  position: relative;\n  width: calc(100vw - 8rem);\n  z-index: 2;\n  padding: 2rem;\n  visibility: hidden;\n  /* hides all .Tile-flyout on load so GSAP autoAlpha can do its thing */\n  height: auto;\n  /* tell the browser that initial height is auto */\n  overflow: hidden;\n}\n.accordion-content svg {\n    padding-bottom: 1rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 162 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var services = [{
+  id: 1,
+  title: 'Chirurgia Odontoiatrica',
+  content: ''
+}, {
+  id: 2,
+  title: 'Ricostruzioni Estetiche (Odontoiatria estetica)',
+  content: ''
+}, {
+  id: 3,
+  title: 'Faccette estetiche dentali',
+  content: ''
+}, {
+  id: 4,
+  title: 'Protesi Fissa',
+  content: ''
+}, {
+  id: 5,
+  title: 'Protesi Removibile',
+  content: ''
+}, {
+  id: 6,
+  title: 'Igiene e Profilassi',
+  content: ''
+}, {
+  id: 7,
+  title: 'Endodonzia',
+  content: ''
+}, {
+  id: 8,
+  title: 'Sbiancamento Dentale',
+  content: ''
+}, {
+  id: 9,
+  title: 'Pedodonzia - Odontoiatria Pediatrica',
+  content: ''
+}, {
+  id: 10,
+  title: 'Parodontopatie',
+  content: ''
+}, {
+  id: 11,
+  title: 'Implantologia',
+  content: ''
+}, {
+  id: 12,
+  title: 'Gnatologia',
+  content: ''
+}];
+/* harmony default export */ __webpack_exports__["a"] = (services);
+
+/***/ }),
+/* 163 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(164);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("4d416408", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4bd2265e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Estetica.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4bd2265e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Estetica.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 164 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.estetica {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #eac88c;\n}\n.estetica .estetica-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 100vh;\n}\n.estetica .estetica-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.estetica .estetica-container > div > svg {\n        margin-bottom: 2rem;\n}\n.estetica .estetica-container > div h1 {\n        display: block;\n}\n.estetica .estetica-container .estetica-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.estetica .estetica-container .estetica-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.estetica .estetica-container .estetica-content {\n      padding: 4rem;\n      width: 100%;\n}\n.estetica .estetica-container .estetica-content .estetica-bold-divider {\n        content: '';\n        width: 30px;\n        border-top: 6px solid #fbfaf0;\n        margin-bottom: 1rem;\n}\n.estetica .estetica-container .estetica-content .estetica-v-div {\n        content: '';\n        height: 100px;\n        border-left: 1px solid #fbfaf0;\n        margin-bottom: 1rem;\n        margin-top: 1rem;\n}\n.estetica .estetica-container .estetica-subtitle {\n      font-size: 1.5rem;\n      font-weight: 300;\n}\n.estetica .estetica-container .estetica-divider {\n      margin-bottom: 1rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 165 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(166)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(168)
+/* template */
+var __vue_template__ = __webpack_require__(169)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/EsteticaIllust.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2b8e954a", Component.options)
+  } else {
+    hotAPI.reload("data-v-2b8e954a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 166 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(167);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("c526467c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2b8e954a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EsteticaIllust.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2b8e954a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EsteticaIllust.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 167 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 168 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'EsteticaIllust',
+  props: {
+    width: {
+      type: String,
+      default: '32px'
+    }
+  },
+  mounted: function mounted() {}
+});
+
+/***/ }),
+/* 169 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "svg",
+    {
+      ref: "illust",
+      attrs: {
+        id: "b0168ce7-f319-4916-be35-99b395386a72",
+        "data-name": "Layer 1",
+        xmlns: "http://www.w3.org/2000/svg",
+        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+        viewBox: "0 0 586.18 763.1",
+        width: _vm.width
+      }
+    },
+    [
+      _c("defs", [
+        _c(
+          "clipPath",
+          { attrs: { id: "53ebf7fe-c1d6-4807-881d-22ada0a9a4aa" } },
+          [
+            _c("polygon", {
+              staticStyle: { fill: "none" },
+              attrs: {
+                points:
+                  "80.33 316.24 180.05 258.67 180.05 103.26 80.33 160.83 80.33 316.24"
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "clipPath",
+          { attrs: { id: "0b03638a-97b0-46b0-8a4a-59b46ab40364" } },
+          [
+            _c("polygon", {
+              staticStyle: { fill: "none" },
+              attrs: {
+                points:
+                  "33.77 600.73 250.77 475.01 250.77 320.61 33.77 446.32 33.77 600.73"
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "clipPath",
+          { attrs: { id: "4fba8249-75a0-4a19-b57b-d7b7fc460f99" } },
+          [
+            _c("polygon", {
+              staticStyle: { fill: "none" },
+              attrs: {
+                points:
+                  "265.73 226.91 356.26 174.33 356.26 63.28 265.73 115.87 265.73 226.91"
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "clipPath",
+          { attrs: { id: "a5eedcba-3a05-4523-ac6f-92ed7f649617" } },
+          [
+            _c("path", {
+              staticStyle: { fill: "none" },
+              attrs: {
+                d:
+                  "M339.06,440c-22,13.57-39.07-13.47-40.28-59.57-1.21-46.27,16.34-94,37.94-106.49S376.37,288.74,377,335,360.3,426.82,339.06,440Z"
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "clipPath",
+          { attrs: { id: "6a112d55-8d4a-489e-8882-9f0517a047d3" } },
+          [
+            _c("polygon", {
+              staticStyle: { fill: "none" },
+              attrs: {
+                points:
+                  "435.22 464.27 557.51 393.4 557.51 113.37 435.22 184.23 435.22 464.27"
+              }
+            })
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("title", [_vm._v("illust-estetica")]),
+      _vm._v(" "),
+      _c("g", [
+        _c("g", [
+          _c("g", [
+            _c("polygon", {
+              staticStyle: { fill: "#f6f5ea" },
+              attrs: {
+                points:
+                  "47.05 385.77 213.32 289.78 213.32 33.73 47.05 129.72 47.05 385.77"
+              }
+            }),
+            _vm._v(" "),
+            _c("polygon", {
+              staticStyle: { fill: "#e6ad98" },
+              attrs: {
+                points:
+                  "52.73 375.19 207.65 285.74 207.65 44.31 52.73 133.76 52.73 375.19"
+              }
+            }),
+            _vm._v(" "),
+            _c("polygon", {
+              staticStyle: { fill: "#f6f5ea" },
+              attrs: {
+                points:
+                  "80.33 316.24 180.05 258.67 180.05 103.26 80.33 160.83 80.33 316.24"
+              }
+            }),
+            _vm._v(" "),
+            _c("polygon", {
+              staticStyle: { fill: "#283745" },
+              attrs: {
+                points:
+                  "40.03 125.72 47.05 129.78 47.05 385.77 40.03 381.72 40.03 125.72"
+              }
+            }),
+            _vm._v(" "),
+            _c("polygon", {
+              staticStyle: { fill: "#baced8" },
+              attrs: {
+                points:
+                  "213.32 33.73 47.05 129.78 40.03 125.72 206.08 29.67 213.32 33.73"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "g",
+            {
+              staticStyle: {
+                "clip-path": "url(#53ebf7fe-c1d6-4807-881d-22ada0a9a4aa)"
+              }
+            },
+            [
+              _c("g", [
+                _c("path", {
+                  staticStyle: { fill: "#283745", "fill-rule": "evenodd" },
+                  attrs: {
+                    d:
+                      "M88.8,236.79c8.31-14.21,15.25-30.27,24.93-42.65,11.82-15.29,13.24-3.74,17.62-6.5,4.92-2.73,6.33-18,20.55-11.66l18.78,11.83c-3.47,6.43-4.83,12.45-7.24,18.67-12.11,35.7-53.79,57.92-67.18,38.39C93.77,242.18,92.56,238.4,88.8,236.79Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#fff", "fill-rule": "evenodd" },
+                  attrs: {
+                    d:
+                      "M106.06,229c8.79-2.92,17.63-10.07,25.75-15,8.45-5.16,15.95-7.61,25.39-16.21-6.58,2-10.81-1.9-21.15,5.66a30.6,30.6,0,0,1-7.87,4.57C118,212.35,111.4,223.94,106.06,229Z"
+                  }
+                })
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("g", [
+          _c("g", [
+            _c("polygon", {
+              staticStyle: { fill: "#f6f5ea" },
+              attrs: {
+                points:
+                  "13.5 635.38 266.42 489.14 266.42 288.79 13.5 435.04 13.5 635.38"
+              }
+            }),
+            _vm._v(" "),
+            _c("polygon", {
+              staticStyle: { fill: "#e5c386" },
+              attrs: {
+                points:
+                  "17.94 627.1 262.25 485.97 262.25 297.06 17.94 438.2 17.94 627.1"
+              }
+            }),
+            _vm._v(" "),
+            _c("polygon", {
+              staticStyle: { fill: "#413d52" },
+              attrs: {
+                points:
+                  "33.77 600.73 250.77 475.01 250.77 320.61 33.77 446.32 33.77 600.73"
+              }
+            }),
+            _vm._v(" "),
+            _c("polygon", {
+              staticStyle: { fill: "#413d52" },
+              attrs: {
+                points:
+                  "8.01 431.91 13.5 435.08 13.5 635.38 8.01 632.21 8.01 431.91"
+              }
+            }),
+            _vm._v(" "),
+            _c("polygon", {
+              staticStyle: { fill: "#e6ad98" },
+              attrs: {
+                points:
+                  "266.42 288.79 13.5 435.08 8.01 431.91 260.75 285.62 266.42 288.79"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "g",
+            {
+              staticStyle: {
+                "clip-path": "url(#0b03638a-97b0-46b0-8a4a-59b46ab40364)"
+              }
+            },
+            [
+              _c("g", [
+                _c("polygon", {
+                  staticStyle: { fill: "#fff" },
+                  attrs: {
+                    points:
+                      "192.73 564.44 117 604.23 107.04 494.82 182.78 455.03 192.73 564.44"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#fff" },
+                  attrs: {
+                    d:
+                      "M48.24,359.52C50.78,380,73.49,466.15,84.42,483.35c8.44,13.31,40.16,27.12,46.9,27.22s16.3-5.83,16.3-5.83,9.72-4.2,15.83-11.05,32.53-51.21,37.9-71.77c6.94-26.59,12.62-127.64,11.37-148.81"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#baced8" },
+                  attrs: {
+                    d:
+                      "M163.45,493.69c-6.11,6.85-15.83,11.05-15.83,11.05s-9.56,5.93-16.3,5.83c-3.47-.05-13.55-3.74-23.67-9.11l.58,6.39c4.33,3.59,9,6.8,13.26,10.44,11.37,9.81,26,5.75,36.23-3.63,9.35-8.59,15.07-20.3,20.26-31.67,1.06-2.31,2.08-4.64,3.07-7,.74-1.75,3.14-5.46,3-7.32l-.64-7C175.11,476.71,166.59,490.17,163.45,493.69Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#283745" },
+                  attrs: {
+                    d:
+                      "M147.83,390s-.4-.32-1.94,1.4-3,3.58-3,5.21c0,.66.75,2.44,1.5,1.11s1.06-3.79,1.92-5.08S148.46,390.62,147.83,390Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#283745" },
+                  attrs: {
+                    d:
+                      "M124.14,402.48s.31-.7,2-.68,3.37.21,3.66,1.69c.12.6-.26,3-1.17,2.52s-1.62-2.39-2.63-2.7S123.66,403.65,124.14,402.48Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("g", [
+                  _c("path", {
+                    staticStyle: { fill: "#e6ad98", "fill-rule": "evenodd" },
+                    attrs: {
+                      d:
+                        "M116.45,447.23c4.36-7.08,7.9-15.11,13.09-21.25,6.34-7.59,7.46-1.75,9.89-3.1,2.74-1.33,3.13-9,11.43-5.68l11.06,6.15c-1.81,3.2-2.42,6.22-3.63,9.34-5.95,17.87-29.17,28.66-37.36,18.68C119.44,450,118.64,448.08,116.45,447.23Z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#fff", "fill-rule": "evenodd" },
+                    attrs: {
+                      d:
+                        "M125.53,443.45c4.94-1.39,9.81-4.9,14.31-7.32,4.69-2.52,8.91-3.68,14.07-7.92-3.71.94-6.23-1.06-11.94,2.64a16.4,16.4,0,0,1-4.37,2.23C131.89,435.19,128.45,441,125.53,443.45Z"
+                    }
+                  })
+                ])
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("g", [
+          _c("polygon", {
+            staticStyle: { fill: "#283745" },
+            attrs: {
+              points:
+                "236.82 276.52 381.96 192.85 381.96 13.27 236.82 96.94 236.82 276.52"
+            }
+          }),
+          _vm._v(" "),
+          _c("polygon", {
+            staticStyle: { fill: "#e5c386" },
+            attrs: {
+              points:
+                "240.8 269.1 377.47 190.46 377.47 21.13 240.8 99.77 240.8 269.1"
+            }
+          }),
+          _vm._v(" "),
+          _c("polygon", {
+            staticStyle: { fill: "#f6f5ea" },
+            attrs: {
+              points:
+                "265.73 226.91 356.26 174.33 356.26 63.28 265.73 115.87 265.73 226.91"
+            }
+          }),
+          _vm._v(" "),
+          _c("polygon", {
+            staticStyle: { fill: "#baced8" },
+            attrs: {
+              points:
+                "231.9 94.13 236.82 96.97 236.82 276.52 231.9 273.68 231.9 94.13"
+            }
+          }),
+          _vm._v(" "),
+          _c("polygon", {
+            staticStyle: { fill: "#e5ac97" },
+            attrs: {
+              points:
+                "381.96 13.27 236.82 96.97 231.9 94.13 376.88 10.43 381.96 13.27"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "g",
+            {
+              staticStyle: {
+                "clip-path": "url(#4fba8249-75a0-4a19-b57b-d7b7fc460f99)"
+              }
+            },
+            [
+              _c("g", [
+                _c("g", [
+                  _c("path", {
+                    staticStyle: { fill: "#e6ad98" },
+                    attrs: {
+                      d:
+                        "M347.93,116.17c-2.72-6.29-6.27-11.81-8.94-18.15a71.84,71.84,0,0,1-5.4-34.74L279.82,89.85c.83-.45.19,21.74.14,23.13-.43,12.83-1.16,18.37-4.74,36.48-1.5,7.58-3.38,18.08-4.53,25.21a73.64,73.64,0,0,0,1,28.52,101.76,101.76,0,0,0,3.59,12c1.29,3.58,3.44,6.3,4.76,9.81,1.15,3.06,11.61,9.5,19.31-2.08a76.55,76.55,0,0,0,9.11-19.9c4.61,8.06,11.6,10.95,19.43,6.57,12.32-6.9,16.69-24.41,19.38-36.18,3.89-17,6.77-34.44,3.72-48.1A51.15,51.15,0,0,0,347.93,116.17Z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      d:
+                        "M309.2,150.82c0-15,10.78-31.94,21.47-38.27a13.67,13.67,0,0,0-2.89,1.28c-12.22,6.84-22.13,24.7-22.13,39.88s9.92,21.94,22.14,15.1l.29-.17C318.63,171.88,309.21,164.55,309.2,150.82Z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      d:
+                        "M300.17,129.61c-.82.45-1.62.95-2.42,1.49,11.94-5.28,21.27,1.21,21.27,15.45s-9.32,31.16-21.26,39.24c.8-.35,1.6-.75,2.42-1.21,13.07-7.31,23.67-25.55,23.67-40.74S313.24,122.29,300.17,129.61Z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      d:
+                        "M313.07,170.08c0,25.3-7.92,50.68-20.51,59.37a15.91,15.91,0,0,0,1.61-.79c13.34-7.47,22.12-32.46,22.09-62.57"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#e6ad98" },
+                  attrs: {
+                    d:
+                      "M320.64,146.63c0,15.18-10.86,33.37-24.26,40.64s-23.13-3.44-23.14-18.62,9.74-29.09,23.14-36.35S320.64,131.44,320.64,146.63Z"
+                  }
+                })
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("g", [
+          _c("polygon", {
+            staticStyle: { fill: "#e6ad98" },
+            attrs: {
+              points:
+                "240.79 716.26 385.93 632.59 385.93 453.01 240.79 536.67 240.79 716.26"
+            }
+          }),
+          _vm._v(" "),
+          _c("polygon", {
+            staticStyle: { fill: "#413d52" },
+            attrs: {
+              points:
+                "244.77 708.83 381.44 630.2 381.44 460.87 244.77 539.5 244.77 708.83"
+            }
+          }),
+          _vm._v(" "),
+          _c("polygon", {
+            staticStyle: { fill: "#f6f5ea" },
+            attrs: {
+              points:
+                "269.7 666.65 360.23 614.06 360.23 503.02 269.7 555.61 269.7 666.65"
+            }
+          }),
+          _vm._v(" "),
+          _c("polygon", {
+            staticStyle: { fill: "#f6f5ea" },
+            attrs: {
+              points:
+                "235.86 533.87 240.79 536.71 240.79 716.26 235.86 713.41 235.86 533.87"
+            }
+          }),
+          _vm._v(" "),
+          _c("polygon", {
+            staticStyle: { fill: "#baced8" },
+            attrs: {
+              points:
+                "385.93 453.01 240.79 536.71 235.86 533.87 380.85 450.16 385.93 453.01"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("g", [
+          _c("ellipse", {
+            staticStyle: { fill: "#f6f5ea" },
+            attrs: {
+              cx: "337.14",
+              cy: "357.68",
+              rx: "87.86",
+              ry: "38.03",
+              transform: "translate(-60.78 646.21) rotate(-82.64)"
+            }
+          }),
+          _vm._v(" "),
+          _c("path", {
+            staticStyle: { fill: "#413d52" },
+            attrs: {
+              d:
+                "M369.92,402.13c16-43.32,15.67-99.13-.73-124.66h0c-9.75-15.18-23-16.23-35.48-5.47-8.51,7.33-16.68,20.14-23.16,37.69-16,43.32-15.67,99.13.73,124.65,6.91,10.77,15.57,14.43,24.48,11.82C348,442.58,360.67,427.19,369.92,402.13Zm-40.51,41.35a14,14,0,0,1-2.67,0,18.2,18.2,0,0,1-3.48-.71,27.55,27.55,0,0,1-3.58-1.64,20.13,20.13,0,0,1-2.85-2.05c-.66-.54-1.46-1.37-2.08-2a24.12,24.12,0,0,1-2-2.35c-.75-1-1.72-2.35-2.4-3.44s-1.42-2.4-2-3.49c-.64-1.25-1.46-2.93-2-4.29a77.71,77.71,0,0,1-3.22-9.38,109,109,0,0,1-2.37-10.77c-.52-3.52-1.11-8.28-1.48-11.9-.19-1.84-.27-4.41-.39-6.3s-.15-4.51-.16-6.47,0-4.6.08-6.59c0-1.48.22-6.83.88-13.49.36-3.63.95-8.52,1.84-13.66.34-2,.82-4.58,1.23-6.56s1.06-4.91,1.58-7c1.85-7.5,3.6-12.67,3.79-13.24.57-1.66,1.32-3.88,1.95-5.53.73-1.95,1.75-4.54,2.58-6.47.57-1.31,1.33-3.07,2-4.36,1-2.06,2.39-4.83,3.53-6.82s2.55-4.23,3.71-6c.77-1.15,1.87-2.61,2.71-3.69s2.17-2.63,3.15-3.66,2.19-2.15,3.15-3c11.9-10.21,24.5-9.29,33.79,5,15.6,24,15.9,76.61.67,117.54-8.81,23.68-20.89,38.26-32.53,41.7A16.39,16.39,0,0,1,329.41,443.48Z"
+            }
+          }),
+          _vm._v(" "),
+          _c("g", [
+            _c("path", {
+              staticStyle: { fill: "#e5c386" },
+              attrs: {
+                d:
+                  "M369.92,402.13c16-43.32,15.67-99.13-.73-124.66h0c-9.75-15.18-23-16.23-35.48-5.47-8.51,7.33-16.68,20.14-23.16,37.69-16,43.32-15.67,99.13.73,124.65,6.91,10.77,15.57,14.43,24.48,11.82C348,442.58,360.67,427.19,369.92,402.13Zm-40.51,41.35a14,14,0,0,1-2.67,0,18.2,18.2,0,0,1-3.48-.71,27.55,27.55,0,0,1-3.58-1.64,20.13,20.13,0,0,1-2.85-2.05c-.66-.54-1.46-1.37-2.08-2a24.12,24.12,0,0,1-2-2.35c-.75-1-1.72-2.35-2.4-3.44s-1.42-2.4-2-3.49c-.64-1.25-1.46-2.93-2-4.29a77.71,77.71,0,0,1-3.22-9.38,109,109,0,0,1-2.37-10.77c-.52-3.52-1.11-8.28-1.48-11.9-.19-1.84-.27-4.41-.39-6.3s-.15-4.51-.16-6.47,0-4.6.08-6.59c0-1.48.22-6.83.88-13.49.36-3.63.95-8.52,1.84-13.66.34-2,.82-4.58,1.23-6.56s1.06-4.91,1.58-7c1.85-7.5,3.6-12.67,3.79-13.24.57-1.66,1.32-3.88,1.95-5.53.73-1.95,1.75-4.54,2.58-6.47.57-1.31,1.33-3.07,2-4.36,1-2.06,2.39-4.83,3.53-6.82s2.55-4.23,3.71-6c.77-1.15,1.87-2.61,2.71-3.69s2.17-2.63,3.15-3.66,2.19-2.15,3.15-3c11.9-10.21,24.5-9.29,33.79,5,15.6,24,15.9,76.61.67,117.54-8.81,23.68-20.89,38.26-32.53,41.7A16.39,16.39,0,0,1,329.41,443.48Z"
+              }
+            }),
+            _vm._v(" "),
+            _c("path", {
+              staticStyle: { fill: "#413d52" },
+              attrs: {
+                d:
+                  "M331,268.55a52.86,52.86,0,0,1,4.65-3.24c1-.57,2.32-1.25,3.31-1.72.7-.32,1.62-.67,2.32-.91s1.88-.57,2.67-.75,1.67-.31,2.38-.39a19.55,19.55,0,0,1,4.69,0,27.11,27.11,0,0,1,4.86,1.27,21,21,0,0,1,4.29,2.34,26.4,26.4,0,0,1,3.62,3c.74.8,1.76,1.82,2.46,2.7.95,1.2,2.17,2.88,3,4.2a3.06,3.06,0,0,1-.14,2.43c-16.29-25.59-42.38-11.27-58.27,32s-15.56,99.07.73,124.65,42.38,11.27,58.27-32,15.56-99.07-.73-124.65a3.06,3.06,0,0,0,.14-2.43h0c.68,1.18,1.64,2.71,2.27,3.94.76,1.46,1.7,3.47,2.37,5a94.31,94.31,0,0,1,3.47,10.1,117.66,117.66,0,0,1,2.66,12c1,5.75,1.4,10.63,1.61,13,.16,1.89.54,7,.58,13.7,0,5.85-.21,10.94-.42,14.19a215,215,0,0,1-3.84,29.05A194.24,194.24,0,0,1,370,404.53c-2.29,6.22-4.23,10.45-5.46,13-.68,1.45-1.63,3.37-2.39,4.78-1,1.83-2.37,4.24-3.42,6-.67,1.15-1.63,2.64-2.38,3.71-1.16,1.68-2.74,3.91-4,5.47-.69.86-1.61,2-2.33,2.78-1.35,1.45-3.17,3.32-4.56,4.64a51.87,51.87,0,0,1-4.63,3.71c-.79.58-1.86,1.18-2.65,1.68a28.76,28.76,0,0,1-5,2.34c-9.76,3.43-23.18,2-30.74-9.91-17.17-27-17.51-85.78-.77-131.37C308.71,292.12,321.61,276,331,268.55Z"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "g",
+            {
+              staticStyle: {
+                "clip-path": "url(#a5eedcba-3a05-4523-ac6f-92ed7f649617)"
+              }
+            },
+            [
+              _c("g", [
+                _c("path", {
+                  staticStyle: { fill: "#e6ad98" },
+                  attrs: {
+                    d:
+                      "M347.2,350.31a25.21,25.21,0,0,1,.31-5.45c-19.39-17.31-37.41-50.17-37.41-50.17L256.79,320l18.36,208.55s68.2-1.58,58.18-35.43S331,404.47,331,404.47c15.34-17.07,21.36-31.14,23.65-40.49C350.61,362.31,347.55,357.09,347.2,350.31Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#413d52" },
+                  attrs: {
+                    d:
+                      "M355.87,351.39a75.56,75.56,0,0,1-8.36-6.53,25.21,25.21,0,0,0-.31,5.45c.35,6.78,3.41,12,7.49,13.67C356.65,356,355.87,351.39,355.87,351.39Z"
+                  }
+                })
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("g", [
+          _c("ellipse", {
+            staticStyle: { fill: "#f6f5ea" },
+            attrs: {
+              cx: "174.79",
+              cy: "661.06",
+              rx: "83.28",
+              ry: "36.05",
+              transform: "translate(-503.21 749.71) rotate(-82.64)"
+            }
+          }),
+          _vm._v(" "),
+          _c("g", [
+            _c("path", {
+              staticStyle: { fill: "#413d52" },
+              attrs: {
+                d:
+                  "M205.86,703.2c15.16-41.06,14.85-94-.68-118.17h0c-9.25-14.39-21.8-15.38-33.64-5.19-8.07,6.95-15.81,19.09-21.95,35.73-15.16,41.06-14.85,94,.69,118.16,6.55,10.2,14.76,13.67,23.2,11.2C185.07,741.54,197.09,727,205.86,703.2Zm-38.4,39.19a13.36,13.36,0,0,1-2.53,0,17,17,0,0,1-3.29-.67,24.86,24.86,0,0,1-3.4-1.56,20.23,20.23,0,0,1-2.7-1.94c-.62-.51-1.39-1.3-2-1.87a24.41,24.41,0,0,1-1.91-2.22c-.71-.94-1.63-2.23-2.27-3.27s-1.34-2.27-1.87-3.31-1.39-2.77-1.89-4.06a74.25,74.25,0,0,1-3-8.89,102.85,102.85,0,0,1-2.26-10.21c-.48-3.33-1-7.85-1.4-11.28-.18-1.74-.26-4.18-.37-6s-.13-4.28-.15-6.14,0-4.35.08-6.24c0-1.4.2-6.47.83-12.79.35-3.44.91-8.08,1.75-13,.32-1.86.77-4.34,1.16-6.22s1-4.65,1.5-6.66c1.75-7.11,3.41-12,3.59-12.54.55-1.58,1.25-3.68,1.85-5.25.69-1.85,1.66-4.31,2.45-6.13.53-1.25,1.26-2.91,1.86-4.13,1-2,2.27-4.58,3.35-6.47s2.42-4,3.52-5.67c.73-1.09,1.77-2.48,2.56-3.5s2.07-2.49,3-3.47,2.08-2,3-2.86c11.27-9.68,23.22-8.81,32,4.72,14.8,22.73,15.08,72.61.64,111.41-8.35,22.44-19.8,36.26-30.83,39.52A15.62,15.62,0,0,1,167.46,742.39Z"
+              }
+            }),
+            _vm._v(" "),
+            _c("path", {
+              staticStyle: { fill: "#e6ad98" },
+              attrs: {
+                d:
+                  "M168.93,576.57a50,50,0,0,1,4.4-3.07c.94-.53,2.2-1.19,3.14-1.62.66-.31,1.54-.64,2.2-.87a24.61,24.61,0,0,1,2.53-.71c.69-.15,1.59-.29,2.25-.37a19.09,19.09,0,0,1,4.45,0,26.27,26.27,0,0,1,4.61,1.22,19.58,19.58,0,0,1,4.07,2.21,26.24,26.24,0,0,1,3.42,2.85c.7.76,1.68,1.73,2.34,2.56.9,1.14,2,2.73,2.87,4a2.84,2.84,0,0,1-.13,2.29c-15.45-24.25-40.17-10.67-55.23,30.33s-14.75,93.9.69,118.16,40.17,10.67,55.23-30.33,14.75-93.9-.69-118.16a2.84,2.84,0,0,0,.13-2.29h0c.65,1.12,1.55,2.56,2.16,3.73.71,1.38,1.61,3.29,2.23,4.77a88.85,88.85,0,0,1,3.3,9.57,112.6,112.6,0,0,1,2.52,11.4c.93,5.45,1.33,10.08,1.52,12.3.15,1.79.52,6.62.56,13,0,5.55-.2,10.38-.4,13.45a206.26,206.26,0,0,1-3.64,27.54,184.37,184.37,0,0,1-7.54,26.93c-2.17,5.9-4,9.9-5.17,12.35-.65,1.38-1.55,3.19-2.27,4.53-.93,1.74-2.24,4-3.24,5.72-.64,1.09-1.54,2.51-2.25,3.53-1.11,1.59-2.61,3.7-3.79,5.18-.65.81-1.52,1.89-2.21,2.63-1.28,1.38-3,3.15-4.32,4.41a51.49,51.49,0,0,1-4.39,3.51c-.75.55-1.76,1.12-2.51,1.59a27.06,27.06,0,0,1-4.78,2.22c-9.25,3.25-22,1.85-29.13-9.39-16.28-25.56-16.61-81.32-.73-124.53C147.85,598.92,160.07,583.67,168.93,576.57Z"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("g", [
+            _c("ellipse", {
+              staticStyle: { fill: "#413d52" },
+              attrs: {
+                cx: "174.85",
+                cy: "690.16",
+                rx: "7.22",
+                ry: "3.74",
+                transform: "translate(-387.56 253.6) rotate(-37.96)"
+              }
+            }),
+            _vm._v(" "),
+            _c("ellipse", {
+              staticStyle: { fill: "#413d52" },
+              attrs: {
+                cx: "192.76",
+                cy: "680.42",
+                rx: "5.83",
+                ry: "3.61",
+                transform: "translate(-433.74 352.36) rotate(-46.54)"
+              }
+            }),
+            _vm._v(" "),
+            _c("path", {
+              staticStyle: { fill: "#e6ad98" },
+              attrs: {
+                d:
+                  "M195.89,665.56c-2-3.29-4.49-5.84-6.14-9.75A75.33,75.33,0,0,1,185,640.87c-.65-3.32-.89-6.86-1.46-10.22a1.57,1.57,0,0,1,0-.23.28.28,0,0,1,0-.06c-1-5-2.33-8.6-5.77-6.73s-5.84,7.51-5.65,13v0l0,.41a136,136,0,0,1-6.46,44.59,15.89,15.89,0,0,0-.84,6.83c.44,4.11,2.71,6.66,5.63,6.91a4.47,4.47,0,0,1,1.59-5.14,3.12,3.12,0,0,1,3.47.1c1.59,1,2.5,3.37,4.2,4.18a6.18,6.18,0,0,0,5.71-.42,14.46,14.46,0,0,0,5.91-7.19c1-2.28,1.18-5.22,2.52-7.2.54-.79,1.56-1.71,2.14-1.1s.39,2.21.32,3.17a15.93,15.93,0,0,0,1.2-2.07,9,9,0,0,0,.64-2.36,15.62,15.62,0,0,0,.14-6,15.83,15.83,0,0,0-1.88-4.94Z"
+              }
+            }),
+            _vm._v(" "),
+            _c("path", {
+              staticStyle: { fill: "#f6f5ea" },
+              attrs: {
+                d:
+                  "M184.29,684a10,10,0,0,1-5.43,1.44,5.47,5.47,0,0,0,5.57-.12,12.66,12.66,0,0,0,5-5.62A16.85,16.85,0,0,1,184.29,684Z"
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("g", [
+          _c("path", {
+            staticStyle: { fill: "#e6ad98" },
+            attrs: {
+              d:
+                "M354.66,570.15c-10.43-13.32-25.18-17.68-41-9.72S284.36,587,275.85,609.9"
+            }
+          }),
+          _vm._v(" "),
+          _c("ellipse", {
+            staticStyle: { fill: "#fff" },
+            attrs: {
+              cx: "315.25",
+              cy: "589.98",
+              rx: "45.21",
+              ry: "19.48",
+              transform: "translate(-269.51 265.15) rotate(-32.83)"
+            }
+          }),
+          _vm._v(" "),
+          _c("ellipse", {
+            staticStyle: { fill: "#baced8" },
+            attrs: {
+              cx: "315.25",
+              cy: "589.98",
+              rx: "24.85",
+              ry: "16.14",
+              transform: "translate(-353.21 614.78) rotate(-64.01)"
+            }
+          }),
+          _vm._v(" "),
+          _c("ellipse", {
+            staticStyle: { fill: "#413d52" },
+            attrs: {
+              cx: "315.25",
+              cy: "589.98",
+              rx: "9.59",
+              ry: "6.23",
+              transform: "translate(-353.21 614.78) rotate(-64.01)"
+            }
+          }),
+          _vm._v(" "),
+          _c("ellipse", {
+            staticStyle: { fill: "#f6f5ea" },
+            attrs: {
+              cx: "319.27",
+              cy: "581.59",
+              rx: "1.99",
+              ry: "1.38",
+              transform: "translate(-343.41 613.68) rotate(-64.01)"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("g", [
+          _c("g", [
+            _c("polygon", {
+              staticStyle: { fill: "#f5f4ea" },
+              attrs: {
+                points:
+                  "411.96 504.44 578.17 408.48 578.17 72.67 411.96 168.63 411.96 504.44"
+              }
+            }),
+            _vm._v(" "),
+            _c("polygon", {
+              staticStyle: { fill: "#413d52" },
+              attrs: {
+                points:
+                  "417.63 492.95 572.5 403.53 572.5 83.25 417.63 172.67 417.63 492.95"
+              }
+            }),
+            _vm._v(" "),
+            _c("polygon", {
+              staticStyle: { fill: "#f5f4ea" },
+              attrs: {
+                points:
+                  "435.22 464.27 557.51 393.4 557.51 113.37 435.22 184.23 435.22 464.27"
+              }
+            }),
+            _vm._v(" "),
+            _c("polygon", {
+              staticStyle: { fill: "#baced8" },
+              attrs: {
+                points:
+                  "404.94 164.64 411.96 168.69 411.96 504.44 404.94 500.39 404.94 164.64"
+              }
+            }),
+            _vm._v(" "),
+            _c("polygon", {
+              staticStyle: { fill: "#e5ac97" },
+              attrs: {
+                points:
+                  "578.17 72.67 411.96 168.69 404.94 164.64 570.93 68.62 578.17 72.67"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "g",
+            {
+              staticStyle: {
+                "clip-path": "url(#6a112d55-8d4a-489e-8882-9f0517a047d3)"
+              }
+            },
+            [
+              _c("g", [
+                _c("path", {
+                  staticStyle: { fill: "#e5ac97" },
+                  attrs: {
+                    d:
+                      "M426.63,160.78s24.3,107.58,23.12,139c-1.62,43-38.17,123.82-29.57,183l89.54-52.94V128.66Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#e5ac97" },
+                  attrs: {
+                    d:
+                      "M560.31,95.5S542.92,255,553.13,287.42c12.91,41,25.09,49.14,16.49,108.27l-59.9,34.14V117.91Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("g", [
+                  _c("rect", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      x: "509.03",
+                      y: "290.62",
+                      width: "0.76",
+                      height: "7.5"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#413d52" },
+                    attrs: {
+                      d:
+                        "M509.79,298.12c-.19,0-.45.15-.76.21l-.15,0-.06-.24a27.11,27.11,0,0,1-.61-3.75c-.11-1.25-.2-2.5-.19-3.75v-1h1.76l1,0,0,1a32.88,32.88,0,0,1-.32,4c-.08.65-.2,1.26-.31,1.85S509.93,297.63,509.79,298.12Zm0,0-.37-2.14c-.11-.66-.24-1.3-.31-1.9a26.66,26.66,0,0,1-.32-3.46l1,1H509l1-1c0,1.25-.07,2.5-.18,3.75a27.11,27.11,0,0,1-.61,3.75l-.22-.22A5.15,5.15,0,0,0,509.79,298.12Z"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("path", {
+                  staticStyle: { fill: "#fff" },
+                  attrs: {
+                    d:
+                      "M523,369.35q-1.34,3.78-2.73,7.55l-2.83,7.51c-1.92,5-3.85,10-5.84,14.94l.09-.44c0,2.94,0,5.87,0,8.81l-.08,8.8c-.12,5.87-.18,11.74-.35,17.61l-3-.07.24-8.8c.07-2.93.2-5.86.3-8.8.19-5.87.47-11.73.74-17.6l.25.69c-2.57-3.12-5.15-6.22-7.69-9.37s-5.06-6.3-7.54-9.49c2.84,2.88,5.66,5.77,8.44,8.71s5.54,5.87,8.3,8.82l.25.27v.42c0,5.87,0,11.74,0,17.61,0,2.94,0,5.87-.09,8.81l-.16,8.8-3-.07c.09-5.86.3-11.73.44-17.6l.31-8.8c.1-2.93.21-5.87.35-8.8v-.25l.08-.19c2.18-4.88,4.41-9.74,6.65-14.59l3.43-7.26C520.67,374.15,521.84,371.75,523,369.35Z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("g", [
+                  _c("path", {
+                    staticStyle: { fill: "#f5f4ea" },
+                    attrs: { d: "M434.37,226.08l0,0h0Z" }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#f5f4ea" },
+                    attrs: { d: "M496,189.25v0h0Z" }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#f5f4ea" },
+                    attrs: {
+                      d:
+                        "M467.39,225.3c-12.32,7.36-24.2,7.17-32.95.9,9.24,10.12,21.42,12.76,33.74,5.39s22.18-23.19,27.76-42.18C489.87,204.55,479.7,217.93,467.39,225.3Z"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("g", [
+                  _c("path", {
+                    staticStyle: { fill: "#f5f4ea" },
+                    attrs: { d: "M501.35,188.17h0v0Z" }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#f5f4ea" },
+                    attrs: { d: "M563,151.33v0l0,0Z" }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticStyle: { fill: "#f5f4ea" },
+                    attrs: {
+                      d:
+                        "M534.36,187.39c-12.31,7.36-24.19,7.16-32.95.89,9.24,10.12,21.43,12.77,33.74,5.4s22.19-23.2,27.77-42.19C556.85,166.63,546.68,180,534.36,187.39Z"
+                    }
+                  })
+                ])
+              ])
+            ]
+          )
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2b8e954a", module.exports)
+  }
+}
+
+/***/ }),
+/* 170 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var services = [{
+  id: 1,
+  title: 'Carbossiterapia',
+  content: ''
+}, {
+  id: 2,
+  title: 'Trattamento delle adiposità localizzate in eccesso',
+  content: ''
+}, {
+  id: 3,
+  title: 'Trattamento macchie scure',
+  content: ''
+}, {
+  id: 4,
+  title: 'Acido Ialuronico',
+  content: ''
+}, {
+  id: 5,
+  title: 'Rinoplastica non chirurgica (Rinofiller)',
+  content: ''
+}, {
+  id: 6,
+  title: 'Aumento volume labbra',
+  content: ''
+}, {
+  id: 7,
+  title: 'Rimodellamento mandibolare',
+  content: ''
+}, {
+  id: 8,
+  title: 'Peeling viso',
+  content: ''
+}, {
+  id: 9,
+  title: 'Soft Lifting',
+  content: ''
+}, {
+  id: 10,
+  title: 'Biorivitalizzazione',
+  content: ''
+}, {
+  id: 11,
+  title: 'Tossina Botulinica',
+  content: ''
+}, {
+  id: 12,
+  title: 'La medicina Antiaging',
+  content: ''
+}, {
+  id: 13,
+  title: 'Trattamento palpebre',
+  content: ''
+}, {
+  id: 14,
+  title: 'Iperpigmentazione zona perianale e genitali',
+  content: ''
+}];
+/* harmony default export */ __webpack_exports__["a"] = (services);
 
 /***/ })
 /******/ ]);

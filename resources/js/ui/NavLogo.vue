@@ -1,6 +1,6 @@
 <template lang="html">
     <div class="logo-header">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214 201" :width="width">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214 201" :width="width" ref="logo">
             <g id="c5d9b15b-020f-45c0-9bb5-703c0ca15941" data-name="bg-logo-header">
                 <path id="777f1913-3fc7-43af-8901-ea374dd59e47" data-name="bg" d="M213.2,0V83.7c0,64.5-44.4,116.8-99.2,116.8H99.2C44.4,200.5,0,148.2,0,83.7V0Z" :style="'fill: ' + this.navClass"/>
             </g>

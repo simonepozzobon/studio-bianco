@@ -28,8 +28,19 @@ export default {
     components: {
         AboutIllust,
     },
+    watch: {
+        '$root.window.h': function(value) {
+            this.positionIllustration()
+        }
+    },
+    methods: {
+        positionIllustration: function() {
+            this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
+        }
+    },
     mounted: function() {
         this.$root.navColor = 2
+        this.positionIllustration()
     }
 }
 </script>

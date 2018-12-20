@@ -114,12 +114,9 @@ export default {
                         scaleY: 1,
                         autoAlpha: 1,
                         display: "block",
-                        //rotation: 0.01,
                         transformOrigin: "center top 0",
                         ease: Cubic.easeInOut
                     })
-
-
 
                     this.master.progress(1).progress(0);
                     this.master.play()

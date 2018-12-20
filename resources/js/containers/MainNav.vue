@@ -1,7 +1,7 @@
 <template lang="html">
     <nav class="navbar navbar-light navbar-expand-md" ref="navbar" :class="this.navClass">
         <a class="navbar-brand" href="#">
-            <nav-logo :width="214" />
+            <nav-logo :width="214"  ref="logo"/>
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,10 +16,14 @@
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Odontoiatria</a>
+                    <router-link tag="a" class="nav-link" :to="{ path: '/odontoiatria' }" exact-active-class="active">
+                        Odontoiatria
+                    </router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Medicina estetica</a>
+                    <router-link tag="a" class="nav-link" :to="{ path: '/medicina-estetica' }" exact-active-class="active">
+                        Medicina estetica
+                    </router-link>
                 </li>
                 <li class="nav-item">
                     <router-link tag="a" class="nav-link" :to="{ path: '/about' }" exact-active-class="active">
@@ -71,6 +75,9 @@ export default {
     },
     mounted: function() {
         this.$root.navbarHeight = this.$refs.navbar.offsetHeight
+        let el = this.$refs.logo.$refs.logo
+        let elSize = el.getBoundingClientRect()
+        this.$root.navbarFullHeight = elSize.height
     }
 }
 </script>
