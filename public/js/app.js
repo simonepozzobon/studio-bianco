@@ -50656,7 +50656,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.navbar {\n  min-height: 112px;\n  z-index: 9999;\n}\n", ""]);
+exports.push([module.i, "\n.navbar {\n  min-height: 112px;\n  z-index: 9999;\n}\n.navbar .nav-link {\n    font-weight: normal;\n}\n", ""]);
 
 // exports
 
@@ -50668,6 +50668,12 @@ exports.push([module.i, "\n.navbar {\n  min-height: 112px;\n  z-index: 9999;\n}\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui__ = __webpack_require__(52);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -51007,7 +51013,77 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1)
+      _c(
+        "div",
+        { staticClass: "collapse navbar-collapse", attrs: { id: "navbarNav" } },
+        [
+          _c("ul", { staticClass: "navbar-nav ml-auto" }, [
+            _c(
+              "li",
+              { staticClass: "nav-item" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-link",
+                    attrs: {
+                      tag: "a",
+                      to: { path: "/" },
+                      "exact-active-class": "active"
+                    }
+                  },
+                  [_vm._v("\n                    Home\n                ")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "nav-item" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-link",
+                    attrs: {
+                      tag: "a",
+                      to: { path: "/about" },
+                      "exact-active-class": "active"
+                    }
+                  },
+                  [_vm._v("\n                    About\n                ")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "nav-item" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-link",
+                    attrs: {
+                      tag: "a",
+                      to: { path: "/contatti" },
+                      "exact-active-class": "active"
+                    }
+                  },
+                  [_vm._v("\n                    Contatti\n                ")]
+                )
+              ],
+              1
+            )
+          ])
+        ]
+      )
     ]
   )
 }
@@ -51036,43 +51112,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "collapse navbar-collapse", attrs: { id: "navbarNav" } },
-      [
-        _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("Home")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("Odontoiatria")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("Medicina estetica")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("About")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("Contatti")
-            ])
-          ])
-        ])
-      ]
-    )
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+        _vm._v("Odontoiatria")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+        _vm._v("Medicina estetica")
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -51118,7 +51172,16 @@ var routes = [{
   name: 'about',
   component: __webpack_require__(90)
 }, {
-  path: '/contact',
+  path: '/odontoiatria',
+  name: 'odontoiatria',
+  component: __webpack_require__(133)
+}, {
+  path: '/medicina-estetica',
+  name: 'medicinaestetica',
+  component: __webpack_require__(138)
+}, {
+  path: '/contatti',
+  alias: '/contact',
   name: 'contact',
   component: __webpack_require__(100)
 }];
@@ -51234,6 +51297,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: 'Home',
   components: {
     HomeSplitMenu: __WEBPACK_IMPORTED_MODULE_0__components_HomeSplitMenu_vue___default.a
+  },
+  mounted: function mounted() {
+    this.$root.navColor = 1;
+    this.$refs.splitMenu.setViewport(this.$root.window.h);
+    this.$refs.splitMenu.fillScreen();
   }
 });
 
@@ -51323,7 +51391,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.homesplit {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.homesplit .homesplit-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 700px;\n}\n.homesplit .homesplit-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: end;\n          -ms-flex-pack: end;\n              justify-content: flex-end;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.homesplit .homesplit-container > div > svg {\n        margin-bottom: 2rem;\n}\n.homesplit .homesplit-container > div h1 {\n        display: block;\n}\n.homesplit .homesplit-container .homesplit-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #EBB29D;\n      color: #fff;\n}\n.homesplit .homesplit-container .homesplit-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #283745;\n      color: #BFD3DD;\n}\n.homesplit .homesplit-container .homesplit-divider {\n      margin-bottom: 1rem;\n}\n.homesplit .homesplit-container .homesplit-v-div {\n      margin-top: 1rem;\n      border-left: 1px solid #fff;\n      -webkit-transform: translate(-50%);\n              transform: translate(-50%);\n}\n", ""]);
+exports.push([module.i, "\n.homesplit {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n}\n.homesplit .homesplit-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 700px;\n}\n.homesplit .homesplit-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: end;\n          -ms-flex-pack: end;\n              justify-content: flex-end;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.homesplit .homesplit-container > div > svg {\n        margin-bottom: 2rem;\n}\n.homesplit .homesplit-container > div h1 {\n        display: block;\n        font-size: 2em;\n}\n.homesplit .homesplit-container .homesplit-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #EBB29D;\n      color: #fff;\n}\n.homesplit .homesplit-container .homesplit-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      background-color: #283745;\n      color: #BFD3DD;\n}\n.homesplit .homesplit-container .homesplit-divider {\n      margin-bottom: 1rem;\n}\n.homesplit .homesplit-container .homesplit-v-div {\n      margin-top: 1rem;\n      border-left: 1px solid #fff;\n      -webkit-transform: translate(-50%);\n              transform: translate(-50%);\n}\n", ""]);
 
 // exports
 
@@ -51373,7 +51441,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   watch: {
     '$root.window.h': function $rootWindowH(value) {
-      this.viewport = value;
+      this.setViewport(value);
       this.fillScreen();
     }
   },
@@ -51398,6 +51466,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var dividerHeight = this.getVerticalDividerHeight();
       this.$refs.vDividerL.style.paddingTop = dividerHeight + 'px';
       this.$refs.vDividerR.style.paddingTop = dividerHeight + 'px';
+    },
+    setViewport: function setViewport(value) {
+      this.viewport = value;
     }
   }
 });
@@ -57784,6 +57855,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   mounted: function mounted() {
+    this.$root.navColor = 1;
     var form = this.$refs.form;
     TweenLite.set(form, {
       height: 0,
@@ -71623,6 +71695,256 @@ var TweenMaxBase = TweenMax;
 
 
 
+
+/***/ }),
+/* 133 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(134)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(136)
+/* template */
+var __vue_template__ = __webpack_require__(137)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/views/Odontoiatria.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-23d233fc", Component.options)
+  } else {
+    hotAPI.reload("data-v-23d233fc", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 134 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(135);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("597305bc", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-23d233fc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Odontoiatria.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-23d233fc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Odontoiatria.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 135 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 136 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Odontoiatria'
+});
+
+/***/ }),
+/* 137 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-23d233fc", module.exports)
+  }
+}
+
+/***/ }),
+/* 138 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(139)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(141)
+/* template */
+var __vue_template__ = __webpack_require__(142)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/views/Estetica.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4bd2265e", Component.options)
+  } else {
+    hotAPI.reload("data-v-4bd2265e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(140);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("62e988fc", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4bd2265e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Estetica.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4bd2265e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Estetica.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 141 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Estetica'
+});
+
+/***/ }),
+/* 142 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4bd2265e", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

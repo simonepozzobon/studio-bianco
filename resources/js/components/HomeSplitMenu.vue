@@ -33,7 +33,7 @@ export default {
     },
     watch: {
         '$root.window.h': function(value) {
-            this.viewport = value
+            this.setViewport(value)
             this.fillScreen()
         }
     },
@@ -60,6 +60,9 @@ export default {
             let dividerHeight = this.getVerticalDividerHeight()
             this.$refs.vDividerL.style.paddingTop = dividerHeight + 'px'
             this.$refs.vDividerR.style.paddingTop = dividerHeight + 'px'
+        },
+        setViewport: function(value) {
+            this.viewport = value
         }
     }
 }
@@ -88,6 +91,7 @@ export default {
 
             h1 {
                 display: block;
+                font-size: 2em;
             }
         }
 

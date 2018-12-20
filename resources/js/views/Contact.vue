@@ -132,6 +132,7 @@ export default {
         },
     },
     mounted: function() {
+        this.$root.navColor = 1
         let form = this.$refs.form
         TweenLite.set(form, {
             height: 0,

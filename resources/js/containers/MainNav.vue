@@ -11,7 +11,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <router-link tag="a" class="nav-link" :to="{ path: '/' }" exact-active-class="active">
+                        Home
+                    </router-link>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Odontoiatria</a>
@@ -20,10 +22,14 @@
                     <a class="nav-link" href="#">Medicina estetica</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <router-link tag="a" class="nav-link" :to="{ path: '/about' }" exact-active-class="active">
+                        About
+                    </router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contatti</a>
+                    <router-link tag="a" class="nav-link" :to="{ path: '/contatti' }" exact-active-class="active">
+                        Contatti
+                    </router-link>
                 </li>
             </ul>
         </div>
@@ -74,5 +80,9 @@ export default {
 .navbar {
     min-height: 112px;
     z-index: 9999;
+
+    .nav-link {
+        font-weight: normal;
+    }
 }
 </style>

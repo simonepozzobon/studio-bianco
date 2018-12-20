@@ -12,6 +12,11 @@ export default {
     components: {
         HomeSplitMenu,
     },
+    mounted: function() {
+        this.$root.navColor = 1
+        this.$refs.splitMenu.setViewport(this.$root.window.h)
+        this.$refs.splitMenu.fillScreen()
+    }
 }
 </script>
 
