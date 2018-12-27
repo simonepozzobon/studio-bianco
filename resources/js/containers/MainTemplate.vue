@@ -1,7 +1,9 @@
 <template lang="html">
     <div class="">
         <main-nav />
-        <router-view />
+        <transition>
+            <router-view />
+        </transition>
         <main-footer v-if="this.$root.hasFooter"/>
     </div>
 </template>

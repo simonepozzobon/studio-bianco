@@ -14,18 +14,7 @@
                 <estetica-illust width="70%" ref="illust"/>
             </div>
         </div>
-        <div class="estetica-parcelle">
-            <div class="estetica-parcelle-container" ref="content">
-                <div class="estetica-content">
-                    <div class="estetica-bold-divider pink"></div>
-                    <h1 ref="title">Parcelle</h1>
-                    <div class="estetica-v-div pink"></div>
-                    <p>
-                        Le parcelle di Studio Bianco sono basate sulla competenza, l’esperienza ed il tempo necessari per trattare le vostre condizioni in modo brillante e duraturo. È nostra cura in tutte le situazioni selezionare i migliori strumenti ed i migliori materiali disponibili. Qualsiasi terapia non sarà intrapresa senza che il preventivo di spesa e le relative modalità di trattamento siano state accuratamente esposte, dopo la raccolta dei dati clinici e la formulazione del piano di trattamento, ed approvate dal paziente.
-                    </p>
-                </div>
-            </div>
-        </div>
+        <parcelle />
         <convenzioni />
     </div>
 </template>
@@ -34,13 +23,16 @@
 import Accordion from '../components/Accordion.vue'
 import Convenzioni from '../components/Convenzioni.vue'
 import EsteticaIllust from '../components/EsteticaIllust.vue'
+import Parcelle from '../components/Parcelle.vue'
 import services from '../dummies/Aservices'
+
 export default {
     name: 'Odontoiatria',
     components: {
         Accordion,
         Convenzioni,
-        EsteticaIllust
+        EsteticaIllust,
+        Parcelle,
     },
     watch: {
         '$root.window.h': function(value) {

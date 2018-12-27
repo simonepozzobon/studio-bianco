@@ -22145,7 +22145,8 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
       navbarHeight: 0,
       navbarFullHeight: 0,
       navColor: 1,
-      hasFooter: false
+      hasFooter: false,
+      homepage: null
     };
   },
   methods: {
@@ -58328,6 +58329,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -58504,12 +58507,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         default:
           this.navClass = 'bg-light';
       }
-    }
+    } // '$root.homepage': function(value) {
+    //     let currents = null
+    //
+    //     switch (value) {
+    //         case 'odontoiatria':
+    //             currents = document.getElementsByClassName('router-link-active')
+    //             this.removeActive(currents)
+    //             this.$refs.odontoiatria.$el.classList.add('active')
+    //             break;
+    //         case 'estetica':
+    //             currents = document.getElementsByClassName('router-link-active')
+    //             this.removeActive(currents)
+    //             this.$refs.estetica.$el.classList.add('active')
+    //             break;
+    //     }
+    // }
+
   },
   data: function data() {
     return {
       navClass: 'bg-light'
     };
+  },
+  methods: {// removeActive: function(currents) {
+    //     for (var i = 0; i < currents.length; i++) {
+    //         currents[i].classList.remove('active')
+    //         currents[i].classList.remove('route-link-active')
+    //     }
+    // }
   },
   mounted: function mounted() {
     this.$root.navbarHeight = this.$refs.navbar.offsetHeight;
@@ -59720,6 +59746,7 @@ var render = function() {
                 _c(
                   "router-link",
                   {
+                    ref: "odontoiatria",
                     staticClass: "nav-link",
                     attrs: {
                       tag: "a",
@@ -59744,6 +59771,7 @@ var render = function() {
                 _c(
                   "router-link",
                   {
+                    ref: "estetica",
                     staticClass: "nav-link",
                     attrs: {
                       tag: "a",
@@ -60049,7 +60077,7 @@ var render = function() {
     [
       _c("main-nav"),
       _vm._v(" "),
-      _c("router-view"),
+      _c("transition", [_c("router-view")], 1),
       _vm._v(" "),
       this.$root.hasFooter ? _c("main-footer") : _vm._e()
     ],
@@ -60409,6 +60437,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     animateToLeft: function animateToLeft() {
       this.homepage = 'estetica';
+      this.$root.homepage = 'estetica';
       var panel = this.$refs.content;
       var panelR = this.$refs.rightContent;
       var content = this.$refs.page;
@@ -60470,6 +60499,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     animateToRight: function animateToRight() {
       this.homepage = 'odontoiatria';
+      this.$root.homepage = 'odontoiatria';
       var panel = this.$refs.content;
       var panelR = this.$refs.rightContent;
       var content = this.$refs.page;
@@ -66013,6 +66043,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -69284,13 +69323,38 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("p", [
       _vm._v(
-        "\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae dictum ligula, imperdiet convallis neque. Praesent pulvinar placerat mattis. Praesent pulvinar, nisl ut posuere ornare, tortor massa mollis arcu, eu rutrum odio urna sed neque. Pellentesque lacus mi, dapibus eget pulvinar ut, cursus sed nisi. Quisque placerat, purus pellentesque sollicitudin finibus, odio lectus scelerisque ipsum, id porta sapien felis vitae turpis. Donec blandit magna vel sapien sodales, in sollicitudin enim tempus. Nunc non posuere enim. Nullam non sodales enim. Duis viverra tortor nec lacus sollicitudin ullamcorper. Phasellus placerat vulputate luctus. Pellentesque volutpat purus odio, quis viverra magna commodo at. Nulla enim felis, vulputate nec lacus vitae, porta volutpat sapien. Vivamus molestie sit amet erat ac elementum.\n                    "
+        "\n                    Studio Bianco nasce dalla consapevolezza che le dimensioni non contano più: quello che conta è l’esperienza."
+      ),
+      _c("br"),
+      _vm._v(
+        "\n                    La nostra filosofia unisce la competenza di un personale qualificato al calore di un ambiente raccolto, curato e accogliente, in completa antitesi con le grandi cliniche."
+      ),
+      _c("br"),
+      _vm._v(
+        "\n                    Lo studio è suddiviso in due unità operative: una dedicata all’odontoiatria e una alla medicina estetica avanzata."
+      ),
+      _c("br"),
+      _vm._v(
+        "\n                    Il percorso di evoluzione estetica e di cura del sorriso è pensato ad hoc per ciascun paziente, in modo da soddisfare qualsiasi esigenza in totale sicurezza e naturalezza per la soddisfazione massima, data dall’intreccio di bellezza e funzionalità."
+      ),
+      _c("br"),
+      _vm._v(
+        "\n                    L’approccio professionale e il fattore umano, inoltre, permettono a Studio Bianco di essere un punto di riferimento nel trattamento di paure e disagi dei pazienti."
       ),
       _c("br"),
       _c("br"),
       _vm._v(
-        "\n                    Vivamus sed eleifend risus. Nam gravida sem dolor, nec mattis ligula tincidunt in. Nunc in malesuada tortor. Cras velit augue, posuere in nibh in, aliquam tincidunt mauris. Pellentesque eu nisi in turpis blandit euismod non non erat. Nunc quis ante massa. Maecenas eleifend dui id felis blandit, et interdum ipsum suscipit.\n                "
-      )
+        "\n                    La nostra missione è immaginare i nostri pazienti che, davanti a uno specchio, sorridono a se stessi con tutta la felicità e la soddisfazione del mondo. È allora che il nostro lavoro può ritenersi concluso."
+      ),
+      _c("br"),
+      _c("br"),
+      _vm._v(
+        "\n                    Diversi studi hanno evidenziato che le persone con un bel sorriso vengono percepite mediamente più interessanti, intelligenti, felici, sane, sensibili e gentili."
+      ),
+      _c("br"),
+      _c("br"),
+      _vm._v("\n                    Sorridete dunque!"),
+      _c("br")
     ])
   },
   function() {
@@ -69299,13 +69363,22 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("p", [
       _vm._v(
-        "\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae dictum ligula, imperdiet convallis neque. Praesent pulvinar placerat mattis. Praesent pulvinar, nisl ut posuere ornare, tortor massa mollis arcu, eu rutrum odio urna sed neque. Pellentesque lacus mi, dapibus eget pulvinar ut, cursus sed nisi. Quisque placerat, purus pellentesque sollicitudin finibus, odio lectus scelerisque ipsum, id porta sapien felis vitae turpis. Donec blandit magna vel sapien sodales, in sollicitudin enim tempus. Nunc non posuere enim. Nullam non sodales enim. Duis viverra tortor nec lacus sollicitudin ullamcorper. Phasellus placerat vulputate luctus. Pellentesque volutpat purus odio, quis viverra magna commodo at. Nulla enim felis, vulputate nec lacus vitae, porta volutpat sapien. Vivamus molestie sit amet erat ac elementum.\n                    "
+        "\n                    Nel 1999 ho ottenuto una laurea a pieni voti in medicina e chirurgia e, nel 2004, in odontoiatria e protesi dentale. Nei primi 8 anni della mia carriera ho lavorato come medico geriatra in RSA e nell’ambito della medicina di base. Successivamente, ho partecipato a corsi di perfezionamento in medicina estetica presso la scuola Agorà di Milano e collaborato con diversi studi dentistici di Bergamo e provincia."
+      ),
+      _c("br"),
+      _vm._v(
+        "\n                    Frequento regolarmente corsi di aggiornamento, sono socia ANDI, possiedo una certificazione Invisalign e oggi, dopo più di 10 anni di carriera, ho aperto il mio studio."
       ),
       _c("br"),
       _c("br"),
       _vm._v(
-        "\n                    Vivamus sed eleifend risus. Nam gravida sem dolor, nec mattis ligula tincidunt in. Nunc in malesuada tortor. Cras velit augue, posuere in nibh in, aliquam tincidunt mauris. Pellentesque eu nisi in turpis blandit euismod non non erat. Nunc quis ante massa. Maecenas eleifend dui id felis blandit, et interdum ipsum suscipit.\n                "
-      )
+        "\n                    La mia esperienza professionale, inizialmente come medico chirurgo e poi come odontoiatra, mi consente di avere una visione olistica del paziente e di prendermene cura durante tutto il percorso, senza sottovalutare nessun aspetto."
+      ),
+      _c("br"),
+      _vm._v(
+        "\n                    La mia sfida è interpretare i bisogni dei pazienti; il mio obiettivo, tradurli in sorrisi."
+      ),
+      _c("br")
     ])
   },
   function() {
@@ -69314,13 +69387,29 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("p", [
       _vm._v(
-        "\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae dictum ligula, imperdiet convallis neque. Praesent pulvinar placerat mattis. Praesent pulvinar, nisl ut posuere ornare, tortor massa mollis arcu, eu rutrum odio urna sed neque. Pellentesque lacus mi, dapibus eget pulvinar ut, cursus sed nisi. Quisque placerat, purus pellentesque sollicitudin finibus, odio lectus scelerisque ipsum, id porta sapien felis vitae turpis. Donec blandit magna vel sapien sodales, in sollicitudin enim tempus. Nunc non posuere enim. Nullam non sodales enim. Duis viverra tortor nec lacus sollicitudin ullamcorper. Phasellus placerat vulputate luctus. Pellentesque volutpat purus odio, quis viverra magna commodo at. Nulla enim felis, vulputate nec lacus vitae, porta volutpat sapien. Vivamus molestie sit amet erat ac elementum.\n                    "
+        "\n                    Il principale motivo per cui le persone evitano di andare dal dentista è il senso di colpa. Semplicemente si sentono in colpa per aver rimandato le cure dentali di cui avevano bisogno e hanno paura di essere giudicati. Molti altri, invece, hanno paura di andare dal dentista perché hanno avuto un’esperienza dolosa o traumatica."
       ),
       _c("br"),
+      _vm._v(
+        "\n                    In generale, spesso, quella dal dentista non è percepita come un’esperienza piacevole."
+      ),
       _c("br"),
       _vm._v(
-        "\n                    Vivamus sed eleifend risus. Nam gravida sem dolor, nec mattis ligula tincidunt in. Nunc in malesuada tortor. Cras velit augue, posuere in nibh in, aliquam tincidunt mauris. Pellentesque eu nisi in turpis blandit euismod non non erat. Nunc quis ante massa. Maecenas eleifend dui id felis blandit, et interdum ipsum suscipit.\n                "
-      )
+        "\n                    Studio Bianco ne è consapevole e, per questo, vuole comprendere le paure dei pazienti per gestirle e superarle, nel massimo rispetto di ciascun caso. Questo percorso, che ha inizio ancor prima delle cure vere e proprie, mira a consolidare l’autostima e a instaurare un rapporto di fiducia, eliminando la paura del giudizio altrui."
+      ),
+      _c("br"),
+      _vm._v(
+        "\n                    Come? Tramite una visita, diversa dal solito, in uno spazio neutro dedicato e, più in generale, tramite un approccio progressivo e comportamentale, per superare insieme le paure senza farmaci e sedazioni."
+      ),
+      _c("br"),
+      _vm._v(
+        "\n                    Inoltre, Studio Bianco offre un’odontoiatria non invasiva e sedativa, con trattamenti a “paura zero”, come, ad esempio, la sedazione cosciente. Si tratta di una tecnica di ansiolisi (e non anestesiologica), messa a punto dal dott. Henry Langa, laureato in odontoiatria a New York, che consiste nella somministrazione di una miscela di ossigeno e protossido d’azoto, detto anche “gas esilarante”. Il paziente sedato è sveglio e cosciente, i suoi riflessi di tosse e deglutizione sono mantenuti e, inoltre, prova un piacevole senso di relax. I principali vantaggi di questa tecnica sono la rapidità di induzione e il completo recupero funzionale in tempi ridottissimi. Non si conoscono casi di allergia, in quanto il protossido non viene metabolizzato ma eliminato con la respirazione."
+      ),
+      _c("br"),
+      _vm._v(
+        "\n                    La programmazione di ciascun trattamento viene adeguata alle esigenze e alla disponibilità dei pazienti, in modo da ottimizzare le tempistiche e ridurre al minimo il numero di visite."
+      ),
+      _c("br")
     ])
   }
 ]
@@ -69436,7 +69525,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_OdontoiatriaIllust_vue__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_OdontoiatriaIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_OdontoiatriaIllust_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dummies_services__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dummies_services__ = __webpack_require__(163);
 //
 //
 //
@@ -69458,17 +69549,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -69478,7 +69559,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   components: {
     Accordion: __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue___default.a,
     Convenzioni: __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue___default.a,
-    OdontoiatriaIllust: __WEBPACK_IMPORTED_MODULE_2__components_OdontoiatriaIllust_vue___default.a
+    OdontoiatriaIllust: __WEBPACK_IMPORTED_MODULE_2__components_OdontoiatriaIllust_vue___default.a,
+    Parcelle: __WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue___default.a
   },
   watch: {
     '$root.window.h': function $rootWindowH(value) {
@@ -69487,7 +69569,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   data: function data() {
     return {
-      services: __WEBPACK_IMPORTED_MODULE_3__dummies_services__["a" /* default */]
+      services: __WEBPACK_IMPORTED_MODULE_4__dummies_services__["a" /* default */]
     };
   },
   methods: {
@@ -71063,27 +71145,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "odontoiatria-parcelle" }, [
-        _c(
-          "div",
-          { ref: "content", staticClass: "odontoiatria-parcelle-container" },
-          [
-            _c("div", { staticClass: "odontoiatria-content" }, [
-              _c("div", { staticClass: "odontoiatria-bold-divider pink" }),
-              _vm._v(" "),
-              _c("h1", { ref: "title" }, [_vm._v("Parcelle")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "odontoiatria-v-div pink" }),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "\n                    Le parcelle di Studio Bianco sono basate sulla competenza, l’esperienza ed il tempo necessari per trattare le vostre condizioni in modo brillante e duraturo. È nostra cura in tutte le situazioni selezionare i migliori strumenti ed i migliori materiali disponibili. Qualsiasi terapia non sarà intrapresa senza che il preventivo di spesa e le relative modalità di trattamento siano state accuratamente esposte, dopo la raccolta dei dati clinici e la formulazione del piano di trattamento, ed approvate dal paziente.\n                "
-                )
-              ])
-            ])
-          ]
-        )
-      ]),
+      _c("parcelle"),
       _vm._v(" "),
       _c("convenzioni")
     ],
@@ -71203,7 +71265,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_EsteticaIllust_vue__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_EsteticaIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_EsteticaIllust_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dummies_Aservices__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dummies_Aservices__ = __webpack_require__(174);
 //
 //
 //
@@ -71225,17 +71289,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -71245,7 +71299,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   components: {
     Accordion: __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue___default.a,
     Convenzioni: __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue___default.a,
-    EsteticaIllust: __WEBPACK_IMPORTED_MODULE_2__components_EsteticaIllust_vue___default.a
+    EsteticaIllust: __WEBPACK_IMPORTED_MODULE_2__components_EsteticaIllust_vue___default.a,
+    Parcelle: __WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue___default.a
   },
   watch: {
     '$root.window.h': function $rootWindowH(value) {
@@ -71257,7 +71312,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       height: 0,
       viewport: 0,
-      services: __WEBPACK_IMPORTED_MODULE_3__dummies_Aservices__["a" /* default */]
+      services: __WEBPACK_IMPORTED_MODULE_4__dummies_Aservices__["a" /* default */]
     };
   },
   methods: {
@@ -72435,27 +72490,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "estetica-parcelle" }, [
-        _c(
-          "div",
-          { ref: "content", staticClass: "estetica-parcelle-container" },
-          [
-            _c("div", { staticClass: "estetica-content" }, [
-              _c("div", { staticClass: "estetica-bold-divider pink" }),
-              _vm._v(" "),
-              _c("h1", { ref: "title" }, [_vm._v("Parcelle")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "estetica-v-div pink" }),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "\n                    Le parcelle di Studio Bianco sono basate sulla competenza, l’esperienza ed il tempo necessari per trattare le vostre condizioni in modo brillante e duraturo. È nostra cura in tutte le situazioni selezionare i migliori strumenti ed i migliori materiali disponibili. Qualsiasi terapia non sarà intrapresa senza che il preventivo di spesa e le relative modalità di trattamento siano state accuratamente esposte, dopo la raccolta dei dati clinici e la formulazione del piano di trattamento, ed approvate dal paziente.\n                "
-                )
-              ])
-            ])
-          ]
-        )
-      ]),
+      _c("parcelle"),
       _vm._v(" "),
       _c("convenzioni")
     ],
@@ -78086,6 +78121,158 @@ var _doc = (__WEBPACK_IMPORTED_MODULE_0__TweenLite_js__["e" /* _gsScope */].docu
 
 
 
+
+/***/ }),
+/* 191 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(192)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(194)
+/* template */
+var __vue_template__ = __webpack_require__(195)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/Parcelle.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0cb4d3ad", Component.options)
+  } else {
+    hotAPI.reload("data-v-0cb4d3ad", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 192 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(193);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("7e9c0e26", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0cb4d3ad\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Parcelle.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0cb4d3ad\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Parcelle.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.parcelle {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n  background-color: #FBFAEF;\n  min-height: 20vh;\n}\n.parcelle .parcelle-container {\n    -webkit-box-flex: 0;\n        -ms-flex: 0 0 100%;\n            flex: 0 0 100%;\n    max-width: 100%;\n}\n.parcelle .parcelle-container .parcelle-content {\n      padding: 4rem;\n      width: 100%;\n}\n.parcelle .parcelle-container .parcelle-content .parcelle-bold-divider {\n        content: '';\n        width: 30px;\n        border-top: 6px solid #fbfaf0;\n        margin-bottom: 1rem;\n}\n.parcelle .parcelle-container .parcelle-content .parcelle-bold-divider.pink {\n          border-top: 6px solid #EBB29D;\n}\n.parcelle .parcelle-container .parcelle-content .parcelle-bold-divider.yellow {\n          border-top: 6px solid #eac88c;\n}\n.parcelle .parcelle-container .parcelle-content .parcelle-v-div {\n        content: '';\n        height: 100px;\n        border-left: 1px solid #fbfaf0;\n        margin-bottom: 1rem;\n        margin-top: 1rem;\n}\n.parcelle .parcelle-container .parcelle-content .parcelle-v-div.pink {\n          border-left: 1px solid #EBB29D;\n}\n.parcelle .parcelle-container .parcelle-content .parcelle-v-div.yellow {\n          border-left: 1px solid #eac88c;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 194 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Parcelle'
+});
+
+/***/ }),
+/* 195 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "parcelle" }, [
+    _c("div", { ref: "content", staticClass: "parcelle-container" }, [
+      _c("div", { staticClass: "parcelle-content" }, [
+        _c("div", { staticClass: "parcelle-bold-divider pink" }),
+        _vm._v(" "),
+        _c("h1", { ref: "title" }, [_vm._v("Parcelle")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "parcelle-v-div pink" }),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "\n                Le parcelle di Studio Bianco sono basate sulla competenza, l’esperienza ed il tempo necessari per trattare le vostre condizioni in modo brillante e duraturo. È nostra cura in tutte le situazioni selezionare i migliori strumenti ed i migliori materiali disponibili. Qualsiasi terapia non sarà intrapresa senza che il preventivo di spesa e le relative modalità di trattamento siano state accuratamente esposte, dopo la raccolta dei dati clinici e la formulazione del piano di trattamento, ed approvate dal paziente.\n            "
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0cb4d3ad", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

@@ -87,6 +87,8 @@ export default {
         },
         animateToLeft: function() {
             this.homepage = 'estetica'
+            this.$root.homepage = 'estetica'
+
             let panel = this.$refs.content
             let panelR = this.$refs.rightContent
             let content = this.$refs.page
@@ -159,6 +161,8 @@ export default {
         },
         animateToRight: function() {
             this.homepage = 'odontoiatria'
+            this.$root.homepage = 'odontoiatria'
+
             let panel = this.$refs.content
             let panelR = this.$refs.rightContent
             let content = this.$refs.page

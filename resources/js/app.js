@@ -35,6 +35,7 @@ const app = new Vue({
             navbarFullHeight: 0,
             navColor: 1,
             hasFooter: false,
+            homepage: null,
         }
     },
     methods: {

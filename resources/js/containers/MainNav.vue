@@ -16,12 +16,12 @@
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link tag="a" class="nav-link" :to="{ path: '/odontoiatria' }" exact-active-class="active">
+                    <router-link tag="a" class="nav-link" :to="{ path: '/odontoiatria' }" exact-active-class="active" ref="odontoiatria">
                         Odontoiatria
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link tag="a" class="nav-link" :to="{ path: '/medicina-estetica' }" exact-active-class="active">
+                    <router-link tag="a" class="nav-link" :to="{ path: '/medicina-estetica' }" exact-active-class="active" ref="estetica">
                         Medicina estetica
                     </router-link>
                 </li>
@@ -66,12 +66,36 @@ export default {
                 default:
                     this.navClass = 'bg-light'
             }
-        }
+        },
+        // '$root.homepage': function(value) {
+        //     let currents = null
+        //
+        //     switch (value) {
+        //         case 'odontoiatria':
+        //             currents = document.getElementsByClassName('router-link-active')
+        //             this.removeActive(currents)
+        //             this.$refs.odontoiatria.$el.classList.add('active')
+        //             break;
+        //         case 'estetica':
+        //             currents = document.getElementsByClassName('router-link-active')
+        //             this.removeActive(currents)
+        //             this.$refs.estetica.$el.classList.add('active')
+        //             break;
+        //     }
+        // }
     },
     data: function() {
         return {
             navClass: 'bg-light'
         }
+    },
+    methods: {
+        // removeActive: function(currents) {
+        //     for (var i = 0; i < currents.length; i++) {
+        //         currents[i].classList.remove('active')
+        //         currents[i].classList.remove('route-link-active')
+        //     }
+        // }
     },
     mounted: function() {
         this.$root.navbarHeight = this.$refs.navbar.offsetHeight
