@@ -5,8 +5,7 @@
             :key="i"
             :idx="i"
             :title="item.title"
-            :content="item.content"/>
-
+            :description="item.description"/>
     </div>
 </template>
 

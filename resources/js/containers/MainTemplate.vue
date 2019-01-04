@@ -14,10 +14,27 @@ import MainFooter from './MainFooter.vue'
 
 export default {
     name: 'MainTemplate',
+    props: {
+        estetica: {
+            type: String,
+            default: function() {},
+        },
+        odontoiatria: {
+            type: String,
+            default: function() {},
+        }
+    },
     components: {
         MainNav,
         MainFooter,
     },
+    beforeMount: function() {
+        let parsedEstetica = JSON.parse(this.estetica)
+        let parsedOdontoiatria = JSON.parse(this.odontoiatria)
+
+        this.$root.estetica = parsedEstetica
+        this.$root.odontoiatria = parsedOdontoiatria
+    }
 }
 </script>
 

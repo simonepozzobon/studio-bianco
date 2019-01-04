@@ -24,7 +24,7 @@ import Accordion from '../components/Accordion.vue'
 import Convenzioni from '../components/Convenzioni.vue'
 import OdontoiatriaIllust from '../components/OdontoiatriaIllust.vue'
 import Parcelle from '../components/Parcelle.vue'
-import services from '../dummies/services'
+// import services from '../dummies/services'
 
 export default {
     name: 'Odontoiatria',
@@ -41,13 +41,13 @@ export default {
     },
     data: function() {
         return {
-            services: services
+            services: this.$root.odontoiatria
         }
     },
     methods: {
         positionIllustration: function() {
             this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
-        }
+        },
     },
     mounted: function() {
         this.$root.navColor = 1

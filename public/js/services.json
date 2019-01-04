@@ -1,8 +1,8 @@
-const services = [
+[
     {
-        id: 1,
-        title: 'Chirurgia Odontoiatrica',
-        content: ```
+        "id": 1,
+        "title": "Chirurgia Odontoiatrica",
+        "content": "
             <ul>
               <li>Chirurgia Estrattiva</li>
               <li>Chirurgia dei Tessuti Molli</li>
@@ -12,7 +12,7 @@ const services = [
             </ul>
             <br>
             <br>
-            Attualmente la chirurgia non deve più spaventare in quanto risulta praticamente indolore sia durante che dopo l\'intervento.
+            Attualmente la chirurgia non deve più spaventare in quanto risulta praticamente indolore sia durante che dopo l'intervento.
             <br>
             In più presso il nostro studio viene effettuata la procedura di rigenerazione autologa con PRP (Plasma Ricco in Piastrine). Questa procedura prevede il prelievo, sempre presso lo studio, di alcune fiale di sangue che vengono \"centrifugate\" con una macchina particolare che divide il sangue nelle sue componenti.
             <br>
@@ -21,7 +21,7 @@ const services = [
             È prassi, presso il nostro studio, quando si estraggono elementi dentari non più mantenibili, effettuare una rigenerazione autologa con PRP. Con questa procedura, minimamente invasiva, si ottiene una guarigione più rapida e solitamente meno dolorosa e con meno gonfiore post-operatorio.
             <br>
             <br>
-            La chirurgia estrattiva prevede l\'estrazione di elementi dentari o radici non più mantenibili in parziale o totale inclusione osteomucosa. Questa chirurgia riguarda spesso i denti del giudizio che per motivi di spazio o anatomici non erompono normalmente in arcata e rimangono parzialmente o totalmente inclusi.
+            La chirurgia estrattiva prevede l'estrazione di elementi dentari o radici non più mantenibili in parziale o totale inclusione osteomucosa. Questa chirurgia riguarda spesso i denti del giudizio che per motivi di spazio o anatomici non erompono normalmente in arcata e rimangono parzialmente o totalmente inclusi.
             <br>
             <br>
             Per chirurgia dei tessuti molli si intendono interventi di gengivectomia, frenulectomia, allungamenti di fornice. La gengivectomia prevede la rimozione di tessuto gengivale in eccesso, ad esempio in caso di \"pseudo-tasche\". Per frenulectomia si intende la rimozione di uno o più frenuli, inserzioni muscolari che a volte possono essere causa di danni come recessioni gengivali o formazione di tasche parodontali profonde. L'allungamento di fornice o \"stripping\" gengivale viene eseguito per migliorare la stabilità dei tessuti molli perimplantari o aumentare la quantità di gengiva aderente vicino ai denti.
@@ -33,12 +33,12 @@ const services = [
             Il rialzo del seno mascellare permette di aumentare l'osso nell'arcata superiore \"rialzando\" i seni mascellari, cavità pneumatiche che si possono espandere dopo l'estrazione dentaria lasciando una quantità d'osso troppo esigua per l'inserimento di impianti dentali. In questi casi si apre, con l'ausilio del microscopio operatorio, una piccola finestra nell'osso e si va a inserire nello spazio tra la membrana del seno e l'osso mascellare un innesto di biomateriali mischiato con PRP (Plasma Ricco in Piastrine), garantendo un approccio minimamente invasivo in termini di tecnica operatoria ed eliminando la necessità di prelievo di tessuto osseo.
             <br>
             Dopo qualche mese si formerà osso e sarà possibile inserire uno o più impianti di lunghezza e diametro corretto.
-        ```
+        "
     },
     {
-        id: 2,
-        title: 'Ricostruzioni Estetiche (Odontoiatria estetica)',
-        content: ```
+        "id": 2,
+        "title": "Ricostruzioni Estetiche (Odontoiatria estetica)",
+        "content": "
             I vantaggi della Conservativa minimamente invasiva sono:
             <br>
             Diagnosi precoce di lesioni anche iniziali;<br>
@@ -50,12 +50,12 @@ const services = [
             La carie è una patologia del dente dovuta ad un insieme di batteri che si nutrono degli zuccheri introdotti con l’alimentazione e che vanno progressivamente ad attaccare il tessuto dentario rammollendolo e creando lesioni solitamente di colore marrone scuro/nerastro. Se non vengono trattate giungono, con tempi più o meno lunghi, al nervo del dente, causando dolore acuto e la necessità di devitalizzare il dente.<br>
             La carie iniziale è solitamente asintomatica. Può comparire talvolta un aumento della sensibilità agli stimoli termici, e inizia a dolere solo se molto profonda. Per questo motivo è necessaria una diagnosi e un trattamento precoce.<br>
             Il trattamento della lesione cariosa prevede l’esecuzione di anestesia locale e successivamente la rimozione per mezzo di strumenti rotanti e manuali del tessuto dentario rammollito. Successivamente la cavità ottenuta viene otturata con materiali estetici per ripristinare il tessuto perduto.<br>
-        ```
+        "
     },
     {
-        id: 3,
-        title: 'Faccette estetiche dentali',
-        content: ```
+        "id": 3,
+        "title": "Faccette estetiche dentali",
+        "content": "
             Le faccette in ceramica sono dei gusci sottilissimi personalizzati e progettati per il tuo sorriso e incollati alla parte anteriore dei denti che possono risolvere dei problemi di spazi vuoti, coprire dei denti scuri o gialli e correggere denti storti, scheggiati o usurati.<br>
             Otterrai un sorriso perfetto, e solo in un paio di sedute!<br>
             Richiedono pochissima rimozione di tessuto dentario.<br>
@@ -78,12 +78,12 @@ const services = [
             <h2>Precauzioni post-applicazione delle faccette dentali</h2>
             La decementazione è uno dei rischi contemplati nell'applicazione delle faccette dentali, sebbene si presenti con una percentuale davvero bassa, circa l'1-2%; in ogni caso, per prevenirla basterà che il paziente eviti di masticare o strappare cibi particolarmente duri, così come ridurre le cattive abitudini legate all'uso improprio dei denti, come la masticazione nervosa di oggetti o il gesto del mangiarsi le unghie.<br>
             Un'altra accortezza, relegata solo ai pazienti che hanno ottenuto un allungamento sostanziale dei margini di occlusione per esigenze funzionali, sarà quella di utilizzare durante il riposo notturno un bite a scopo puramente preventivo.<br>
-        ```
+        "
     },
     {
-        id: 4,
-        title: 'Protesi Fissa',
-        content: ```
+        "id": 4,
+        "title": "Protesi Fissa",
+        "content": "
             Con protesi si intende la riabilitazione tramite manufatti eseguiti dal laboratorio odontotecnico di elementi mancanti o gravemente compromessi.<br>
             <br>
             Corone
@@ -105,58 +105,56 @@ const services = [
               <li>Maggiore estetica con assenza del “bordino” nero;</li>
               <li>Posizionamento del margine sopragengiva per minor infiammazione gengivale.</li>
             </ul>
-        ```
+        "
     },
     {
-        id: 5,
-        title: 'Protesi Removibile',
-        content: ```
+        "id": 5,
+        "title": "Protesi Removibile",
+        "content": "
             La protesi removibile raccoglie quell'insieme di protesi che il paziente può rimuovere dalla bocca ma che quando è in sede trova ancoraggio ai denti residui con vari metodi per garantire una migliore stabilità e una masticazione più sicura.
             <br>
             Sono indicate ad esempio quando nei settori posteriori della bocca mancano molti denti e non è possibile sostituirli con impianti o protesi fisse. In questo caso si può attuare una soluzione chiamata protesi combinata, ossia con una parte fissa ed una removibile.
             <br>
             <br>
             <h2>Protesti totale</h2>
-            La protesi totale è la classica "dentiera", che permette di riabilitare delle arcate completamente edentule.
+            La protesi totale è la classica \"dentiera\", che permette di riabilitare delle arcate completamente edentule.
             <br>
             La protesi totale è comunque una protesi removibile ad appoggio mucoso, ed è l'ultima soluzione per bocche edentule gravemente compromesse e con un riassorbimento di osso così marcato da impedire l'inserimento di impianti per sostenere protesi di tipo fisso.
-        ```
+        "
     },
     {
-        id: 6,
-        title: 'Igiene e Profilassi',
-        content: ''
+        "id": 6,
+        "title": "Igiene e Profilassi",
+        "content": ""
     },
     {
-        id: 7,
-        title: 'Endodonzia',
-        content: ''
+        "id": 7,
+        "title": "Endodonzia",
+        "content": ""
     },
     {
-        id: 8,
-        title: 'Sbiancamento Dentale',
-        content: ''
+        "id": 8,
+        "title": "Sbiancamento Dentale",
+        "content": ""
     },
     {
-        id: 9,
-        title: 'Pedodonzia - Odontoiatria Pediatrica',
-        content: ''
+        "id": 9,
+        "title": "Pedodonzia - Odontoiatria Pediatrica",
+        "content": ""
     },
     {
-        id: 10,
-        title: 'Parodontopatie',
-        content: ''
+        "id": 10,
+        "title": "Parodontopatie",
+        "content": ""
     },
     {
-        id: 11,
-        title: 'Implantologia',
-        content: ''
+        "id": 11,
+        "title": "Implantologia",
+        "content": ""
     },
     {
-        id: 12,
-        title: 'Gnatologia',
-        content: ''
+        "id": 12,
+        "title": "Gnatologia",
+        "content": ""
     },
 ]
-
-export default services

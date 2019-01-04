@@ -24,7 +24,6 @@ import Accordion from '../components/Accordion.vue'
 import Convenzioni from '../components/Convenzioni.vue'
 import EsteticaIllust from '../components/EsteticaIllust.vue'
 import Parcelle from '../components/Parcelle.vue'
-import services from '../dummies/Aservices'
 
 export default {
     name: 'Odontoiatria',
@@ -44,7 +43,7 @@ export default {
         return {
             height: 0,
             viewport: 0,
-            services: services
+            services: this.$root.estetica
         }
     },
     methods: {

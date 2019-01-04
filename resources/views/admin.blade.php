@@ -5,17 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Studio Bianco</title>
+        <title>Admin - Studio Bianco</title>
 
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     </head>
-    <body class="bg-dark">
-        <div id="app">
-            <main-template
-                odontoiatria="{{ $odontoiatria }}"
-                estetica="{{ $estetica }}">
-            </main-template>
+    <body class="">
+        <div id="admin">
+            <main-template></main-template>
         </div>
-        <script src="{{ mix('js/app.js') }}"></script>
+        <script src="{{ mix('js/admin.js') }}"></script>
     </body>
 </html>

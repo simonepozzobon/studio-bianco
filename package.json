@@ -26,6 +26,8 @@
         "vue-router": "^3.0.2"
     },
     "dependencies": {
-        "gsap": "^2.0.2"
+        "bootstrap-vue": "^2.0.0-rc.11",
+        "gsap": "^2.0.2",
+        "vue-wysiwyg": "^1.7.2"
     }
 }

@@ -36,6 +36,8 @@ const app = new Vue({
             navColor: 1,
             hasFooter: false,
             homepage: null,
+            estetica: null,
+            odontoiatria: null,
         }
     },
     methods: {
