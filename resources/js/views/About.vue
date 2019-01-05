@@ -87,7 +87,9 @@ export default {
     },
     methods: {
         positionIllustration: function() {
-            this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
+            if (!this.$root.isMobile) {
+                this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
+            }
         }
     },
     mounted: function() {
@@ -117,6 +119,10 @@ export default {
             align-items: center;
             position: relative;
 
+            @include media-breakpoint-down('md') {
+                position: auto;
+            }
+
             > svg {
                 margin-bottom: $spacer * 2;
             }
@@ -128,11 +134,18 @@ export default {
 
         .about-left {
             @include make-col(6);
+            @include media-breakpoint-down('md') {
+                @include make-col(12);
+            }
 
         }
 
         .about-right {
             @include make-col(6);
+            @include media-breakpoint-down('md') {
+                @include make-col(12);
+            }
+
         }
 
         .about-content {
