@@ -1,5 +1,5 @@
 <template lang="html">
-    <nav class="navbar navbar-light navbar-expand-md" ref="navbar" :class="this.navClass">
+    <nav class="navbar navbar-light navbar-expand-lg" ref="navbar" :class="this.navClass">
         <a class="navbar-brand" href="#">
             <!-- <nav-logo :width="214"  ref="logo"/> -->
             <nav-logo :width="148"  ref="logo"/>

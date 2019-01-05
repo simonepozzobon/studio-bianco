@@ -34,8 +34,8 @@ export default {
         HomeIllustRight,
     },
     watch: {
-        '$root.window.h': function(value) {
-            this.setViewport(value)
+        '$root.window': function(value) {
+            this.setViewport(value.h)
             this.fillScreen()
         },
     },
@@ -56,12 +56,19 @@ export default {
             return Math.floor(result / 2)
         },
         fillScreen: function(height = 0) {
-            this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
-            this.$refs.container.style.height = this.viewport + 'px'
+            // se breakpoint maggiore di lg
+            if (!this.$root.isMobile) {
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
+                this.$refs.container.style.height = this.viewport + 'px'
 
-            let dividerHeight = this.getVerticalDividerHeight()
-            this.$refs.vDividerL.style.paddingTop = dividerHeight + 'px'
-            this.$refs.vDividerR.style.paddingTop = dividerHeight + 'px'
+                let dividerHeight = this.getVerticalDividerHeight()
+                this.$refs.vDividerL.style.paddingTop = dividerHeight + 'px'
+                this.$refs.vDividerR.style.paddingTop = dividerHeight + 'px'
+            } else {
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
+                this.$refs.container.style.height = '100%'
+
+            }
         },
         setViewport: function(value) {
             this.viewport = value
@@ -118,6 +125,10 @@ export default {
 
             width:auto; /* tell the browser that initial height is auto */
             overflow:hidden;
+
+            @include media-breakpoint-down('md') {
+                @include make-col(12);
+            }
         }
 
         .homesplit-right {
@@ -128,6 +139,10 @@ export default {
 
             width:auto; /* tell the browser that initial height is auto */
             overflow:hidden;
+
+            @include media-breakpoint-down('md') {
+                @include make-col(12);
+            }
         }
 
         .homesplit-page {

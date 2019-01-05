@@ -38,6 +38,8 @@ const app = new Vue({
             homepage: null,
             estetica: null,
             odontoiatria: null,
+            isMobile: false,
+            isDesktop: false,
         }
     },
     methods: {
@@ -45,6 +47,14 @@ const app = new Vue({
             this.window = {
                 w: window.innerWidth,
                 h: window.innerHeight
+            }
+
+            if (this.window.w >= 992) {
+                this.isMobile = false
+                this.isDesktop = true
+            } else {
+                this.isMobile = true
+                this.isDesktop = false
             }
         }
     },
