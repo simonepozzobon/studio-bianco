@@ -52,7 +52,6 @@ export default {
     data: function() {
         return {
             viewport: 0,
-            homepage: null,
         }
     },
     methods: {
@@ -80,163 +79,14 @@ export default {
         goTo: function(e, value) {
             e.preventDefault()
             if (value == 1) {
-                this.animateToRight()
+                this.$router.push({ path: '/odontoiatria' })
             } else if (value == 2) {
-                this.animateToLeft()
+                this.$router.push({ path: '/medicina-estetica' })
             }
         },
-        animateToLeft: function() {
-            this.homepage = 'estetica'
-            this.$root.homepage = 'estetica'
-
-            let panel = this.$refs.content
-            let panelR = this.$refs.rightContent
-            let content = this.$refs.page
-
-            let master = new TimelineMax({
-                paused: true,
-                reversed: true,
-            })
-
-
-            TweenLite.set(panelR, {
-                transformOrigin: "left center 0",
-            })
-            TweenLite.set(this.$refs.container, {
-                flexWrap: 'nowrap'
-            })
-
-            let t1 = new TimelineLite()
-            let t2 = new TimelineMax()
-
-            master.add(t1, t2)
-
-            t1.fromTo(panel, .6, {
-                autoAlpha: 1,
-                xPercent: 0
-            },{
-                xPercent: -100,
-                transformOrigin: "left center 0",
-                ease: Cubic.easeInOut,
-            }, .1)
-
-            t1.fromTo(panelR, .6, {
-                xPercent: 0
-            },{
-                width: '100%',
-                autoAlpha: 1,
-                flexBasis: '100%',
-                maxWidth: '100%',
-                flexGrow: 2,
-                xPercent: -50,
-                transformOrigin: "left top 0",
-                ease: Cubic.easeInOut,
-            }, .1)
-
-            t1.fromTo(content, .6, {
-                autoAlpha: 0,
-                height: 0,
-            }, {
-                autoAlpha: 1,
-                display: 'flex',
-                height: '100%',
-                onComplete: () => {
-                    console.log('completed')
-                }
-            }, .7)
-
-            let scroll = TweenLite.to(window, 2, {
-                scrollTo: '#page',
-                autoKill: false,
-                ease: Cubic.easeInOut,
-                onComplete: () => {
-                    console.log('completed scrol')
-                }
-            })
-
-            master.add(scroll, 1.3)
-
-            master.progress(1).progress(0);
-            master.play()
-        },
-        animateToRight: function() {
-            this.homepage = 'odontoiatria'
-            this.$root.homepage = 'odontoiatria'
-
-            let panel = this.$refs.content
-            let panelR = this.$refs.rightContent
-            let content = this.$refs.page
-
-            let master = new TimelineMax({
-                paused: true,
-                reversed: true,
-            })
-
-
-            TweenLite.set(panel, {
-                transformOrigin: "right center 0",
-            })
-
-            TweenLite.set(this.$refs.container, {
-                flexWrap: 'nowrap'
-            })
-
-            let t1 = new TimelineLite()
-            let t2 = new TimelineMax()
-
-            master.add(t1, t2)
-
-            t1.fromTo(panelR, .6, {
-                autoAlpha: 1,
-                xPercent: 0
-            },{
-                xPercent: 100,
-                transformOrigin: "right center 0",
-                ease: Cubic.easeInOut,
-            }, .1)
-
-            t1.fromTo(panel, .6, {
-                xPercent: 0
-            },{
-                width: '100%',
-                autoAlpha: 1,
-                flexBasis: 100,
-                maxWidth: '100%',
-                xPercent: 0,
-                transformOrigin: "right top 0",
-                ease: Cubic.easeInOut,
-            }, .1)
-
-            t1.fromTo(content, .6, {
-                autoAlpha: 0,
-                height: 0,
-            }, {
-                autoAlpha: 1,
-                display: 'flex',
-                height: '100%',
-                onComplete: () => {
-                    console.log('completed')
-                }
-            }, .7)
-
-            let scroll = TweenLite.to(window, 2, {
-                scrollTo: '#page',
-                autoKill: false,
-                ease: Cubic.easeInOut,
-                onComplete: () => {
-                    console.log('completed scrol')
-                }
-            })
-
-            master.add(scroll, 1.3)
-
-            master.progress(1).progress(0);
-            master.play()
-        }
     },
     mounted: function() {
-        let content = this.$refs.page
-        content.style.display = 'none'
+        this.fillScreen()
     }
 
 }

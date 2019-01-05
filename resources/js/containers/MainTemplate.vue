@@ -1,7 +1,10 @@
 <template lang="html">
     <div class="">
         <main-nav />
-        <transition>
+        <transition
+            mode="in-out"
+            @leave="leave"
+            @enter="enter">
             <router-view />
         </transition>
         <main-footer v-if="this.$root.hasFooter"/>
@@ -11,6 +14,8 @@
 <script>
 import MainNav from './MainNav.vue'
 import MainFooter from './MainFooter.vue'
+import { TimelineMax } from 'gsap'
+import GSDevTools from 'gsap/GSDevTools'
 
 export default {
     name: 'MainTemplate',
@@ -27,6 +32,149 @@ export default {
     components: {
         MainNav,
         MainFooter,
+    },
+    data: function() {
+        return {
+            isAnimating: false,
+            animate: null,
+            elEnter: null,
+        }
+    },
+    watch: {
+        '$route': function(to, from) {
+            if (from.name == 'home' && to.name == 'odontoiatria' && !this.isAnimating) {
+                console.log('slide rosa')
+                this.isAnimating = true
+                this.animate = 'odontoiatria'
+            }
+
+            if (from.name == 'home' && to.name == 'medicinaestetica' && !this.isAnimating) {
+                console.log('slide blu')
+                this.isAnimating = true
+                this.animate = 'estetica'
+            }
+        }
+    },
+    methods: {
+        leave: function(el, done) {
+            // console.log(el, done, this.isAnimating)
+            console.log('leave', el, this.elEnter)
+
+            if (this.isAnimating) {
+                // console.log('animazione home')
+                let container = el.getElementsByClassName('homesplit-container')[0]
+                let panelLeft = el.getElementsByClassName('homesplit-left')[0]
+                let panelRight = el.getElementsByClassName('homesplit-right')[0]
+
+                let master = new TimelineMax({
+                    paused: true,
+                    reversed: true,
+                })
+
+                let t1 = new TimelineLite()
+                master.add(t1)
+
+                t1.set(el, {
+                    position: 'absolute',
+                    width: '100vw',
+                    height: '100vh',
+                    x: 0,
+                    y: 0,
+                })
+
+                t1.set(this.elEnter, {
+                    position: 'absolute',
+                    autoAlpha: 1,
+                    x: 0,
+                    y: this.$root.window.h
+                })
+
+                t1.set(container, {
+                    flexWrap: 'nowrap'
+                })
+
+                if (this.animate == 'odontoiatria') {
+                    // animazione per odontoiatria
+                    t1.set(panelLeft, {
+                        transformOrigin: 'right center 0',
+                    })
+
+                    t1.fromTo(panelLeft, .6, {
+                        xPercent: 0
+                    }, {
+                        width: '100%',
+                        autoAlpha: 1,
+                        flexBasis: 100,
+                        maxWidth: '100%',
+                        xPercent: 0,
+                        transformOrigin: "right top 0",
+                        ease: Cubic.easeInOut,
+                    }, .1)
+
+                } else {
+                    // animazione per medicina estetica
+                    t1.set(panelRight, {
+                        transformOrigin: "left center 0",
+                    })
+
+                    t1.fromTo(panelLeft, .6, {
+                        autoAlpha: 1,
+                        xPercent: 0
+                    },{
+                        xPercent: -100,
+                        transformOrigin: "left center 0",
+                        ease: Cubic.easeInOut,
+                    }, .1)
+
+                    t1.fromTo(panelRight, .6, {
+                        xPercent: 0
+                    },{
+                        width: '100%',
+                        autoAlpha: 1,
+                        flexBasis: '100%',
+                        maxWidth: '100%',
+                        flexGrow: 2,
+                        xPercent: -50,
+                        transformOrigin: "left top 0",
+                        ease: Cubic.easeInOut,
+                    }, .1)
+                }
+
+                t1.to(container, .6, {
+                    yPercent: -100,
+                }, .7)
+
+                t1.to(this.elEnter, .6, {
+                    y: 0,
+                    position: 'inherit'
+                }, .7)
+
+                master.eventCallback('onComplete', () => {
+                    this.isAnimating = false
+                    this.animate = null
+                    el.removeAttribute('position')
+                    done()
+                })
+
+                master.play()
+            } else {
+                // pass through
+                done()
+            }
+        },
+        enter: function(el, done) {
+            if (this.isAnimating) {
+                this.elEnter = el
+                TweenLite.set(this.elEnter, {
+                    autoAlpha: 0,
+                    onComplete: () => {
+                        done()
+                        return
+                    }
+                })
+            }
+            done()
+        }
     },
     beforeMount: function() {
         let parsedEstetica = JSON.parse(this.estetica)
