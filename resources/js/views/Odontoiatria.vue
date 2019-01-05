@@ -16,12 +16,14 @@
         </div>
         <parcelle />
         <convenzioni />
+        <main-footer />
     </div>
 </template>
 
 <script>
 import Accordion from '../components/Accordion.vue'
 import Convenzioni from '../components/Convenzioni.vue'
+import MainFooter from '../containers/MainFooter.vue'
 import OdontoiatriaIllust from '../components/OdontoiatriaIllust.vue'
 import Parcelle from '../components/Parcelle.vue'
 // import services from '../dummies/services'
@@ -31,6 +33,7 @@ export default {
     components: {
         Accordion,
         Convenzioni,
+        MainFooter,
         OdontoiatriaIllust,
         Parcelle,
     },
@@ -51,7 +54,7 @@ export default {
     },
     mounted: function() {
         this.$root.navColor = 1
-        this.$root.hasFooter = false
+        this.$root.hasFooter = true
         this.positionIllustration()
     }
 }

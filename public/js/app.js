@@ -58476,10 +58476,8 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MainNav_vue__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MainNav_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__MainNav_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MainFooter_vue__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MainFooter_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__MainFooter_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_gsap__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_gsap_GSDevTools__ = __webpack_require__(406);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_gsap__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_gsap_GSDevTools__ = __webpack_require__(406);
 //
 //
 //
@@ -58493,7 +58491,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
+ // import MainFooter from './MainFooter.vue'
 
 
 
@@ -58510,8 +58508,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   components: {
-    MainNav: __WEBPACK_IMPORTED_MODULE_0__MainNav_vue___default.a,
-    MainFooter: __WEBPACK_IMPORTED_MODULE_1__MainFooter_vue___default.a
+    MainNav: __WEBPACK_IMPORTED_MODULE_0__MainNav_vue___default.a // MainFooter,
+
   },
   data: function data() {
     return {
@@ -58547,7 +58545,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var container = el.getElementsByClassName('homesplit-container')[0];
         var panelLeft = el.getElementsByClassName('homesplit-left')[0];
         var panelRight = el.getElementsByClassName('homesplit-right')[0];
-        var master = new __WEBPACK_IMPORTED_MODULE_2_gsap__["a" /* TimelineMax */]({
+        var master = new __WEBPACK_IMPORTED_MODULE_1_gsap__["a" /* TimelineMax */]({
           paused: true,
           reversed: true
         });
@@ -60848,9 +60846,7 @@ var render = function() {
         },
         [_c("router-view")],
         1
-      ),
-      _vm._v(" "),
-      this.$root.hasFooter ? _c("main-footer") : _vm._e()
+      )
     ],
     1
   )
@@ -61115,12 +61111,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HomeIllustLeft_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__HomeIllustLeft_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__HomeIllustRight_vue__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__HomeIllustRight_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__HomeIllustRight_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__views_Odontoiatria_vue__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__views_Odontoiatria_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__views_Odontoiatria_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_Estetica_vue__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_Estetica_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__views_Estetica_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_gsap__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_gsap_ScrollToPlugin__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_gsap__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_gsap_ScrollToPlugin__ = __webpack_require__(162);
 //
 //
 //
@@ -61142,14 +61134,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-
-
 
 
 
@@ -61158,8 +61142,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'HomeSplitMenu',
   components: {
-    Estetica: __WEBPACK_IMPORTED_MODULE_4__views_Estetica_vue___default.a,
-    Odontoiatria: __WEBPACK_IMPORTED_MODULE_3__views_Odontoiatria_vue___default.a,
     HomeHorizontalSep: __WEBPACK_IMPORTED_MODULE_0__HomeHorizontalSep_vue___default.a,
     HomeIllustLeft: __WEBPACK_IMPORTED_MODULE_1__HomeIllustLeft_vue___default.a,
     HomeIllustRight: __WEBPACK_IMPORTED_MODULE_2__HomeIllustRight_vue___default.a
@@ -65686,10 +65668,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_OdontoiatriaIllust_vue__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_OdontoiatriaIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_OdontoiatriaIllust_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__containers_MainFooter_vue__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__containers_MainFooter_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__containers_MainFooter_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_OdontoiatriaIllust_vue__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_OdontoiatriaIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_OdontoiatriaIllust_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Parcelle_vue__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Parcelle_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_Parcelle_vue__);
 //
 //
 //
@@ -65711,6 +65695,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+
 
 
 
@@ -65721,8 +65707,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   components: {
     Accordion: __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue___default.a,
     Convenzioni: __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue___default.a,
-    OdontoiatriaIllust: __WEBPACK_IMPORTED_MODULE_2__components_OdontoiatriaIllust_vue___default.a,
-    Parcelle: __WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue___default.a
+    MainFooter: __WEBPACK_IMPORTED_MODULE_2__containers_MainFooter_vue___default.a,
+    OdontoiatriaIllust: __WEBPACK_IMPORTED_MODULE_3__components_OdontoiatriaIllust_vue___default.a,
+    Parcelle: __WEBPACK_IMPORTED_MODULE_4__components_Parcelle_vue___default.a
   },
   watch: {
     '$root.window.h': function $rootWindowH(value) {
@@ -65741,7 +65728,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   mounted: function mounted() {
     this.$root.navColor = 1;
-    this.$root.hasFooter = false;
+    this.$root.hasFooter = true;
     this.positionIllustration();
   }
 });
@@ -67307,7 +67294,9 @@ var render = function() {
       _vm._v(" "),
       _c("parcelle"),
       _vm._v(" "),
-      _c("convenzioni")
+      _c("convenzioni"),
+      _vm._v(" "),
+      _c("main-footer")
     ],
     1
   )
@@ -67374,8 +67363,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_EsteticaIllust_vue__ = __webpack_require__(152);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_EsteticaIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_EsteticaIllust_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_MainFooter_vue__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_MainFooter_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__containers_MainFooter_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Parcelle_vue__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Parcelle_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_Parcelle_vue__);
 //
 //
 //
@@ -67397,6 +67388,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+
 
 
 
@@ -67407,7 +67400,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     Accordion: __WEBPACK_IMPORTED_MODULE_0__components_Accordion_vue___default.a,
     Convenzioni: __WEBPACK_IMPORTED_MODULE_1__components_Convenzioni_vue___default.a,
     EsteticaIllust: __WEBPACK_IMPORTED_MODULE_2__components_EsteticaIllust_vue___default.a,
-    Parcelle: __WEBPACK_IMPORTED_MODULE_3__components_Parcelle_vue___default.a
+    MainFooter: __WEBPACK_IMPORTED_MODULE_3__containers_MainFooter_vue___default.a,
+    Parcelle: __WEBPACK_IMPORTED_MODULE_4__components_Parcelle_vue___default.a
   },
   watch: {
     '$root.window.h': function $rootWindowH(value) {
@@ -67432,7 +67426,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   mounted: function mounted() {
     this.$root.navColor = 1;
-    this.$root.hasFooter = false;
+    this.$root.hasFooter = true;
     var el = this.$refs.illust.$el;
     var elSize = el.getBoundingClientRect();
     this.height = elSize.height;
@@ -68536,7 +68530,9 @@ var render = function() {
       _vm._v(" "),
       _c("parcelle"),
       _vm._v(" "),
-      _c("convenzioni")
+      _c("convenzioni"),
+      _vm._v(" "),
+      _c("main-footer")
     ],
     1
   )
@@ -69575,30 +69571,7 @@ var render = function() {
         ],
         1
       )
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        ref: "page",
-        staticClass: "homesplit-container",
-        attrs: { id: "page" }
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "homesplit-page" },
-          [
-            _vm.homepage == "odontoiatria"
-              ? _c("odontoiatria")
-              : _vm.homepage == "estetica"
-              ? _c("estetica")
-              : _vm._e()
-          ],
-          1
-        )
-      ]
-    )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -69739,6 +69712,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_AboutPauraIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_AboutPauraIllust_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_AboutSilviaIllust_vue__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_AboutSilviaIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_AboutSilviaIllust_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_MainFooter_vue__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_MainFooter_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__containers_MainFooter_vue__);
 //
 //
 //
@@ -69806,6 +69781,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+
 
 
 
@@ -69814,7 +69791,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   components: {
     AboutIllust: __WEBPACK_IMPORTED_MODULE_0__components_AboutIllust_vue___default.a,
     AboutPauraIllust: __WEBPACK_IMPORTED_MODULE_1__components_AboutPauraIllust_vue___default.a,
-    AboutSilviaIllust: __WEBPACK_IMPORTED_MODULE_2__components_AboutSilviaIllust_vue___default.a
+    AboutSilviaIllust: __WEBPACK_IMPORTED_MODULE_2__components_AboutSilviaIllust_vue___default.a,
+    MainFooter: __WEBPACK_IMPORTED_MODULE_3__containers_MainFooter_vue___default.a
   },
   watch: {
     '$root.window.h': function $rootWindowH(value) {
@@ -69827,7 +69805,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   mounted: function mounted() {
-    this.$root.hasFooter = true;
+    // this.$root.hasFooter = true
     this.$root.navColor = 2;
     this.positionIllustration();
   }
@@ -72995,80 +72973,89 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "about" }, [
-    _c("div", { ref: "container", staticClass: "about-container" }, [
-      _c("div", { ref: "content", staticClass: "about-left" }, [
-        _c("div", { staticClass: "about-content" }, [
-          _c("div", { staticClass: "about-bold-divider" }),
-          _vm._v(" "),
-          _c("h1", { ref: "title" }, [_vm._v("About")]),
-          _vm._v(" "),
-          _c("span", { staticClass: "about-subtitle" }, [_vm._v("Lo Studio")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "about-v-div" }),
-          _vm._v(" "),
-          _vm._m(0)
+  return _c(
+    "div",
+    { staticClass: "about" },
+    [
+      _c("div", { ref: "container", staticClass: "about-container" }, [
+        _c("div", { ref: "content", staticClass: "about-left" }, [
+          _c("div", { staticClass: "about-content" }, [
+            _c("div", { staticClass: "about-bold-divider" }),
+            _vm._v(" "),
+            _c("h1", { ref: "title" }, [_vm._v("About")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "about-subtitle" }, [
+              _vm._v("Lo Studio")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "about-v-div" }),
+            _vm._v(" "),
+            _vm._m(0)
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "about-right" },
+          [_c("about-illust", { attrs: { width: "80%" } })],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "about-container bg-light-cyan" }, [
+        _c(
+          "div",
+          { ref: "content", staticClass: "about-left position-relative" },
+          [_c("about-silvia-illust", { attrs: { width: "80%" } })],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "about-right" }, [
+          _c("div", { staticClass: "about-content" }, [
+            _c("div", { staticClass: "about-bold-divider dark" }),
+            _vm._v(" "),
+            _c("h1", { ref: "title", staticClass: "text-white" }, [
+              _vm._v("Silvia Citella")
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "about-subtitle text-white" }, [
+              _vm._v("Chi sono")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "about-v-div dark" }),
+            _vm._v(" "),
+            _vm._m(1)
+          ])
         ])
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "about-right" },
-        [_c("about-illust", { attrs: { width: "80%" } })],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "about-container bg-light-cyan" }, [
-      _c(
-        "div",
-        { ref: "content", staticClass: "about-left position-relative" },
-        [_c("about-silvia-illust", { attrs: { width: "80%" } })],
-        1
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "about-right" }, [
-        _c("div", { staticClass: "about-content" }, [
-          _c("div", { staticClass: "about-bold-divider dark" }),
-          _vm._v(" "),
-          _c("h1", { ref: "title", staticClass: "text-white" }, [
-            _vm._v("Silvia Citella")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "about-subtitle text-white" }, [
-            _vm._v("Chi sono")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "about-v-div dark" }),
-          _vm._v(" "),
-          _vm._m(1)
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "about-container bg-light-yellow" }, [
-      _c("div", { ref: "content", staticClass: "about-left" }, [
-        _c("div", { staticClass: "about-content" }, [
-          _c("div", { staticClass: "about-bold-divider light" }),
-          _vm._v(" "),
-          _c("h1", { ref: "title", staticClass: "text-purple" }, [
-            _vm._v("Paura del dentista")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "about-v-div light" }),
-          _vm._v(" "),
-          _vm._m(2)
-        ])
+      _c("div", { staticClass: "about-container bg-light-yellow" }, [
+        _c("div", { ref: "content", staticClass: "about-left" }, [
+          _c("div", { staticClass: "about-content" }, [
+            _c("div", { staticClass: "about-bold-divider light" }),
+            _vm._v(" "),
+            _c("h1", { ref: "title", staticClass: "text-purple" }, [
+              _vm._v("Paura del dentista")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "about-v-div light" }),
+            _vm._v(" "),
+            _vm._m(2)
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "about-right position-relative" },
+          [_c("about-paura-illust", { attrs: { width: "100%" } })],
+          1
+        )
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "about-right position-relative" },
-        [_c("about-paura-illust", { attrs: { width: "100%" } })],
-        1
-      )
-    ])
-  ])
+      _c("main-footer")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {

@@ -7,13 +7,13 @@
             @enter="enter">
             <router-view />
         </transition>
-        <main-footer v-if="this.$root.hasFooter"/>
+        <!-- <main-footer v-if="this.$root.hasFooter"/> -->
     </div>
 </template>
 
 <script>
 import MainNav from './MainNav.vue'
-import MainFooter from './MainFooter.vue'
+// import MainFooter from './MainFooter.vue'
 import { TimelineMax } from 'gsap'
 import GSDevTools from 'gsap/GSDevTools'
 
@@ -31,7 +31,7 @@ export default {
     },
     components: {
         MainNav,
-        MainFooter,
+        // MainFooter,
     },
     data: function() {
         return {

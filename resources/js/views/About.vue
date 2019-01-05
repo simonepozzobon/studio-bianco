@@ -62,6 +62,7 @@
                 <about-paura-illust width="100%"/>
             </div>
         </div>
+        <main-footer />
     </div>
 </template>
 
@@ -69,6 +70,7 @@
 import AboutIllust from '../components/AboutIllust.vue'
 import AboutPauraIllust from '../components/AboutPauraIllust.vue'
 import AboutSilviaIllust from '../components/AboutSilviaIllust.vue'
+import MainFooter from '../containers/MainFooter.vue'
 
 export default {
     name: 'About',
@@ -76,6 +78,7 @@ export default {
         AboutIllust,
         AboutPauraIllust,
         AboutSilviaIllust,
+        MainFooter,
     },
     watch: {
         '$root.window.h': function(value) {
@@ -88,7 +91,7 @@ export default {
         }
     },
     mounted: function() {
-        this.$root.hasFooter = true
+        // this.$root.hasFooter = true
         this.$root.navColor = 2
         this.positionIllustration()
     }

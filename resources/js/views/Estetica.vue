@@ -16,6 +16,7 @@
         </div>
         <parcelle />
         <convenzioni />
+        <main-footer />
     </div>
 </template>
 
@@ -23,6 +24,7 @@
 import Accordion from '../components/Accordion.vue'
 import Convenzioni from '../components/Convenzioni.vue'
 import EsteticaIllust from '../components/EsteticaIllust.vue'
+import MainFooter from '../containers/MainFooter.vue'
 import Parcelle from '../components/Parcelle.vue'
 
 export default {
@@ -31,6 +33,7 @@ export default {
         Accordion,
         Convenzioni,
         EsteticaIllust,
+        MainFooter,
         Parcelle,
     },
     watch: {
@@ -56,7 +59,7 @@ export default {
     },
     mounted: function(){
         this.$root.navColor = 1
-        this.$root.hasFooter = false
+        this.$root.hasFooter = true
         let el = this.$refs.illust.$el
         let elSize = el.getBoundingClientRect()
         this.height = elSize.height

@@ -16,12 +16,6 @@
                 <div class="homesplit-v-div" ref="vDividerR"></div>
             </div>
         </div>
-        <div id="page" class="homesplit-container" ref="page">
-            <div class="homesplit-page">
-                <odontoiatria v-if="homepage == 'odontoiatria'"/>
-                <estetica v-else-if="homepage == 'estetica'"/>
-            </div>
-        </div>
     </div>
 </template>
 
@@ -29,16 +23,12 @@
 import HomeHorizontalSep from './HomeHorizontalSep.vue'
 import HomeIllustLeft from './HomeIllustLeft.vue'
 import HomeIllustRight from './HomeIllustRight.vue'
-import Odontoiatria from '../views/Odontoiatria.vue'
-import Estetica from '../views/Estetica.vue'
 import { TimelineMax } from 'gsap'
 import ScrollToPlugin from 'gsap/ScrollToPlugin'
 
 export default {
     name: 'HomeSplitMenu',
     components: {
-        Estetica,
-        Odontoiatria,
         HomeHorizontalSep,
         HomeIllustLeft,
         HomeIllustRight,
