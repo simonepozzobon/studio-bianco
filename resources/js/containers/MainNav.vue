@@ -1,7 +1,8 @@
 <template lang="html">
     <nav class="navbar navbar-light navbar-expand-md" ref="navbar" :class="this.navClass">
         <a class="navbar-brand" href="#">
-            <nav-logo :width="214"  ref="logo"/>
+            <!-- <nav-logo :width="214"  ref="logo"/> -->
+            <nav-logo :width="148"  ref="logo"/>
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,7 +110,8 @@ export default {
 <style lang="scss">
 @import '~styles/shared';
 .navbar {
-    min-height: 112px;
+    // min-height: 112px;
+    min-height: 90px;
     z-index: 9999;
 
     .nav-link {
