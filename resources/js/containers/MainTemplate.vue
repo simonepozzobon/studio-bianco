@@ -43,13 +43,13 @@ export default {
     watch: {
         '$route': function(to, from) {
             if (from.name == 'home' && to.name == 'odontoiatria' && !this.isAnimating && !this.$root.isMobile) {
-                console.log('slide rosa')
+                // console.log('slide rosa')
                 this.isAnimating = true
                 this.animate = 'odontoiatria'
             }
 
             if (from.name == 'home' && to.name == 'medicinaestetica' && !this.isAnimating && !this.$root.isMobile) {
-                console.log('slide blu')
+                // console.log('slide blu')
                 this.isAnimating = true
                 this.animate = 'estetica'
             }
@@ -57,8 +57,7 @@ export default {
     },
     methods: {
         leave: function(el, done) {
-            // console.log(el, done, this.isAnimating)
-            console.log('leave', el, this.elEnter)
+            // console.log('leave', el, this.elEnter)
 
             if (this.isAnimating) {
                 // console.log('animazione home')
