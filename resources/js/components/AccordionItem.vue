@@ -132,6 +132,11 @@ export default {
     padding-left: $spacer;
     padding-right: $spacer;
 
+    @include media-breakpoint-down('md') {
+        padding-top: $spacer;
+        padding-bottom: $spacer;
+    }
+
     .accordion-title {
         font-weight: normal;
         text-transform: capitalize;
@@ -144,6 +149,10 @@ export default {
     width: calc(100vw - 8rem);
     z-index: 2;
     padding: $spacer * 2;
+
+    @include media-breakpoint-down('md') {
+        width: 100%;
+    }
 
     visibility:hidden; /* hides all .Tile-flyout on load so GSAP autoAlpha can do its thing */
     height:auto; /* tell the browser that initial height is auto */

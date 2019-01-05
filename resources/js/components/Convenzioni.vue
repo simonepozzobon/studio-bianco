@@ -89,6 +89,10 @@ export default {
             padding: $spacer * 4;
             width: 100%;
 
+            @include media-breakpoint-down('md') {
+                text-align: center;
+            }
+
             .convenzioni-bold-divider {
                 content: '';
                 width: 30px;
@@ -102,11 +106,17 @@ export default {
                 &.yellow {
                     border-top: 6px solid $yellow;
                 }
+
+                @include media-breakpoint-down('md') {
+                    margin-right: auto;
+                    margin-left: auto;
+                }
             }
 
             .convenzioni-v-div {
                 content: '';
                 height: 100px;
+                width: 1px;
                 border-left: 1px solid $light-brown;
                 margin-bottom: $spacer;
                 margin-top: $spacer;
@@ -117,6 +127,12 @@ export default {
 
                 &.yellow {
                     border-left: 1px solid $yellow;
+                }
+
+                @include media-breakpoint-down('md') {
+                    margin-right: auto;
+                    margin-left: auto;
+                    height: 30px;
                 }
             }
 
