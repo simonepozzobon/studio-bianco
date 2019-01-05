@@ -42,13 +42,13 @@ export default {
     },
     watch: {
         '$route': function(to, from) {
-            if (from.name == 'home' && to.name == 'odontoiatria' && !this.isAnimating) {
+            if (from.name == 'home' && to.name == 'odontoiatria' && !this.isAnimating && !this.$root.isMobile) {
                 console.log('slide rosa')
                 this.isAnimating = true
                 this.animate = 'odontoiatria'
             }
 
-            if (from.name == 'home' && to.name == 'medicinaestetica' && !this.isAnimating) {
+            if (from.name == 'home' && to.name == 'medicinaestetica' && !this.isAnimating && !this.$root.isMobile) {
                 console.log('slide blu')
                 this.isAnimating = true
                 this.animate = 'estetica'

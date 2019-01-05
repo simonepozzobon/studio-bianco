@@ -1,5 +1,5 @@
 <template lang="html">
-    <svg id="db6d75a53be9" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 697.45 886.95" :width="width" class="position-absolute">
+    <svg id="db6d75a53be9" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 697.45 886.95" :width="width" class="">
         <title>illust-silvia</title>
         <g id="99f2b120-5f8e-445f-bd96-20dd56459ba6" data-name="illustrazione silvia">
             <g>
@@ -169,7 +169,6 @@
             </g>
         </g>
     </svg>
-
 </template>
 
 <script>
@@ -185,7 +184,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~styles/shared';
+
 #db6d75a53be9 {
     bottom: -2rem;
+    position: absolute;
+
+    @include media-breakpoint-down('md'){
+        position: relative;
+    }
 }
 </style>

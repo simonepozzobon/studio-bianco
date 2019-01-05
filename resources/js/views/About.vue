@@ -24,10 +24,7 @@
             </div>
         </div>
         <div class="about-container bg-light-cyan">
-            <div class="about-left position-relative" ref="content">
-                <about-silvia-illust width="80%"/>
-            </div>
-            <div class="about-right">
+            <div class="about-right order-lg-2">
                 <div class="about-content">
                     <div class="about-bold-divider dark"></div>
                     <h1 class="text-white" ref="title">Silvia Citella</h1>
@@ -40,6 +37,9 @@
                         La mia sfida è interpretare i bisogni dei pazienti; il mio obiettivo, tradurli in sorrisi.<br>
                     </p>
                 </div>
+            </div>
+            <div class="about-left position-relative" ref="content">
+                <about-silvia-illust width="80%"/>
             </div>
         </div>
         <div class="about-container bg-light-yellow">
@@ -121,6 +121,7 @@ export default {
 
             @include media-breakpoint-down('md') {
                 position: auto;
+                text-align: center;
             }
 
             > svg {
@@ -130,6 +131,7 @@ export default {
             h1 {
                 display: block;
             }
+
         }
 
         .about-left {
@@ -164,11 +166,17 @@ export default {
                 &.light {
                     border-top: 6px solid $white;
                 }
+
+                @include media-breakpoint-down('md') {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
             }
 
             .about-v-div {
                 content: '';
                 height: 100px;
+                width: 1px;
                 border-left: 1px solid $pink;
                 margin-bottom: $spacer;
                 margin-top: $spacer;
@@ -179,6 +187,12 @@ export default {
 
                 &.light {
                     border-left: 1px solid $white;
+                }
+
+                @include media-breakpoint-down('md') {
+                    margin-left: auto;
+                    margin-right: auto;
+                    height: 30px;
                 }
             }
         }

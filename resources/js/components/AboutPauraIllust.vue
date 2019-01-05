@@ -1,5 +1,5 @@
 <template lang="html">
-    <svg id="e12ed973-1875-4da7-8eb4-6729b7e52003" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 964.86 837.41" :width="width" class="position-absolute">
+    <svg id="e12ed973-1875-4da7-8eb4-6729b7e52003" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 964.86 837.41" :width="width">
         <title>illust-paura</title>
         <g id="e12ed973-2987-4da7-8eb4-6729b7e52003" data-name="illustrazione paura">
             <g>
@@ -120,7 +120,12 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~styles/shared';
 #e12ed973-1875-4da7-8eb4-6729b7e52003 {
     right: -64px;
+    position: absolute;
+    @include media-breakpoint-down('md') {
+        position: relative;
+    }
 }
 </style>

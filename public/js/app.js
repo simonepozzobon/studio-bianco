@@ -58683,13 +58683,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   watch: {
     '$route': function $route(to, from) {
-      if (from.name == 'home' && to.name == 'odontoiatria' && !this.isAnimating) {
+      if (from.name == 'home' && to.name == 'odontoiatria' && !this.isAnimating && !this.$root.isMobile) {
         console.log('slide rosa');
         this.isAnimating = true;
         this.animate = 'odontoiatria';
       }
 
-      if (from.name == 'home' && to.name == 'medicinaestetica' && !this.isAnimating) {
+      if (from.name == 'home' && to.name == 'medicinaestetica' && !this.isAnimating && !this.$root.isMobile) {
         console.log('slide blu');
         this.isAnimating = true;
         this.animate = 'estetica';
@@ -70463,7 +70463,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.about {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #fbfaf0;\n}\n.about .about-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 100vh;\n}\n.about .about-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n@media (max-width: 991.98px) {\n.about .about-container > div {\n          position: auto;\n}\n}\n.about .about-container > div > svg {\n        margin-bottom: 2rem;\n}\n.about .about-container > div h1 {\n        display: block;\n}\n.about .about-container .about-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n@media (max-width: 991.98px) {\n.about .about-container .about-left {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n}\n}\n.about .about-container .about-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n@media (max-width: 991.98px) {\n.about .about-container .about-right {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n}\n}\n.about .about-container .about-content {\n      padding: 4rem;\n}\n.about .about-container .about-content .about-bold-divider {\n        content: '';\n        width: 30px;\n        border-top: 6px solid #EBB29D;\n        margin-bottom: 1rem;\n}\n.about .about-container .about-content .about-bold-divider.dark {\n          border-top: 6px solid #283745;\n}\n.about .about-container .about-content .about-bold-divider.light {\n          border-top: 6px solid #fff;\n}\n.about .about-container .about-content .about-v-div {\n        content: '';\n        height: 100px;\n        border-left: 1px solid #EBB29D;\n        margin-bottom: 1rem;\n        margin-top: 1rem;\n}\n.about .about-container .about-content .about-v-div.dark {\n          border-left: 1px solid #283745;\n}\n.about .about-container .about-content .about-v-div.light {\n          border-left: 1px solid #fff;\n}\n.about .about-container .about-subtitle {\n      font-size: 1.5rem;\n      font-weight: 300;\n}\n.about .about-container .about-divider {\n      margin-bottom: 1rem;\n}\n", ""]);
+exports.push([module.i, "\n.about {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #fbfaf0;\n}\n.about .about-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 100vh;\n}\n.about .about-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n@media (max-width: 991.98px) {\n.about .about-container > div {\n          position: auto;\n          text-align: center;\n}\n}\n.about .about-container > div > svg {\n        margin-bottom: 2rem;\n}\n.about .about-container > div h1 {\n        display: block;\n}\n.about .about-container .about-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n@media (max-width: 991.98px) {\n.about .about-container .about-left {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n}\n}\n.about .about-container .about-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n@media (max-width: 991.98px) {\n.about .about-container .about-right {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n}\n}\n.about .about-container .about-content {\n      padding: 4rem;\n}\n.about .about-container .about-content .about-bold-divider {\n        content: '';\n        width: 30px;\n        border-top: 6px solid #EBB29D;\n        margin-bottom: 1rem;\n}\n.about .about-container .about-content .about-bold-divider.dark {\n          border-top: 6px solid #283745;\n}\n.about .about-container .about-content .about-bold-divider.light {\n          border-top: 6px solid #fff;\n}\n@media (max-width: 991.98px) {\n.about .about-container .about-content .about-bold-divider {\n            margin-left: auto;\n            margin-right: auto;\n}\n}\n.about .about-container .about-content .about-v-div {\n        content: '';\n        height: 100px;\n        width: 1px;\n        border-left: 1px solid #EBB29D;\n        margin-bottom: 1rem;\n        margin-top: 1rem;\n}\n.about .about-container .about-content .about-v-div.dark {\n          border-left: 1px solid #283745;\n}\n.about .about-container .about-content .about-v-div.light {\n          border-left: 1px solid #fff;\n}\n@media (max-width: 991.98px) {\n.about .about-container .about-content .about-v-div {\n            margin-left: auto;\n            margin-right: auto;\n            height: 30px;\n}\n}\n.about .about-container .about-subtitle {\n      font-size: 1.5rem;\n      font-weight: 300;\n}\n.about .about-container .about-divider {\n      margin-bottom: 1rem;\n}\n", ""]);
 
 // exports
 
@@ -72044,7 +72044,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n#e12ed973-1875-4da7-8eb4-6729b7e52003 {\n  right: -64px;\n}\n", ""]);
+exports.push([module.i, "\n#e12ed973-1875-4da7-8eb4-6729b7e52003 {\n  right: -64px;\n  position: absolute;\n}\n@media (max-width: 991.98px) {\n#e12ed973-1875-4da7-8eb4-6729b7e52003 {\n      position: relative;\n}\n}\n", ""]);
 
 // exports
 
@@ -72185,7 +72185,6 @@ var render = function() {
   return _c(
     "svg",
     {
-      staticClass: "position-absolute",
       attrs: {
         id: "e12ed973-1875-4da7-8eb4-6729b7e52003",
         xmlns: "http://www.w3.org/2000/svg",
@@ -72734,7 +72733,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n#db6d75a53be9 {\n  bottom: -2rem;\n}\n", ""]);
+exports.push([module.i, "\n#db6d75a53be9 {\n  bottom: -2rem;\n  position: absolute;\n}\n@media (max-width: 991.98px) {\n#db6d75a53be9 {\n      position: relative;\n}\n}\n", ""]);
 
 // exports
 
@@ -72745,7 +72744,6 @@ exports.push([module.i, "\n#db6d75a53be9 {\n  bottom: -2rem;\n}\n", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -72940,7 +72938,6 @@ var render = function() {
   return _c(
     "svg",
     {
-      staticClass: "position-absolute",
       attrs: {
         id: "db6d75a53be9",
         xmlns: "http://www.w3.org/2000/svg",
@@ -73920,14 +73917,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "about-container bg-light-cyan" }, [
-        _c(
-          "div",
-          { ref: "content", staticClass: "about-left position-relative" },
-          [_c("about-silvia-illust", { attrs: { width: "80%" } })],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "about-right" }, [
+        _c("div", { staticClass: "about-right order-lg-2" }, [
           _c("div", { staticClass: "about-content" }, [
             _c("div", { staticClass: "about-bold-divider dark" }),
             _vm._v(" "),
@@ -73943,7 +73933,14 @@ var render = function() {
             _vm._v(" "),
             _vm._m(1)
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { ref: "content", staticClass: "about-left position-relative" },
+          [_c("about-silvia-illust", { attrs: { width: "80%" } })],
+          1
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "about-container bg-light-yellow" }, [
@@ -77195,7 +77192,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.contact {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #EBB29D;\n}\n.contact .contact-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 80vh;\n}\n.contact .contact-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.contact .contact-container > div > svg {\n        margin-bottom: 2rem;\n}\n.contact .contact-container > div h1 {\n        display: block;\n}\n.contact .contact-container .contact-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.contact .contact-container .contact-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n.contact .contact-container .contact-content {\n      padding: 4rem;\n}\n.contact .contact-container .contact-content .contact-bold-divider {\n        content: '';\n        width: 30px;\n        border-top: 6px solid #baced8;\n        margin-bottom: 1rem;\n}\n.contact .contact-container .contact-content .contact-v-div {\n        content: '';\n        height: 100px;\n        border-left: 1px solid #baced8;\n        margin-bottom: 1rem;\n        margin-top: 1rem;\n}\n.contact .contact-container .contact-title {\n      color: #fff;\n}\n.contact .contact-container .contact-subtitle {\n      font-size: 1.5rem;\n      font-weight: 300;\n      color: #fff;\n}\n.contact .contact-container .contact-divider {\n      margin-bottom: 1rem;\n}\n.contact .contact-container .contact-table {\n      margin-bottom: 2rem;\n}\n.contact .contact-container .contact-table tr {\n        border: 1px solid #fff;\n}\n.contact .contact-container .contact-table tr td {\n          padding-left: 1rem;\n          padding-right: 1rem;\n          padding-top: 0.5rem;\n          padding-bottom: 0.5rem;\n}\n.contact .contact-container .contact-table tr .contact-table-label {\n          font-weight: normal;\n          padding-right: 4rem;\n}\n.contact .contact-container .contact-map .btn span {\n      padding-right: 1rem;\n}\n.contact .contact-form {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 20vh;\n    background-color: #EBB29D;\n}\n.contact .contact-form .contact-form-btn {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: start;\n          -ms-flex-align: start;\n              align-items: flex-start;\n}\n.contact .contact-form .contact-form-btn .btn span {\n        padding-right: 1rem;\n}\n.contact .contact-form-modal-row {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    width: 100%;\n    margin-bottom: 100px;\n}\n.contact .contact-form-modal-row .contact-form-modal {\n      background-color: #fbfaf0;\n      padding-left: 2rem;\n      padding-right: 2rem;\n      padding-top: 2rem;\n      padding-bottom: 1rem;\n      position: relative;\n      visibility: hidden;\n      /* hides all .Tile-flyout on load so GSAP autoAlpha can do its thing */\n      height: auto;\n      /* tell the browser that initial height is auto */\n      overflow: hidden;\n}\n.contact .contact-form-modal-row .contact-form-modal label {\n        padding-left: 0.75rem;\n        color: #e5c386;\n        font-weight: bold;\n}\n.contact .contact-form-modal-row .contact-form-modal .send-btn {\n        margin-top: 2rem;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n}\n.contact .contact-form-modal-row .contact-form-modal .send-btn .btn {\n          padding-left: 4rem;\n          padding-right: 4rem;\n}\n", ""]);
+exports.push([module.i, "\n.contact {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #EBB29D;\n}\n.contact .contact-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 80vh;\n}\n.contact .contact-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.contact .contact-container > div > svg {\n        margin-bottom: 2rem;\n}\n.contact .contact-container > div h1 {\n        display: block;\n}\n.contact .contact-container .contact-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n@media (max-width: 991.98px) {\n.contact .contact-container .contact-left {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n}\n}\n.contact .contact-container .contact-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n@media (max-width: 991.98px) {\n.contact .contact-container .contact-right {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n}\n}\n.contact .contact-container .contact-content {\n      width: 100%;\n      padding: 4rem;\n}\n.contact .contact-container .contact-content .contact-bold-divider {\n        content: '';\n        width: 30px;\n        border-top: 6px solid #baced8;\n        margin-bottom: 1rem;\n}\n.contact .contact-container .contact-content .contact-v-div {\n        content: '';\n        height: 100px;\n        border-left: 1px solid #baced8;\n        margin-bottom: 1rem;\n        margin-top: 1rem;\n}\n.contact .contact-container .contact-title {\n      color: #fff;\n}\n.contact .contact-container .contact-subtitle {\n      font-size: 1.5rem;\n      font-weight: 300;\n      color: #fff;\n}\n.contact .contact-container .contact-divider {\n      margin-bottom: 1rem;\n}\n.contact .contact-container .contact-table {\n      margin-bottom: 2rem;\n}\n@media (max-width: 991.98px) {\n.contact .contact-container .contact-table {\n          width: 100%;\n}\n}\n.contact .contact-container .contact-table tr {\n        border: 1px solid #fff;\n}\n.contact .contact-container .contact-table tr td {\n          padding-left: 1rem;\n          padding-right: 1rem;\n          padding-top: 0.5rem;\n          padding-bottom: 0.5rem;\n}\n.contact .contact-container .contact-table tr .contact-table-label {\n          font-weight: normal;\n          padding-right: 4rem;\n}\n@media (max-width: 991.98px) {\n.contact .contact-container .contact-map {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n}\n}\n.contact .contact-container .contact-map .btn span {\n      padding-right: 1rem;\n}\n.contact .contact-form {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 20vh;\n    background-color: #EBB29D;\n}\n.contact .contact-form .contact-form-btn {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: start;\n          -ms-flex-align: start;\n              align-items: flex-start;\n}\n.contact .contact-form .contact-form-btn .btn span {\n        padding-right: 1rem;\n}\n.contact .contact-form-modal-row {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    width: 100%;\n    margin-bottom: 100px;\n}\n.contact .contact-form-modal-row .contact-form-modal {\n      background-color: #fbfaf0;\n      padding-left: 2rem;\n      padding-right: 2rem;\n      padding-top: 2rem;\n      padding-bottom: 1rem;\n      position: relative;\n      visibility: hidden;\n      /* hides all .Tile-flyout on load so GSAP autoAlpha can do its thing */\n      height: auto;\n      /* tell the browser that initial height is auto */\n      overflow: hidden;\n}\n.contact .contact-form-modal-row .contact-form-modal label {\n        padding-left: 0.75rem;\n        color: #e5c386;\n        font-weight: bold;\n}\n.contact .contact-form-modal-row .contact-form-modal .send-btn {\n        margin-top: 2rem;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n}\n.contact .contact-form-modal-row .contact-form-modal .send-btn .btn {\n          padding-left: 4rem;\n          padding-right: 4rem;\n}\n", ""]);
 
 // exports
 
@@ -77210,6 +77207,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_ContactIllust_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_ContactIllust_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ui__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_gsap__ = __webpack_require__(77);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -82353,12 +82355,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "contact" }, [
     _c("div", { ref: "container", staticClass: "contact-container" }, [
-      _c(
-        "div",
-        { ref: "content", staticClass: "contact-left" },
-        [_c("contact-illust", { attrs: { width: "90%" } })],
-        1
-      ),
+      !this.$root.isMobile
+        ? _c(
+            "div",
+            { ref: "content", staticClass: "contact-left" },
+            [_c("contact-illust", { attrs: { width: "90%" } })],
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "contact-right" }, [
         _c("div", { staticClass: "contact-content" }, [
@@ -82418,7 +82422,18 @@ var render = function() {
           _vm._m(3)
         ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    this.$root.isMobile
+      ? _c("div", { staticClass: "contact-container" }, [
+          _c(
+            "div",
+            { staticClass: "contact-left" },
+            [_c("contact-illust", { attrs: { width: "90%" } })],
+            1
+          )
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = [

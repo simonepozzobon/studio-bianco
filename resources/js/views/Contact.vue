@@ -1,7 +1,7 @@
 <template lang="html">
     <div class="contact">
         <div class="contact-container" ref="container">
-            <div class="contact-left" ref="content">
+            <div class="contact-left" ref="content" v-if="!this.$root.isMobile">
                 <contact-illust width="90%"/>
             </div>
             <div class="contact-right">
@@ -66,6 +66,11 @@
                         <button class="btn btn-pink text-white">invia</button>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="contact-container" v-if="this.$root.isMobile">
+            <div class="contact-left">
+                <contact-illust width="90%"/>
             </div>
         </div>
     </div>
@@ -187,14 +192,20 @@ export default {
 
         .contact-left {
             @include make-col(6);
-
+            @include media-breakpoint-down('md') {
+                @include make-col(12);
+            }
         }
 
         .contact-right {
             @include make-col(6);
+            @include media-breakpoint-down('md') {
+                @include make-col(12);
+            }
         }
 
         .contact-content {
+            width: 100%;
             padding: $spacer * 4;
 
             .contact-bold-divider {
@@ -230,6 +241,10 @@ export default {
         .contact-table {
             margin-bottom: $spacer * 2;
 
+            @include media-breakpoint-down('md') {
+                width: 100%;
+            }
+
             tr {
                 border: 1px solid $white;
 
@@ -248,6 +263,10 @@ export default {
         }
 
         .contact-map {
+            @include media-breakpoint-down('md') {
+                display: flex;
+                justify-content: center;
+            }
 
             .btn {
                 span {
