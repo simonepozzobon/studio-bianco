@@ -127,6 +127,7 @@ export default {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-top: $spacer / 4;
     padding-bottom: $spacer / 4;
     padding-left: $spacer;
@@ -140,6 +141,7 @@ export default {
     .accordion-title {
         font-weight: normal;
         text-transform: capitalize;
+        // line-height: 1;
     }
 }
 

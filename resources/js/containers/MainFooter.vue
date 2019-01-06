@@ -43,12 +43,9 @@ export default {
     @include make-container();
     background-color: $light-brown;
     min-height: 20vh;
-
-    @include media-breakpoint-down('md') {
-        margin-left: -15px;
-        margin-right: -15px;
-        width: 100vw;
-    }
+    margin-left: -15px;
+    margin-right: -15px;
+    width: 100vw;
 
     .main-footer-container {
         @include make-row();

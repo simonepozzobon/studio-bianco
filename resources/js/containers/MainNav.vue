@@ -2,7 +2,7 @@
     <nav class="navbar navbar-light navbar-expand-lg" ref="navbar" :class="this.navClass">
         <a class="navbar-brand" href="#">
             <!-- <nav-logo :width="214"  ref="logo"/> -->
-            <nav-logo :width="148"  ref="logo"/>
+            <nav-logo :width="128"  ref="logo"/>
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -111,8 +111,21 @@ export default {
 @import '~styles/shared';
 .navbar {
     // min-height: 112px;
-    min-height: 90px;
+    min-height: 60px;
+    height: 60px;
     z-index: 9999;
+
+    @include media-breakpoint-down('md') {
+        min-height: 90px;
+        height: 90px;
+    }
+
+    @include media-breakpoint-down('xs') {
+        min-height: 43px;
+        height: 43px;
+    }
+
+    transition: $transition-base;
 
     .nav-link {
         font-weight: normal;

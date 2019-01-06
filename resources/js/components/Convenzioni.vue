@@ -163,6 +163,10 @@ export default {
             font-weight: 300;
             position: relative;
 
+            @include media-breakpoint-down('sm') {
+                display: block;
+            }
+
             &::after {
                 content: '';
                 width: 100%;
@@ -172,6 +176,8 @@ export default {
                 left: 50%;
                 background-color: $yellow;
                 transform: translateX(-50%);
+
+
             }
         }
 

@@ -167,8 +167,9 @@ export default {
     }
 
     .estetica-subtitle {
-        font-size: $h4-font-size;
+        font-size: calc(60% + 1vw + 1vh);
         font-weight: 300;
+
     }
 
     .estetica-divider {
