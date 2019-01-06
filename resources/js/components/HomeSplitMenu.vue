@@ -68,6 +68,13 @@ export default {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
                 this.$refs.container.style.height = '100%'
 
+                this.$refs.content.style.minHeight = this.$root.window.w + 'px'
+                this.$refs.rightContent.style.minHeight = this.$root.window.w + 'px'
+
+                if (this.$root.window.w <= 576) {
+                    this.$refs.content.style.paddingTop = (this.$root.navbarFullHeight - 30) + 'px'
+                    this.$refs.rightContent.style.paddingTop = (this.$root.navbarFullHeight - 30) + 'px'
+                }
             }
         },
         setViewport: function(value) {
