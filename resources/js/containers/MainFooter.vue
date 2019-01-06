@@ -9,9 +9,9 @@
                     <div class="main-footer-bold-divider"></div>
                     <span class="main-footer-subtitle">Studio Bianco</span>
                     <p>
-                        Indirizzo <br>
-                        Telefono <br>
-                        Email
+                        Via Mazzini, 3 - Bergamo <br>
+                        3474150873 <br>
+                        silvia.citella@gmail.com
                     </p>
                 </div>
             </div>
@@ -59,6 +59,10 @@ export default {
 
             > svg {
                 margin-bottom: $spacer * 2;
+
+                @include media-breakpoint-down('xs') {
+                    margin-bottom: $spacer;
+                }
             }
 
             h1 {
@@ -73,6 +77,12 @@ export default {
 
             svg {
                 padding-right: $spacer * 4;
+
+                @include media-breakpoint-down('xs') {
+                    padding-right: $spacer;
+                    width: 60%;
+                    max-width: 120px;
+                }
             }
         }
 
@@ -92,6 +102,13 @@ export default {
 
         .main-footer-content {
             padding: $spacer * 4;
+
+            @include media-breakpoint-down('xs') {
+                padding-left: $spacer;
+                padding-right: $spacer;
+                padding-top: $spacer * 4;
+                padding-bottom: $spacer * 4;
+            }
 
             .main-footer-bold-divider {
                 content: '';

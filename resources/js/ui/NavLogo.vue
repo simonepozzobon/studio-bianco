@@ -3,7 +3,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214 201" :width="width" ref="logo">
             <title>bg-logo-header</title>
             <g id="c12efa14-8344-4f15-8114-2108f1e33566" data-name="bg-logo-header">
-                <path id="334be85e-1f51-407a-9f62-c436ea155901" data-name="bg" d="M213.18,0V83.74c0,64.49-44.42,116.77-99.21,116.77H99.22C44.42,200.51,0,148.23,0,83.74V0Z" style="fill: #FBFAEF"/>
+                <path id="334be85e-1f51-407a-9f62-c436ea155901" data-name="bg" d="M213.18,0V83.74c0,64.49-44.42,116.77-99.21,116.77H99.22C44.42,200.51,0,148.23,0,83.74V0Z" :style="'fill: '+this.navClass"/>
             </g>
             <g id="2fe6d439-f45f-49aa-9c3c-8f791df6562a" data-name="Logo">
                 <g>

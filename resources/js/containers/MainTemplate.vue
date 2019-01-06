@@ -1,7 +1,7 @@
 <template lang="html">
     <div class="">
-        <main-nav />
-        <mobile-nav />
+        <main-nav @toggle-mobile="toggleMobile"/>
+        <mobile-nav ref="mobileNav"/>
         <transition
             mode="in-out"
             @leave="leave"
@@ -59,6 +59,9 @@ export default {
         }
     },
     methods: {
+        toggleMobile: function() {
+            this.$refs.mobileNav.toggleMobile()
+        },
         leave: function(el, done) {
             // console.log('leave', el, this.elEnter)
 

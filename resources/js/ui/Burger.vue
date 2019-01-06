@@ -1,5 +1,5 @@
 <template lang="html">
-    <svg id="burger" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" :width="width" ref="burger">
+    <svg id="burger" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" :width="width" ref="burger" @click="toggleMobile">
         <title>menu-burger</title>
         <circle cx="20" cy="20" r="19" style="fill: #283745"/>
         <g>
@@ -26,6 +26,11 @@ export default {
             } else {
                 this.$refs.burger.style.top = '50px'
             }
+        }
+    },
+    methods: {
+        toggleMobile: function() {
+            this.$emit('toggle-mobile')
         }
     }
 }

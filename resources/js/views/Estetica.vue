@@ -54,7 +54,11 @@ export default {
             this.viewport = value
         },
         positionIllustration: function() {
-            this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
+            if (this.$root.window.w > 576) {
+                this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
+            } else {
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
+            }
         }
     },
     mounted: function(){

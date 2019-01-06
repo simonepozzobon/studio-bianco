@@ -5,8 +5,8 @@
             <nav-logo :width="this.logoSize"  ref="logo"/>
         </a>
 
-        <div class="d-md-none position-relative">
-            <burger :width="burgerSize"/>
+        <div class="d-lg-none position-relative">
+            <burger :width="burgerSize" @toggle-mobile="toggleMobile"/>
         </div>
 
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -98,6 +98,9 @@ export default {
             let el = this.$refs.logo.$refs.logo
             let elSize = el.getBoundingClientRect()
             this.$root.navbarFullHeight = elSize.height
+        },
+        toggleMobile: function() {
+            this.$emit('toggle-mobile')
         }
     },
     mounted: function() {

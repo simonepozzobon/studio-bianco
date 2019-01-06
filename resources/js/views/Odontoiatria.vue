@@ -38,7 +38,7 @@ export default {
         Parcelle,
     },
     watch: {
-        '$root.window.h': function(value) {
+        '$root.window': function(value) {
             this.positionIllustration()
         }
     },
@@ -49,7 +49,11 @@ export default {
     },
     methods: {
         positionIllustration: function() {
-            this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
+            if (this.$root.window.w > 576) {
+                this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
+            } else {
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
+            }
         },
     },
     mounted: function() {

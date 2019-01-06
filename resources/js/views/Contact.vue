@@ -119,15 +119,15 @@ export default {
                         height: 0,
                         autoAlpha: 0,
                         display: 'none',
-                        transformOrigin: "center top 0",
+                        transformOrigin: 'center top 0',
                     })
 
                     this.master.to(form, .6, {
                         height: '100%',
                         scaleY: 1,
                         autoAlpha: 1,
-                        display: "block",
-                        transformOrigin: "center top 0",
+                        display: 'block',
+                        transformOrigin: 'center top 0',
                         ease: Cubic.easeInOut,
                     })
 
@@ -311,7 +311,7 @@ export default {
             padding-top: $spacer * 2;
             padding-bottom: $spacer;
 
-            position: relative;
+            position:relative;
             visibility:hidden; /* hides all .Tile-flyout on load so GSAP autoAlpha can do its thing */
             height:auto; /* tell the browser that initial height is auto */
             overflow:hidden;

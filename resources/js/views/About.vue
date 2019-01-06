@@ -89,6 +89,8 @@ export default {
         positionIllustration: function() {
             if (!this.$root.isMobile) {
                 this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
+            } else {
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
             }
         }
     },
@@ -111,6 +113,8 @@ export default {
     .about-container {
         @include make-row();
         min-height: 100vh;
+        max-width: 100vw;
+        overflow: hidden;
 
         > div {
             display: flex;
