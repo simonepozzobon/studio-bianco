@@ -5,6 +5,10 @@
             <nav-logo :width="this.logoSize"  ref="logo"/>
         </a>
 
+        <div class="d-md-none position-relative">
+            <burger :width="burgerSize"/>
+        </div>
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -38,11 +42,12 @@
 </template>
 
 <script>
-import { NavLogo } from '../ui'
+import { Burger, NavLogo } from '../ui'
 
 export default {
     name: 'MainNav',
     components: {
+        Burger,
         NavLogo,
     },
     props: {
@@ -65,12 +70,16 @@ export default {
             }
         },
         '$root.window.w': function(w) {
-            if (w == 0 && w <= 576) {
+            this.setNavbarHeight()
+
+            if (w == 0 || w <= 576) {
                 // smartphone
                 this.logoSize = 83
-            } else if (w > 576 && w <= 992) {
+                this.burgerSize = 40
+            } else if (w > 576 || w <= 992) {
                 // tablet
                 this.logoSize = 171
+                this.burgerSize = 80
             } else {
                 this.logoSize = 128
             }
@@ -78,23 +87,21 @@ export default {
     },
     data: function() {
         return {
+            burgerSize: 40,
             logoSize: 128,
             navClass: 'bg-light',
         }
     },
     methods: {
-        // removeActive: function(currents) {
-        //     for (var i = 0; i < currents.length; i++) {
-        //         currents[i].classList.remove('active')
-        //         currents[i].classList.remove('route-link-active')
-        //     }
-        // }
+        setNavbarHeight: function() {
+            this.$root.navbarHeight = this.$refs.navbar.offsetHeight
+            let el = this.$refs.logo.$refs.logo
+            let elSize = el.getBoundingClientRect()
+            this.$root.navbarFullHeight = elSize.height
+        }
     },
     mounted: function() {
-        this.$root.navbarHeight = this.$refs.navbar.offsetHeight
-        let el = this.$refs.logo.$refs.logo
-        let elSize = el.getBoundingClientRect()
-        this.$root.navbarFullHeight = elSize.height
+        this.setNavbarHeight()
     }
 }
 </script>

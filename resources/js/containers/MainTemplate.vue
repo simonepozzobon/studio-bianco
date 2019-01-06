@@ -1,6 +1,7 @@
 <template lang="html">
     <div class="">
         <main-nav />
+        <mobile-nav />
         <transition
             mode="in-out"
             @leave="leave"
@@ -13,12 +14,18 @@
 
 <script>
 import MainNav from './MainNav.vue'
+import MobileNav from '../containers/MobileNav.vue'
 // import MainFooter from './MainFooter.vue'
 import { TimelineMax } from 'gsap'
 import GSDevTools from 'gsap/GSDevTools'
 
 export default {
     name: 'MainTemplate',
+    components: {
+        MainNav,
+        MobileNav,
+        // MainFooter,
+    },
     props: {
         estetica: {
             type: String,
@@ -28,10 +35,6 @@ export default {
             type: String,
             default: function() {},
         }
-    },
-    components: {
-        MainNav,
-        // MainFooter,
     },
     data: function() {
         return {

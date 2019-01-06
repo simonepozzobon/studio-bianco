@@ -90,17 +90,28 @@ export default {
 
         .odontoiatria-left {
             @include make-col(6);
-
+            @include media-breakpoint-down('md') {
+                @include make-col(12);
+            }
         }
 
         .odontoiatria-right {
             @include make-col(6);
+            @include media-breakpoint-down('md') {
+                @include make-col(12);
+            }
         }
     }
 
     .odontoiatria-content {
         padding: $spacer * 4;
         width: 100%;
+
+        @include media-breakpoint-down('md') {
+            padding-left: 0;
+            padding-right: 0;
+            text-align: center;
+        }
 
         .odontoiatria-bold-divider {
             content: '';
@@ -115,11 +126,17 @@ export default {
             &.yellow {
                 border-top: 6px solid $yellow;
             }
+
+            @include media-breakpoint-down('md') {
+                margin-right: auto;
+                margin-left: auto;
+            }
         }
 
         .odontoiatria-v-div {
             content: '';
             height: 100px;
+            width: 1px;
             border-left: 1px solid $light-brown;
             margin-bottom: $spacer;
             margin-top: $spacer;
@@ -130,6 +147,12 @@ export default {
 
             &.yellow {
                 border-left: 1px solid $yellow;
+            }
+
+            @include media-breakpoint-down('md') {
+                margin-right: auto;
+                margin-left: auto;
+                height: 30px;
             }
         }
     }
