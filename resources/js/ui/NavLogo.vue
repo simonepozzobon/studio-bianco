@@ -139,6 +139,10 @@ export default {
         top: 0;
         left: $spacer;
 
+        @include media-breakpoint-down('md') {
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
     }
 }

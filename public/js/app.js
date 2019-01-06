@@ -58951,10 +58951,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'MainNav',
@@ -58981,26 +58977,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         default:
           this.navClass = 'bg-light';
       }
-    } // '$root.homepage': function(value) {
-    //     let currents = null
-    //
-    //     switch (value) {
-    //         case 'odontoiatria':
-    //             currents = document.getElementsByClassName('router-link-active')
-    //             this.removeActive(currents)
-    //             this.$refs.odontoiatria.$el.classList.add('active')
-    //             break;
-    //         case 'estetica':
-    //             currents = document.getElementsByClassName('router-link-active')
-    //             this.removeActive(currents)
-    //             this.$refs.estetica.$el.classList.add('active')
-    //             break;
-    //     }
-    // }
-
+    },
+    '$root.window.w': function $rootWindowW(w) {
+      if (w == 0 && w <= 576) {
+        // smartphone
+        this.logoSize = 83;
+      } else if (w > 576 && w <= 992) {
+        // tablet
+        this.logoSize = 171;
+      } else {
+        this.logoSize = 128;
+      }
+    }
   },
   data: function data() {
     return {
+      logoSize: 128,
       navClass: 'bg-light'
     };
   },
@@ -59432,7 +59424,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.logo-header {\n  position: relative;\n}\n.logo-header svg {\n    position: fixed;\n    top: 0;\n    left: 1rem;\n}\n", ""]);
+exports.push([module.i, "\n.logo-header {\n  position: relative;\n}\n.logo-header svg {\n    position: fixed;\n    top: 0;\n    left: 1rem;\n}\n@media (max-width: 991.98px) {\n.logo-header svg {\n        left: 50%;\n        -webkit-transform: translateX(-50%);\n                transform: translateX(-50%);\n}\n}\n", ""]);
 
 // exports
 
@@ -60629,12 +60621,10 @@ var render = function() {
     [
       _c(
         "a",
-        { staticClass: "navbar-brand", attrs: { href: "#" } },
-        [_c("nav-logo", { ref: "logo", attrs: { width: 128 } })],
+        { ref: "brand", staticClass: "navbar-brand", attrs: { href: "#" } },
+        [_c("nav-logo", { ref: "logo", attrs: { width: this.logoSize } })],
         1
       ),
-      _vm._v(" "),
-      _vm._m(0),
       _vm._v(" "),
       _c(
         "div",
@@ -60756,28 +60746,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler",
-        attrs: {
-          type: "button",
-          "data-toggle": "collapse",
-          "data-target": "#navbarSupportedContent",
-          "aria-controls": "navbarSupportedContent",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation"
-        }
-      },
-      [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

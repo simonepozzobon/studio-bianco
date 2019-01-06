@@ -1,13 +1,9 @@
 <template lang="html">
     <nav class="navbar navbar-light navbar-expand-lg" ref="navbar" :class="this.navClass">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#" ref="brand">
             <!-- <nav-logo :width="214"  ref="logo"/> -->
-            <nav-logo :width="128"  ref="logo"/>
+            <nav-logo :width="this.logoSize"  ref="logo"/>
         </a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
@@ -68,26 +64,22 @@ export default {
                     this.navClass = 'bg-light'
             }
         },
-        // '$root.homepage': function(value) {
-        //     let currents = null
-        //
-        //     switch (value) {
-        //         case 'odontoiatria':
-        //             currents = document.getElementsByClassName('router-link-active')
-        //             this.removeActive(currents)
-        //             this.$refs.odontoiatria.$el.classList.add('active')
-        //             break;
-        //         case 'estetica':
-        //             currents = document.getElementsByClassName('router-link-active')
-        //             this.removeActive(currents)
-        //             this.$refs.estetica.$el.classList.add('active')
-        //             break;
-        //     }
-        // }
+        '$root.window.w': function(w) {
+            if (w == 0 && w <= 576) {
+                // smartphone
+                this.logoSize = 83
+            } else if (w > 576 && w <= 992) {
+                // tablet
+                this.logoSize = 171
+            } else {
+                this.logoSize = 128
+            }
+        }
     },
     data: function() {
         return {
-            navClass: 'bg-light'
+            logoSize: 128,
+            navClass: 'bg-light',
         }
     },
     methods: {
