@@ -3,7 +3,7 @@
         <div class="parcelle-container" ref="content">
             <div class="parcelle-content">
                 <div class="parcelle-bold-divider pink"></div>
-                <h1 ref="title">Parcelle</h1>
+                <h1 ref="title" class="parcelle-title">Parcelle</h1>
                 <div class="parcelle-v-div pink"></div>
                 <p>
                     Le parcelle di Studio Bianco sono basate sulla competenza, l’esperienza ed il tempo necessari per trattare le vostre condizioni in modo brillante e duraturo. È nostra cura in tutte le situazioni selezionare i migliori strumenti ed i migliori materiali disponibili. Qualsiasi terapia non sarà intrapresa senza che il preventivo di spesa e le relative modalità di trattamento siano state accuratamente esposte, dopo la raccolta dei dati clinici e la formulazione del piano di trattamento, ed approvate dal paziente.
@@ -37,6 +37,10 @@ export default {
 
             @include media-breakpoint-down('md') {
                 text-align: center;
+            }
+
+            .parcelle-title {
+                font-size: calc(100% + 1vw + 1vh);
             }
 
             .parcelle-bold-divider {
