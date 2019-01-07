@@ -72,7 +72,7 @@ export default {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
             } else if (w >= 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
-                this.$refs.illust.$el.style.paddingTop = '20%'
+                this.$refs.illust.$el.style.paddingTop = '14%'
                 this.illustWidth = '50%'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'

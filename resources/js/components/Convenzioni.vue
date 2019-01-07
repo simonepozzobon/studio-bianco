@@ -7,60 +7,60 @@
                 <span class="convenzioni-subtitle text-white">Assicurazioni in convenzione diretta</span>
                 <div class="row py-5 mt-5 justify-content-center">
                     <div class="col-md-3">
-                        <img src="/img/logo_1.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_1.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="col-md-3">
-                        <img src="/img/logo_2.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_2.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="col-md-3">
-                        <img src="/img/logo_3.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_3.png" alt="" class="convenzioni-logo-img">
                     </div>
                 </div>
                 <span class="convenzioni-subtitle text-white">Assicurazioni in convenzione indiretta</span>
                 <div class="row py-5 justify-content-center">
                     <div class="col-md-3">
-                        <img src="/img/logo_4.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_4.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="col-md-3">
-                        <img src="/img/logo_5.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_5.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="col-md-3">
-                        <img src="/img/logo_6.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_6.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="col-md-3">
-                        <img src="/img/logo_7.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_7.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="margin-auto"></div>
 
                     <div class="col-md-3">
-                        <img src="/img/logo_8.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_8.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="col-md-3">
-                        <img src="/img/logo_9.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_9.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="col-md-3">
-                        <img src="/img/logo_10.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_10.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="col-md-3">
-                        <img src="/img/logo_11.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_11.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="margin-auto"></div>
 
 
                     <div class="col">
-                        <img src="/img/logo_12.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_12.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="col">
-                        <img src="/img/logo_13.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_13.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="col">
-                        <img src="/img/logo_14.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_14.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="col">
-                        <img src="/img/logo_15.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_15.png" alt="" class="convenzioni-logo-img">
                     </div>
                     <div class="col">
-                        <img src="/img/logo_16.png" alt="" class="img-fluid h-100">
+                        <img src="/img/logo_16.png" alt="" class="convenzioni-logo-img">
                     </div>
                 </div>
             </div>
@@ -91,6 +91,13 @@ export default {
 
             @include media-breakpoint-down('md') {
                 text-align: center;
+            }
+
+            .convenzioni-logo-img {
+                max-width: 100%;
+                max-height: 100%;
+                width: 100%;
+                height: auto;
             }
 
             .convenzioni-bold-divider {

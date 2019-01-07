@@ -45,7 +45,7 @@ export default {
     watch: {
         '$root.window': function(value) {
             this.positionIllustration()
-            this.illustHeight = this.$refs.content.offsetHeight
+            // this.illustHeight = this.$refs.content.offsetHeight
 
             if (value.w > 1920) {
                 this.illustWidth = '72.2%'
