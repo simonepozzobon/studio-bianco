@@ -131,6 +131,7 @@ export default {
                     master.play()
                 } else {
                     let testa = document.getElementById('home-illust-testa')
+
                     // animazione per medicina estetica
                     t1.set(panelRight, {
                         transformOrigin: "left center 0",
