@@ -1,5 +1,5 @@
 <template lang="html">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 931.97 837.78" :width="width">
+    <svg id="odontoiatria-illust" ref="illust" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 931.97 837.78" :width="width">
         <defs>
             <clipPath id="592cb7ed-379b-4d1e-84ae-b86fa6871786">
                 <path
@@ -148,16 +148,103 @@
 </template>
 
 <script>
+import ScrollMagic from 'scrollmagic'
+// import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
+import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
+
 export default {
     name: 'OdontoiatriaIllust',
     props: {
-          width: {
-              type: String,
-              default: '32px'
-          }
-      }
+        width: {
+            type: String,
+            default: '32px'
+        },
+        containerHeight: {
+            type: Number,
+            default: 0,
+        },
+        trigger: {
+            type: String,
+            default: '',
+        }
+    },
+    data: function() {
+        return {
+            controller: null,
+        }
+    },
+    watch: {
+        containerHeight: function(value) {
+            if (!this.$root.isMobile) {
+                this.onResize()
+            } else {
+                if (this.controller) {
+                    this.controller.destroy()
+                }
+            }
+        }
+    },
+    methods: {
+        animate: function() {
+            if (!this.$root.isMobile) {
+                let illust = this.$refs.illust
+                // let initialPadding = 4 * 16 // 4rem
+                // illust.style.top = initialPadding + 'px' // max top position
+
+                let master = new TimelineMax({
+                    paused: true,
+                })
+                master.from(illust, 1.36, {
+                    yPercent: 30,
+                    ease: Power1.easeInOut,
+                })
+
+                master.progress(1).progress(0)
+                master.play()
+            }
+        },
+        onResize: function() {
+            if (this.controller) {
+                this.controller.destroy()
+            }
+            // this.getHeight()
+            let illust = this.$refs.illust // element
+            let maxHeight = this.containerHeight - (4 * 16 * 2) + 32 // height without padding and margin
+            let illustHeight = Math.floor(illust.height.baseVal.value) // altezza dell'illustrazione
+            let maxPosition = maxHeight - illustHeight // pixel per arrivare al fondo
+
+            let master = TweenMax.to(illust, 2, {
+                top: maxPosition * 0.45
+            })
+
+            this.controller = new ScrollMagic.Controller()
+            let scroll = new ScrollMagic.Scene({
+                triggerElement: document.getElementById(this.trigger),
+                offset: - this.$root.navbarHeight + 40,
+                duration: maxHeight > 0 ? maxHeight : 200,
+                triggerHook: 'onLeave'
+            })
+                // .addIndicators({ name: 'illustrazione studio'})
+                .setTween(master)
+                .addTo(this.controller)
+        }
+    },
+    mounted: function() {
+        this.animate()
+    },
+    beforeDestroy: function() {
+        if (this.controller) {
+            this.controller.destroy()
+        }
+    }
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
+@import '~styles/shared';
+
+#odontoiatria-illust {
+    position: absolute;
+    top: 0;
+}
 </style>

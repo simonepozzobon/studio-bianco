@@ -10,8 +10,13 @@
                     <accordion :items="services"/>
                 </div>
             </div>
-            <div class="estetica-right">
-                <estetica-illust width="70%" ref="illust"/>
+            <div class="estetica-right estetica-illust-top">
+                <estetica-illust
+                    width="58.8%"
+                    ref="illust"
+                    trigger="estetica-studio-illust-ref"
+                    :containerHeight="illustHeight"/>
+                <div id="estetica-studio-illust-ref"></div>
             </div>
         </div>
         <parcelle />
@@ -38,13 +43,14 @@ export default {
     },
     watch: {
         '$root.window.h': function(value) {
-            this.setViewport(value)
             this.positionIllustration()
+            this.illustHeight = this.$refs.content.offsetHeight
         }
     },
     data: function() {
         return {
             height: 0,
+            illustHeight: 0,
             viewport: 0,
             services: this.$root.estetica
         }
@@ -55,7 +61,7 @@ export default {
         },
         positionIllustration: function() {
             if (this.$root.window.w > 576) {
-                this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
             }
@@ -68,6 +74,7 @@ export default {
         let elSize = el.getBoundingClientRect()
         this.height = elSize.height
         this.positionIllustration()
+        this.illustHeight = this.$refs.content.offsetHeight
     }
 }
 </script>
@@ -98,6 +105,10 @@ export default {
             h1 {
                 display: block;
             }
+
+            &.estetica-illust-top {
+                justify-content: flex-start;
+            }
         }
 
         .estetica-left {
@@ -109,8 +120,11 @@ export default {
 
         .estetica-right {
             @include make-col(6);
+            position: relative;
+
             @include media-breakpoint-down('md') {
                 @include make-col(12);
+                position: inherit;
             }
         }
 
@@ -148,7 +162,7 @@ export default {
 
         .estetica-v-div {
             content: '';
-            height: 100px;
+            height: 53px;
             width: 1px;
             border-left: 1px solid $light-brown;
             margin-bottom: $spacer;
@@ -163,9 +177,13 @@ export default {
             }
 
             @include media-breakpoint-down('md') {
-                margin-right: auto;
                 margin-left: auto;
-                height: 30px;
+                margin-right: auto;
+                height: 29px;
+            }
+
+            @include media-breakpoint-down('xs') {
+                height: 13px;
             }
         }
     }

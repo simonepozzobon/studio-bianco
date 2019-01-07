@@ -10,8 +10,13 @@
                     <accordion :items="services"/>
                 </div>
             </div>
-            <div class="odontoiatria-right">
-                <odontoiatria-illust width="90%"/>
+            <div class="odontoiatria-right odontoiatria-illust-top">
+                <odontoiatria-illust
+                    width="92.2%"
+                    ref="illust"
+                    trigger="odontoiatria-studio-illust-ref"
+                    :containerHeight="illustHeight"/>
+                <div id="odontoiatria-studio-illust-ref"></div>
             </div>
         </div>
         <parcelle />
@@ -40,17 +45,19 @@ export default {
     watch: {
         '$root.window': function(value) {
             this.positionIllustration()
+            this.illustHeight = this.$refs.content.offsetHeight
         }
     },
     data: function() {
         return {
+            illustHeight: 0,
             services: this.$root.odontoiatria
         }
     },
     methods: {
         positionIllustration: function() {
             if (this.$root.window.w > 576) {
-                this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
             }
@@ -60,6 +67,7 @@ export default {
         this.$root.navColor = 1
         this.$root.hasFooter = true
         this.positionIllustration()
+        this.illustHeight = this.$refs.content.offsetHeight
     }
 }
 </script>
@@ -90,6 +98,10 @@ export default {
             h1 {
                 display: block;
             }
+
+            &.odontoiatria-illust-top {
+                justify-content: flex-start;
+            }
         }
 
         .odontoiatria-left {
@@ -101,8 +113,11 @@ export default {
 
         .odontoiatria-right {
             @include make-col(6);
+            position: relative;
+
             @include media-breakpoint-down('md') {
                 @include make-col(12);
+                position: inherit;
             }
         }
     }
@@ -139,7 +154,7 @@ export default {
 
         .odontoiatria-v-div {
             content: '';
-            height: 100px;
+            height: 53px;
             width: 1px;
             border-left: 1px solid $light-brown;
             margin-bottom: $spacer;
@@ -154,9 +169,13 @@ export default {
             }
 
             @include media-breakpoint-down('md') {
-                margin-right: auto;
                 margin-left: auto;
-                height: 30px;
+                margin-right: auto;
+                height: 29px;
+            }
+
+            @include media-breakpoint-down('xs') {
+                height: 13px;
             }
         }
     }

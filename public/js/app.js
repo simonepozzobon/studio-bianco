@@ -74821,7 +74821,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.odontoiatria {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #c0d3dd;\n}\n.odontoiatria .odontoiatria-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 100vh;\n}\n.odontoiatria .odontoiatria-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.odontoiatria .odontoiatria-container > div > svg {\n        margin-bottom: 2rem;\n}\n.odontoiatria .odontoiatria-container > div h1 {\n        display: block;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n@media (max-width: 991.98px) {\n.odontoiatria .odontoiatria-container .odontoiatria-left {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n}\n}\n.odontoiatria .odontoiatria-container .odontoiatria-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n@media (max-width: 991.98px) {\n.odontoiatria .odontoiatria-container .odontoiatria-right {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n}\n}\n.odontoiatria .odontoiatria-content {\n    padding: 4rem;\n    width: 100%;\n}\n@media (max-width: 991.98px) {\n.odontoiatria .odontoiatria-content {\n        padding-left: 0;\n        padding-right: 0;\n        text-align: center;\n}\n}\n.odontoiatria .odontoiatria-content .odontoiatria-bold-divider {\n      content: '';\n      width: 30px;\n      border-top: 6px solid #fbfaf0;\n      margin-bottom: 1rem;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-bold-divider.pink {\n        border-top: 6px solid #EBB29D;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-bold-divider.yellow {\n        border-top: 6px solid #eac88c;\n}\n@media (max-width: 991.98px) {\n.odontoiatria .odontoiatria-content .odontoiatria-bold-divider {\n          margin-right: auto;\n          margin-left: auto;\n}\n}\n.odontoiatria .odontoiatria-content .odontoiatria-v-div {\n      content: '';\n      height: 100px;\n      width: 1px;\n      border-left: 1px solid #fbfaf0;\n      margin-bottom: 1rem;\n      margin-top: 1rem;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-v-div.pink {\n        border-left: 1px solid #EBB29D;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-v-div.yellow {\n        border-left: 1px solid #eac88c;\n}\n@media (max-width: 991.98px) {\n.odontoiatria .odontoiatria-content .odontoiatria-v-div {\n          margin-right: auto;\n          margin-left: auto;\n          height: 30px;\n}\n}\n.odontoiatria .odontoiatria-subtitle {\n    font-size: calc(60% + 1vw + 1vh);\n    font-weight: 300;\n}\n.odontoiatria .odontoiatria-divider {\n    margin-bottom: 1rem;\n}\n.odontoiatria .odontoiatria-parcelle {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    background-color: #FBFAEF;\n    min-height: 20vh;\n}\n.odontoiatria .odontoiatria-parcelle .odontoiatria-parcelle-container {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n}\n.odontoiatria .odontoiatria-partner {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    background-color: #413d52;\n    min-height: 20vh;\n}\n.odontoiatria .odontoiatria-partner .odontoiatria-parcelle-container {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.odontoiatria {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #c0d3dd;\n}\n.odontoiatria .odontoiatria-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 100vh;\n}\n.odontoiatria .odontoiatria-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.odontoiatria .odontoiatria-container > div > svg {\n        margin-bottom: 2rem;\n}\n.odontoiatria .odontoiatria-container > div h1 {\n        display: block;\n}\n.odontoiatria .odontoiatria-container > div.odontoiatria-illust-top {\n        -webkit-box-pack: start;\n            -ms-flex-pack: start;\n                justify-content: flex-start;\n}\n.odontoiatria .odontoiatria-container .odontoiatria-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n@media (max-width: 991.98px) {\n.odontoiatria .odontoiatria-container .odontoiatria-left {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n}\n}\n.odontoiatria .odontoiatria-container .odontoiatria-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      position: relative;\n}\n@media (max-width: 991.98px) {\n.odontoiatria .odontoiatria-container .odontoiatria-right {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n          position: inherit;\n}\n}\n.odontoiatria .odontoiatria-content {\n    padding: 4rem;\n    width: 100%;\n}\n@media (max-width: 991.98px) {\n.odontoiatria .odontoiatria-content {\n        padding-left: 0;\n        padding-right: 0;\n        text-align: center;\n}\n}\n.odontoiatria .odontoiatria-content .odontoiatria-bold-divider {\n      content: '';\n      width: 30px;\n      border-top: 6px solid #fbfaf0;\n      margin-bottom: 1rem;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-bold-divider.pink {\n        border-top: 6px solid #EBB29D;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-bold-divider.yellow {\n        border-top: 6px solid #eac88c;\n}\n@media (max-width: 991.98px) {\n.odontoiatria .odontoiatria-content .odontoiatria-bold-divider {\n          margin-right: auto;\n          margin-left: auto;\n}\n}\n.odontoiatria .odontoiatria-content .odontoiatria-v-div {\n      content: '';\n      height: 53px;\n      width: 1px;\n      border-left: 1px solid #fbfaf0;\n      margin-bottom: 1rem;\n      margin-top: 1rem;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-v-div.pink {\n        border-left: 1px solid #EBB29D;\n}\n.odontoiatria .odontoiatria-content .odontoiatria-v-div.yellow {\n        border-left: 1px solid #eac88c;\n}\n@media (max-width: 991.98px) {\n.odontoiatria .odontoiatria-content .odontoiatria-v-div {\n          margin-left: auto;\n          margin-right: auto;\n          height: 29px;\n}\n}\n@media (max-width: 575.98px) {\n.odontoiatria .odontoiatria-content .odontoiatria-v-div {\n          height: 13px;\n}\n}\n.odontoiatria .odontoiatria-subtitle {\n    font-size: calc(60% + 1vw + 1vh);\n    font-weight: 300;\n}\n.odontoiatria .odontoiatria-divider {\n    margin-bottom: 1rem;\n}\n.odontoiatria .odontoiatria-parcelle {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    background-color: #FBFAEF;\n    min-height: 20vh;\n}\n.odontoiatria .odontoiatria-parcelle .odontoiatria-parcelle-container {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n}\n.odontoiatria .odontoiatria-partner {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    background-color: #413d52;\n    min-height: 20vh;\n}\n.odontoiatria .odontoiatria-partner .odontoiatria-parcelle-container {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -74864,6 +74864,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -74882,17 +74887,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   watch: {
     '$root.window': function $rootWindow(value) {
       this.positionIllustration();
+      this.illustHeight = this.$refs.content.offsetHeight;
     }
   },
   data: function data() {
     return {
+      illustHeight: 0,
       services: this.$root.odontoiatria
     };
   },
   methods: {
     positionIllustration: function positionIllustration() {
       if (this.$root.window.w > 576) {
-        this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px';
+        this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px';
       } else {
         this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px';
       }
@@ -74902,6 +74909,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     this.$root.navColor = 1;
     this.$root.hasFooter = true;
     this.positionIllustration();
+    this.illustHeight = this.$refs.content.offsetHeight;
   }
 });
 
@@ -75579,7 +75587,7 @@ if (false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(382)
+  __webpack_require__(418)
 }
 var normalizeComponent = __webpack_require__(4)
 /* script */
@@ -75624,51 +75632,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 382 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(383);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("50eef02a", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c1f8a35\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OdontoiatriaIllust.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c1f8a35\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OdontoiatriaIllust.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 383 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 382 */,
+/* 383 */,
 /* 384 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_scrollmagic__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_scrollmagic___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_scrollmagic__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_scrollmagic_scrollmagic_uncompressed_plugins_animation_gsap_js__ = __webpack_require__(413);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_scrollmagic_scrollmagic_uncompressed_plugins_animation_gsap_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_scrollmagic_scrollmagic_uncompressed_plugins_animation_gsap_js__);
 //
 //
 //
@@ -75818,12 +75792,91 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+ // import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OdontoiatriaIllust',
   props: {
     width: {
       type: String,
       default: '32px'
+    },
+    containerHeight: {
+      type: Number,
+      default: 0
+    },
+    trigger: {
+      type: String,
+      default: ''
+    }
+  },
+  data: function data() {
+    return {
+      controller: null
+    };
+  },
+  watch: {
+    containerHeight: function containerHeight(value) {
+      if (!this.$root.isMobile) {
+        this.onResize();
+      } else {
+        if (this.controller) {
+          this.controller.destroy();
+        }
+      }
+    }
+  },
+  methods: {
+    animate: function animate() {
+      if (!this.$root.isMobile) {
+        var illust = this.$refs.illust; // let initialPadding = 4 * 16 // 4rem
+        // illust.style.top = initialPadding + 'px' // max top position
+
+        var master = new TimelineMax({
+          paused: true
+        });
+        master.from(illust, 1.36, {
+          yPercent: 30,
+          ease: Power1.easeInOut
+        });
+        master.progress(1).progress(0);
+        master.play();
+      }
+    },
+    onResize: function onResize() {
+      if (this.controller) {
+        this.controller.destroy();
+      } // this.getHeight()
+
+
+      var illust = this.$refs.illust; // element
+
+      var maxHeight = this.containerHeight - 4 * 16 * 2 + 32; // height without padding and margin
+
+      var illustHeight = Math.floor(illust.height.baseVal.value); // altezza dell'illustrazione
+
+      var maxPosition = maxHeight - illustHeight; // pixel per arrivare al fondo
+
+      var master = TweenMax.to(illust, 2, {
+        top: maxPosition * 0.45
+      });
+      this.controller = new __WEBPACK_IMPORTED_MODULE_0_scrollmagic___default.a.Controller();
+      var scroll = new __WEBPACK_IMPORTED_MODULE_0_scrollmagic___default.a.Scene({
+        triggerElement: document.getElementById(this.trigger),
+        offset: -this.$root.navbarHeight + 40,
+        duration: maxHeight > 0 ? maxHeight : 200,
+        triggerHook: 'onLeave'
+      }) // .addIndicators({ name: 'illustrazione studio'})
+      .setTween(master).addTo(this.controller);
+    }
+  },
+  mounted: function mounted() {
+    this.animate();
+  },
+  beforeDestroy: function beforeDestroy() {
+    if (this.controller) {
+      this.controller.destroy();
     }
   }
 });
@@ -75839,7 +75892,9 @@ var render = function() {
   return _c(
     "svg",
     {
+      ref: "illust",
       attrs: {
+        id: "odontoiatria-illust",
         xmlns: "http://www.w3.org/2000/svg",
         "xmlns:xlink": "http://www.w3.org/1999/xlink",
         viewBox: "0 0 931.97 837.78",
@@ -76457,8 +76512,19 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "odontoiatria-right" },
-          [_c("odontoiatria-illust", { attrs: { width: "90%" } })],
+          { staticClass: "odontoiatria-right odontoiatria-illust-top" },
+          [
+            _c("odontoiatria-illust", {
+              ref: "illust",
+              attrs: {
+                width: "92.2%",
+                trigger: "odontoiatria-studio-illust-ref",
+                containerHeight: _vm.illustHeight
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { attrs: { id: "odontoiatria-studio-illust-ref" } })
+          ],
           1
         )
       ]),
@@ -76568,7 +76634,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.estetica {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #eac88c;\n}\n.estetica .estetica-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 100vh;\n}\n.estetica .estetica-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.estetica .estetica-container > div > svg {\n        margin-bottom: 2rem;\n}\n.estetica .estetica-container > div h1 {\n        display: block;\n}\n.estetica .estetica-container .estetica-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n@media (max-width: 991.98px) {\n.estetica .estetica-container .estetica-left {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n}\n}\n.estetica .estetica-container .estetica-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n@media (max-width: 991.98px) {\n.estetica .estetica-container .estetica-right {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n}\n}\n.estetica .estetica-content {\n    padding: 4rem;\n    width: 100%;\n}\n@media (max-width: 991.98px) {\n.estetica .estetica-content {\n        padding-left: 0;\n        padding-right: 0;\n        text-align: center;\n}\n}\n.estetica .estetica-content .estetica-bold-divider {\n      content: '';\n      width: 30px;\n      border-top: 6px solid #fbfaf0;\n      margin-bottom: 1rem;\n}\n.estetica .estetica-content .estetica-bold-divider.pink {\n        border-top: 6px solid #EBB29D;\n}\n.estetica .estetica-content .estetica-bold-divider.yellow {\n        border-top: 6px solid #eac88c;\n}\n@media (max-width: 991.98px) {\n.estetica .estetica-content .estetica-bold-divider {\n          margin-right: auto;\n          margin-left: auto;\n}\n}\n.estetica .estetica-content .estetica-v-div {\n      content: '';\n      height: 100px;\n      width: 1px;\n      border-left: 1px solid #fbfaf0;\n      margin-bottom: 1rem;\n      margin-top: 1rem;\n}\n.estetica .estetica-content .estetica-v-div.pink {\n        border-left: 1px solid #EBB29D;\n}\n.estetica .estetica-content .estetica-v-div.yellow {\n        border-left: 1px solid #eac88c;\n}\n@media (max-width: 991.98px) {\n.estetica .estetica-content .estetica-v-div {\n          margin-right: auto;\n          margin-left: auto;\n          height: 30px;\n}\n}\n.estetica .estetica-subtitle {\n    font-size: calc(60% + 1vw + 1vh);\n    font-weight: 300;\n}\n.estetica .estetica-divider {\n    margin-bottom: 1rem;\n}\n.estetica .estetica-parcelle {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    background-color: #FBFAEF;\n    min-height: 20vh;\n}\n.estetica .estetica-parcelle .estetica-parcelle-container {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n}\n.estetica .estetica-partner {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    background-color: #413d52;\n    min-height: 20vh;\n}\n.estetica .estetica-partner .estetica-parcelle-container {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.estetica {\n  width: 100%;\n  padding-right: 15px;\n  padding-left: 15px;\n  margin-right: auto;\n  margin-left: auto;\n  background-color: #eac88c;\n}\n.estetica .estetica-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    min-height: 100vh;\n}\n.estetica .estetica-container > div {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n}\n.estetica .estetica-container > div > svg {\n        margin-bottom: 2rem;\n}\n.estetica .estetica-container > div h1 {\n        display: block;\n}\n.estetica .estetica-container > div.estetica-illust-top {\n        -webkit-box-pack: start;\n            -ms-flex-pack: start;\n                justify-content: flex-start;\n}\n.estetica .estetica-container .estetica-left {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n}\n@media (max-width: 991.98px) {\n.estetica .estetica-container .estetica-left {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n}\n}\n.estetica .estetica-container .estetica-right {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 50%;\n              flex: 0 0 50%;\n      max-width: 50%;\n      position: relative;\n}\n@media (max-width: 991.98px) {\n.estetica .estetica-container .estetica-right {\n          -webkit-box-flex: 0;\n              -ms-flex: 0 0 100%;\n                  flex: 0 0 100%;\n          max-width: 100%;\n          position: inherit;\n}\n}\n.estetica .estetica-content {\n    padding: 4rem;\n    width: 100%;\n}\n@media (max-width: 991.98px) {\n.estetica .estetica-content {\n        padding-left: 0;\n        padding-right: 0;\n        text-align: center;\n}\n}\n.estetica .estetica-content .estetica-bold-divider {\n      content: '';\n      width: 30px;\n      border-top: 6px solid #fbfaf0;\n      margin-bottom: 1rem;\n}\n.estetica .estetica-content .estetica-bold-divider.pink {\n        border-top: 6px solid #EBB29D;\n}\n.estetica .estetica-content .estetica-bold-divider.yellow {\n        border-top: 6px solid #eac88c;\n}\n@media (max-width: 991.98px) {\n.estetica .estetica-content .estetica-bold-divider {\n          margin-right: auto;\n          margin-left: auto;\n}\n}\n.estetica .estetica-content .estetica-v-div {\n      content: '';\n      height: 53px;\n      width: 1px;\n      border-left: 1px solid #fbfaf0;\n      margin-bottom: 1rem;\n      margin-top: 1rem;\n}\n.estetica .estetica-content .estetica-v-div.pink {\n        border-left: 1px solid #EBB29D;\n}\n.estetica .estetica-content .estetica-v-div.yellow {\n        border-left: 1px solid #eac88c;\n}\n@media (max-width: 991.98px) {\n.estetica .estetica-content .estetica-v-div {\n          margin-left: auto;\n          margin-right: auto;\n          height: 29px;\n}\n}\n@media (max-width: 575.98px) {\n.estetica .estetica-content .estetica-v-div {\n          height: 13px;\n}\n}\n.estetica .estetica-subtitle {\n    font-size: calc(60% + 1vw + 1vh);\n    font-weight: 300;\n}\n.estetica .estetica-divider {\n    margin-bottom: 1rem;\n}\n.estetica .estetica-parcelle {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    background-color: #FBFAEF;\n    min-height: 20vh;\n}\n.estetica .estetica-parcelle .estetica-parcelle-container {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n}\n.estetica .estetica-partner {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n    background-color: #413d52;\n    min-height: 20vh;\n}\n.estetica .estetica-partner .estetica-parcelle-container {\n      -webkit-box-flex: 0;\n          -ms-flex: 0 0 100%;\n              flex: 0 0 100%;\n      max-width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -76611,6 +76677,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -76627,13 +76698,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   watch: {
     '$root.window.h': function $rootWindowH(value) {
-      this.setViewport(value);
       this.positionIllustration();
+      this.illustHeight = this.$refs.content.offsetHeight;
     }
   },
   data: function data() {
     return {
       height: 0,
+      illustHeight: 0,
       viewport: 0,
       services: this.$root.estetica
     };
@@ -76644,7 +76716,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     positionIllustration: function positionIllustration() {
       if (this.$root.window.w > 576) {
-        this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px';
+        this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px';
       } else {
         this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px';
       }
@@ -76657,6 +76729,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     var elSize = el.getBoundingClientRect();
     this.height = elSize.height;
     this.positionIllustration();
+    this.illustHeight = this.$refs.content.offsetHeight;
   }
 });
 
@@ -76667,7 +76740,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(396)
+  __webpack_require__(416)
 }
 var normalizeComponent = __webpack_require__(4)
 /* script */
@@ -76712,51 +76785,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 396 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(397);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("c526467c", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2b8e954a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EsteticaIllust.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2b8e954a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EsteticaIllust.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 397 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 396 */,
+/* 397 */,
 /* 398 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_scrollmagic__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_scrollmagic___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_scrollmagic__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_scrollmagic_scrollmagic_uncompressed_plugins_animation_gsap_js__ = __webpack_require__(413);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_scrollmagic_scrollmagic_uncompressed_plugins_animation_gsap_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_scrollmagic_scrollmagic_uncompressed_plugins_animation_gsap_js__);
 //
 //
 //
@@ -76934,15 +76973,93 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+ // import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'EsteticaIllust',
   props: {
     width: {
       type: String,
       default: '32px'
+    },
+    containerHeight: {
+      type: Number,
+      default: 0
+    },
+    trigger: {
+      type: String,
+      default: ''
     }
   },
-  mounted: function mounted() {}
+  data: function data() {
+    return {
+      controller: null
+    };
+  },
+  watch: {
+    containerHeight: function containerHeight(value) {
+      if (!this.$root.isMobile) {
+        this.onResize();
+      } else {
+        if (this.controller) {
+          this.controller.destroy();
+        }
+      }
+    }
+  },
+  methods: {
+    animate: function animate() {
+      if (!this.$root.isMobile) {
+        var illust = this.$refs.illust; // let initialPadding = 4 * 16 // 4rem
+        // illust.style.top = initialPadding + 'px' // max top position
+
+        var master = new TimelineMax({
+          paused: true
+        });
+        master.from(illust, 1.36, {
+          yPercent: 30,
+          ease: Power1.easeInOut
+        });
+        master.progress(1).progress(0);
+        master.play();
+      }
+    },
+    onResize: function onResize() {
+      if (this.controller) {
+        this.controller.destroy();
+      } // this.getHeight()
+
+
+      var illust = this.$refs.illust; // element
+
+      var maxHeight = this.containerHeight - 4 * 16 * 2 + 32; // height without padding and margin
+
+      var illustHeight = Math.floor(illust.height.baseVal.value); // altezza dell'illustrazione
+
+      var maxPosition = maxHeight - illustHeight; // pixel per arrivare al fondo
+
+      var master = TweenMax.to(illust, 2, {
+        top: maxPosition * 0.45
+      });
+      this.controller = new __WEBPACK_IMPORTED_MODULE_0_scrollmagic___default.a.Controller();
+      var scroll = new __WEBPACK_IMPORTED_MODULE_0_scrollmagic___default.a.Scene({
+        triggerElement: document.getElementById(this.trigger),
+        offset: -this.$root.navbarHeight + 40,
+        duration: maxHeight > 0 ? maxHeight : 200,
+        triggerHook: 'onLeave'
+      }) // .addIndicators({ name: 'illustrazione studio'})
+      .setTween(master).addTo(this.controller);
+    }
+  },
+  mounted: function mounted() {
+    this.animate();
+  },
+  beforeDestroy: function beforeDestroy() {
+    if (this.controller) {
+      this.controller.destroy();
+    }
+  }
 });
 
 /***/ }),
@@ -76958,7 +77075,7 @@ var render = function() {
     {
       ref: "illust",
       attrs: {
-        id: "b0168ce7-f319-4916-be35-99b395386a72",
+        id: "estetica-illust",
         "data-name": "Layer 1",
         xmlns: "http://www.w3.org/2000/svg",
         "xmlns:xlink": "http://www.w3.org/1999/xlink",
@@ -77747,8 +77864,19 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "estetica-right" },
-          [_c("estetica-illust", { ref: "illust", attrs: { width: "70%" } })],
+          { staticClass: "estetica-right estetica-illust-top" },
+          [
+            _c("estetica-illust", {
+              ref: "illust",
+              attrs: {
+                width: "58.8%",
+                trigger: "estetica-studio-illust-ref",
+                containerHeight: _vm.illustHeight
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { attrs: { id: "estetica-studio-illust-ref" } })
+          ],
           1
         )
       ]),
@@ -94902,6 +95030,86 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 	}
 }("TimelineMax"));
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+
+/***/ }),
+/* 416 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(417);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("6225ccfc", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2b8e954a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EsteticaIllust.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2b8e954a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EsteticaIllust.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 417 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#estetica-illust {\n  position: absolute;\n  top: 64px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 418 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(419);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("05765338", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c1f8a35\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OdontoiatriaIllust.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c1f8a35\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OdontoiatriaIllust.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 419 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#odontoiatria-illust {\n  position: absolute;\n  top: 0;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);
