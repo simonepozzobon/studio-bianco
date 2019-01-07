@@ -19,14 +19,13 @@
                     </p>
                 </div>
             </div>
-            <div class="about-right about-illust">
+            <div class="about-right about-illust-top">
                 <about-illust
                     width="83%"
                     ref="studio"
-                    trigger="about-studio-illust"
-                    :containerHeight="studioHeight"
-                    />
-                <div id="about-studio-illust" ref="trigger"></div>
+                    trigger="about-studio-illust-ref"
+                    :containerHeight="studioHeight"/>
+                <div id="about-studio-illust-ref"></div>
             </div>
         </div>
         <div class="about-container bg-light-cyan">
@@ -44,8 +43,13 @@
                     </p>
                 </div>
             </div>
-            <div class="about-left position-relative" ref="content">
-                <about-silvia-illust width="80%"/>
+            <div class="about-left position-relative about-illust-top" ref="silviaContainer">
+                <about-silvia-illust
+                    width="69.5%"
+                    ref="silvia"
+                    trigger="about-silvia-illust-ref"
+                    :containerHeight="silviaHeight"/>
+                <div id="about-silvia-illust-ref"></div>
             </div>
         </div>
         <div class="about-container bg-light-yellow">
@@ -64,8 +68,13 @@
                     </p>
                 </div>
             </div>
-            <div class="about-right position-relative">
-                <about-paura-illust width="100%"/>
+            <div class="about-right position-relative about-illust-top" ref="pauraContainer">
+                <about-paura-illust
+                    width="96.5%"
+                    ref="paura"
+                    trigger="about-paura-illust-ref"
+                    :containerHeight="pauraHeight"/>
+                <div id="about-paura-illust-ref"></div>
             </div>
         </div>
         <main-footer />
@@ -95,11 +104,15 @@ export default {
     data: function() {
         return {
             studioHeight: 0,
+            silviaHeight: 0,
+            pauraHeight: 0,
         }
     },
     methods: {
         getContainersHeight: function() {
             this.studioHeight = this.$refs.studioContainer.offsetHeight
+            this.silviaHeight = this.$refs.silviaContainer.offsetHeight
+            this.pauraHeight = this.$refs.pauraContainer.offsetHeight
         },
         positionIllustration: function() {
             if (!this.$root.isMobile) {
@@ -113,6 +126,7 @@ export default {
         // this.$root.hasFooter = true
         this.$root.navColor = 2
         this.positionIllustration()
+        this.getContainersHeight()
 
         // this.animateStudio()
     }
@@ -122,10 +136,12 @@ export default {
 <style lang="scss">
 @import '~styles/shared';
 
-// #about-studio-illust {
+// #about-studio-illust-ref,
+// #about-silvia-illust-ref,
+// #about-paura-illust-ref {
 //     width: 300px;
-//     background-color: $black;
-//     height: 2px;
+//     background-color: $red;
+//     height: 1px;
 // }
 
 .about {
@@ -158,8 +174,12 @@ export default {
                 display: block;
             }
 
-            &.about-illust {
+            &.about-illust-top {
                 justify-content: flex-start;
+            }
+
+            &.about-illust-bottom {
+                justify-content: flex-end;
             }
 
         }
@@ -205,7 +225,7 @@ export default {
 
             .about-v-div {
                 content: '';
-                height: 100px;
+                height: 53px;
                 width: 1px;
                 border-left: 1px solid $pink;
                 margin-bottom: $spacer;
@@ -222,7 +242,11 @@ export default {
                 @include media-breakpoint-down('md') {
                     margin-left: auto;
                     margin-right: auto;
-                    height: 30px;
+                    height: 29px;
+                }
+
+                @include media-breakpoint-down('xs') {
+                    height: 13px;
                 }
             }
         }

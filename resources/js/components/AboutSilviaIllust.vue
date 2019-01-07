@@ -1,5 +1,5 @@
 <template lang="html">
-    <svg id="db6d75a53be9" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 697.45 886.95" :width="width">
+    <svg id="silvia-illust" ref="illust" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 697.45 886.95" :width="width">
         <title>illust-silvia</title>
         <g id="99f2b120-5f8e-445f-bd96-20dd56459ba6" data-name="illustrazione silvia">
             <g>
@@ -172,25 +172,99 @@
 </template>
 
 <script>
+import ScrollMagic from 'scrollmagic'
+// import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
+import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
+
 export default {
     name: 'AboutSilviaIllust',
     props: {
-          width: {
-              type: String,
-              default: '32px'
-          }
-      }
+        width: {
+            type: String,
+            default: '32px'
+        },
+        containerHeight: {
+            type: Number,
+            default: 0,
+        },
+        trigger: {
+            type: String,
+            default: '',
+        }
+    },
+    data: function() {
+        return {
+            controller: null,
+            animated: false,
+        }
+    },
+    watch: {
+        containerHeight: function(value) {
+            if (!this.$root.isMobile) {
+                this.onResize()
+            } else {
+                if (this.controller) {
+                    this.controller.destroy()
+                }
+            }
+        }
+    },
+    methods: {
+        onResize: function() {
+            if (this.controller) {
+                this.controller.destroy()
+            }
+
+            if (!this.animated) {
+                let illust = this.$refs.illust
+                let illustHeight = Math.floor(illust.height.baseVal.value)
+                let maxHeight = this.containerHeight // height with padding and margin
+                let maxPosition = maxHeight * 0.33 // pixel per arrivare al fondo
+
+                TweenMax.set(illust, {
+                    yPercent: 30
+                })
+
+                this.controller = new ScrollMagic.Controller()
+                let scroll = new ScrollMagic.Scene({
+                    triggerElement: document.getElementById(this.trigger),
+                    offset: maxPosition,
+                    duration: 1,
+                    triggerHook: 'onEnter'
+                })
+                    // .addIndicators({ name: 'illustrazione silvia'})
+                    .addTo(this.controller)
+                    .on('enter', e => {
+                        TweenMax.to(illust, 1.2, {
+                            yPercent: 0,
+                            onComplete: () => {
+                                this.controller.destroy()
+                                this.animated = true
+                            }
+                        })
+                    })
+            }
+        }
+    },
+    mounted: function() {
+        // this.onResize()
+    },
+    beforeDestroy: function() {
+        if (this.controller) {
+            this.controller.destroy()
+        }
+    }
 }
 </script>
 
 <style lang="scss">
 @import '~styles/shared';
 
-#db6d75a53be9 {
+#silvia-illust {
     bottom: -2rem;
     position: absolute;
 
-    @include media-breakpoint-down('md'){
+    @include media-breakpoint-down('md') {
         position: relative;
     }
 }

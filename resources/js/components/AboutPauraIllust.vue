@@ -1,5 +1,5 @@
 <template lang="html">
-    <svg id="e12ed973-1875-4da7-8eb4-6729b7e52003" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 964.86 837.41" :width="width">
+    <svg id="about-paura-illust" ref="illust" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 964.86 837.41" :width="width">
         <title>illust-paura</title>
         <g id="e12ed973-2987-4da7-8eb4-6729b7e52003" data-name="illustrazione paura">
             <g>
@@ -104,26 +104,83 @@
             </g>
         </g>
     </svg>
-
 </template>
 
 <script>
+import ScrollMagic from 'scrollmagic'
+// import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
+import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
+
 export default {
     name: 'AboutPauraIllust',
     props: {
-          width: {
-              type: String,
-              default: '32px'
-          }
-      }
+        width: {
+            type: String,
+            default: '32px'
+        },
+        containerHeight: {
+            type: Number,
+            default: 0,
+        },
+        trigger: {
+            type: String,
+            default: '',
+        }
+    },
+    data: function() {
+        return {
+            controller: null,
+            height: 0,
+        }
+    },
+    watch: {
+        containerHeight: function(value) {
+            if (!this.$root.isMobile) {
+                this.onResize()
+            } else {
+                if (this.controller) {
+                    this.controller.destroy()
+                }
+            }
+        }
+    },
+    methods: {
+        onResize: function() {
+            if (this.controller) {
+                this.controller.destroy()
+            }
+
+            let illust = this.$refs.illust // element
+            let maxHeight = this.containerHeight - (4 * 16 * 2) + 32 // height without padding and margin
+            let illustHeight = Math.floor(illust.height.baseVal.value) // altezza dell'illustrazione
+            let maxPosition = maxHeight - illustHeight // pixel per arrivare al fondo
+
+            let master = TweenMax.to(illust, 2, {
+                top: maxPosition * 0.45
+            })
+
+            this.controller = new ScrollMagic.Controller()
+            let scroll = new ScrollMagic.Scene({
+                triggerElement: document.getElementById(this.trigger),
+                offset: 0,
+                duration: maxHeight > 0 ? maxHeight : 200,
+                triggerHook: 'onLeave'
+            })
+                // .addIndicators({ name: 'illustratione paura'})
+                .setTween(master)
+                .addTo(this.controller)
+        }
+    }
 }
 </script>
 
 <style lang="scss">
 @import '~styles/shared';
-#e12ed973-1875-4da7-8eb4-6729b7e52003 {
+#about-paura-illust {
+    top: 64px;
     right: -64px;
     position: absolute;
+
     @include media-breakpoint-down('md') {
         position: relative;
     }

@@ -60,7 +60,7 @@ export default {
 
             .parcelle-v-div {
                 content: '';
-                height: 100px;
+                height: 53px;
                 width: 1px;
                 border-left: 1px solid $light-brown;
                 margin-bottom: $spacer;
@@ -75,9 +75,13 @@ export default {
                 }
 
                 @include media-breakpoint-down('md') {
-                    margin-right: auto;
                     margin-left: auto;
-                    height: 30px;
+                    margin-right: auto;
+                    height: 29px;
+                }
+
+                @include media-breakpoint-down('xs') {
+                    height: 13px;
                 }
             }
         }

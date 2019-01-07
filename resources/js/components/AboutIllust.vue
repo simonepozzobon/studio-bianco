@@ -210,7 +210,7 @@
 
 <script>
 import ScrollMagic from 'scrollmagic'
-import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
+// import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
 
 export default {
@@ -237,21 +237,28 @@ export default {
     },
     watch: {
         containerHeight: function(value) {
-            this.onResize()
+            if (!this.$root.isMobile) {
+                this.onResize()
+            } else {
+                if (this.controller) {
+                    this.controller.destroy()
+                }
+            }
         }
     },
     methods: {
         animateStudio: function() {
-            let illust = this.$refs.illust
-            let initialPadding = 4 * 16 // 4rem
-            illust.style.top = initialPadding + 'px' // max top position
+            if (!this.$root.isMobile) {
+                let illust = this.$refs.illust
+                let initialPadding = 4 * 16 // 4rem
+                illust.style.top = initialPadding + 'px' // max top position
 
-            let master = new TimelineMax()
-            master.from(illust, .6, {
-                autoAlpha: 0.7,
-                yPercent: 20,
-                ease: Power1.easeInOut,
-            })
+                let master = new TimelineMax()
+                master.from(illust, .8, {
+                    yPercent: 20,
+                    ease: Power1.easeInOut,
+                })
+            }
         },
         onResize: function() {
             if (this.controller) {
@@ -263,8 +270,8 @@ export default {
             let illustHeight = Math.floor(illust.height.baseVal.value) // altezza dell'illustrazione
             let maxPosition = maxHeight - illustHeight // pixel per arrivare al fondo
 
-            let master = TweenMax.to(illust, .2, {
-                top: maxPosition
+            let master = TweenMax.to(illust, 2, {
+                top: maxPosition * 0.45
             })
 
             this.controller = new ScrollMagic.Controller()
@@ -274,14 +281,19 @@ export default {
                 duration: maxHeight > 0 ? maxHeight : 200,
                 triggerHook: 'onLeave'
             })
-                .addIndicators({ name: 'footer'})
+                // .addIndicators({ name: 'illustrazione studio'})
                 .setTween(master)
                 .addTo(this.controller)
         }
     },
     mounted: function() {
         this.animateStudio()
-        // this.onResize()
+            // this.onResize()
+    },
+    beforeDestroy: function() {
+        if (this.controller) {
+            this.controller.destroy()
+        }
     }
 }
 </script>
