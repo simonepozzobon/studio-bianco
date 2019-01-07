@@ -97,7 +97,7 @@ export default {
                 max-width: 100%;
                 max-height: 100%;
                 width: 100%;
-                height: auto;
+                height: auto !important;
             }
 
             .convenzioni-bold-divider {
@@ -154,17 +154,6 @@ export default {
                     align-items: center;
                     margin-bottom: $spacer * 4;
 
-                    img {
-                        max-width: 100%;
-                        max-height: 40%;
-
-                        &.no-max {
-                            max-height: inherit;
-                        }
-                        &.w-50 {
-                            max-height: inherit;
-                        }
-                    }
                 }
             }
         }
