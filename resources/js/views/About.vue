@@ -21,7 +21,7 @@
             </div>
             <div class="about-right about-illust-top">
                 <about-illust
-                    width="83%"
+                    :width="studioWidth"
                     ref="studio"
                     trigger="about-studio-illust-ref"
                     :containerHeight="studioHeight"/>
@@ -45,7 +45,7 @@
             </div>
             <div class="about-left position-relative about-illust-top" ref="silviaContainer">
                 <about-silvia-illust
-                    width="69.5%"
+                    :width="silviaWidth"
                     ref="silvia"
                     trigger="about-silvia-illust-ref"
                     :containerHeight="silviaHeight"/>
@@ -70,7 +70,7 @@
             </div>
             <div class="about-right position-relative about-illust-top" ref="pauraContainer">
                 <about-paura-illust
-                    width="96.5%"
+                    :width="pauraWidth"
                     ref="paura"
                     trigger="about-paura-illust-ref"
                     :containerHeight="pauraHeight"/>
@@ -99,10 +99,23 @@ export default {
         '$root.window': function(value) {
             this.positionIllustration()
             this.getContainersHeight()
+
+            if (value.w > 1920) {
+                this.studioWidth = '63%'
+                this.silviaWidth = '49.5%'
+                this.pauraWidth = '76.5%'
+            } else {
+                this.studioWidth = '83%'
+                this.silviaWidth = '69.5%'
+                this.pauraWidth = '96.5%'
+            }
         }
     },
     data: function() {
         return {
+            studioWidth: '83%',
+            silviaWidth: '69.5%',
+            pauraWidth: '96.5%',
             studioHeight: 0,
             silviaHeight: 0,
             pauraHeight: 0,
@@ -174,14 +187,20 @@ export default {
                 display: block;
             }
 
-            &.about-illust-top {
-                justify-content: flex-start;
-            }
+                &.about-illust-top {
+                    justify-content: flex-start;
+                    @include media-breakpoint-up('xxl') {
+                        justify-content: center;
+                    }
 
-            &.about-illust-bottom {
-                justify-content: flex-end;
-            }
+                }
 
+                &.about-illust-bottom {
+                    justify-content: flex-end;
+                    @include media-breakpoint-up('xxl') {
+                        justify-content: center;
+                    }
+                }
         }
 
         .about-left {

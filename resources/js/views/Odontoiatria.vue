@@ -12,7 +12,7 @@
             </div>
             <div class="odontoiatria-right odontoiatria-illust-top">
                 <odontoiatria-illust
-                    width="92.2%"
+                    :width="illustWidth"
                     ref="illust"
                     trigger="odontoiatria-studio-illust-ref"
                     :containerHeight="illustHeight"/>
@@ -46,12 +46,19 @@ export default {
         '$root.window': function(value) {
             this.positionIllustration()
             this.illustHeight = this.$refs.content.offsetHeight
+
+            if (value.w > 1920) {
+                this.illustWidth = '72.2%'
+            } else {
+                this.illustWidth = '92.2%'
+            }
         }
     },
     data: function() {
         return {
             illustHeight: 0,
-            services: this.$root.odontoiatria
+            services: this.$root.odontoiatria,
+            illustWidth: '92.2%',
         }
     },
     methods: {

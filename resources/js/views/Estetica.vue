@@ -12,7 +12,7 @@
             </div>
             <div class="estetica-right estetica-illust-top">
                 <estetica-illust
-                    width="58.8%"
+                    :width="illustWidth"
                     ref="illust"
                     trigger="estetica-studio-illust-ref"
                     :containerHeight="illustHeight"/>
@@ -45,6 +45,12 @@ export default {
         '$root.window': function(value) {
             this.positionIllustration()
             this.illustHeight = this.$refs.content.offsetHeight
+
+            if (value.w > 1920) {
+                this.illustWidth = '38.8%'
+            } else {
+                this.illustWidth = '58.8%'
+            }
         }
     },
     data: function() {
@@ -52,7 +58,8 @@ export default {
             height: 0,
             illustHeight: 0,
             viewport: 0,
-            services: this.$root.estetica
+            services: this.$root.estetica,
+            illustWidth: '58.8%',
         }
     },
     methods: {
@@ -108,6 +115,9 @@ export default {
 
             &.estetica-illust-top {
                 justify-content: flex-start;
+                @include media-breakpoint-up('xxl') {
+                    justify-content: center;
+                }
             }
         }
 

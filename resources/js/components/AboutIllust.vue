@@ -1,5 +1,5 @@
 <template lang="html">
-    <div id="about-illust" ref="illust"></div>
+    <div id="about-illust" ref="illust" :style="'width:'+width"></div>
 </template>
 
 <script>
@@ -99,7 +99,6 @@ export default {
         }
     },
     mounted: function() {
-        this.$refs.illust.style.width = this.width
         // if (!this.$root.isMobile) {
         this.load()
         // }

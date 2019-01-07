@@ -3,7 +3,7 @@
         <div class="contact-container" ref="container">
             <div class="contact-left" ref="content" v-if="!this.$root.isMobile">
                 <contact-illust
-                    width="78.2%"
+                    :width="illustWidth"
                 />
             </div>
             <div class="contact-right">
@@ -95,6 +95,12 @@ export default {
     watch: {
         '$root.window': function(value) {
             this.positionIllustration()
+
+            if (value.w > 1920) {
+                this.illustWidth = '58.2%'
+            } else {
+                this.illustWidth = '78.2%'
+            }
         }
     },
     data: function() {
@@ -102,6 +108,7 @@ export default {
             formIsOpen: false,
             master: null,
             height: 0,
+            illustWidth: '78.2%',
         }
     },
     methods: {
@@ -203,10 +210,16 @@ export default {
 
             &.contact-illust-top {
                 justify-content: flex-start;
+                @include media-breakpoint-up('xxl') {
+                    justify-content: center;
+                }
             }
 
             &.contact-illust-bottom {
                 justify-content: flex-end;
+                @include media-breakpoint-up('xxl') {
+                    justify-content: center;
+                }
             }
         }
 

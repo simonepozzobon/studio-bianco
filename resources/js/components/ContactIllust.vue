@@ -1,5 +1,5 @@
 <template lang="html">
-    <div id="contact-illust" ref="illust"></div>
+    <div id="contact-illust" ref="illust" :style="'width:'+width"></div>
 </template>
 
 <script>
@@ -60,7 +60,7 @@ export default {
         },
     },
     mounted: function() {
-        this.$refs.illust.style.width = this.width
+        // this.$refs.illust.style.width = this.width
         this.load()
         // if (!this.$root.isMobile) {
         //     this.animateContact()

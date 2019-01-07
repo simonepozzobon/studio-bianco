@@ -1,7 +1,5 @@
 <template lang="html">
-    <div id="silvia-illust" ref="illust">
-
-    </div>
+    <div id="silvia-illust" ref="illust" :style="'width:'+width"></div>
 </template>
 
 <script>
@@ -99,7 +97,6 @@ export default {
         }
     },
     mounted: function() {
-        this.$refs.illust.style.width = this.width
     },
     beforeDestroy: function() {
         if (this.controller) {
