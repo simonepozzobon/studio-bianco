@@ -1,7 +1,7 @@
 <template lang="html">
     <div class="about">
         <div class="about-container" ref="container">
-            <div class="about-left" ref="content">
+            <div class="about-left" ref="studioContainer">
                 <div class="about-content">
                     <div class="about-bold-divider"></div>
                     <h1 ref="title">About</h1>
@@ -19,8 +19,14 @@
                     </p>
                 </div>
             </div>
-            <div class="about-right">
-                <about-illust width="80%"/>
+            <div class="about-right about-illust">
+                <about-illust
+                    width="83%"
+                    ref="studio"
+                    trigger="about-studio-illust"
+                    :containerHeight="studioHeight"
+                    />
+                <div id="about-studio-illust" ref="trigger"></div>
             </div>
         </div>
         <div class="about-container bg-light-cyan">
@@ -83,21 +89,32 @@ export default {
     watch: {
         '$root.window.h': function(value) {
             this.positionIllustration()
+            this.getContainersHeight()
+        }
+    },
+    data: function() {
+        return {
+            studioHeight: 0,
         }
     },
     methods: {
+        getContainersHeight: function() {
+            this.studioHeight = this.$refs.studioContainer.offsetHeight
+        },
         positionIllustration: function() {
             if (!this.$root.isMobile) {
                 this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
             }
-        }
+        },
     },
     mounted: function() {
         // this.$root.hasFooter = true
         this.$root.navColor = 2
         this.positionIllustration()
+
+        // this.animateStudio()
     }
 }
 </script>
@@ -105,6 +122,11 @@ export default {
 <style lang="scss">
 @import '~styles/shared';
 
+// #about-studio-illust {
+//     width: 300px;
+//     background-color: $black;
+//     height: 2px;
+// }
 
 .about {
     @include make-container();
@@ -134,6 +156,10 @@ export default {
 
             h1 {
                 display: block;
+            }
+
+            &.about-illust {
+                justify-content: flex-start;
             }
 
         }

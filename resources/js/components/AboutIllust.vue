@@ -1,5 +1,5 @@
 <template lang="html">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 812.81 742.22" :width="width">
+    <svg id="about-illust" ref="illust" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 812.81 742.22" :width="width">
         <defs>
             <clipPath id="e3cead03-65ae-4e6c-b2b9-dfbf92e69c87">
                 <polygon points="745.43 201.52 745.43 243 745.43 258.26 787.98 282.83 787.98 253.4 787.98 226.09 745.43 201.52" style="fill: none"/>
@@ -209,16 +209,91 @@
 </template>
 
 <script>
+import ScrollMagic from 'scrollmagic'
+import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
+import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
+
 export default {
     name: 'AboutIllust',
     props: {
-          width: {
-              type: String,
-              default: '32px'
-          }
-      }
+        width: {
+            type: String,
+            default: '32px'
+        },
+        containerHeight: {
+            type: Number,
+            default: 0,
+        },
+        trigger: {
+            type: String,
+            default: '',
+        }
+    },
+    data: function() {
+        return {
+            controller: null,
+            height: 0,
+        }
+    },
+    watch: {
+        containerHeight: function(value) {
+            this.onResize()
+        }
+    },
+    methods: {
+        animateStudio: function() {
+            let illust = this.$refs.illust
+            let initialPadding = 4 * 16 // 4rem
+            illust.style.top = initialPadding + 'px' // max top position
+
+            let master = new TimelineMax()
+            master.from(illust, .6, {
+                autoAlpha: 0.7,
+                yPercent: 20,
+                ease: Power1.easeInOut,
+            })
+        },
+        onResize: function() {
+            if (this.controller) {
+                this.controller.destroy()
+            }
+            // this.getHeight()
+            let illust = this.$refs.illust // element
+            let maxHeight = this.containerHeight - (4 * 16 * 2) + 32 // height without padding and margin
+            let illustHeight = Math.floor(illust.height.baseVal.value) // altezza dell'illustrazione
+            let maxPosition = maxHeight - illustHeight // pixel per arrivare al fondo
+
+            let master = TweenMax.to(illust, .2, {
+                top: maxPosition
+            })
+
+            this.controller = new ScrollMagic.Controller()
+            let scroll = new ScrollMagic.Scene({
+                triggerElement: document.getElementById(this.trigger),
+                offset: - this.$root.navbarHeight,
+                duration: maxHeight > 0 ? maxHeight : 200,
+                triggerHook: 'onLeave'
+            })
+                .addIndicators({ name: 'footer'})
+                .setTween(master)
+                .addTo(this.controller)
+        }
+    },
+    mounted: function() {
+        this.animateStudio()
+        // this.onResize()
+    }
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
+@import '~styles/shared';
+
+#about-illust {
+    position: absolute;
+
+    @include media-breakpoint-down('md') {
+        position: relative;
+    }
+}
 </style>

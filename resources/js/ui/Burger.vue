@@ -21,7 +21,7 @@ export default {
     },
     watch: {
         '$root.window.w': function(w) {
-            if (w == 0 || w <= 576) {
+            if (w <= 576) {
                 this.$refs.burger.style.top = '23px'
             } else {
                 this.$refs.burger.style.top = '50px'
