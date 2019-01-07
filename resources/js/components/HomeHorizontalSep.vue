@@ -1,5 +1,5 @@
 <template lang="html">
-    <svg id="1aae5091-b9e1-4a7d-b14e-962f5ebc125c" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.77 6.77" :width="width">
+    <svg id="1aae5091-b9e1-4a7d-b14e-962f5ebc125c" class="home-hor-dots" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.77 6.77" :width="width">
         <title>three-dots-divider</title>
         <g>
             <circle cx="3.38" cy="3.38" r="3.38" :style="'fill: ' + this.color"/>
@@ -26,5 +26,10 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
+@import '~styles/shared';
+.home-hor-dots {
+    max-width: 30px;
+}
+
 </style>
