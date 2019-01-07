@@ -101,7 +101,7 @@ export default {
             this.getContainersHeight()
 
             if (value.w > 1920) {
-                this.studioWidth = '63%'
+                this.studioWidth = '70%'
                 this.silviaWidth = '49.5%'
                 this.pauraWidth = '76.5%'
             } else {
@@ -133,10 +133,10 @@ export default {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
             } else if (w >= 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
-                this.$refs.studio.$el.style.paddingTop = '10%'
+                this.$refs.studio.$el.style.paddingTop = '19%'
                 this.$refs.silvia.$el.style.paddingTop = '20%'
                 this.$refs.paura.$el.style.paddingTop = '10%'
-                this.studioWidth = '63%'
+                this.studioWidth = '70%'
                 this.silviaWidth = '49.5%'
                 this.pauraWidth = '76.5%'
             } else {

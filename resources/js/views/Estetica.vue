@@ -47,9 +47,9 @@ export default {
             this.illustHeight = this.$refs.content.offsetHeight
 
             if (value.w > 1920) {
-                this.illustWidth = '38.8%'
+                this.illustWidth = '50%'
             } else {
-                this.illustWidth = '58.8%'
+                this.illustWidth = '60%'
             }
         }
     },
@@ -59,7 +59,7 @@ export default {
             illustHeight: 0,
             viewport: 0,
             services: this.$root.estetica,
-            illustWidth: '58.8%',
+            illustWidth: '60%',
         }
     },
     methods: {
@@ -73,7 +73,7 @@ export default {
             } else if (w >= 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
                 this.$refs.illust.$el.style.paddingTop = '20%'
-                this.illustWidth = '38.8%'
+                this.illustWidth = '50%'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
             }
