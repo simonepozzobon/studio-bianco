@@ -17,7 +17,6 @@ import MainNav from './MainNav.vue'
 import MobileNav from '../containers/MobileNav.vue'
 // import MainFooter from './MainFooter.vue'
 import { TimelineMax } from 'gsap'
-import GSDevTools from 'gsap/GSDevTools'
 
 export default {
     name: 'MainTemplate',
@@ -45,6 +44,11 @@ export default {
     },
     watch: {
         '$route': function(to, from) {
+            TweenLite.to(window, .2, {
+                scrollTo: 0,
+                ease: Power2.easeInOut,
+            })
+
             if (from.name == 'home' && to.name == 'odontoiatria' && !this.isAnimating && !this.$root.isMobile) {
                 // console.log('slide rosa')
                 this.isAnimating = true

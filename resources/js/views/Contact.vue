@@ -2,7 +2,9 @@
     <div class="contact">
         <div class="contact-container" ref="container">
             <div class="contact-left" ref="content" v-if="!this.$root.isMobile">
-                <contact-illust width="90%"/>
+                <contact-illust
+                    width="78.2%"
+                />
             </div>
             <div class="contact-right">
                 <div class="contact-content">
@@ -37,10 +39,11 @@
                                 </td>
                             </tr>
                         </table>
+                        <div id="form-ref"></div>
                         <div class="contact-map">
-                            <button class="btn btn-light">
+                            <a class="btn btn-light" href="https://goo.gl/maps/8xzrtFZnK4t" target="_blank">
                                 <span>Vai alla mappa </span><icon-map  width="16px"/>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -80,6 +83,7 @@
 import ContactIllust from '../components/ContactIllust.vue'
 import { IconMap, IconArrowDown } from '../ui'
 import { TimelineMax } from 'gsap'
+import ScrollToPlugin from 'gsap/ScrollToPlugin'
 
 export default {
     name: 'Contact',
@@ -131,7 +135,14 @@ export default {
                         ease: Cubic.easeInOut,
                     })
 
-                    this.master.progress(1).progress(0);
+                    this.master.to(window, .6, {
+                        scrollTo: '#form-ref',
+                        offsetY: 500,
+                        ease: Power2.easeInOut
+                    })
+
+                    // this.master.progress(1).progress(0)
+
                     this.master.play()
                     this.formIsOpen = true
                 }
@@ -144,7 +155,7 @@ export default {
             this.viewport = value
         },
         positionIllustration: function() {
-            this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
+            this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
         }
     },
     mounted: function() {
@@ -165,6 +176,12 @@ export default {
 
 <style lang="scss">
 @import '~styles/shared';
+
+// #form-ref {
+//     width: 300px;
+//     height: 5px;
+//     background-color: $red;
+// }
 
 .contact {
     @include make-container();
@@ -188,12 +205,23 @@ export default {
             h1 {
                 display: block;
             }
+
+            &.contact-illust-top {
+                justify-content: flex-start;
+            }
+
+            &.contact-illust-bottom {
+                justify-content: flex-end;
+            }
         }
 
         .contact-left {
             @include make-col(6);
+            position: relative;
+
             @include media-breakpoint-down('md') {
                 @include make-col(12);
+                position: inherit;
             }
         }
 

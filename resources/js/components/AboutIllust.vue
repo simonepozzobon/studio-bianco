@@ -287,8 +287,9 @@ export default {
         }
     },
     mounted: function() {
-        this.animateStudio()
-            // this.onResize()
+        if (!this.$root.isMobile) {
+            this.animateStudio()
+        }
     },
     beforeDestroy: function() {
         if (this.controller) {

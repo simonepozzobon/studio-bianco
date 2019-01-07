@@ -130,7 +130,6 @@ export default {
     data: function() {
         return {
             controller: null,
-            height: 0,
         }
     },
     watch: {

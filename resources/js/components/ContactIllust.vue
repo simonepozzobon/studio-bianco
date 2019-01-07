@@ -1,5 +1,5 @@
 <template lang="html">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 763.5 655.94" :width="width">
+    <svg id="contact-illust" ref="illust" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 763.5 655.94" :width="width">
         <defs>
             <filter id="287c4c81-99ed-4fc9-8aec-5a787b1f999c" x="316.66" y="-4528.38" width="111.28" height="32766" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                 <feFlood flood-color="#fff" result="bg"/>
@@ -953,12 +953,54 @@
 </template>
 
 <script>
+import ScrollMagic from 'scrollmagic'
+import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
+import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
+
 export default {
     name: 'ContactIllust',
     props: {
         width: {
             type: String,
-            default: '32px',
+            default: '32px'
+        },
+        containerHeight: {
+            type: Number,
+            default: 0,
+        },
+        trigger: {
+            type: String,
+            default: '',
+        }
+    },
+    data: function() {
+        return {
+            controller: null,
+        }
+    },
+    methods: {
+        animateContact: function() {
+            if (!this.$root.isMobile) {
+                let illust = this.$refs.illust
+                let initialPadding = 4 * 16 // 4rem
+                illust.style.top = initialPadding + 'px' // max top position
+
+                let master = new TimelineMax({
+                    paused: true
+                })
+                master.from(illust, .92, {
+                    yPercent: 30,
+                    ease: Power1.easeInOut,
+                })
+
+                master.progress(1).progress(0)
+                master.play()
+            }
+        }
+    },
+    mounted: function() {
+        if (!this.$root.isMobile) {
+            this.animateContact()
         }
     }
 }
