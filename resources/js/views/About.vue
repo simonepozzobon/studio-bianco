@@ -25,7 +25,7 @@
                     ref="studio"
                     trigger="about-studio-illust-ref"
                     :containerHeight="studioHeight"/>
-                <div id="about-studio-illust-ref"></div>
+                <div id="about-studio-illust-ref" class="ref"></div>
             </div>
         </div>
         <div class="about-container bg-light-cyan">
@@ -49,7 +49,7 @@
                     ref="silvia"
                     trigger="about-silvia-illust-ref"
                     :containerHeight="silviaHeight"/>
-                <div id="about-silvia-illust-ref"></div>
+                <div id="about-silvia-illust-ref" class="ref"></div>
             </div>
         </div>
         <div class="about-container bg-light-yellow">
@@ -74,7 +74,7 @@
                     ref="paura"
                     trigger="about-paura-illust-ref"
                     :containerHeight="pauraHeight"/>
-                <div id="about-paura-illust-ref"></div>
+                <div id="about-paura-illust-ref" class="ref"></div>
             </div>
         </div>
         <main-footer />
@@ -128,10 +128,19 @@ export default {
             this.pauraHeight = this.$refs.pauraContainer.offsetHeight
         },
         positionIllustration: function() {
-            if (!this.$root.isMobile) {
-                this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
-            } else {
+            let w = this.$root.window.w
+            if (w > 576 && w < 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
+            } else if (w >= 1920) {
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
+                this.$refs.studio.$el.style.paddingTop = '10%'
+                this.$refs.silvia.$el.style.paddingTop = '20%'
+                this.$refs.paura.$el.style.paddingTop = '10%'
+                this.studioWidth = '63%'
+                this.silviaWidth = '49.5%'
+                this.pauraWidth = '76.5%'
+            } else {
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
             }
         },
     },
@@ -193,12 +202,21 @@ export default {
                         justify-content: center;
                     }
 
+                    .ref {
+                        position: absolute;
+                        top: 0;
+                    }
                 }
 
                 &.about-illust-bottom {
                     justify-content: flex-end;
                     @include media-breakpoint-up('xxl') {
                         justify-content: center;
+                    }
+
+                    .ref {
+                        position: absolute;
+                        bottom: 0;
                     }
                 }
         }

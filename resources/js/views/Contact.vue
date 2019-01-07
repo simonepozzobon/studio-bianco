@@ -4,6 +4,7 @@
             <div class="contact-left" ref="content" v-if="!this.$root.isMobile">
                 <contact-illust
                     :width="illustWidth"
+                    ref="illust"
                 />
             </div>
             <div class="contact-right">
@@ -157,7 +158,16 @@ export default {
             }
         },
         positionIllustration: function() {
-            this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
+            let w = this.$root.window.w
+            if (w > 576 && w < 1920) {
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
+            } else if (w >= 1920) {
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
+                this.$refs.illust.$el.style.paddingTop = '20%'
+                this.illustWidth = '58.2%'
+            } else {
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
+            }
         }
     },
     mounted: function() {
@@ -213,12 +223,22 @@ export default {
                 @include media-breakpoint-up('xxl') {
                     justify-content: center;
                 }
+
+                .ref {
+                    position: absolute;
+                    top: 0;
+                }
             }
 
             &.contact-illust-bottom {
                 justify-content: flex-end;
                 @include media-breakpoint-up('xxl') {
                     justify-content: center;
+                }
+
+                .ref {
+                    position: absolute;
+                    bottom: 0;
                 }
             }
         }

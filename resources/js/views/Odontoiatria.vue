@@ -16,7 +16,7 @@
                     ref="illust"
                     trigger="odontoiatria-studio-illust-ref"
                     :containerHeight="illustHeight"/>
-                <div id="odontoiatria-studio-illust-ref"></div>
+                <div id="odontoiatria-studio-illust-ref" class="ref"></div>
             </div>
         </div>
         <parcelle />
@@ -63,8 +63,13 @@ export default {
     },
     methods: {
         positionIllustration: function() {
-            if (this.$root.window.w > 576) {
+            let w = this.$root.window.w
+            if (w > 576 && w < 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
+            } else if (w >= 1920) {
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
+                this.$refs.illust.$el.style.paddingTop = '20%'
+                this.illustWidth = '72.2%'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
             }
@@ -74,7 +79,7 @@ export default {
         this.$root.navColor = 1
         this.$root.hasFooter = true
         this.positionIllustration()
-        this.illustHeight = this.$refs.content.offsetHeight
+        // this.illustHeight = this.$refs.content.offsetHeight
     }
 }
 </script>
@@ -108,6 +113,9 @@ export default {
 
             &.odontoiatria-illust-top {
                 justify-content: flex-start;
+                @include media-breakpoint-up('xxl') {
+                    justify-content: center;
+                }
             }
         }
 

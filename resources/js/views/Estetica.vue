@@ -16,7 +16,7 @@
                     ref="illust"
                     trigger="estetica-studio-illust-ref"
                     :containerHeight="illustHeight"/>
-                <div id="estetica-studio-illust-ref"></div>
+                <div id="estetica-studio-illust-ref" class="ref"></div>
             </div>
         </div>
         <parcelle />
@@ -67,8 +67,13 @@ export default {
             this.viewport = value
         },
         positionIllustration: function() {
-            if (this.$root.window.w > 576) {
+            let w = this.$root.window.w
+            if (w > 576 && w < 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
+            } else if (w >= 1920) {
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
+                this.$refs.illust.$el.style.paddingTop = '20%'
+                this.illustWidth = '38.8%'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
             }
@@ -77,11 +82,11 @@ export default {
     mounted: function(){
         this.$root.navColor = 1
         this.$root.hasFooter = true
-        let el = this.$refs.illust.$el
-        let elSize = el.getBoundingClientRect()
-        this.height = elSize.height
+        // let el = this.$refs.illust.$el
+        // let elSize = el.getBoundingClientRect()
+        // this.height = elSize.height
         this.positionIllustration()
-        this.illustHeight = this.$refs.content.offsetHeight
+        // this.illustHeight = this.$refs.content.offsetHeight
     }
 }
 </script>
@@ -117,6 +122,11 @@ export default {
                 justify-content: flex-start;
                 @include media-breakpoint-up('xxl') {
                     justify-content: center;
+                }
+
+                .ref {
+                    position: absolute;
+                    top: 0;
                 }
             }
         }
