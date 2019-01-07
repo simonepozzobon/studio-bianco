@@ -135,7 +135,7 @@ export default {
     width: 100vw;
     min-height: 100vh;
     background-color: $light-cyan;
-    z-index: 2;
+    z-index: 4;
     display: flex;
     justify-content: center;
     align-items: center;

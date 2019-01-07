@@ -286,6 +286,10 @@ export default {
                 .contact-table-label {
                     font-weight: normal;
                     padding-right: $spacer * 4;
+
+                    @include media-breakpoint-down('xs') {
+                        padding-right: $spacer;
+                    }
                 }
             }
         }

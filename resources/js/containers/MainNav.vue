@@ -71,15 +71,15 @@ export default {
         },
         '$root.window.w': function(w) {
             this.setNavbarHeight()
-            if (w <= 576) {
+            if (w < 576) {
                 // smartphone
                 this.logoSize = 83
                 this.burgerSize = 40
-            } else if (w > 576 && w <= 992) {
+            } else if (w >= 576 && w < 992) {
                 // tablet
                 this.logoSize = 171
                 this.burgerSize = 80
-            } else if (w > 992) {
+            } else if (w >= 992) {
                 this.logoSize = 128
             }
         }
