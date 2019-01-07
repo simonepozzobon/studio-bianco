@@ -80,7 +80,7 @@ export default {
                 this.logoSize = 171
                 this.burgerSize = 80
             } else if (w >= 992) {
-                this.logoSize = 128
+                this.logoSize = 140
             }
         }
     },
@@ -113,7 +113,7 @@ export default {
 .navbar {
     // min-height: 112px;
     min-height: 60px;
-    height: 60px;
+    height: 70px;
     z-index: 9999;
 
     @include media-breakpoint-down('md') {

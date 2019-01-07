@@ -105,7 +105,7 @@ export default {
 
 #odontoiatria-illust {
     position: absolute;
-    top: 0;
+    top: 64px;
 
     @include media-breakpoint-down('md') {
         position: relative;

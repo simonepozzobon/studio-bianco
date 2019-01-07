@@ -3,7 +3,7 @@
         <div class="convenzioni-container" ref="content">
             <div class="convenzioni-content">
                 <div class="convenzioni-bold-divider yellow"></div>
-                <h1 ref="title" class="text-white">Convenzioni</h1>
+                <h1 ref="title" class="convenzioni-title text-white">Convenzioni</h1>
                 <span class="convenzioni-subtitle text-white">Assicurazioni in convenzione diretta</span>
                 <div class="row py-5 mt-5 justify-content-center">
                     <div class="col-md-3">
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <span class="convenzioni-subtitle text-white">Assicurazioni in convenzione indiretta</span>
-                <div class="row py-5 justify-content-center">
+                <div class="row py-5 mt-5 justify-content-center">
                     <div class="col-md-3">
                         <img src="/img/logo_4.png" alt="" class="convenzioni-logo-img">
                     </div>
@@ -158,8 +158,12 @@ export default {
             }
         }
 
+        .convenzioni-title {
+            font-size: calc(100% + 1vw + 1vh);
+        }
+
         .convenzioni-subtitle {
-            font-size: $h4-font-size;
+            font-size: calc(10% + 1vw + 1vh);
             font-weight: 300;
             position: relative;
 

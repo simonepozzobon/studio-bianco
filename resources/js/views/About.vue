@@ -4,7 +4,7 @@
             <div class="about-left" ref="studioContainer">
                 <div class="about-content">
                     <div class="about-bold-divider"></div>
-                    <h1 ref="title">About</h1>
+                    <h1 ref="title" class="about-title">About</h1>
                     <span class="about-subtitle">Lo Studio</span>
                     <div class="about-v-div"></div>
                     <p>
@@ -32,7 +32,7 @@
             <div class="about-right order-lg-2">
                 <div class="about-content">
                     <div class="about-bold-divider dark"></div>
-                    <h1 class="text-white" ref="title">Silvia Citella</h1>
+                    <h1 class="about-title text-white" ref="title">Silvia Citella</h1>
                     <span class="about-subtitle text-white">Chi sono</span>
                     <div class="about-v-div dark"></div>
                     <p>
@@ -56,7 +56,7 @@
             <div class="about-left" ref="content">
                 <div class="about-content">
                     <div class="about-bold-divider light"></div>
-                    <h1 class="text-purple" ref="title">Paura del dentista</h1>
+                    <h1 class="about-title text-purple" ref="title">Paura del dentista</h1>
                     <div class="about-v-div light"></div>
                     <p>
                         Il principale motivo per cui le persone evitano di andare dal dentista è il senso di colpa. Semplicemente si sentono in colpa per aver rimandato le cure dentali di cui avevano bisogno e hanno paura di essere giudicati. Molti altri, invece, hanno paura di andare dal dentista perché hanno avuto un’esperienza dolosa o traumatica.<br>
@@ -289,9 +289,13 @@ export default {
             }
         }
 
+        .about-title {
+            font-size: calc(100% + 1vw + 1vh);
+        }
+
         .about-subtitle {
             font-family: $font-family-sans-serif;
-            font-size: $h4-font-size;
+            font-size: calc(10% + 1vw + 1vh);
             font-weight: 300;
         }
 

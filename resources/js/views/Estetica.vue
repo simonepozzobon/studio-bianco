@@ -4,7 +4,7 @@
             <div class="estetica-left" ref="content">
                 <div class="estetica-content">
                     <div class="estetica-bold-divider"></div>
-                    <h1 ref="title">Servizi</h1>
+                    <h1 class="estetica-title" ref="title">Servizi</h1>
                     <span class="estetica-subtitle">Medicina Estetica</span>
                     <div class="estetica-v-div"></div>
                     <accordion :items="services"/>
@@ -44,7 +44,7 @@ export default {
     watch: {
         '$root.window': function(value) {
             this.positionIllustration()
-            this.illustHeight = this.$refs.content.offsetHeight
+            // this.illustHeight = this.$refs.content.offsetHeight
 
             if (value.w > 1920) {
                 this.illustWidth = '50%'
@@ -208,8 +208,12 @@ export default {
         }
     }
 
+    .estetica-title {
+        font-size: calc(100% + 1vw + 1vh);
+    }
+
     .estetica-subtitle {
-        font-size: calc(60% + 1vw + 1vh);
+        font-size: calc(10% + 1vw + 1vh);
         font-weight: 300;
 
     }

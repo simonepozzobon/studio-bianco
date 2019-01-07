@@ -161,6 +161,7 @@ export default {
             let w = this.$root.window.w
             if (w > 576 && w < 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
+                this.$refs.illust.$el.style.paddingTop = '60px'
             } else if (w >= 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
                 this.$refs.illust.$el.style.paddingTop = '15%'
@@ -282,10 +283,11 @@ export default {
 
         .contact-title {
             color: $white;
+            font-size: calc(100% + 1vw + 1vh);
         }
 
         .contact-subtitle {
-            font-size: $h4-font-size;
+            font-size: calc(10% + 1vw + 1vh);
             font-weight: 300;
             color: $white;
         }

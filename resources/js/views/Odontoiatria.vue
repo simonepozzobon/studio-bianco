@@ -4,7 +4,7 @@
             <div class="odontoiatria-left" ref="content">
                 <div class="odontoiatria-content">
                     <div class="odontoiatria-bold-divider"></div>
-                    <h1 ref="title">Servizi</h1>
+                    <h1 class="odontoiatria-title" ref="title">Servizi</h1>
                     <span class="odontoiatria-subtitle">Odontoiatria</span>
                     <div class="odontoiatria-v-div"></div>
                     <accordion :items="services"/>
@@ -195,8 +195,12 @@ export default {
         }
     }
 
+    .odontoiatra-title {
+        font-size: calc(100% + 1vw + 1vh);
+    }
+
     .odontoiatria-subtitle {
-        font-size: $h4-font-size;
+        font-size: calc(10% + 1vw + 1vh);
         font-weight: 300;
     }
 
