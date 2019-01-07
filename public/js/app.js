@@ -70262,7 +70262,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     MainFooter: __WEBPACK_IMPORTED_MODULE_3__containers_MainFooter_vue___default.a
   },
   watch: {
-    '$root.window.h': function $rootWindowH(value) {
+    '$root.window': function $rootWindow(value) {
       this.positionIllustration();
       this.getContainersHeight();
     }
@@ -70284,7 +70284,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (!this.$root.isMobile) {
         this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px';
       } else {
-        this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px';
+        this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px';
       }
     }
   },
@@ -76697,7 +76697,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     Parcelle: __WEBPACK_IMPORTED_MODULE_4__components_Parcelle_vue___default.a
   },
   watch: {
-    '$root.window.h': function $rootWindowH(value) {
+    '$root.window': function $rootWindow(value) {
       this.positionIllustration();
       this.illustHeight = this.$refs.content.offsetHeight;
     }
@@ -78095,8 +78095,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     IconArrowDown: __WEBPACK_IMPORTED_MODULE_1__ui__["b" /* IconArrowDown */]
   },
   watch: {
-    '$root.window.h': function $rootWindowH(value) {
-      this.setViewport(value);
+    '$root.window': function $rootWindow(value) {
       this.positionIllustration();
     }
   },
@@ -78104,8 +78103,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       formIsOpen: false,
       master: null,
-      height: 0,
-      viewport: 0
+      height: 0
     };
   },
   methods: {
@@ -78148,9 +78146,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.master.reverse();
         this.formIsOpen = false;
       }
-    },
-    setViewport: function setViewport(value) {
-      this.viewport = value;
     },
     positionIllustration: function positionIllustration() {
       this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px';

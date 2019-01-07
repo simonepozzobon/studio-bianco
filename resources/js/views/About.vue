@@ -96,7 +96,7 @@ export default {
         MainFooter,
     },
     watch: {
-        '$root.window.h': function(value) {
+        '$root.window': function(value) {
             this.positionIllustration()
             this.getContainersHeight()
         }
@@ -118,7 +118,7 @@ export default {
             if (!this.$root.isMobile) {
                 this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
             } else {
-                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
             }
         },
     },

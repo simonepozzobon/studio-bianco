@@ -42,7 +42,7 @@ export default {
         Parcelle,
     },
     watch: {
-        '$root.window.h': function(value) {
+        '$root.window': function(value) {
             this.positionIllustration()
             this.illustHeight = this.$refs.content.offsetHeight
         }

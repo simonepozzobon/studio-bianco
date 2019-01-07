@@ -93,8 +93,7 @@ export default {
         IconArrowDown,
     },
     watch: {
-        '$root.window.h': function(value) {
-            this.setViewport(value)
+        '$root.window': function(value) {
             this.positionIllustration()
         }
     },
@@ -103,7 +102,6 @@ export default {
             formIsOpen: false,
             master: null,
             height: 0,
-            viewport: 0,
         }
     },
     methods: {
@@ -150,9 +148,6 @@ export default {
                 this.master.reverse()
                 this.formIsOpen = false
             }
-        },
-        setViewport: function(value) {
-            this.viewport = value
         },
         positionIllustration: function() {
             this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
