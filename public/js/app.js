@@ -78256,7 +78256,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "\n#contact-illust {\n  position: absolute;\n}\n@media (max-width: 991.98px) {\n#contact-illust {\n      position: relative;\n}\n}\n", ""]);
 
 // exports
 
@@ -95066,7 +95066,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n#estetica-illust {\n  position: absolute;\n  top: 64px;\n}\n", ""]);
+exports.push([module.i, "\n#estetica-illust {\n  position: absolute;\n  top: 64px;\n}\n@media (max-width: 991.98px) {\n#estetica-illust {\n      position: relative;\n}\n}\n", ""]);
 
 // exports
 
@@ -95106,7 +95106,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n#odontoiatria-illust {\n  position: absolute;\n  top: 0;\n}\n", ""]);
+exports.push([module.i, "\n#odontoiatria-illust {\n  position: absolute;\n  top: 0;\n}\n@media (max-width: 991.98px) {\n#odontoiatria-illust {\n      position: relative;\n}\n}\n", ""]);
 
 // exports
 

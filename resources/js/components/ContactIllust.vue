@@ -1007,4 +1007,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~styles/shared';
+
+#contact-illust {
+    position: absolute;
+
+    @include media-breakpoint-down('md') {
+        position: relative;
+    }
+}
 </style>

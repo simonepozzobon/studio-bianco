@@ -274,5 +274,9 @@ export default {
 #estetica-illust {
     position: absolute;
     top: 64px;
+
+    @include media-breakpoint-down('md') {
+        position: relative;
+    }
 }
 </style>
