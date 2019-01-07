@@ -104,6 +104,10 @@ export default {
 
                 if (this.animate == 'odontoiatria') {
                     let dente = document.getElementById('home-illust-dente')
+                    console.log(dente.offsetHeight)
+                    t1.set(dente, {
+                        height: dente.offsetHeight
+                    })
 
                     // animazione per odontoiatria
                     t1.set(panelLeft, {
@@ -120,17 +124,21 @@ export default {
                         xPercent: 0,
                         transformOrigin: "right top 0",
                         ease: Cubic.easeInOut,
-                        onComplete: () => {
+                        onStart: () => {
                             this.$root.$emit('odontoiatria-play')
                         }
                     }, .1)
 
-                    t1.to(dente, .6, {
-                        width: '29%'
-                    }, .1)
+                    // t1.to(dente, .6, {
+                    //     width: '29%'
+                    // }, .1)
                     master.play()
                 } else {
                     let testa = document.getElementById('home-illust-testa')
+
+                    t1.set(testa, {
+                        height: testa.offsetHeight
+                    })
 
                     // animazione per medicina estetica
                     t1.set(panelRight, {
@@ -157,24 +165,24 @@ export default {
                         xPercent: -50,
                         transformOrigin: "left top 0",
                         ease: Cubic.easeInOut,
-                        onComplete: () => {
+                        onStart: () => {
                             this.$root.$emit('estetica-play')
                         }
                     }, .1)
 
-                    t1.to(testa, .6, {
-                        width: '29%'
-                    }, .1)
+                    // t1.to(testa, .6, {
+                    //     width: '29%'
+                    // }, .1)
                 }
 
                 t1.to(container, .6, {
                     yPercent: -100,
-                }, 1.7)
+                }, 2)
 
                 t1.to(this.elEnter, .6, {
                     y: 0,
                     position: 'inherit'
-                }, 1.7)
+                }, 2)
 
                 master.eventCallback('onComplete', () => {
                     this.isAnimating = false
