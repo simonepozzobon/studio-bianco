@@ -7,60 +7,60 @@
                 <span class="convenzioni-subtitle text-white">Assicurazioni in convenzione diretta</span>
                 <div class="row py-5 mt-5 justify-content-center">
                     <div class="col-md-3">
-                        <img src="/svg/unisalute.svg" alt="" class="img-fluid no-max w-75">
+                        <img src="/img/logo_1.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="col-md-3">
-                        <img src="/svg/blueassistance.svg" alt="" class="img-fluid no-max w-75">
+                        <img src="/img/logo_2.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="col-md-3">
-                        <img src="/svg/prontocare.svg" alt="" class="img-fluid no-max w-75">
+                        <img src="/img/logo_3.png" alt="" class="img-fluid h-100">
                     </div>
                 </div>
                 <span class="convenzioni-subtitle text-white">Assicurazioni in convenzione indiretta</span>
                 <div class="row py-5 justify-content-center">
                     <div class="col-md-3">
-                        <img src="/svg/fasdac.svg" alt="" class="img-fluid">
+                        <img src="/img/logo_4.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="col-md-3">
-                        <img src="/svg/fasi.svg" alt="" class="img-fluid">
+                        <img src="/img/logo_5.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="col-md-3">
-                        <img src="/svg/faschim1.png" alt="" class="img-fluid">
+                        <img src="/img/logo_6.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="col-md-3">
-                        <img src="/svg/previmedical1.png" alt="" class="img-fluid">
+                        <img src="/img/logo_7.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="margin-auto"></div>
 
                     <div class="col-md-3">
-                        <img src="/svg/intesa.svg" alt="" class="img-fluid">
+                        <img src="/img/logo_8.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="col-md-3">
-                        <img src="/svg/rbm.svg" alt="" class="img-fluid">
+                        <img src="/img/logo_9.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="col-md-3">
-                        <img src="/svg/fondo1.png" alt="" class="img-fluid no-max">
+                        <img src="/img/logo_10.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="col-md-3">
-                        <img src="/svg/fisde1.png" alt="" class="img-fluid">
+                        <img src="/img/logo_11.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="margin-auto"></div>
 
 
                     <div class="col">
-                        <img src="/svg/quas1.png" alt="" class="img-fluid w-50">
+                        <img src="/img/logo_12.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="col">
-                        <img src="/svg/fiasid.svg" alt="" class="img-fluid">
+                        <img src="/img/logo_13.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="col">
-                        <img src="/svg/fasdip1.png" alt="" class="img-fluid w-50">
+                        <img src="/img/logo_14.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="col">
-                        <img src="/svg/fasie1.png" alt="" class="img-fluid">
+                        <img src="/img/logo_15.png" alt="" class="img-fluid h-100">
                     </div>
                     <div class="col">
-                        <img src="/svg/casagit1.png" alt="" class="img-fluid">
+                        <img src="/img/logo_16.png" alt="" class="img-fluid h-100">
                     </div>
                 </div>
             </div>
