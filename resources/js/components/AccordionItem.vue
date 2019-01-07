@@ -146,6 +146,7 @@ export default {
 }
 
 .accordion-content {
+    font-family: $font-family-custom;
     background-color: $white;
     position: relative;
     width: calc(100vw - 8rem);

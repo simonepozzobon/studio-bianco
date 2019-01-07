@@ -33,6 +33,7 @@ export default {
         .parcelle-content {
             padding: $spacer * 4;
             width: 100%;
+            font-family: $font-family-custom;
 
             @include media-breakpoint-down('md') {
                 text-align: center;

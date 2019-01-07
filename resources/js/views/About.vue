@@ -202,6 +202,7 @@ export default {
 
         .about-content {
             padding: $spacer * 4;
+            font-family: $font-family-custom;
 
             .about-bold-divider {
                 content: '';
@@ -252,6 +253,7 @@ export default {
         }
 
         .about-subtitle {
+            font-family: $font-family-sans-serif;
             font-size: $h4-font-size;
             font-weight: 300;
         }
