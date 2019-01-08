@@ -103,7 +103,7 @@ export default {
             if (value.w > 1920) {
                 this.studioWidth = '70%'
                 this.silviaWidth = '49.5%'
-                this.pauraWidth = '76.5%'
+                this.pauraWidth = '76%'
             } else {
                 this.studioWidth = '83%'
                 this.silviaWidth = '69.5%'
@@ -138,7 +138,7 @@ export default {
                 this.$refs.paura.$el.style.paddingTop = '10%'
                 this.studioWidth = '70%'
                 this.silviaWidth = '49.5%'
-                this.pauraWidth = '76.5%'
+                this.pauraWidth = '76%'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
             }
