@@ -137,7 +137,7 @@ export default {
     svg {
         position: fixed;
         top: 0;
-        left: $spacer;
+        left: 0.875rem + $spacer;
 
         @include media-breakpoint-down('md') {
             left: 50%;

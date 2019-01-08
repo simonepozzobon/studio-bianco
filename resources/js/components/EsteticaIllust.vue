@@ -97,13 +97,15 @@ export default {
     },
     mounted: function() {
         this.$root.$on('page-animation-load', () => {
-            this.direct = false
-            if (this.anim) {
-                this.anim.destroy()
+            if (!this.isMobile) {
+                this.direct = false
+                if (this.anim) {
+                    this.anim.destroy()
+                }
+                this.load().then(() => {
+                    this.anim.goToAndStop(0, true)
+                })
             }
-            this.load().then(() => {
-                this.anim.goToAndStop(0, true)
-            })
         })
 
         this.$root.$on('page-animation-start', () => {
