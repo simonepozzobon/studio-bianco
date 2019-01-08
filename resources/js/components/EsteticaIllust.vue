@@ -104,6 +104,9 @@ export default {
         if (this.controller) {
             this.controller.destroy()
         }
+        if (this.anim) {
+            this.anim.destroy()
+        }
     }
 }
 </script>

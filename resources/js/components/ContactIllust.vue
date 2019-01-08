@@ -65,6 +65,11 @@ export default {
         // if (!this.$root.isMobile) {
         //     this.animateContact()
         // }
+    },
+    beforeDestroy: function() {
+        if (this.anim) {
+            this.anim.destroy()
+        }
     }
 }
 </script>
