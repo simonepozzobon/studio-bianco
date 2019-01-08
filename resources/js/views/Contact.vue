@@ -160,10 +160,10 @@ export default {
         positionIllustration: function() {
             let w = this.$root.window.w
             if (w > 576 && w < 1920) {
-                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
                 this.$refs.illust.$el.style.paddingTop = '60px'
             } else if (w >= 1920) {
-                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
                 this.$refs.illust.$el.style.paddingTop = '5%'
                 this.illustWidth = '63%'
             } else {
@@ -180,10 +180,13 @@ export default {
                 this.$refs.panel.style.top = '5vh'
                 this.$refs.illust.$el.style.position = 'absolute'
                 this.$refs.illust.$el.style.top = '5vh'
+                console.log(contentHeight + this.$root.navbarFullHeight)
             } else {
                 this.$refs.content.style.position = null
                 this.$refs.panel.style.position = null
+                this.$refs.illust.$el.style.position = null
                 this.$refs.panel.style.top = null
+                this.$refs.container.style.height = contentHeight + this.$root.navbarFullHeight + 64 + 'px'
             }
 
             if (illustHeight > contentHeight) {
@@ -197,14 +200,14 @@ export default {
         this.$root.hasFooter = false
         this.$root.navColor = 1
         let form = this.$refs.form
-        this.positionIllustration()
-
         TweenLite.set(form, {
             height: 0,
             autoAlpha: 0,
             display: 'none',
             transformOrigin: "center top 0",
         })
+
+        this.positionIllustration()
     }
 }
 </script>

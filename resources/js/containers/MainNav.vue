@@ -1,9 +1,9 @@
 <template lang="html">
     <nav class="navbar navbar-light navbar-expand-lg" ref="navbar" :class="this.navClass">
-        <a class="navbar-brand" href="#" ref="brand">
+        <router-link tag="a" class="navbar-brand" :to="{ path: '/' }" exact-active-class="active">
             <!-- <nav-logo :width="214"  ref="logo"/> -->
-            <nav-logo :width="this.logoSize"  ref="logo"/>
-        </a>
+            <nav-logo :width="this.logoSize" ref="logo"/>
+        </router-link>
 
         <div class="d-lg-none position-relative">
             <burger :width="burgerSize" @toggle-mobile="toggleMobile"/>

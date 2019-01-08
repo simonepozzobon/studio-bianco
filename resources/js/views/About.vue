@@ -130,9 +130,9 @@ export default {
         positionIllustration: function() {
             let w = this.$root.window.w
             if (w > 576 && w < 1920) {
-                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
             } else if (w >= 1920) {
-                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
+                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
                 this.$refs.studio.$el.style.paddingTop = '5%'
                 this.$refs.silvia.$el.style.paddingTop = '20%'
                 this.$refs.paura.$el.style.paddingTop = '10%'
