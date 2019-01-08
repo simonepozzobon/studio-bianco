@@ -31,6 +31,8 @@ export default {
             controller: null,
             animated: false,
             anim: {},
+            loopFrameStart: 19,
+            loopFrameEnd: 1,
         }
     },
     watch: {
@@ -87,13 +89,23 @@ export default {
                 this.anim = lottie.loadAnimation({
                     container: this.$refs.illust,
                     renderer: 'svg',
-                    loop: false,
+                    loop: true,
                     autoplay: false,
                     animationData: Silvia,
                     name: 'Silvia'
                 })
+
+                this.anim.addEventListener('enterFrame', () => {
+                    this.repeat()
+                })
+
                 resolve()
             })
+        },
+        repeat: function() {
+            if (this.anim.currentRawFrame >= this.anim.totalFrames - this.loopFrameEnd) {
+                this.anim.goToAndPlay(this.loopFrameStart, true)
+            }
         }
     },
     mounted: function() {
