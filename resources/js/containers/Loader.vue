@@ -38,7 +38,7 @@ export default {
             TweenMax.set(window, {
                 scrollTo: 0,
             })
-            TweenMax.to(this.$refs.illust, .6, {
+            TweenMax.to(this.$refs.illust, .3, {
                 autoAlpha: 0,
                 display: 'none',
                 onComplete: () => {
