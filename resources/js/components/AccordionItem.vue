@@ -95,10 +95,12 @@ export default {
                     this.master.progress(1).progress(0);
                     this.master.play()
                     this.formIsOpen = true
+                    this.$emit('panel-open')
                 }
             } else {
                 this.master.reverse()
                 this.formIsOpen = false
+                this.$emit('panel-close')
             }
         },
     },

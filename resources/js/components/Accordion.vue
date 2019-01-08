@@ -5,7 +5,9 @@
             :key="i"
             :idx="i"
             :title="item.title"
-            :description="item.description"/>
+            :description="item.description"
+            @panel-open="panelOpen"
+            @panel-close="panelClose"/>
     </div>
 </template>
 
@@ -20,6 +22,24 @@ export default {
         items: {
             type: Array,
             default: function() {}
+        }
+    },
+    data: function() {
+        return {
+            counter: 0,
+        }
+    },
+    methods: {
+        panelOpen: function() {
+            this.$emit('panel-open')
+            this.counter++
+        },
+        panelClose: function() {
+            this.counter--
+            if (this.counter <= 0) {
+                this.counter = 0
+                this.$emit('panel-close')
+            }
         }
     }
 }

@@ -161,7 +161,6 @@ export default {
 
             if (illustHeight > contentHeight) {
                 let delta = (illustHeight - contentHeight) + windowHeight
-                console.log(contentHeight, illustHeight, delta)
                 this.$refs.container.style.height = delta + 'px'
             } else {
                 this.$refs.container.style.paddingBottom = null
@@ -169,12 +168,9 @@ export default {
         },
     },
     mounted: function() {
-        // this.$root.hasFooter = true
         this.$root.navColor = 2
         this.positionIllustration()
         this.getContainersHeight()
-
-        // this.animateStudio()
     }
 }
 </script>

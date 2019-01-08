@@ -7,7 +7,10 @@
                     <h1 class="odontoiatria-title" ref="title">Servizi</h1>
                     <span class="odontoiatria-subtitle">Odontoiatria</span>
                     <div class="odontoiatria-v-div"></div>
-                    <accordion :items="services"/>
+                    <accordion
+                        :items="services"
+                        @panel-open="panelOpen"
+                        @panel-close="panelClose"/>
                 </div>
             </div>
             <div class="odontoiatria-right odontoiatria-illust-top">
@@ -62,6 +65,16 @@ export default {
         }
     },
     methods: {
+        panelOpen: function() {
+            TweenMax.to(this.$refs.illust.$el, .6, {
+                autoAlpha: 0,
+            })
+        },
+        panelClose: function() {
+            TweenMax.to(this.$refs.illust.$el, .6, {
+                autoAlpha: 1,
+            })
+        },
         positionIllustration: function() {
             let w = this.$root.window.w
             if (w > 576 && w < 1920) {
@@ -102,7 +115,6 @@ export default {
         this.$root.navColor = 1
         this.$root.hasFooter = true
         this.positionIllustration()
-        // this.illustHeight = this.$refs.content.offsetHeight
     }
 }
 </script>

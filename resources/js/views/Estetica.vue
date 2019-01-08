@@ -7,7 +7,10 @@
                     <h1 class="estetica-title" ref="title">Servizi</h1>
                     <span class="estetica-subtitle">Medicina Estetica</span>
                     <div class="estetica-v-div"></div>
-                    <accordion :items="services"/>
+                    <accordion
+                        :items="services"
+                        @panel-open="panelOpen"
+                        @panel-close="panelClose"/>
                 </div>
             </div>
             <div class="estetica-right estetica-illust-top">
@@ -63,8 +66,15 @@ export default {
         }
     },
     methods: {
-        setViewport: function(value) {
-            this.viewport = value
+        panelOpen: function() {
+            TweenMax.to(this.$refs.illust.$el, .6, {
+                autoAlpha: 0,
+            })
+        },
+        panelClose: function() {
+            TweenMax.to(this.$refs.illust.$el, .6, {
+                autoAlpha: 1,
+            })
         },
         positionIllustration: function() {
             let w = this.$root.window.w
