@@ -8,19 +8,20 @@
             @enter="enter">
             <router-view />
         </transition>
-        <!-- <main-footer v-if="this.$root.hasFooter"/> -->
+        <loader />
     </div>
 </template>
 
 <script>
+import Loader from './Loader.vue'
 import MainNav from './MainNav.vue'
 import MobileNav from '../containers/MobileNav.vue'
-// import MainFooter from './MainFooter.vue'
 import { TimelineMax } from 'gsap'
 
 export default {
     name: 'MainTemplate',
     components: {
+        Loader,
         MainNav,
         MobileNav,
         // MainFooter,
