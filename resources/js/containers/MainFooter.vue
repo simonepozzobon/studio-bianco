@@ -2,7 +2,7 @@
     <footer class="main-footer">
         <div class="main-footer-container" ref="container">
             <div class="main-footer-left" ref="content">
-                <logo width="150px" />
+                <logo :width="logoSize" />
             </div>
             <div class="main-footer-right">
                 <div class="main-footer-content">
@@ -31,6 +31,20 @@ export default {
     name: 'MainFooter',
     components: {
         Logo,
+    },
+    data: function() {
+        return {
+            logoSize: '180px'
+        }
+    },
+    watch: {
+        '$root.window': function(value) {
+            if (this.$root.isMobile) {
+                this.logoSize = '150px'
+            } else {
+                this.logoSize = '180px'
+            }
+        }
     }
 }
 </script>
@@ -58,7 +72,7 @@ export default {
             position: relative;
 
             > svg {
-                margin-bottom: $spacer * 2;
+                // margin-bottom: $spacer * 2;
 
                 @include media-breakpoint-down('xs') {
                     margin-bottom: $spacer;

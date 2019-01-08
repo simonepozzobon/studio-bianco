@@ -80,7 +80,7 @@ export default {
             let maxPosition = maxHeight - illustHeight // pixel per arrivare al fondo
 
             let master = TweenMax.to(illust, 2, {
-                top: maxPosition > 0 ? maxPosition * 0.5 : 200
+                top: maxPosition > 0 ? maxPosition * 0.5 : 100
             })
 
             this.controller = new ScrollMagic.Controller()
@@ -97,15 +97,12 @@ export default {
     },
     mounted: function() {
         this.load()
-        // if (!this.$root.isMobile) {
-        //     this.load()
-        // }
     },
     beforeDestroy: function() {
         if (this.controller) {
             this.controller.destroy()
         }
-        
+
         if (this.anim) {
             this.anim.destroy()
         }

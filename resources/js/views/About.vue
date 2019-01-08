@@ -107,7 +107,7 @@ export default {
             } else {
                 this.studioWidth = '83%'
                 this.silviaWidth = '69.5%'
-                this.pauraWidth = '96.5%'
+                this.pauraWidth = '85%'
             }
         }
     },
@@ -115,7 +115,7 @@ export default {
         return {
             studioWidth: '83%',
             silviaWidth: '69.5%',
-            pauraWidth: '96.5%',
+            pauraWidth: '85%',
             studioHeight: 0,
             silviaHeight: 0,
             pauraHeight: 0,
