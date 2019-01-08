@@ -83,7 +83,7 @@ export default {
             let illustHeight = illust.offsetHeight // altezza dell'illustrazione
             let maxPosition = maxHeight - illustHeight // pixel per arrivare al fondo
             let master = TweenMax.to(illust, 2, {
-                top: maxPosition > 0 ? maxPosition * 0.45 : 200
+                // top: maxPosition > 0 ? maxPosition * 0.45 : 200
             })
 
             this.controller = new ScrollMagic.Controller()

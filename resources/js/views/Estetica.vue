@@ -2,7 +2,7 @@
     <div class="estetica">
         <div class="estetica-container" ref="container">
             <div class="estetica-left" ref="content">
-                <div class="estetica-content">
+                <div class="estetica-content" ref="panel">
                     <div class="estetica-bold-divider"></div>
                     <h1 class="estetica-title" ref="title">Servizi</h1>
                     <span class="estetica-subtitle">Medicina Estetica</span>
@@ -72,10 +72,33 @@ export default {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
             } else if (w >= 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
-                this.$refs.illust.$el.style.paddingTop = '14%'
+                this.$refs.illust.$el.style.paddingTop = '5%'
                 this.illustWidth = '50%'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
+            }
+
+            let contentHeight = this.$refs.panel.offsetHeight
+            let windowHeight = this.$root.window.h - this.$root.navbarFullHeight
+            let illustHeight = this.$refs.illust.$el.offsetHeight
+
+            if (contentHeight <= windowHeight) {
+                this.$refs.content.style.position = 'relative'
+                this.$refs.panel.style.position = 'absolute'
+                this.$refs.panel.style.top = '5vh'
+                this.$refs.illust.$el.style.position = 'absolute'
+                this.$refs.illust.$el.style.top = '5vh'
+            } else {
+                this.$refs.content.style.position = null
+                this.$refs.panel.style.position = null
+                this.$refs.panel.style.top = null
+            }
+
+            if (illustHeight > contentHeight) {
+                let delta = (illustHeight - contentHeight) / 2
+                this.$refs.container.style.paddingBottom = delta + 'px'
+            } else {
+                this.$refs.container.style.paddingBottom = null
             }
         }
     },

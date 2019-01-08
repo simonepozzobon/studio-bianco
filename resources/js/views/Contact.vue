@@ -1,14 +1,14 @@
 <template lang="html">
     <div class="contact">
         <div class="contact-container" ref="container">
-            <div class="contact-left" ref="content" v-if="!this.$root.isMobile">
+            <div class="contact-left" v-if="!this.$root.isMobile">
                 <contact-illust
                     :width="illustWidth"
                     ref="illust"
                 />
             </div>
-            <div class="contact-right">
-                <div class="contact-content">
+            <div class="contact-right" ref="content">
+                <div class="contact-content" ref="panel">
                     <div class="contact-bold-divider"></div>
                     <h1 class="contact-title" ref="title">Contatti</h1>
                     <span class="contact-subtitle">Studio Bianco</span>
@@ -164,10 +164,32 @@ export default {
                 this.$refs.illust.$el.style.paddingTop = '60px'
             } else if (w >= 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
-                this.$refs.illust.$el.style.paddingTop = '15%'
+                this.$refs.illust.$el.style.paddingTop = '5%'
                 this.illustWidth = '63%'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
+            }
+
+            let contentHeight = this.$refs.panel.offsetHeight
+            let illustHeight = this.$refs.illust.$el.offsetHeight
+            let windowHeight = this.$root.window.h - this.$root.navbarFullHeight
+
+            if (contentHeight <= windowHeight) {
+                this.$refs.content.style.position = 'relative'
+                this.$refs.panel.style.position = 'absolute'
+                this.$refs.panel.style.top = '5vh'
+                this.$refs.illust.$el.style.position = 'absolute'
+                this.$refs.illust.$el.style.top = '5vh'
+            } else {
+                this.$refs.content.style.position = null
+                this.$refs.panel.style.position = null
+                this.$refs.panel.style.top = null
+            }
+
+            if (illustHeight > contentHeight) {
+                this.$refs.container.paddingBottom = illustHeight - contentHeight + 64 + 'px'
+            } else {
+                this.$refs.container.paddingBottom = null
             }
         }
     },

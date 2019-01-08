@@ -2,7 +2,7 @@
     <div class="about">
         <div class="about-container" ref="container">
             <div class="about-left" ref="studioContainer">
-                <div class="about-content">
+                <div class="about-content" ref="panel">
                     <div class="about-bold-divider"></div>
                     <h1 ref="title" class="about-title">About</h1>
                     <span class="about-subtitle">Lo Studio</span>
@@ -133,7 +133,7 @@ export default {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
             } else if (w >= 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 20 + 'px'
-                this.$refs.studio.$el.style.paddingTop = '19%'
+                this.$refs.studio.$el.style.paddingTop = '5%'
                 this.$refs.silvia.$el.style.paddingTop = '20%'
                 this.$refs.paura.$el.style.paddingTop = '10%'
                 this.studioWidth = '70%'
@@ -141,6 +141,30 @@ export default {
                 this.pauraWidth = '76.5%'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
+            }
+
+            let contentHeight = this.$refs.panel.offsetHeight
+            let windowHeight = this.$root.window.h - this.$root.navbarFullHeight
+            let illustHeight = this.$refs.studio.$el.offsetHeight
+
+            if (contentHeight <= windowHeight) {
+                this.$refs.studioContainer.style.position = 'relative'
+                this.$refs.panel.style.position = 'absolute'
+                this.$refs.panel.style.top = '5vh'
+                this.$refs.studio.$el.style.position = 'absolute'
+                this.$refs.studio.$el.style.top = '5vh'
+            } else {
+                this.$refs.studioContainer.style.position = null
+                this.$refs.panel.style.position = null
+                this.$refs.panel.style.top = null
+            }
+
+            if (illustHeight > contentHeight) {
+                let delta = (illustHeight - contentHeight) + windowHeight
+                console.log(contentHeight, illustHeight, delta)
+                this.$refs.container.style.height = delta + 'px'
+            } else {
+                this.$refs.container.style.paddingBottom = null
             }
         },
     },
