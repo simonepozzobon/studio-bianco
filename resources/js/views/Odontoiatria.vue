@@ -10,7 +10,8 @@
                     <accordion
                         :items="services"
                         @panel-open="panelOpen"
-                        @panel-close="panelClose"/>
+                        @panel-close="panelClose"
+                        @remove-height="removeHeight"/>
                 </div>
             </div>
             <div class="odontoiatria-right odontoiatria-illust-top">
@@ -62,17 +63,34 @@ export default {
             illustHeight: 0,
             services: this.$root.odontoiatria,
             illustWidth: '92.2%',
+            illustHidden: false,
         }
     },
     methods: {
-        panelOpen: function() {
-            TweenMax.to(this.$refs.illust.$el, .6, {
-                autoAlpha: 0,
+        panelOpen: function(height) {
+            if (!this.illustHidden) {
+                TweenMax.to(this.$refs.illust.$el, .6, {
+                    autoAlpha: 0,
+                    onComplete: () => {
+                        this.illustHidden = true
+                    }
+                })
+            }
+            TweenMax.to(this.$refs.container, .6, {
+                height: '+='+height
             })
         },
         panelClose: function() {
             TweenMax.to(this.$refs.illust.$el, .6, {
                 autoAlpha: 1,
+                onComplete: () => {
+                    this.illustHidden = false
+                }
+            })
+        },
+        removeHeight: function(height) {
+            TweenMax.to(this.$refs.container, .6, {
+                height: '+='+height
             })
         },
         positionIllustration: function() {

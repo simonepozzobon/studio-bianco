@@ -27,18 +27,29 @@ export default {
     data: function() {
         return {
             counter: 0,
+            totalHeight: 0,
         }
     },
     methods: {
-        panelOpen: function() {
-            this.$emit('panel-open')
+        panelOpen: function(height) {
+            if (!this.$root.isMobile) {
+                this.$emit('panel-open', height)
+            }
+            this.totalHeight = this.totalHeight + height
             this.counter++
         },
-        panelClose: function() {
+        panelClose: function(height) {
             this.counter--
+            this.totalHeight = this.totalHeight + height
+            if (!this.$root.isMobile) {
+                this.$emit('remove-height', height)
+            }
             if (this.counter <= 0) {
                 this.counter = 0
-                this.$emit('panel-close')
+                this.totalHeight = 0
+                if (!this.$root.isMobile) {
+                    this.$emit('panel-close')
+                }
             }
         }
     }
