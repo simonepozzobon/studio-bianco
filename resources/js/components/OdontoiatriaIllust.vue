@@ -32,6 +32,7 @@ export default {
             controller: null,
             loopFrameStart: 19,
             loopFrameEnd: 1,
+            direct: true,
         }
     },
     watch: {
@@ -49,7 +50,7 @@ export default {
         load: function() {
             return new Promise(resolve => {
                 this.anim = lottie.loadAnimation({
-                    container: this.$refs.illust,
+                    container: document.getElementById('odontoiatria-illust'),
                     renderer: 'svg',
                     loop: false,
                     autoplay: true,
@@ -57,7 +58,6 @@ export default {
                     name: 'Studio'
                 })
 
-                this.anim.play()
                 resolve()
             })
         },
@@ -88,9 +88,25 @@ export default {
         }
     },
     mounted: function() {
-        // this.animate()
-        // this.$refs.illust.style.width = this.width
-        this.load()
+        this.$root.$on('page-animation-load', () => {
+            this.direct = false
+            if (this.anim) {
+                this.anim.destroy()
+            }
+            this.load().then(() => {
+                this.anim.goToAndStop(0, true)
+            })
+        })
+
+        this.$root.$on('page-animation-start', () => {
+            this.anim.goToAndPlay(0, true)
+        })
+
+        if (this.direct) {
+            this.load().then(() => {
+                this.anim.play()
+            })
+        }
     },
     beforeDestroy: function() {
         if (this.controller) {

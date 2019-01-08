@@ -32,6 +32,7 @@ export default {
             controller: null,
             loopFrameStart: 22,
             loopFrameEnd: 1,
+            direct: true,
         }
     },
     watch: {
@@ -49,7 +50,7 @@ export default {
         load: function() {
             return new Promise(resolve => {
                 this.anim = lottie.loadAnimation({
-                    container: this.$refs.illust,
+                    container: document.getElementById('estetica-illust'),
                     renderer: 'svg',
                     loop: true,
                     autoplay: true,
@@ -60,7 +61,6 @@ export default {
                 this.anim.addEventListener('enterFrame', () => {
                     this.repeat()
                 })
-                this.anim.play()
                 resolve()
             })
         },
@@ -73,14 +73,14 @@ export default {
             if (this.controller) {
                 this.controller.destroy()
             }
-            // this.getHeight()
+
             let illust = this.$refs.illust // element
             let maxHeight = this.containerHeight - (4 * 16 * 2) + 32 // height without padding and margin
             let illustHeight = illust.offsetHeight // altezza dell'illustrazione
             let maxPosition = maxHeight - illustHeight // pixel per arrivare al fondo
 
             let master = TweenMax.to(illust, 2, {
-                top: maxPosition > 0 ? maxPosition * 0.45 : 200
+                top: maxPosition > 0 ? maxPosition * 0.45 : 100
             })
 
             this.controller = new ScrollMagic.Controller()
@@ -96,9 +96,25 @@ export default {
         }
     },
     mounted: function() {
-        // this.animate()
-        // this.$refs.illust.style.width = this.width
-        this.load()
+        this.$root.$on('page-animation-load', () => {
+            this.direct = false
+            if (this.anim) {
+                this.anim.destroy()
+            }
+            this.load().then(() => {
+                this.anim.goToAndStop(0, true)
+            })
+        })
+
+        this.$root.$on('page-animation-start', () => {
+            this.anim.goToAndPlay(0, true)
+        })
+
+        if (this.direct) {
+            this.load().then(() => {
+                this.anim.play()
+            })
+        }
     },
     beforeDestroy: function() {
         if (this.controller) {

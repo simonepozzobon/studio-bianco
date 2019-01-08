@@ -105,7 +105,7 @@ export default {
 
                 if (this.animate == 'odontoiatria') {
                     let dente = document.getElementById('home-illust-dente')
-                    console.log(dente.offsetHeight)
+
                     t1.set(dente, {
                         height: dente.offsetHeight
                     })
@@ -130,9 +130,6 @@ export default {
                         }
                     }, .1)
 
-                    // t1.to(dente, .6, {
-                    //     width: '29%'
-                    // }, .1)
                     master.play()
                 } else {
                     let testa = document.getElementById('home-illust-testa')
@@ -171,9 +168,6 @@ export default {
                         }
                     }, .1)
 
-                    // t1.to(testa, .6, {
-                    //     width: '29%'
-                    // }, .1)
                 }
 
                 t1.to(container, .6, {
@@ -182,12 +176,13 @@ export default {
 
                 t1.to(this.elEnter, .6, {
                     y: 0,
-                    position: 'inherit'
+                    position: 'inherit',
                 }, 2)
 
                 master.eventCallback('onComplete', () => {
                     this.isAnimating = false
                     this.animate = null
+                    this.$root.$emit('page-animation-start')
                     el.removeAttribute('position')
                     done()
                 })
@@ -204,6 +199,7 @@ export default {
                 TweenLite.set(this.elEnter, {
                     autoAlpha: 0,
                     onComplete: () => {
+                        this.$root.$emit('page-animation-load')
                         done()
                         return
                     }
