@@ -47,19 +47,19 @@
                     <div class="margin-auto"></div>
 
 
-                    <div class="col">
+                    <div class="col-12 col-md">
                         <img src="/img/logo_12.png" alt="" class="convenzioni-logo-img">
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md">
                         <img src="/img/logo_13.png" alt="" class="convenzioni-logo-img">
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md">
                         <img src="/img/logo_14.png" alt="" class="convenzioni-logo-img">
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md">
                         <img src="/img/logo_15.png" alt="" class="convenzioni-logo-img">
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md">
                         <img src="/img/logo_16.png" alt="" class="convenzioni-logo-img">
                     </div>
                 </div>
@@ -148,7 +148,7 @@ export default {
             }
 
             .row {
-                .col-md-3, .col {
+                .col-md-3, .col-12 {
                     display: flex;
                     justify-content: center;
                     align-items: center;
