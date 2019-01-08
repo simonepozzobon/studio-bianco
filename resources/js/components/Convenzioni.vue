@@ -94,9 +94,9 @@ export default {
             }
 
             .convenzioni-logo-img {
-                max-width: 100%;
+                max-width: 75%;
                 max-height: 100%;
-                width: 100%;
+                width: 75%;
                 height: auto !important;
             }
 

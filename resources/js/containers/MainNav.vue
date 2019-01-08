@@ -80,7 +80,7 @@ export default {
                 this.logoSize = 171
                 this.burgerSize = 80
             } else if (w >= 992) {
-                this.logoSize = 140
+                this.logoSize = 156
             }
         }
     },

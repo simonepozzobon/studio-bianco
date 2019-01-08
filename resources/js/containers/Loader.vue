@@ -48,7 +48,7 @@ export default {
         }
     },
     mounted: function() {
-        if (!this.initialized) {
+        if (!this.$root.initialized) {
             this.load().then(() => {
                 setTimeout(() => {
                     this.anim.play()
@@ -79,5 +79,7 @@ export default {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+
+    display: none;
 }
 </style>
