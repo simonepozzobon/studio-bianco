@@ -89,7 +89,7 @@ export default {
                         autoAlpha: 1,
                         display: "block",
                         transformOrigin: "left top 0",
-                        ease: Cubic.easeInOut
+                        // ease: Cubic.easeInOut
                     })
 
                     this.master.progress(1).progress(0);
