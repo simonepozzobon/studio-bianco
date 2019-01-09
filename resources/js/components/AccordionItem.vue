@@ -7,7 +7,7 @@
         <div class="accordion-content" ref="content">
             <h3>{{ title }}</h3>
             <home-horizontal-sep width="50px" color="#e5c386"/>
-            <p v-html="description"></p>
+            <p class="accordion-paragraph" v-html="description"></p>
         </div>
     </div>
 </template>
@@ -166,6 +166,15 @@ export default {
 
     svg {
         padding-bottom: $spacer;
+    }
+
+    .accordion-paragraph {
+        ul {
+            text-align: left;
+            li {
+                text-align: left;
+            }
+        }
     }
 }
 
