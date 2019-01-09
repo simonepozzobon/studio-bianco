@@ -35,13 +35,11 @@ export default {
     },
     watch: {
         '$root.window': function(value) {
-            this.setViewport(value.h)
             this.fillScreen()
         },
     },
     data: function() {
         return {
-            viewport: 0,
         }
     },
     methods: {
@@ -52,36 +50,45 @@ export default {
             divider = this.$refs.divider.$el.scrollHeight,
             call = this.$refs.call.offsetHeight,
             result = content - (illust + title + divider + call)
+            console.log(content, illust, title, divider, call, result)
 
             return Math.floor(result / 2)
         },
         fillScreen: function(height = 0) {
             // se breakpoint maggiore di lg
-            let dividerHeight = this.getVerticalDividerHeight()
+            let windowHeight = this.$root.window.h
 
             if (!this.$root.isMobile) {
-                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
-                this.$refs.container.style.height = this.$root.window.h + 'px'
+                this.$refs.content.style.paddingBottom = null
+                this.$refs.rightContent.style.paddingBottom = null
 
-                this.$refs.vDividerL.style.paddingTop = dividerHeight + 'px'
-                this.$refs.vDividerR.style.paddingTop = dividerHeight + 'px'
-            } else {
-                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
-                this.$refs.container.style.minHeight = '100vh'
+                let illustHeight = this.$refs.illust.$el.offsetHeight
+                let titleHeight = this.$refs.title.offsetHeight
+                let dividerHeight = this.$refs.divider.$el.scrollHeight
+                let btnHeight = this.$refs.call.offsetHeight
+                let margins = 8 + 16
 
-                this.$refs.content.style.minHeight = this.$root.window.w + 'px'
-                this.$refs.rightContent.style.minHeight = this.$root.window.w + 'px'
+                let containerHeight = this.$refs.container.offsetHeight
+                let contentHeight = illustHeight + titleHeight + dividerHeight + btnHeight + margins
 
-                if (this.$root.window.w <= 576) {
-                    // console.log((this.$root.navbarFullHeight - 30));
-                    this.$refs.content.style.paddingTop = this.$root.navbarHeight + 'px'
-                    this.$refs.rightContent.style.paddingTop = this.$root.navbarHeight + 'px'
+                let availableHeight = containerHeight - this.$root.navbarFullHeight
+
+
+                if (availableHeight > contentHeight) {
+                    let delta = (availableHeight - contentHeight) / 2
+                    this.$refs.vDividerL.style.paddingTop = delta + 'px'
+                    this.$refs.vDividerR.style.paddingTop = delta + 'px'
                 }
+            } else {
+                this.$refs.content.style.paddingTop = this.$root.navbarFullHeight + 'px'
+                this.$refs.content.style.paddingBottom = (this.$root.navbarFullHeight / 2) + 'px'
+                this.$refs.rightContent.style.paddingTop = this.$root.navbarFullHeight + 'px'
+                this.$refs.rightContent.style.paddingBottom = (this.$root.navbarFullHeight / 2) + 'px'
+                this.$refs.vDividerL.style.paddingTop = null
+                this.$refs.vDividerR.style.paddingTop = null
             }
         },
-        setViewport: function(value) {
-            this.viewport = value
-        },
+        setViewport: function() {},
         goTo: function(e, value) {
             e.preventDefault()
             if (value == 1) {
