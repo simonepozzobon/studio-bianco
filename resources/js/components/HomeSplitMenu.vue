@@ -72,8 +72,10 @@ export default {
                 this.$refs.rightContent.style.minHeight = this.$root.window.w + 'px'
 
                 if (this.$root.window.w <= 576) {
-                    this.$refs.content.style.paddingTop = (this.$root.navbarFullHeight - 30) + 'px'
-                    this.$refs.rightContent.style.paddingTop = (this.$root.navbarFullHeight - 30) + 'px'
+                    console.log((this.$root.navbarFullHeight - 30));
+
+                    this.$refs.content.style.paddingTop = this.$root.navbarHeight + 'px'
+                    this.$refs.rightContent.style.paddingTop = this.$root.navbarHeight + 'px'
                 }
             }
         },
