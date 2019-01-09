@@ -157,6 +157,7 @@ export default {
                 } else {
                     this.$refs.studioContainer.style.position = null
                     this.$refs.panel.style.position = null
+                    this.$refs.studio.$el.style.position = null
                     this.$refs.panel.style.top = null
                 }
 
@@ -166,6 +167,11 @@ export default {
                 } else {
                     this.$refs.container.style.paddingBottom = null
                 }
+            } else {
+                this.$refs.studioContainer.style.position = null
+                this.$refs.panel.style.position = null
+                this.$refs.studio.$el.style.position = null
+                this.$refs.panel.style.top = null
             }
         },
     },

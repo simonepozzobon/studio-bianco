@@ -181,7 +181,6 @@ export default {
                     this.$refs.panel.style.top = '5vh'
                     this.$refs.illust.$el.style.position = 'absolute'
                     this.$refs.illust.$el.style.top = '5vh'
-                    console.log(contentHeight + this.$root.navbarFullHeight)
                 } else {
                     this.$refs.content.style.position = null
                     this.$refs.panel.style.position = null
@@ -195,6 +194,11 @@ export default {
                 } else {
                     this.$refs.container.paddingBottom = null
                 }
+            } else {
+                this.$refs.content.style.position = null
+                this.$refs.panel.style.position = null
+                this.$refs.illust.$el.style.position = null
+                this.$refs.panel.style.top = null
             }
         }
     },

@@ -128,6 +128,11 @@ export default {
                 } else {
                     this.$refs.container.style.paddingBottom = null
                 }
+            } else {
+                this.$refs.content.style.position = null
+                this.$refs.panel.style.position = null
+                this.$refs.illust.$el.style.position = null
+                this.$refs.panel.style.top = null
             }
         },
     },
