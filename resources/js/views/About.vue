@@ -126,8 +126,6 @@ export default {
             this.studioHeight = this.$refs.studioContainer.offsetHeight
             this.silviaHeight = this.$refs.silviaContainer.offsetHeight
             this.pauraHeight = this.$refs.pauraContainer.offsetHeight
-
-            console.log(this.silviaHeight)
         },
         positionIllustration: function() {
             let w = this.$root.window.w
