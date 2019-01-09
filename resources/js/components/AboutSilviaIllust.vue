@@ -86,6 +86,9 @@ export default {
         },
         animate: function() {
             return new Promise(resolve => {
+                if (this.anim) {
+                    this.anim.destroy()
+                }
                 this.anim = lottie.loadAnimation({
                     container: this.$refs.illust,
                     renderer: 'svg',

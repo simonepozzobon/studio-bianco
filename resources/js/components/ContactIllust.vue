@@ -28,7 +28,7 @@ export default {
     },
     data: function() {
         return {
-            anim: {},
+            anim: null,
             controller: null,
             loopFrameStart: 22,
             loopFrameEnd: 1,
@@ -37,6 +37,9 @@ export default {
     methods: {
         load: function() {
             return new Promise(resolve => {
+                if (this.anim) {
+                    this.anim.destroy()
+                }
                 this.anim = lottie.loadAnimation({
                     container: this.$refs.illust,
                     renderer: 'svg',

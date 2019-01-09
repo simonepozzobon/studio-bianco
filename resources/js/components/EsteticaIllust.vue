@@ -28,7 +28,7 @@ export default {
     },
     data: function() {
         return {
-            anim: {},
+            anim: null,
             controller: null,
             loopFrameStart: 22,
             loopFrameEnd: 1,
@@ -49,6 +49,9 @@ export default {
     methods: {
         load: function() {
             return new Promise(resolve => {
+                if (this.anim) {
+                    this.anim.destroy()
+                }
                 this.anim = lottie.loadAnimation({
                     container: document.getElementById('estetica-illust'),
                     renderer: 'svg',
@@ -99,9 +102,6 @@ export default {
         this.$root.$on('page-animation-load', () => {
             if (!this.isMobile) {
                 this.direct = false
-                if (this.anim) {
-                    this.anim.destroy()
-                }
                 this.load().then(() => {
                     this.anim.goToAndStop(0, true)
                 })

@@ -24,6 +24,7 @@ export default {
     },
     data: function() {
         return {
+            anim: null,
             controller: null,
             height: 0,
             loopFrameStart: 0,
@@ -33,6 +34,9 @@ export default {
     methods: {
         load: function() {
             return new Promise(resolve => {
+                if (this.anim) {
+                    this.anim.destroy()
+                }
                 let illust = this.$refs.illust
                 let initialPadding = 4 * 16 // 4rem
                 illust.style.top = initialPadding + 'px'
