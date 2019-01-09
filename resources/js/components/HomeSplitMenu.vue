@@ -57,16 +57,17 @@ export default {
         },
         fillScreen: function(height = 0) {
             // se breakpoint maggiore di lg
+            let dividerHeight = this.getVerticalDividerHeight()
+
             if (!this.$root.isMobile) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
-                this.$refs.container.style.height = this.viewport + 'px'
+                this.$refs.container.style.height = this.$root.window.h + 'px'
 
-                let dividerHeight = this.getVerticalDividerHeight()
                 this.$refs.vDividerL.style.paddingTop = dividerHeight + 'px'
                 this.$refs.vDividerR.style.paddingTop = dividerHeight + 'px'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
-                this.$refs.container.style.height = '100%'
+                this.$refs.container.style.minHeight = '100vh'
 
                 this.$refs.content.style.minHeight = this.$root.window.w + 'px'
                 this.$refs.rightContent.style.minHeight = this.$root.window.w + 'px'
@@ -105,8 +106,8 @@ export default {
 
     .homesplit-container {
         @include make-row();
-        min-height: 700px;
-        overflow: hidden;
+        min-height: 100vh;
+        // overflow: hidden;
 
         > div {
             display: flex;
