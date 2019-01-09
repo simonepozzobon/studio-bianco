@@ -68,7 +68,7 @@
                     </p>
                 </div>
             </div>
-            <div class="about-right position-relative about-illust-top" ref="pauraContainer">
+            <div class="about-right position-relative about-illust-top paura" ref="pauraContainer">
                 <about-paura-illust
                     :width="pauraWidth"
                     ref="paura"
@@ -143,27 +143,29 @@ export default {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
             }
 
-            let contentHeight = this.$refs.panel.offsetHeight
-            let windowHeight = this.$root.window.h - this.$root.navbarFullHeight
-            let illustHeight = this.$refs.studio.$el.offsetHeight
+            if (!this.$root.isMobile) {
+                let contentHeight = this.$refs.panel.offsetHeight
+                let windowHeight = this.$root.window.h - this.$root.navbarFullHeight
+                let illustHeight = this.$refs.studio.$el.offsetHeight
 
-            if (contentHeight <= windowHeight) {
-                this.$refs.studioContainer.style.position = 'relative'
-                this.$refs.panel.style.position = 'absolute'
-                this.$refs.panel.style.top = '5vh'
-                this.$refs.studio.$el.style.position = 'absolute'
-                this.$refs.studio.$el.style.top = '5vh'
-            } else {
-                this.$refs.studioContainer.style.position = null
-                this.$refs.panel.style.position = null
-                this.$refs.panel.style.top = null
-            }
+                if (contentHeight <= windowHeight) {
+                    this.$refs.studioContainer.style.position = 'relative'
+                    this.$refs.panel.style.position = 'absolute'
+                    this.$refs.panel.style.top = '5vh'
+                    this.$refs.studio.$el.style.position = 'absolute'
+                    this.$refs.studio.$el.style.top = '5vh'
+                } else {
+                    this.$refs.studioContainer.style.position = null
+                    this.$refs.panel.style.position = null
+                    this.$refs.panel.style.top = null
+                }
 
-            if (illustHeight > contentHeight) {
-                let delta = (illustHeight - contentHeight) + windowHeight
-                this.$refs.container.style.height = delta + 'px'
-            } else {
-                this.$refs.container.style.paddingBottom = null
+                if (illustHeight > contentHeight) {
+                    let delta = (illustHeight - contentHeight) + windowHeight
+                    this.$refs.container.style.height = delta + 'px'
+                } else {
+                    this.$refs.container.style.paddingBottom = null
+                }
             }
         },
     },
@@ -225,6 +227,10 @@ export default {
                     .ref {
                         position: absolute;
                         top: 0;
+                    }
+
+                    &.paura {
+                        align-items: flex-end;
                     }
                 }
 

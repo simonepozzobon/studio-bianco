@@ -87,7 +87,7 @@ export default {
     data: function() {
         return {
             burgerSize: 40,
-            logoSize: 128,
+            logoSize: 156,
             navClass: 'bg-light',
         }
     },

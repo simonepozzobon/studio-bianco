@@ -28,7 +28,7 @@ export default {
     },
     data: function() {
         return {
-            anim: {},
+            anim: null,
             controller: null,
             loopFrameStart: 19,
             loopFrameEnd: 1,
@@ -119,6 +119,7 @@ export default {
 
     @include media-breakpoint-down('md') {
         position: relative;
+        right: -4px;
     }
 }
 </style>

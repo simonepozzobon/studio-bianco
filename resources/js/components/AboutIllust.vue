@@ -30,6 +30,7 @@ export default {
         return {
             controller: null,
             height: 0,
+            anim: null,
             loopFrameStart: 19,
             loopFrameEnd: 1,
         }

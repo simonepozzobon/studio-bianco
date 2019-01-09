@@ -30,13 +30,14 @@ export default {
         return {
             controller: null,
             animated: false,
-            anim: {},
+            anim: null,
             loopFrameStart: 19,
             loopFrameEnd: 1,
         }
     },
     watch: {
         containerHeight: function(value) {
+            console.log(value)
             if (!this.$root.isMobile) {
                 this.onResize()
                 // this.animate()
