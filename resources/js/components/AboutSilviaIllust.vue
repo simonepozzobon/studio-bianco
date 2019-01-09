@@ -37,7 +37,6 @@ export default {
     },
     watch: {
         containerHeight: function(value) {
-            console.log(value)
             if (!this.$root.isMobile) {
                 this.onResize()
                 // this.animate()
@@ -110,6 +109,9 @@ export default {
         }
     },
     mounted: function() {
+        this.animate().then(() => {
+            this.anim.play()
+        })
     },
     beforeDestroy: function() {
         if (this.controller) {
