@@ -172,6 +172,9 @@ export default {
 
                 t1.to(container, .6, {
                     yPercent: -100,
+                    onStart: () => {
+                        this.$root.$emit('page-animation-start')
+                    }
                 }, 2)
 
                 t1.to(this.elEnter, .6, {
@@ -182,7 +185,6 @@ export default {
                 master.eventCallback('onComplete', () => {
                     this.isAnimating = false
                     this.animate = null
-                    this.$root.$emit('page-animation-start')
                     el.removeAttribute('position')
                     done()
                 })
