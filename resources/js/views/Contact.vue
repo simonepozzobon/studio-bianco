@@ -294,19 +294,43 @@ export default {
             width: 100%;
             padding: $spacer * 4;
 
+            @include media-breakpoint-down('md') {
+                padding-top: 0;
+                padding-left: $spacer;
+                padding-right: $spacer;
+                text-align: center;
+            }
+
             .contact-bold-divider {
                 content: '';
                 width: 30px;
                 border-top: 6px solid $light-cyan;
                 margin-bottom: $spacer;
+
+                @include media-breakpoint-down('md') {
+                    margin-right: auto;
+                    margin-left: auto;
+                }
             }
 
             .contact-v-div {
                 content: '';
-                height: 100px;
+                height: 53px;
+                width: 1px;
                 border-left: 1px solid $light-cyan;
                 margin-bottom: $spacer;
                 margin-top: $spacer;
+
+
+                @include media-breakpoint-down('md') {
+                    margin-left: auto;
+                    margin-right: auto;
+                    height: 29px;
+                }
+
+                @include media-breakpoint-down('xs') {
+                    height: 13px;
+                }
             }
         }
 
@@ -349,6 +373,10 @@ export default {
                     padding-right: $spacer;
                     padding-top: $spacer / 2;
                     padding-bottom: $spacer / 2;
+
+                    @include media-breakpoint-down('xs') {
+                        font-size: 0.7rem;
+                    }
                 }
 
                 .contact-table-label {
@@ -357,6 +385,7 @@ export default {
 
                     @include media-breakpoint-down('xs') {
                         padding-right: $spacer;
+                        font-size: 0.7rem;
                     }
                 }
             }
