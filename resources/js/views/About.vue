@@ -11,10 +11,12 @@
                         Studio Bianco nasce dalla consapevolezza che le dimensioni non contano più: quello che conta è l’esperienza.<br>
                         La nostra filosofia unisce la competenza di un personale qualificato al calore di un ambiente raccolto, curato e accogliente, in completa antitesi con le grandi cliniche.<br>
                         Lo studio è suddiviso in due unità operative: una dedicata all’odontoiatria e una alla medicina estetica avanzata.<br>
-                        Il percorso di evoluzione estetica e di cura del sorriso è pensato ad hoc per ciascun paziente, in modo da soddisfare qualsiasi esigenza in totale sicurezza e naturalezza per la soddisfazione massima, data dall’intreccio di bellezza e funzionalità.<br>
-                        L’approccio professionale e il fattore umano, inoltre, permettono a Studio Bianco di essere un punto di riferimento nel trattamento di paure e disagi dei pazienti.<br><br>
-                        La nostra missione è immaginare i nostri pazienti che, davanti a uno specchio, sorridono a se stessi con tutta la felicità e la soddisfazione del mondo. È allora che il nostro lavoro può ritenersi concluso.<br><br>
-                        Diversi studi hanno evidenziato che le persone con un bel sorriso vengono percepite mediamente più interessanti, intelligenti, felici, sane, sensibili e gentili.<br><br>
+                        Il percorso di evoluzione estetica e di cura del sorriso è pensato ad hoc per ciascun paziente, in modo da soddisfare qualsiasi esigenza in totale sicurezza e naturalezza per la felicità massima, data dall’intreccio di bellezza e funzionalità.<br>
+                        L’approccio professionale e il fattore umano, inoltre, permettono a Studio Bianco di essere un punto di riferimento nel trattamento di paure e disagi dei pazienti.<br>
+                        <br>
+                        La nostra missione è immaginare i nostri pazienti che, davanti a uno specchio, sorridono a se stessi con tutta la gratificazione e la soddisfazione del mondo. È allora che il nostro lavoro può ritenersi concluso.<br>
+                        <br>
+                        Diversi studi hanno evidenziato che le persone con un bel sorriso vengono percepite mediamente più interessanti, intelligenti, felici, sane, sensibili e gentili.<br>
                         Sorridete dunque!<br>
                     </p>
                 </div>
@@ -37,7 +39,8 @@
                     <div class="about-v-div dark"></div>
                     <p>
                         Nel 1999 ho ottenuto una laurea a pieni voti in medicina e chirurgia e, nel 2004, in odontoiatria e protesi dentale. Nei primi 8 anni della mia carriera ho lavorato come medico geriatra in RSA e nell’ambito della medicina di base. Successivamente, ho partecipato a corsi di perfezionamento in medicina estetica presso la scuola Agorà di Milano e collaborato con diversi studi dentistici di Bergamo e provincia.<br>
-                        Frequento regolarmente corsi di aggiornamento, sono socia ANDI, possiedo una certificazione Invisalign e oggi, dopo più di 10 anni di carriera, ho aperto il mio studio.<br><br>
+                        Frequento regolarmente corsi di aggiornamento, sono socia ANDI, possiedo una certificazione Invisalign e oggi, dopo più di 10 anni di carriera, ho aperto il mio studio.<br>
+                        <br>
                         La mia esperienza professionale, inizialmente come medico chirurgo e poi come odontoiatra, mi consente di avere una visione olistica del paziente e di prendermene cura durante tutto il percorso, senza sottovalutare nessun aspetto.<br>
                         La mia sfida è interpretare i bisogni dei pazienti; il mio obiettivo, tradurli in sorrisi.<br>
                     </p>
@@ -59,9 +62,9 @@
                     <h1 class="about-title text-purple" ref="title">Paura del dentista</h1>
                     <div class="about-v-div light"></div>
                     <p>
-                        Il principale motivo per cui le persone evitano di andare dal dentista è il senso di colpa. Semplicemente si sentono in colpa per aver rimandato le cure dentali di cui avevano bisogno e hanno paura di essere giudicati. Molti altri, invece, hanno paura di andare dal dentista perché hanno avuto un’esperienza dolosa o traumatica.<br>
+                        Il principale motivo per cui le persone evitano di andare dal dentista è il senso di colpa per aver rimandato le cure dentali di cui avevano bisogno e, per questo, hanno paura di essere giudicate. Molti altri, invece, associano il dentista a episodi dolorosi o traumatici del proprio passato.<br>
                         In generale, spesso, quella dal dentista non è percepita come un’esperienza piacevole.<br>
-                        Studio Bianco ne è consapevole e, per questo, vuole comprendere le paure dei pazienti per gestirle e superarle, nel massimo rispetto di ciascun caso. Questo percorso, che ha inizio ancor prima delle cure vere e proprie, mira a consolidare l’autostima e a instaurare un rapporto di fiducia, eliminando la paura del giudizio altrui.<br>
+                        Studio Bianco ne è consapevole e, per questo, vuole comprendere le paure dei pazienti per gestirle e superarle, nel massimo rispetto di ciascun caso. Questo percorso, che ha inizio ancor prima delle cure vere e proprie, mira a consolidare l’autostima e a instaurare un rapporto di fiducia, eliminando la preoccupazione per il giudizio altrui. <br>
                         Come? Tramite una visita, diversa dal solito, in uno spazio neutro dedicato e, più in generale, tramite un approccio progressivo e comportamentale, per superare insieme le paure senza farmaci e sedazioni.<br>
                         Inoltre, Studio Bianco offre un’odontoiatria non invasiva e sedativa, con trattamenti a “paura zero”, come, ad esempio, la sedazione cosciente. Si tratta di una tecnica di ansiolisi (e non anestesiologica), messa a punto dal dott. Henry Langa, laureato in odontoiatria a New York, che consiste nella somministrazione di una miscela di ossigeno e protossido d’azoto, detto anche “gas esilarante”. Il paziente sedato è sveglio e cosciente, i suoi riflessi di tosse e deglutizione sono mantenuti e, inoltre, prova un piacevole senso di relax. I principali vantaggi di questa tecnica sono la rapidità di induzione e il completo recupero funzionale in tempi ridottissimi. Non si conoscono casi di allergia, in quanto il protossido non viene metabolizzato ma eliminato con la respirazione.<br>
                         La programmazione di ciascun trattamento viene adeguata alle esigenze e alla disponibilità dei pazienti, in modo da ottimizzare le tempistiche e ridurre al minimo il numero di visite.<br>
