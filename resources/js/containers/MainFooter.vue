@@ -10,7 +10,7 @@
                     <span class="main-footer-subtitle">Studio Bianco</span>
                     <p>
                         Via Mazzini, 3 - Bergamo <br>
-                        3474150873 <br>
+                        3922594312 <br>
                         silvia.citella@gmail.com
                     </p>
                 </div>

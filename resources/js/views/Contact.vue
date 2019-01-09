@@ -28,7 +28,7 @@
                                     Telefono
                                 </td>
                                 <td class="contact-table-detail">
-                                    3474150873
+                                    392 25 94 312
                                 </td>
                             </tr>
                             <tr>
