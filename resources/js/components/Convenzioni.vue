@@ -171,6 +171,14 @@ export default {
                 display: block;
             }
 
+            @include media-breakpoint-down('md') {
+                font-size: calc(30% + 1vw + 1vh);
+                text-align: center;
+            }
+            @include media-breakpoint-down('xs') {
+                font-size: calc(50% + 1vw + 1vh);
+            }
+
             &::after {
                 content: '';
                 width: 100%;
