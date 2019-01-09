@@ -144,6 +144,7 @@ export default {
         font-weight: normal;
         text-transform: capitalize;
         // line-height: 1;
+        text-align: left;
     }
 }
 

@@ -3,14 +3,14 @@
         <div class="homesplit-container" ref="container">
             <div class="homesplit-left" ref="content">
                 <home-illust-left width="40%" ref="illust"/>
-                <h1 ref="title">Odontoiatria</h1>
+                <h1 ref="title" class="homesplit-title">Odontoiatria</h1>
                 <home-horizontal-sep color="#283745" width="8%" class="homesplit-divider" ref="divider"/>
                 <a href="#" class="btn btn-outline-white text-blue" ref="call" @click="goTo($event, 1)">Scopri di più</a>
                 <div class="homesplit-v-div" ref="vDividerL"></div>
             </div>
             <div class="homesplit-right" ref="rightContent">
                 <home-illust-right width="40%"/>
-                <h1>Medicina Estetica</h1>
+                <h1 class="homesplit-title">Medicina Estetica</h1>
                 <home-horizontal-sep color="#BFD3DD" width="8%" class="homesplit-divider"/>
                 <a href="#" class="btn btn-outline-cyan text-white" @click="goTo($event, 2)">Scopri di più</a>
                 <div class="homesplit-v-div" ref="vDividerR"></div>
@@ -121,6 +121,7 @@ export default {
             h1 {
                 display: block;
                 font-size: 2em;
+                text-align: center;
             }
         }
 

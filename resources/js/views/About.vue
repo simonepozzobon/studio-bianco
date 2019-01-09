@@ -323,6 +323,14 @@ export default {
             font-family: $font-family-sans-serif;
             font-size: calc(10% + 1vw + 1vh);
             font-weight: 300;
+
+            @include media-breakpoint-down('md') {
+                font-size: calc(30% + 1vw + 1vh);
+                text-align: center;
+            }
+            @include media-breakpoint-down('xs') {
+                font-size: calc(50% + 1vw + 1vh);
+            }
         }
 
         .about-divider {

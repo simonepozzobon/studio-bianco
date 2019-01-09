@@ -226,6 +226,8 @@ export default {
 .contact {
     @include make-container();
     background-color: $pink;
+    max-width: 100vw;
+    overflow-x: hidden;
 
     .contact-container {
         @include make-row();

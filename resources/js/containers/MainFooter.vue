@@ -40,7 +40,7 @@ export default {
     watch: {
         '$root.window': function(value) {
             if (this.$root.isMobile) {
-                this.logoSize = '150px'
+                this.logoSize = '140px'
             } else {
                 this.logoSize = '180px'
             }
@@ -60,6 +60,7 @@ export default {
     margin-left: -15px;
     margin-right: -15px;
     width: 100vw;
+    overflow-x: hidden;
 
     .main-footer-container {
         @include make-row();
@@ -81,6 +82,7 @@ export default {
 
             h1 {
                 display: block;
+                font-size: calc(100% + 1vw + 1vh);
             }
         }
 
@@ -122,6 +124,8 @@ export default {
                 padding-right: $spacer;
                 padding-top: $spacer * 4;
                 padding-bottom: $spacer * 4;
+
+                font-size: 0.7rem;
             }
 
             .main-footer-bold-divider {
