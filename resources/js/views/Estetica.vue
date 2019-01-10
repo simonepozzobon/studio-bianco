@@ -91,7 +91,10 @@ export default {
         },
         removeHeight: function(height) {
             TweenMax.to(this.$refs.container, .6, {
-                height: '+='+height
+                height: '+='+height,
+                onComplete: () => {
+                    this.positionIllustration()
+                }
             })
         },
         positionIllustration: function() {
