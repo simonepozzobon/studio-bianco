@@ -98,6 +98,7 @@ export default {
                 max-height: 100%;
                 width: 100%;
                 height: auto !important;
+                max-width: 206px !important;
             }
 
             .convenzioni-bold-divider {
@@ -153,7 +154,6 @@ export default {
                     justify-content: center;
                     align-items: center;
                     margin-bottom: $spacer * 4;
-
                 }
             }
         }
