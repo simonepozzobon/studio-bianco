@@ -11,7 +11,7 @@
                     <p>
                         Via Mazzini, 3 - Bergamo <br>
                         3922594312 <br>
-                        silvia.citella@gmail.com
+                        info@studiobiancosc.it
                     </p>
                 </div>
             </div>

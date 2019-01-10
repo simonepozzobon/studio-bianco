@@ -40,6 +40,7 @@ export default {
                 let illust = this.$refs.illust
                 let initialPadding = 4 * 16 // 4rem
                 illust.style.top = initialPadding + 'px'
+                illust.style.marginLeft = '9%'
 
                 this.anim = lottie.loadAnimation({
                     container: this.$refs.illust,

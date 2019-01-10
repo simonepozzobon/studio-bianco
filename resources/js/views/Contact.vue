@@ -36,7 +36,7 @@
                                     Email
                                 </td>
                                 <td class="contact-table-detail">
-                                    silvia.citella@gmail.com
+                                    info@studiobiancosc.it
                                 </td>
                             </tr>
                         </table>
