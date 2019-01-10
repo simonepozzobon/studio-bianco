@@ -153,7 +153,7 @@ export default {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    margin-bottom: $spacer * 4;
+                    margin-bottom: $spacer * 2;
                 }
             }
         }
