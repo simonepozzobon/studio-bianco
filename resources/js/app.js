@@ -40,7 +40,7 @@ const app = new Vue({
             odontoiatria: null,
             isMobile: false,
             isDesktop: false,
-            initialized: true,
+            initialized: false,
         }
     },
     methods: {
