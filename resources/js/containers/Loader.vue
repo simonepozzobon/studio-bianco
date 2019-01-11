@@ -80,6 +80,6 @@ export default {
     align-items: center;
     z-index: 9999;
 
-    display: none;
+    // display: none;
 }
 </style>
