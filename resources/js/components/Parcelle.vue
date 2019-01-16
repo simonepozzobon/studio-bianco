@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="parcelle">
+    <div id="parcelle" class="parcelle">
         <div class="parcelle-container" ref="content">
             <div class="parcelle-content">
                 <div class="parcelle-bold-divider pink"></div>

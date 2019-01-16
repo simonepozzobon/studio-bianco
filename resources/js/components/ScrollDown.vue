@@ -1,5 +1,5 @@
 <template lang="html">
-    <svg id="scroll-down" :width="width" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.05 65.05" ref="icon">
+    <svg id="scroll-down" :width="width" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.05 65.05" ref="icon" @click="goTo">
         <g id="#scroll-down-group" data-name="Logo">
             <circle cx="32.52" cy="32.52" r="32.52" :style="'fill: '+this.colorClass"/>
             <g>
@@ -11,6 +11,9 @@
 </template>
 
 <script>
+import {TweenMax} from 'gsap'
+import ScrollToPlugin from 'gsap/ScrollToPlugin'
+
 import ScrollMagic from 'scrollmagic'
 // import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
@@ -80,6 +83,15 @@ export default {
                     }
                 })
                 .addTo(this.controller)
+        },
+        goTo: function() {
+            TweenMax.to(window, .6, {
+                scrollTo: {
+                    offsetY: (this.$root.navbarFullHeight + 20),
+                    y: '#parcelle',
+                },
+                ease: Power2.easeInOut,
+            })
         }
     },
     mounted: function() {
@@ -95,5 +107,8 @@ export default {
     position: fixed;
     right: 64px;
     bottom: 16px;
+    width: 48px;
+    height: 48px;
+    z-index: 4;
 }
 </style>
