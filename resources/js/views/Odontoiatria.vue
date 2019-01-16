@@ -11,7 +11,11 @@
                         :items="services"
                         @panel-open="panelOpen"
                         @panel-close="panelClose"
+                        @panel-height-changed="panelChange"
                         @remove-height="removeHeight"/>
+                    <scroll-down
+                        color="blue"
+                        trigger="#scroll-down-trigger"/>
                 </div>
             </div>
             <div class="odontoiatria-right odontoiatria-illust-top">
@@ -23,6 +27,7 @@
                 <div id="odontoiatria-studio-illust-ref" class="ref"></div>
             </div>
         </div>
+        <div id="scroll-down-trigger"></div>
         <parcelle />
         <convenzioni />
         <main-footer />
@@ -35,6 +40,7 @@ import Convenzioni from '../components/Convenzioni.vue'
 import MainFooter from '../containers/MainFooter.vue'
 import OdontoiatriaIllust from '../components/OdontoiatriaIllust.vue'
 import Parcelle from '../components/Parcelle.vue'
+import ScrollDown from '../components/ScrollDown.vue'
 // import services from '../dummies/services'
 
 export default {
@@ -45,6 +51,7 @@ export default {
         MainFooter,
         OdontoiatriaIllust,
         Parcelle,
+        ScrollDown,
     },
     watch: {
         '$root.window': function(value) {
@@ -67,6 +74,25 @@ export default {
         }
     },
     methods: {
+        panelChange: function(height) {
+            let container = this.$refs.container.offsetHeight
+            this.$refs.container.style.height = container + height + 'px'
+            if (!this.illustHidden && !this.isMobile) {
+                TweenMax.to(this.$refs.illust.$el, .6, {
+                    autoAlpha: 0,
+                    onComplete: () => {
+                        this.illustHidden = true
+                    }
+                })
+            } else if (this.isMobile && this.illustHidden) {
+                TweenMax.to(this.$refs.illust.$el, .6, {
+                    autoAlpha: 1,
+                    onComplete: () => {
+                        this.illustHidden = false
+                    }
+                })
+            }
+        },
         panelOpen: function(height) {
             if (!this.illustHidden) {
                 TweenMax.to(this.$refs.illust.$el, .6, {
@@ -149,7 +175,6 @@ export default {
 
 <style lang="scss">
 @import '~styles/shared';
-
 
 .odontoiatria {
     @include make-container();

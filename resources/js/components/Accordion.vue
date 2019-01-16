@@ -7,7 +7,8 @@
             :title="item.title"
             :description="item.description"
             @panel-open="panelOpen"
-            @panel-close="panelClose"/>
+            @panel-close="panelClose"
+            @panel-height-changed="panelChange"/>
     </div>
 </template>
 
@@ -31,6 +32,11 @@ export default {
         }
     },
     methods: {
+        panelChange: function(height) {
+            this.$emit('panel-height-changed', height)
+            this.totalHeight = this.totalHeight + height
+            console.log(height)
+        },
         panelOpen: function(height) {
             if (!this.$root.isMobile) {
                 this.$emit('panel-open', height)

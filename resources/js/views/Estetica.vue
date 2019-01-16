@@ -12,6 +12,9 @@
                         @panel-open="panelOpen"
                         @panel-close="panelClose"
                         @remove-height="removeHeight"/>
+                    <scroll-down
+                        color="yellow"
+                        trigger="#scroll-down-trigger"/>
                 </div>
             </div>
             <div class="estetica-right estetica-illust-top">
@@ -23,6 +26,7 @@
                 <div id="estetica-studio-illust-ref" class="ref"></div>
             </div>
         </div>
+        <div id="scroll-down-trigger"></div>
         <parcelle />
         <convenzioni />
         <main-footer />
@@ -35,6 +39,7 @@ import Convenzioni from '../components/Convenzioni.vue'
 import EsteticaIllust from '../components/EsteticaIllust.vue'
 import MainFooter from '../containers/MainFooter.vue'
 import Parcelle from '../components/Parcelle.vue'
+import ScrollDown from '../components/ScrollDown.vue'
 
 export default {
     name: 'Odontoiatria',
@@ -44,6 +49,7 @@ export default {
         EsteticaIllust,
         MainFooter,
         Parcelle,
+        ScrollDown,
     },
     watch: {
         '$root.window': function(value) {

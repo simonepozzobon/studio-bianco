@@ -5,9 +5,9 @@
             <div><icon-arrow-down width="16px" color="#283745"/></div>
         </div>
         <div class="accordion-content" ref="content">
-            <h3>{{ title }}</h3>
-            <home-horizontal-sep width="50px" color="#e5c386"/>
-            <p class="accordion-paragraph" v-html="description"></p>
+            <h3 ref="title">{{ title }}</h3>
+            <home-horizontal-sep width="50px" color="#e5c386" ref="sep"/>
+            <p class="accordion-paragraph" v-html="description" ref="description"></p>
         </div>
     </div>
 </template>
@@ -51,9 +51,34 @@ export default {
             } else if (!value && !this.even) {
                 this.$refs.header.style.backgroundColor = 'inherit'
             }
+        },
+        '$root.window': function(value) {
+            this.getHeight()
         }
     },
     methods: {
+        getHeight: function() {
+            let title = this.$refs.title.offsetHeight
+            let content = this.$refs.description.offsetHeight
+            let sep = 22 + 8 + 16
+
+            if (this.formIsOpen) {
+                sep = this.$refs.sep.$el.getBBox()
+                sep = Math.floor(sep.height) + 16 + 64
+
+                let height = title + sep + content
+                // this.$refs.content.style.height = height + 'px'
+
+                let delta = height - this.panelHeight
+                this.panelHeight = height
+
+                TweenMax.set(this.$refs.content, {
+                    height: height
+                })
+                
+                this.$emit('panel-height-changed', delta)
+            }
+        },
         isEven: function(n) {
             return n % 2 == 0;
         },
