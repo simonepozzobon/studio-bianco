@@ -24,4 +24,10 @@ Route::prefix('admin')->group(function() {
         Route::post('/update', 'Admin\ServicesController@update');
         Route::get('/destroy/{id}', 'Admin\ServicesController@destroy');
     });
+    Route::prefix('prima-e-dopo')->group(function() {
+        Route::get('/get/{category}', 'Admin\ComparisonController@get');
+        Route::post('/create', 'Admin\ComparisonController@create');
+        Route::post('/update', 'Admin\ComparisonController@update');
+        Route::get('/destroy/{id}', 'Admin\ComparisonController@destroy');
+    });
 });

@@ -10,6 +10,12 @@ const routes = [
         component: require('./views/About.vue')
     },
     {
+        path: '/prima-e-dopo',
+        name: 'primaedopo',
+        alias: 'galleria',
+        component: require('./views/PrimaEDopo.vue')
+    },
+    {
         path: '/odontoiatria',
         name: 'odontoiatria',
         component: require('./views/Odontoiatria.vue')
