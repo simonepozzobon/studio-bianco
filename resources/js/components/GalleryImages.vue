@@ -58,13 +58,19 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 10%;
+    margin-left: 0;
+    margin-right: 0;
 
     .slide-left,
     .slide-right {
-        // flex: 0 0 40%;
-        // max-width: 40%;
         border: 12px solid $white;
         margin: $spacer;
+
+        @include media-breakpoint-down('md') {
+            flex: 0 0 40%;
+            max-width: 40%;
+
+        };
     }
 }
 </style>

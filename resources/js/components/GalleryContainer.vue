@@ -49,7 +49,12 @@ export default {
 
 .gallery-container {
     position: relative;
+    width: 100%; // da rivedere per responsive
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 
     .gallery-controller {
         position: absolute;
@@ -58,15 +63,33 @@ export default {
 
     .gallery-images {
         position: absolute;
-        width: calc(100% - 44px); // da rivedere per responsive
-        left: 22px;
+        width: calc(80% - 44px); // da rivedere per responsive
+        max-width: 1100px;
         height: 100%;
         z-index: 1;
+
+        @include media-breakpoint-down('xl') {
+            width: calc(80% - 44px); // da rivedere per responsive
+        };
+
+        @include media-breakpoint-down('md') {
+            width: calc(100% - 44px); // da rivedere per responsive
+        };
     }
 
     .gallery-bg {
         position: relative;
         z-index: 0;
+        width: 100%;
+        max-width: 1100px;
+
+        @include media-breakpoint-down('xl') {
+            width: calc(80% - 44px); // da rivedere per responsive
+        };
+
+        @include media-breakpoint-down('md') {
+            width: calc(100% - 44px); // da rivedere per responsive
+        };
     }
 }
 </style>

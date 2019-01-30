@@ -1,27 +1,29 @@
 <template lang="html">
     <div class="prima-dopo">
-        <div class="prima-dopo-container" ref="container">
-            <div class="prima-dopo-left" ref="studioContainer">
-                <div class="prima-dopo-content" ref="panel">
-                    <div class="prima-dopo-bold-divider"></div>
+        <div class="prima-dopo-container" ref="containerEstetica">
+            <div class="prima-dopo-left" ref="estetica">
+                <div class="prima-dopo-content" ref="panelEstetica">
+                    <div ref="hDiv" class="prima-dopo-bold-divider"></div>
                     <h1 ref="title" class="prima-dopo-title">Medicina Estetica</h1>
-                    <span class="prima-dopo-subtitle">Prima e Dopo</span>
-                    <div class="prima-dopo-v-div"></div>
+                    <span ref="subtitle" class="prima-dopo-subtitle">Prima e Dopo</span>
+                    <div ref="vDiv" class="prima-dopo-v-div"></div>
                     <gallery-container
                         background="brown"
+                        ref="galleryEstetica"
                         :items="esteticaArr"/>
                 </div>
             </div>
         </div>
-        <div class="prima-dopo-container" ref="container">
-            <div class="prima-dopo-left" ref="studioContainer">
-                <div class="prima-dopo-content" ref="panel">
+        <div class="prima-dopo-container" ref="containerOdontoiatria">
+            <div class="prima-dopo-left" ref="odontoiatria">
+                <div class="prima-dopo-content" ref="panelOdontoiatria">
                     <div class="prima-dopo-bold-divider blue"></div>
                     <h1 ref="title" class="prima-dopo-title">Odontoiatria</h1>
                     <span class="prima-dopo-subtitle">Prima e Dopo</span>
                     <div class="prima-dopo-v-div blue"></div>
                     <gallery-container
                         background="blue"
+                        ref="galleryOdontoiatria"
                         :items="odontoiatriaArr"/>
                 </div>
             </div>
@@ -35,7 +37,7 @@ import GalleryContainer from '../components/GalleryContainer.vue'
 import MainFooter from '../containers/MainFooter.vue'
 
 export default {
-    name: 'About',
+    name: 'PrimaEDopo',
     components: {
         GalleryContainer,
         MainFooter,
@@ -47,65 +49,95 @@ export default {
 
             if (value.w > 1920) {
                 this.studioWidth = '70%'
-                this.silviaWidth = '49.5%'
-                this.pauraWidth = '76%'
             } else {
                 this.studioWidth = '83%'
-                this.silviaWidth = '69.5%'
-                this.pauraWidth = '85%'
             }
         }
     },
     data: function() {
         return {
             studioWidth: '83%',
-            silviaWidth: '69.5%',
-            pauraWidth: '85%',
-            studioHeight: 0,
-            silviaHeight: 0,
-            pauraHeight: 0,
+            estetica: 0,
+            odontoiatria: 0,
             esteticaArr: null,
             odontoiatriaArr: null,
         }
     },
     methods: {
         getContainersHeight: function() {
-            this.studioHeight = this.$refs.studioContainer.offsetHeight
+            this.estetica = this.$refs.estetica.offsetHeight
+            this.odontoiatria = this.$refs.odontoiatria.offsetHeight
         },
         positionIllustration: function() {
             let w = this.$root.window.w
             if (w > 576 && w < 1920) {
-                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
+                this.$refs.containerEstetica.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
+                this.$refs.containerOdontoiatria.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
             } else if (w >= 1920) {
-                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
+                this.$refs.containerEstetica.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
+                this.$refs.containerOdontoiatria.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
                 this.studioWidth = '70%'
             } else {
-                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
+                this.$refs.containerEstetica.style.paddingTop = this.$root.navbarHeight + 'px'
+                this.$refs.containerOdontoiatria.style.paddingTop = this.$root.navbarHeight + 'px'
             }
 
+            // Definizione degli elementi (galleria e contenitore)
+            let elEstetica = this.$refs.galleryEstetica.$el
+            let elOdontoiatria = this.$refs.galleryOdontoiatria.$el
+
+            let galleryEstetica = elEstetica.getElementsByClassName('gallery-bg')[0]
+            let galleryOdontoiatria = elOdontoiatria.getElementsByClassName('gallery-bg')[0]
+
+
             if (!this.$root.isMobile) {
-                let contentHeight = this.$refs.panel.offsetHeight
+                let contentHeight = this.$refs.panelEstetica.offsetHeight
+                // let contentHeight = this.$refs.panelOdontoiatria.offsetHeight
                 let windowHeight = this.$root.window.h - this.$root.navbarFullHeight
-                let illustHeight = 0
+                let galleryEsteticaHeight = this.$refs.galleryEstetica.$el.offsetHeight
+                let galleryOdontoiatriaHeight = this.$refs.galleryOdontoiatria.$el.offsetHeight
+                console.log('differenza', contentHeight, windowHeight)
+
 
                 if (contentHeight <= windowHeight) {
-                    this.$refs.studioContainer.style.position = 'relative'
-                    this.$refs.panel.style.position = 'absolute'
-                    this.$refs.panel.style.top = '5vh'
+                    this.$refs.estetica.style.position = 'relative'
+                    this.$refs.panelEstetica.style.top = '5vh'
+                    this.$refs.panelOdontoiatria.style.top = '5vh'
+
+                    elEstetica.style.height = null
+                    elOdontoiatria.style.height = null
+                    galleryEstetica.style.height = null
+                    galleryOdontoiatria.style.height = null
+
                 } else {
-                    this.$refs.studioContainer.style.position = null
-                    this.$refs.panel.style.position = null
-                    this.$refs.panel.style.top = null
+                    this.$refs.estetica.style.position = null
+                    this.$refs.panelEstetica.style.top = null
+                    this.$refs.panelOdontoiatria.style.top = null
+                    console.log('va regolata la dimensione')
+
+                    let hDiv = this.$refs.hDiv.offsetHeight + 16
+                    let vDiv = this.$refs.vDiv.offsetHeight + 32
+                    let title = this.$refs.title.offsetHeight + 8
+                    let subtitle = this.$refs.subtitle.offsetHeight
+
+                    let headingHeight = hDiv + vDiv + title + subtitle
+                    let delta = windowHeight - headingHeight - (16 * 4 * 2) - 200
+
+                    // elEstetica.style.height = delta + 'px'
+                    // elOdontoiatria.style.height = delta + 'px'
+                    //
+                    // galleryEstetica.style.height = delta + 'px'
+                    // galleryOdontoiatria.style.height = delta + 'px'
+                    console.log(headingHeight, delta, windowHeight)
                 }
 
-                if (illustHeight > contentHeight) {
-                    let delta = (illustHeight - contentHeight) + windowHeight
-                    this.$refs.container.style.height = delta + 'px'
-                } else {
-                    this.$refs.container.style.paddingBottom = null
-                }
             } else {
-                this.$refs.studioContainer.style.position = null
+                this.$refs.estetica.style.position = null
+
+                elEstetica.style.height = null
+                elOdontoiatria.style.height = null
+                galleryEstetica.style.height = null
+                galleryOdontoiatria.style.height = null
             }
         },
     },

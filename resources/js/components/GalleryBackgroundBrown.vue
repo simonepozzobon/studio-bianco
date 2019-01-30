@@ -1,5 +1,5 @@
 <template lang="html">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1087.4 642.05" width="100%">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1087.4 642.05">
         <g id="c0922eaa-ee96-40b0-93c3-69ed6a23e1e1" data-name="gallery-estetica">
             <rect x="1" y="1" width="1085.4" height="640.05" style="fill: #e1a893"/>
             <rect x="20.23" y="20.53" width="1046.94" height="601" style="fill: #e0be81"/>
