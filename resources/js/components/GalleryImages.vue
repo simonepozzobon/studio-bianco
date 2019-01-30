@@ -1,7 +1,9 @@
 <template lang="html">
     <swiper :options="swiperOption" ref="mySwiper">
         <!-- slides -->
-        <swiper-slide v-for="(item, i) in this.items">
+        <swiper-slide
+            v-for="(item, i) in this.items"
+            :key="i">
             <div class="slide-container">
                 <div class="slide-right">
                     <img :src="item.before.thumb" alt="" class="img-fluid">
