@@ -17,6 +17,11 @@
                         Servizi Medicina Estetica
                     </router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link tag="a" class="nav-link" :to="{ path: '/prima-e-dopo' }" exact-active-class="active">
+                        Prima e dopo
+                    </router-link>
+                </li>
             </ul>
         </div>
     </nav>
