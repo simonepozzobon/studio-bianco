@@ -7,7 +7,9 @@
                     <h1 ref="title" class="prima-dopo-title">Medicina Estetica</h1>
                     <span class="prima-dopo-subtitle">Prima e Dopo</span>
                     <div class="prima-dopo-v-div"></div>
-                    <gallery-container background="brown"/>
+                    <gallery-container
+                        background="brown"
+                        :items="esteticaArr"/>
                 </div>
             </div>
         </div>
@@ -18,7 +20,9 @@
                     <h1 ref="title" class="prima-dopo-title">Odontoiatria</h1>
                     <span class="prima-dopo-subtitle">Prima e Dopo</span>
                     <div class="prima-dopo-v-div blue"></div>
-                    <gallery-container background="blue"/>
+                    <gallery-container
+                        background="blue"
+                        :items="odontoiatriaArr"/>
                 </div>
             </div>
         </div>
@@ -60,6 +64,8 @@ export default {
             studioHeight: 0,
             silviaHeight: 0,
             pauraHeight: 0,
+            esteticaArr: null,
+            odontoiatriaArr: null,
         }
     },
     methods: {
@@ -105,6 +111,12 @@ export default {
     },
     mounted: function() {
         this.$root.navColor = 2
+        this.esteticaArr = this.$root.comparisons.filter(item => {
+            return item.category_id == 1
+        })
+        this.odontoiatriaArr = this.$root.comparisons.filter(item => {
+            return item.category_id == 2
+        })
         this.positionIllustration()
         this.getContainersHeight()
     }

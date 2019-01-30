@@ -1,7 +1,8 @@
 <template lang="html">
     <div class="gallery-container">
         <gallery-images
-            class="gallery-images"/>
+            class="gallery-images"
+            :items="items"/>
 
         <!-- <gallery-controller
             class="gallery-controller"/> -->
@@ -34,6 +35,10 @@ export default {
         background: {
             type: String,
             default: 'blue'
+        },
+        items: {
+            type: Array,
+            default: function() {},
         }
     }
 }

@@ -34,6 +34,10 @@ export default {
         odontoiatria: {
             type: String,
             default: function() {},
+        },
+        comparisons: {
+            type: String,
+            default: '',
         }
     },
     data: function() {
@@ -213,9 +217,11 @@ export default {
     beforeMount: function() {
         let parsedEstetica = JSON.parse(this.estetica)
         let parsedOdontoiatria = JSON.parse(this.odontoiatria)
+        let parsedComparisons = JSON.parse(this.comparisons)
 
         this.$root.estetica = parsedEstetica
         this.$root.odontoiatria = parsedOdontoiatria
+        this.$root.comparisons = parsedComparisons
     }
 }
 </script>

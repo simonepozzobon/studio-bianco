@@ -13,7 +13,8 @@
         <div id="app">
             <main-template
                 odontoiatria="{{ $odontoiatria }}"
-                estetica="{{ $estetica }}">
+                estetica="{{ $estetica }}"
+                comparisons="{{ $comparisons }}">
             </main-template>
         </div>
         <script src="{{ mix('js/app.js') }}"></script>

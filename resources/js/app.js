@@ -38,6 +38,7 @@ const app = new Vue({
             homepage: null,
             estetica: null,
             odontoiatria: null,
+            comparisons: null,
             isMobile: false,
             isDesktop: false,
             initialized: false,

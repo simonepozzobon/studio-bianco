@@ -1,33 +1,13 @@
 <template lang="html">
     <swiper :options="swiperOption" ref="mySwiper">
         <!-- slides -->
-        <swiper-slide>
+        <swiper-slide v-for="(item, i) in this.items">
             <div class="slide-container">
                 <div class="slide-right">
-                    <img src="/svg/403.svg" alt="">
+                    <img :src="item.before.thumb" alt="" class="img-fluid">
                 </div>
                 <div class="slide-left">
-                    <img src="/svg/404.svg" alt="">
-                </div>
-            </div>
-        </swiper-slide>
-        <swiper-slide>
-            <div class="slide-container">
-                <div class="slide-right">
-                    <img src="/svg/404.svg" alt="">
-                </div>
-                <div class="slide-left">
-                    <img src="/svg/500.svg" alt="">
-                </div>
-            </div>
-        </swiper-slide>
-        <swiper-slide>
-            <div class="slide-container">
-                <div class="slide-right">
-                    <img src="/svg/503.svg" alt="">
-                </div>
-                <div class="slide-left">
-                    <img src="/svg/500.svg" alt="">
+                    <img :src="item.after.thumb" alt=""  class="img-fluid">
                 </div>
             </div>
         </swiper-slide>
@@ -44,6 +24,12 @@ export default {
         swiper,
         swiperSlide
     },
+    props: {
+        items: {
+            type: Array,
+            default: function() {},
+        }
+    },
     data: function() {
         return {
             swiperOption: {
@@ -52,6 +38,9 @@ export default {
                 // ...
             }
         }
+    },
+    mounted: function() {
+        console.log(this.items)
     }
 
 }
@@ -70,8 +59,8 @@ export default {
 
     .slide-left,
     .slide-right {
-        flex: 0 0 40%;
-        max-width: 40%;
+        // flex: 0 0 40%;
+        // max-width: 40%;
         border: 12px solid $white;
         margin: $spacer;
     }
