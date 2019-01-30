@@ -46,12 +46,6 @@ export default {
         '$root.window': function(value) {
             this.positionIllustration()
             this.getContainersHeight()
-
-            if (value.w > 1920) {
-                this.studioWidth = '70%'
-            } else {
-                this.studioWidth = '83%'
-            }
         }
     },
     data: function() {
@@ -76,7 +70,6 @@ export default {
             } else if (w >= 1920) {
                 this.$refs.containerEstetica.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
                 this.$refs.containerOdontoiatria.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
-                this.studioWidth = '70%'
             } else {
                 this.$refs.containerEstetica.style.paddingTop = this.$root.navbarHeight + 'px'
                 this.$refs.containerOdontoiatria.style.paddingTop = this.$root.navbarHeight + 'px'

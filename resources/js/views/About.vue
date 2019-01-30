@@ -44,6 +44,9 @@
                         La mia esperienza professionale, inizialmente come medico chirurgo e poi come odontoiatra, mi consente di avere una visione olistica del paziente e di prendermene cura durante tutto il percorso, senza sottovalutare nessun aspetto.<br>
                         La mia sfida è interpretare i bisogni dei pazienti; il mio obiettivo, tradurli in sorrisi.<br>
                     </p>
+                    <button class="btn btn-primary" @click="toggleSilvia">
+                        <span>Silvia Citella - foto </span>
+                    </button>
                 </div>
             </div>
             <div class="about-left position-relative about-illust-top" ref="silviaContainer">
@@ -52,6 +55,11 @@
                     ref="silvia"
                     trigger="about-silvia-illust-ref"
                     :containerHeight="silviaHeight"/>
+                <about-silvia-foto
+                    :width="silviaFotoWidth"
+                    ref="silvia"
+                    :containerHeight="silviaHeight"
+                />
                 <div id="about-silvia-illust-ref" class="ref"></div>
             </div>
         </div>
@@ -87,6 +95,7 @@
 <script>
 import AboutIllust from '../components/AboutIllust.vue'
 import AboutPauraIllust from '../components/AboutPauraIllust.vue'
+import AboutSilviaFoto from '../components/AboutSilviaFoto.vue'
 import AboutSilviaIllust from '../components/AboutSilviaIllust.vue'
 import MainFooter from '../containers/MainFooter.vue'
 
@@ -95,6 +104,7 @@ export default {
     components: {
         AboutIllust,
         AboutPauraIllust,
+        AboutSilviaFoto,
         AboutSilviaIllust,
         MainFooter,
     },
@@ -106,10 +116,12 @@ export default {
             if (value.w > 1920) {
                 this.studioWidth = '70%'
                 this.silviaWidth = '49.5%'
+                this.silviaFotoWidth = '59.5%'
                 this.pauraWidth = '76%'
             } else {
                 this.studioWidth = '83%'
                 this.silviaWidth = '69.5%'
+                this.silviaFotoWidth = '79.5%'
                 this.pauraWidth = '85%'
             }
         }
@@ -118,10 +130,12 @@ export default {
         return {
             studioWidth: '83%',
             silviaWidth: '69.5%',
+            silviaFotoWidth: '79.5%',
             pauraWidth: '85%',
             studioHeight: 0,
             silviaHeight: 0,
             pauraHeight: 0,
+            silvia: false,
         }
     },
     methods: {
@@ -141,6 +155,7 @@ export default {
                 this.$refs.paura.$el.style.paddingTop = '10%'
                 this.studioWidth = '70%'
                 this.silviaWidth = '49.5%'
+                this.silviaFotoWidth = '59.5%'
                 this.pauraWidth = '76%'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
@@ -177,6 +192,51 @@ export default {
                 this.$refs.panel.style.top = null
             }
         },
+        toggleSilvia: function() {
+            if (!this.silvia && !this.$root.isMobile) {
+                let master = new TimelineMax({
+                    paused: true
+                })
+                master.fromTo('#silvia-illust', 1, {
+                    yPercent: 0,
+                }, {
+                    yPercent: 100,
+                    ease: Power4.easeInOut
+                }, 0)
+
+                master.fromTo('#silvia-foto', 1, {
+                    yPercent: -100,
+                }, {
+                    yPercent: 100,
+                    ease: Power4.easeInOut,
+                    onComplete: () => {
+                        this.silvia = true
+                    }
+                }, 0)
+                master.play()
+            } else {
+                let master = new TimelineMax({
+                    paused: true
+                })
+                master.fromTo('#silvia-illust', 1, {
+                    yPercent: 100,
+                }, {
+                    yPercent: 0,
+                    ease: Power4.easeInOut
+                }, 0)
+
+                master.fromTo('#silvia-foto', 1, {
+                    yPercent: 100,
+                }, {
+                    yPercent: -100,
+                    ease: Power4.easeInOut,
+                    onComplete: () => {
+                        this.silvia = false
+                    }
+                }, 0)
+                master.play()
+            }
+        }
     },
     mounted: function() {
         this.$root.navColor = 2
@@ -276,6 +336,10 @@ export default {
         .about-content {
             padding: $spacer * 4;
             font-family: $font-family-custom;
+
+            .btn {
+                font-family: $font-family-sans-serif;
+            }
 
             .about-bold-divider {
                 content: '';
