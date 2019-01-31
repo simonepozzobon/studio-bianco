@@ -65,11 +65,21 @@ export default {
     .slide-right {
         border: 12px solid $white;
         margin: $spacer;
+        flex: 0 0 39%;
+        max-width: 39%;
 
         @include media-breakpoint-down('md') {
+            border: 8px solid $white;
             flex: 0 0 40%;
             max-width: 40%;
+            margin: $spacer / 2;
+        };
 
+        @include media-breakpoint-down('xs') {
+            border: 4px solid $white;
+            flex: 0 0 40%;
+            max-width: 40%;
+            margin: $spacer / 4;
         };
     }
 }

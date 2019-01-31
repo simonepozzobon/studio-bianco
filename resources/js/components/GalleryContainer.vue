@@ -90,6 +90,10 @@ export default {
         @include media-breakpoint-down('md') {
             width: calc(100% - 44px); // da rivedere per responsive
         };
+
+        @include media-breakpoint-down('md') {
+            width: 100%; // da rivedere per responsive
+        };
     }
 }
 </style>

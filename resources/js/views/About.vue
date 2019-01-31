@@ -214,7 +214,7 @@ export default {
                     }
                 }, 0)
                 master.play()
-            } else {
+            } else if (this.silvia && !this.$root.isMobile){
                 let master = new TimelineMax({
                     paused: true
                 })
@@ -235,6 +235,7 @@ export default {
                     }
                 }, 0)
                 master.play()
+            } else if (!this.silvia && !this.$root.isMobile) {
             }
         }
     },
