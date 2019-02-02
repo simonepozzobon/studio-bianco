@@ -57,7 +57,7 @@
                     :containerHeight="silviaHeight"/>
                 <about-silvia-foto
                     :width="silviaFotoWidth"
-                    ref="silvia"
+                    ref="silviaFoto"
                     :containerHeight="silviaHeight"
                 />
                 <div id="about-silvia-illust-ref" class="ref"></div>
@@ -148,6 +148,9 @@ export default {
             let w = this.$root.window.w
             if (w > 576 && w < 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
+                this.$refs.silvia.$el.style.paddingTop = null
+                this.$refs.silviaFoto.$el.style.paddingTop = null
+
             } else if (w >= 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
                 this.$refs.studio.$el.style.paddingTop = '5%'
@@ -159,12 +162,19 @@ export default {
                 this.pauraWidth = '76%'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
+                this.$refs.silvia.$el.style.paddingTop = null
             }
 
             if (!this.$root.isMobile) {
                 let contentHeight = this.$refs.panel.offsetHeight
                 let windowHeight = this.$root.window.h - this.$root.navbarFullHeight
                 let illustHeight = this.$refs.studio.$el.offsetHeight
+
+                let fotoContainer = this.$refs.silviaContainer.offsetHeight
+
+                this.$refs.silviaFoto.$el.style.position = null
+                this.$refs.silviaFoto.$el.style.display = null
+                this.$refs.silvia.$el.style.position = null
 
                 if (contentHeight <= windowHeight) {
                     this.$refs.studioContainer.style.position = 'relative'
@@ -190,7 +200,22 @@ export default {
                 this.$refs.panel.style.position = null
                 this.$refs.studio.$el.style.position = null
                 this.$refs.panel.style.top = null
+
+                this.$refs.silviaFoto.$el.style.position = 'absolute'
+                this.$refs.silviaFoto.$el.style.display = 'none'
+                this.$refs.silvia.$el.style.position = 'absolute'
             }
+
+            // imposta altezza minima della colonna con la foto
+            let silviaIllustHeight = this.$refs.silvia.$el.offsetHeight
+            let silviaFotoHeight = this.$refs.silviaFoto.$el.offsetHeight
+
+            if (silviaIllustHeight > silviaFotoHeight) {
+                silviaFotoHeight = silviaIllustHeight
+            }
+
+            this.$refs.silviaContainer.style.minHeight = silviaFotoHeight + 160 + 'px'
+
         },
         toggleSilvia: function() {
             if (!this.silvia && !this.$root.isMobile) {
@@ -235,7 +260,71 @@ export default {
                     }
                 }, 0)
                 master.play()
-            } else if (!this.silvia && !this.$root.isMobile) {
+            } else if (!this.silvia && this.$root.isMobile) {
+                let master = new TimelineMax({
+                    paused: true,
+                })
+
+                master.set('#silvia-foto', {
+                    position: 'absolute',
+                    display: 'flex',
+                    xPercent: 200,
+                    top: 0,
+                })
+
+                master.fromTo(this.$refs.silviaFoto.$el, 1, {
+                    xPercent: 200,
+                }, {
+                    xPercent: 0,
+                    ease: Power4.easeInOut
+                }, 0)
+
+                master.fromTo(this.$refs.silvia.$el, 1, {
+                    xPercent: 0,
+                    autoAlpha: 1,
+                }, {
+                    xPercent: -200,
+                    autoAlpha: 0,
+                    ease: Power4.easeInOut,
+                    onComplete: () => {
+                        this.silvia = true
+                    }
+                }, 0)
+
+                master.play()
+            } else {
+                let master = new TimelineMax({
+                    paused: true,
+                })
+
+                master.fromTo(this.$refs.silviaFoto.$el, 1, {
+                    xPercent: 0,
+                }, {
+                    xPercent: 200,
+                    ease: Power4.easeInOut,
+                    onComplete: () => {
+                        TweenMax.set('#silvia-foto', {
+                            position: 'relative',
+                            display: 'none',
+                            xPercent: 0,
+                            top: '-100%',
+                        })
+                    }
+                }, 0)
+
+                master.fromTo(this.$refs.silvia.$el, 1, {
+                    xPercent: -200,
+                    autoAlpha: 0,
+                }, {
+                    xPercent: 0,
+                    autoAlpha: 1,
+                    ease: Power4.easeInOut,
+                    onComplete: () => {
+                        this.silvia = false
+                    }
+                }, 0)
+
+                master.play()
             }
         }
     },
@@ -337,6 +426,13 @@ export default {
         .about-content {
             padding: $spacer * 4;
             font-family: $font-family-custom;
+
+            @include media-breakpoint-down('sm') {
+                padding-top: $spacer * 4;
+                padding-left: $spacer * 4;
+                padding-right: $spacer * 4;
+                padding-bottom: 0;
+            }
 
             .btn {
                 font-family: $font-family-sans-serif;

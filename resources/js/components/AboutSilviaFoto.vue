@@ -12,6 +12,9 @@ export default {
     name: 'AboutSilviaFoto',
     components: {
         AboutSilviaBg,
+    },
+    mounted: function() {
+        
     }
 }
 </script>
