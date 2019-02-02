@@ -217,6 +217,11 @@ export default {
             this.$refs.silviaContainer.style.minHeight = silviaFotoHeight + 160 + 'px'
 
         },
+        setSilvia: function() {
+            if (!this.$root.isMobile) {
+
+            }
+        },
         toggleSilvia: function() {
             if (!this.silvia && !this.$root.isMobile) {
                 let master = new TimelineMax({
