@@ -38,6 +38,14 @@
                     contatti
                 </router-link>
             </li>
+            <li>
+                <home-horizontal-sep width="25px" color="#fbfaef"/>
+            </li>
+            <li>
+                <router-link tag="a" class="mobile-nav-link" :to="{ path: '/prima-e-dopo' }" exact-active-class="active" @click.native="toggleMobile">
+                    Prima e Dopo
+                </router-link>
+            </li>
         </ul>
     </div>
 </template>
