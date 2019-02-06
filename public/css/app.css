@@ -8693,7 +8693,6 @@ button.close {
   pointer-events: auto;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(40, 55, 69, 0.2);
   outline: 0;
 }
 
@@ -8726,7 +8725,6 @@ button.close {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 1rem;
-  border-bottom: 1px solid #e9ecef;
 }
 
 .modal-header .close {
@@ -8744,7 +8742,7 @@ button.close {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .modal-footer {
@@ -8757,8 +8755,7 @@ button.close {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  padding: 1rem;
-  border-top: 1px solid #e9ecef;
+  padding: 2rem;
 }
 
 .modal-footer > :not(:first-child) {

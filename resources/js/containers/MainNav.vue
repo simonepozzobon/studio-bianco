@@ -119,7 +119,7 @@ export default {
     // min-height: 112px;
     min-height: 60px;
     height: 70px;
-    z-index: 9999;
+    z-index: 999;
 
     @include media-breakpoint-down('md') {
         min-height: 90px;

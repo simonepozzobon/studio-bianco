@@ -9,10 +9,12 @@
             <router-view />
         </transition>
         <loader />
+        <cookies-panel />
     </div>
 </template>
 
 <script>
+import CookiesPanel from '../components/CookiesPanel.vue'
 import Loader from './Loader.vue'
 import MainNav from './MainNav.vue'
 import MobileNav from '../containers/MobileNav.vue'
@@ -21,6 +23,7 @@ import { TimelineMax } from 'gsap'
 export default {
     name: 'MainTemplate',
     components: {
+        CookiesPanel,
         Loader,
         MainNav,
         MobileNav,
