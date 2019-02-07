@@ -116,12 +116,12 @@ export default {
             if (value.w > 1920) {
                 this.studioWidth = '70%'
                 this.silviaWidth = '49.5%'
-                this.silviaFotoWidth = '59.5%'
+                this.silviaFotoWidth = '39.5%'
                 this.pauraWidth = '76%'
             } else {
                 this.studioWidth = '83%'
                 this.silviaWidth = '69.5%'
-                this.silviaFotoWidth = '79.5%'
+                this.silviaFotoWidth = '59.5%'
                 this.pauraWidth = '85%'
             }
         }
@@ -130,7 +130,7 @@ export default {
         return {
             studioWidth: '83%',
             silviaWidth: '69.5%',
-            silviaFotoWidth: '79.5%',
+            silviaFotoWidth: '59.5%',
             pauraWidth: '85%',
             studioHeight: 0,
             silviaHeight: 0,
@@ -158,7 +158,7 @@ export default {
                 this.$refs.paura.$el.style.paddingTop = '10%'
                 this.studioWidth = '70%'
                 this.silviaWidth = '49.5%'
-                this.silviaFotoWidth = '59.5%'
+                this.silviaFotoWidth = '39.5%'
                 this.pauraWidth = '76%'
             } else {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
