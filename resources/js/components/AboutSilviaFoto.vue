@@ -14,7 +14,7 @@ export default {
         AboutSilviaBg,
     },
     mounted: function() {
-        
+
     }
 }
 </script>

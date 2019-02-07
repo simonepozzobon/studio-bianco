@@ -11,8 +11,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MainTemplate from './containers/MainTemplate.vue'
 import routes from './routes'
+import Cookie from './Cookies'
 
 Vue.use(VueRouter)
+Vue.prototype.$cookie = Cookie
 
 const router = new VueRouter({
     mode: 'history',

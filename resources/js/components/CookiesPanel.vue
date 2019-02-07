@@ -39,16 +39,30 @@
 import axios from 'axios'
 export default {
     name: 'CookiesPanel',
+    data: function() {
+        return {
+            cookie: null,
+            accepted: false,
+        }
+    },
     methods: {
         cookieAccepted: function() {
             axios.post('/api/cookies/accepted').then(response => {
-                console.log(response)
+                this.$cookie.set('studio-bianco-cookie-policy', JSON.stringify(response.data))
                 $(this.$refs.modal).modal('hide')
             })
         }
     },
     mounted: function() {
-        $(this.$refs.modal).modal('show')
+        if (!this.accepted) {
+            let cookie = this.$cookie.get('studio-bianco-cookie-policy')
+            if (cookie) {
+                this.cookie = JSON.parse(cookie)
+            } else {
+                $(this.$refs.modal).modal('show')
+
+            }
+        }
     }
 }
 </script>
