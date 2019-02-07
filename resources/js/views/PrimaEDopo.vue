@@ -11,10 +11,14 @@
                         background="brown"
                         ref="galleryEstetica"
                         :items="esteticaArr"/>
+                    <scroll-down
+                        color="yellow"
+                        trigger="#scroll-down-trigger"
+                        scroll_to="#gallery-odontoiatria"/>
                 </div>
             </div>
         </div>
-        <div class="prima-dopo-container" ref="containerOdontoiatria">
+        <div id="#gallery-odontoiatria" class="prima-dopo-container" ref="containerOdontoiatria">
             <div class="prima-dopo-left" ref="odontoiatria">
                 <div class="prima-dopo-content" ref="panelOdontoiatria">
                     <div class="prima-dopo-bold-divider blue"></div>
@@ -28,6 +32,7 @@
                 </div>
             </div>
         </div>
+        <div id="scroll-down-trigger"></div>
         <main-footer />
     </div>
 </template>
@@ -35,12 +40,14 @@
 <script>
 import GalleryContainer from '../components/GalleryContainer.vue'
 import MainFooter from '../containers/MainFooter.vue'
+import ScrollDown from '../components/ScrollDown.vue'
 
 export default {
     name: 'PrimaEDopo',
     components: {
         GalleryContainer,
         MainFooter,
+        ScrollDown,
     },
     watch: {
         '$root.window': function(value) {

@@ -32,6 +32,10 @@ export default {
         trigger: {
             type: String,
             default: null
+        },
+        scroll_to: {
+            type: String,
+            default: '#parcelle'
         }
     },
     data: function() {
@@ -88,7 +92,7 @@ export default {
             TweenMax.to(window, .6, {
                 scrollTo: {
                     offsetY: (this.$root.navbarFullHeight + 20),
-                    y: '#parcelle',
+                    y: this.scroll_to,
                 },
                 ease: Power2.easeInOut,
             })
