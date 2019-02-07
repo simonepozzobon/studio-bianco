@@ -105,10 +105,11 @@ export default {
 
 #scroll-down {
     position: fixed;
-    right: 64px;
+    left: 50%;
     bottom: 16px;
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
+    transform: translateX(-50%);
     z-index: 4;
 }
 </style>
