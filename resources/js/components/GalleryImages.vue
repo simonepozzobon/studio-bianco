@@ -13,6 +13,8 @@
                 </div>
             </div>
         </swiper-slide>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
     </swiper>
 </template>
 
@@ -35,9 +37,10 @@ export default {
     data: function() {
         return {
             swiperOption: {
-                // some swiper options/callbacks
-                // 所有的参数同 swiper 官方 api 参数
-                // ...
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                }
             }
         }
     },
@@ -50,6 +53,22 @@ export default {
 
 <style lang="scss">
 @import '~styles/shared';
+
+.swiper-button-prev {
+    left: 5%;
+    background-image: url('/svg/prev-arrow.svg');
+    @include media-breakpoint-down('xs') {
+        left: 0;
+    };
+}
+
+.swiper-button-next {
+    right: 5%;
+    background-image: url('/svg/next-arrow.svg');
+    @include media-breakpoint-down('xs') {
+        right: 0;
+    };
+}
 
 .slide-container {
     @include make-row();
@@ -81,6 +100,10 @@ export default {
             max-width: 40%;
             margin: $spacer / 4;
         };
+
+        img {
+            filter: grayscale(100%);
+        }
     }
 }
 </style>

@@ -4,8 +4,8 @@
             <div class="prima-dopo-left" ref="estetica">
                 <div class="prima-dopo-content" ref="panelEstetica">
                     <div ref="hDiv" class="prima-dopo-bold-divider"></div>
-                    <h1 ref="title" class="prima-dopo-title">Medicina Estetica</h1>
-                    <span ref="subtitle" class="prima-dopo-subtitle">Prima e Dopo</span>
+                    <h1 ref="title" class="prima-dopo-title purple">Medicina Estetica</h1>
+                    <span ref="subtitle" class="prima-dopo-subtitle purple">Prima e Dopo</span>
                     <div ref="vDiv" class="prima-dopo-v-div"></div>
                     <gallery-container
                         background="brown"
@@ -276,12 +276,20 @@ export default {
 
         .prima-dopo-title {
             font-size: calc(100% + 1vw + 1vh);
+
+            &.purple {
+                color: #423e53;
+            }
         }
 
         .prima-dopo-subtitle {
             font-family: $font-family-sans-serif;
             font-size: calc(10% + 1vw + 1vh);
             font-weight: 300;
+
+            &.purple {
+                color: #423e53;
+            }
 
             @include media-breakpoint-down('md') {
                 font-size: calc(30% + 1vw + 1vh);
