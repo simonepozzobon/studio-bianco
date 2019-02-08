@@ -13,12 +13,12 @@
                         :items="esteticaArr"/>
                     <scroll-down
                         color="yellow"
-                        trigger="#scroll-down-trigger"
+                        trigger="scroll-down-trigger"
                         scroll_to="#gallery-odontoiatria"/>
                 </div>
             </div>
         </div>
-        <div id="#gallery-odontoiatria" class="prima-dopo-container" ref="containerOdontoiatria">
+        <div id="gallery-odontoiatria" class="prima-dopo-container" ref="containerOdontoiatria">
             <div class="prima-dopo-left" ref="odontoiatria">
                 <div class="prima-dopo-content" ref="panelOdontoiatria">
                     <div class="prima-dopo-bold-divider blue"></div>
@@ -96,7 +96,7 @@ export default {
                 let windowHeight = this.$root.window.h - this.$root.navbarFullHeight
                 let galleryEsteticaHeight = this.$refs.galleryEstetica.$el.offsetHeight
                 let galleryOdontoiatriaHeight = this.$refs.galleryOdontoiatria.$el.offsetHeight
-                console.log('differenza', contentHeight, windowHeight)
+                // console.log('differenza', contentHeight, windowHeight)
 
 
                 if (contentHeight <= windowHeight) {
@@ -113,7 +113,7 @@ export default {
                     this.$refs.estetica.style.position = null
                     this.$refs.panelEstetica.style.top = null
                     this.$refs.panelOdontoiatria.style.top = null
-                    console.log('va regolata la dimensione')
+                    // console.log('va regolata la dimensione')
 
                     let hDiv = this.$refs.hDiv.offsetHeight + 16
                     let vDiv = this.$refs.vDiv.offsetHeight + 32
@@ -128,7 +128,7 @@ export default {
                     //
                     // galleryEstetica.style.height = delta + 'px'
                     // galleryOdontoiatria.style.height = delta + 'px'
-                    console.log(headingHeight, delta, windowHeight)
+                    // console.log(headingHeight, delta, windowHeight)
                 }
 
             } else {

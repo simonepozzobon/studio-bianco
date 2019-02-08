@@ -20,6 +20,10 @@
                         Sorridete dunque!<br>
                     </p>
                 </div>
+                <scroll-down
+                    color="yellow"
+                    trigger="scroll-down-trigger"
+                    scroll_to="#silvia-citella"/>
             </div>
             <div class="about-right about-illust-top">
                 <about-illust
@@ -30,9 +34,10 @@
                 <div id="about-studio-illust-ref" class="ref"></div>
             </div>
         </div>
-        <div class="about-container bg-light-cyan">
+        <div id="silvia-citella" class="about-container bg-light-cyan">
             <div class="about-right order-lg-2">
                 <div class="about-content">
+                    <div id="scroll-down-trigger"></div>
                     <div class="about-bold-divider dark"></div>
                     <h1 class="about-title text-white" ref="title">Silvia Citella</h1>
                     <span class="about-subtitle text-white">Chi sono</span>
@@ -98,6 +103,7 @@ import AboutPauraIllust from '../components/AboutPauraIllust.vue'
 import AboutSilviaFoto from '../components/AboutSilviaFoto.vue'
 import AboutSilviaIllust from '../components/AboutSilviaIllust.vue'
 import MainFooter from '../containers/MainFooter.vue'
+import ScrollDown from '../components/ScrollDown.vue'
 
 export default {
     name: 'About',
@@ -107,6 +113,7 @@ export default {
         AboutSilviaFoto,
         AboutSilviaIllust,
         MainFooter,
+        ScrollDown,
     },
     watch: {
         '$root.window': function(value) {

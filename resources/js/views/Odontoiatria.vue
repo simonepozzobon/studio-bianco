@@ -15,7 +15,7 @@
                         @remove-height="removeHeight"/>
                     <scroll-down
                         color="blue"
-                        trigger="#scroll-down-trigger"/>
+                        trigger="scroll-down-trigger"/>
                 </div>
             </div>
             <div class="odontoiatria-right odontoiatria-illust-top">

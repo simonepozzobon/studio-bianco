@@ -14,7 +14,7 @@
                         @remove-height="removeHeight"/>
                     <scroll-down
                         color="yellow"
-                        trigger="#scroll-down-trigger"/>
+                        trigger="scroll-down-trigger"/>
                 </div>
             </div>
             <div class="estetica-right estetica-illust-top">
