@@ -30,6 +30,12 @@ const routes = [
         alias: '/contact',
         name: 'contact',
         component: require('./views/Contact.vue')
+    },
+    {
+        path: '/privacy',
+        alias: '/cookies',
+        name: 'privacy',
+        component: require('./views/CookiesPolicy.vue')
     }
 ]
 

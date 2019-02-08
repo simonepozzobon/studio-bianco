@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Cookie;
 use App\Service;
 use App\Comparison;
+use App\Mail\ClientMessage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class MainController extends Controller
@@ -36,6 +38,15 @@ class MainController extends Controller
 
         return [
             'ip' => $ip,
+        ];
+    }
+
+    public function send_message(Request $request) {
+
+        Mail::to(env('ADMIN_EMAIL'))->send(new ClientMessage($request->email, $request->message));
+
+        return [
+            'success' => true
         ];
     }
 }

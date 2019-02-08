@@ -60,14 +60,14 @@
                 <div class="contact-form-modal" ref="form">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" name="" value="" class="form-control" placeholder="Scrivi la tua email">
+                        <input type="text" name="email" v-model="email" class="form-control" placeholder="Scrivi la tua email">
                     </div>
                     <div class="form-group">
                         <label for="message">Messaggio</label>
-                        <textarea name="name" rows="8" cols="80" class="form-control" placeholder="Scrivi il tuo messaggio"></textarea>
+                        <textarea name="name" v-model="message" rows="8" cols="80" class="form-control" placeholder="Scrivi il tuo messaggio"></textarea>
                     </div>
                     <div class="form-group send-btn">
-                        <button class="btn btn-pink text-white">invia</button>
+                        <button class="btn btn-pink text-white" @click="sendMessage">invia</button>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,6 @@ export default {
     watch: {
         '$root.window': function(value) {
             this.positionIllustration()
-
             if (value.w > 1920) {
                 this.illustWidth = '63%'
             } else {
@@ -110,9 +109,22 @@ export default {
             master: null,
             height: 0,
             illustWidth: '79%',
+            email: null,
+            message: null,
         }
     },
     methods: {
+        sendMessage: function() {
+            let data = new FormData()
+            data.append('email', this.email)
+            data.append('message', this.message)
+
+            axios.post('/api/send-message', data).then(response => {
+                this.email = null
+                this.message = null
+                this.toggleContact()
+            })
+        },
         toggleContact: function() {
             let form = this.$refs.form
             if (!this.formIsOpen) {
