@@ -18,9 +18,9 @@ class MainController extends Controller
 
         $comparisons = Comparison::with('before', 'after')->get();
         $comparisons = $comparisons->transform(function($item, $key) {
-            $img = $item->before->thumb;
+            $img = $item->before->src;
             $item->before->thumb = Storage::disk('local')->url($img);
-            $img = $item->after->thumb;
+            $img = $item->after->src;
             $item->after->thumb = Storage::disk('local')->url($img);
             return $item;
         });
