@@ -3,6 +3,7 @@
         <div class="about-container" ref="container">
             <div class="about-left" ref="studioContainer">
                 <div class="about-content" ref="panel">
+                    <div id="scroll-down-reset-trigger"></div>
                     <div class="about-bold-divider"></div>
                     <h1 ref="title" class="about-title">About</h1>
                     <span class="about-subtitle">Lo Studio</span>
@@ -23,7 +24,8 @@
                 <scroll-down
                     color="yellow"
                     trigger="scroll-down-trigger"
-                    scroll_to="#silvia-citella"/>
+                    scroll_to="#silvia-citella"
+                    restore_trigger="scroll-down-reset-trigger"/>
             </div>
             <div class="about-right about-illust-top">
                 <about-illust
@@ -351,13 +353,15 @@ export default {
 <style lang="scss">
 @import '~styles/shared';
 
-// #about-studio-illust-ref,
-// #about-silvia-illust-ref,
-// #about-paura-illust-ref {
-//     width: 300px;
-//     background-color: $red;
-//     height: 1px;
-// }
+#about-studio-illust-ref,
+#about-silvia-illust-ref,
+#about-paura-illust-ref,
+#scroll-down-reset-trigger {
+    width: 300px;
+    background-color: $red;
+    height: 1px;
+}
+
 
 .about {
     @include make-container();

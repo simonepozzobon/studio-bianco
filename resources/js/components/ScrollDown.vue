@@ -15,7 +15,7 @@ import {TweenMax} from 'gsap'
 import ScrollToPlugin from 'gsap/ScrollToPlugin'
 
 import ScrollMagic from 'scrollmagic'
-// import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
+import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
 
 export default {
@@ -33,6 +33,10 @@ export default {
             type: String,
             default: null
         },
+        restore_trigger: {
+            type: String,
+            default: null,
+        },
         scroll_to: {
             type: String,
             default: '#parcelle'
@@ -41,6 +45,7 @@ export default {
     data: function() {
         return {
             controller: null,
+            restoreController: null,
             animated: false,
         }
     },
@@ -64,11 +69,35 @@ export default {
         }
     },
     methods: {
+        isOnViewport: function(el) {
+            let top = el.offsetTop
+            let left = el.offsetLeft
+            let width = el.offsetWidth
+            let height = el.offsetHeight
+
+            while(el.offsetParent) {
+                el = el.offsetParent
+                top += el.offsetTop
+                left += el.offsetLeft
+            }
+
+            return (
+                top < (window.pageYOffset + window.innerHeight) &&
+                left < (window.pageXOffset + window.innerWidth) &&
+                (top + height) > window.pageYOffset &&
+                (left + width) > window.pageXOffset
+            )
+        },
+        initController: function() {
+
+        },
+        restore: function() {
+            console.log('cia')
+        },
         init: function() {
             if (this.controller) {
                 this.controller.destroy()
             }
-
             this.controller = new ScrollMagic.Controller()
             let scroll = new ScrollMagic.Scene({
                 triggerElement: document.getElementById(this.trigger),
@@ -86,6 +115,7 @@ export default {
                         })
                     }
                 })
+                // .addIndicators({ name: '1 (duration: 45)'})
                 .addTo(this.controller)
         },
         goTo: function() {
@@ -100,6 +130,12 @@ export default {
     },
     mounted: function() {
         this.init()
+
+        window.addEventListener('scroll', () => {
+            let el = document.getElementById(this.restore_trigger)
+            let isOnView = this.isOnViewport(el)
+            console.log(isOnView)
+        })
     }
 }
 </script>

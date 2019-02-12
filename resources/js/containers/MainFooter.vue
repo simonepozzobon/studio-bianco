@@ -11,14 +11,16 @@
                     <p>
                         Via Mazzini, 3 - Bergamo <br>
                         3922594312 <br>
-                        info@studiobiancosc.it
+                        <a href="mailto:info@studiobiancosc.it">info@studiobiancosc.it</a>
                     </p>
                 </div>
             </div>
         </div>
         <div class="main-footer-container">
             <div class="main-footer-privacy">
-                <p class="text-center">Privacy</p>
+                <router-link tag="a" class="nav-link text-center" :to="{ path: '/privacy' }" exact-active-class="active">
+                    Privacy
+                </router-link>
             </div>
         </div>
     </footer>

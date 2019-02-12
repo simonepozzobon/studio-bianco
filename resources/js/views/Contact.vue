@@ -36,7 +36,7 @@
                                     Email
                                 </td>
                                 <td class="contact-table-detail">
-                                    info@studiobiancosc.it
+                                    <a href="mailto:info@studiobiancosc.it">info@studiobiancosc.it</a>
                                 </td>
                             </tr>
                         </table>
