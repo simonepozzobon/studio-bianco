@@ -361,15 +361,15 @@ export default {
 
 #scroll-down-reset-trigger {
     width: 300px;
-    background-color: $red;
-    height: 2px;
+    // background-color: $red;
+    height: 1px;
 }
 
-#scroll-down-trigger {
-    width: 300px;
-    background-color: $blue;
-    height: 2px;
-}
+// #scroll-down-trigger {
+//     width: 300px;
+//     background-color: $blue;
+//     height: 2px;
+// }
 
 
 .about {

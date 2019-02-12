@@ -172,8 +172,8 @@ export default {
 
 #scroll-down-reset-trigger {
     width: 300px;
-    background-color: $red;
-    height: 2px;
+    // background-color: $red;
+    height: 1px;
 }
 
 .estetica {
