@@ -3,7 +3,7 @@
         <div class="about-container" ref="container">
             <div class="about-left" ref="studioContainer">
                 <div class="about-content" ref="panel">
-                    <div id="scroll-down-reset-trigger"></div>
+                    <div id="scroll-down-reset-trigger" v-view="scrollDownHandler"></div>
                     <div class="about-bold-divider"></div>
                     <h1 ref="title" class="about-title">About</h1>
                     <span class="about-subtitle">Lo Studio</span>
@@ -22,6 +22,7 @@
                     </p>
                 </div>
                 <scroll-down
+                    ref="scrollDown"
                     color="yellow"
                     trigger="scroll-down-trigger"
                     scroll_to="#silvia-citella"
@@ -148,6 +149,11 @@ export default {
         }
     },
     methods: {
+        scrollDownHandler: function(e) {
+            if (e.type == 'enter') {
+                this.$refs.scrollDown.reset()
+            }
+        },
         getContainersHeight: function() {
             this.studioHeight = this.$refs.studioContainer.offsetHeight
             this.silviaHeight = this.$refs.silviaContainer.offsetHeight
@@ -353,13 +359,16 @@ export default {
 <style lang="scss">
 @import '~styles/shared';
 
-#about-studio-illust-ref,
-#about-silvia-illust-ref,
-#about-paura-illust-ref,
 #scroll-down-reset-trigger {
     width: 300px;
     background-color: $red;
-    height: 1px;
+    height: 2px;
+}
+
+#scroll-down-trigger {
+    width: 300px;
+    background-color: $blue;
+    height: 2px;
 }
 
 

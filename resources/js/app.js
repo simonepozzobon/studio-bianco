@@ -12,8 +12,10 @@ import VueRouter from 'vue-router'
 import MainTemplate from './containers/MainTemplate.vue'
 import routes from './routes'
 import Cookie from './Cookies'
+import checkView from 'vue-check-view'
 
 Vue.use(VueRouter)
+Vue.use(checkView)
 Vue.prototype.$cookie = Cookie
 
 const router = new VueRouter({

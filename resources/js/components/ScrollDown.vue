@@ -69,30 +69,13 @@ export default {
         }
     },
     methods: {
-        isOnViewport: function(el) {
-            let top = el.offsetTop
-            let left = el.offsetLeft
-            let width = el.offsetWidth
-            let height = el.offsetHeight
-
-            while(el.offsetParent) {
-                el = el.offsetParent
-                top += el.offsetTop
-                left += el.offsetLeft
-            }
-
-            return (
-                top < (window.pageYOffset + window.innerHeight) &&
-                left < (window.pageXOffset + window.innerWidth) &&
-                (top + height) > window.pageYOffset &&
-                (left + width) > window.pageXOffset
-            )
-        },
-        initController: function() {
-
-        },
-        restore: function() {
-            console.log('cia')
+        reset: function() {
+            TweenMax.to(this.$refs.icon, .6, {
+                autoAlpha: 1,
+                onComplete: () => {
+                    this.animated = false
+                }
+            })
         },
         init: function() {
             if (this.controller) {
@@ -130,12 +113,6 @@ export default {
     },
     mounted: function() {
         this.init()
-
-        window.addEventListener('scroll', () => {
-            let el = document.getElementById(this.restore_trigger)
-            let isOnView = this.isOnViewport(el)
-            console.log(isOnView)
-        })
     }
 }
 </script>

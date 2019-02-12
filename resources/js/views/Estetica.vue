@@ -3,6 +3,7 @@
         <div class="estetica-container" ref="container">
             <div class="estetica-left" ref="content">
                 <div class="estetica-content" ref="panel">
+                    <div id="scroll-down-reset-trigger" v-view="scrollDownHandler"></div>
                     <div class="estetica-bold-divider"></div>
                     <h1 class="estetica-title" ref="title">Servizi</h1>
                     <span class="estetica-subtitle">Medicina Estetica</span>
@@ -13,8 +14,10 @@
                         @panel-close="panelClose"
                         @remove-height="removeHeight"/>
                     <scroll-down
+                        ref="scrollDown"
                         color="yellow"
-                        trigger="scroll-down-trigger"/>
+                        trigger="scroll-down-trigger"
+                        restore_trigger="scroll-down-reset-trigger"/>
                 </div>
             </div>
             <div class="estetica-right estetica-illust-top">
@@ -74,6 +77,11 @@ export default {
         }
     },
     methods: {
+        scrollDownHandler: function(e) {
+            if (e.type == 'enter') {
+                this.$refs.scrollDown.reset()
+            }
+        },
         panelOpen: function(height) {
             if (!this.illustHidden) {
                 TweenMax.to(this.$refs.illust.$el, .6, {
@@ -162,6 +170,11 @@ export default {
 <style lang="scss">
 @import '~styles/shared';
 
+#scroll-down-reset-trigger {
+    width: 300px;
+    background-color: $red;
+    height: 2px;
+}
 
 .estetica {
     @include make-container();

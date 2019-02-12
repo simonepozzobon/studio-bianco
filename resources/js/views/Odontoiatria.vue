@@ -3,6 +3,7 @@
         <div class="odontoiatria-container" ref="container">
             <div class="odontoiatria-left" ref="content">
                 <div class="odontoiatria-content" ref="panel">
+                    <div id="scroll-down-reset-trigger" v-view="scrollDownHandler"></div>
                     <div class="odontoiatria-bold-divider"></div>
                     <h1 class="odontoiatria-title" ref="title">Servizi</h1>
                     <span class="odontoiatria-subtitle">Odontoiatria</span>
@@ -14,8 +15,10 @@
                         @panel-height-changed="panelChange"
                         @remove-height="removeHeight"/>
                     <scroll-down
+                        ref="scrollDown"
                         color="blue"
-                        trigger="scroll-down-trigger"/>
+                        trigger="scroll-down-trigger"
+                        restore_trigger="scroll-down-reset-trigger"/>
                 </div>
             </div>
             <div class="odontoiatria-right odontoiatria-illust-top">
@@ -74,6 +77,11 @@ export default {
         }
     },
     methods: {
+        scrollDownHandler: function(e) {
+            if (e.type == 'enter') {
+                this.$refs.scrollDown.reset()
+            }
+        },
         panelChange: function(height) {
             let container = this.$refs.container.offsetHeight
             this.$refs.container.style.height = container + height + 'px'
@@ -175,6 +183,12 @@ export default {
 
 <style lang="scss">
 @import '~styles/shared';
+
+#scroll-down-reset-trigger {
+    width: 300px;
+    background-color: $red;
+    height: 2px;
+}
 
 .odontoiatria {
     @include make-container();

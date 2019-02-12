@@ -3,6 +3,7 @@
         <div class="prima-dopo-container" ref="containerEstetica">
             <div class="prima-dopo-left" ref="estetica">
                 <div class="prima-dopo-content" ref="panelEstetica">
+                    <div id="scroll-down-reset-trigger" v-view="scrollDownHandler"></div>
                     <div ref="hDiv" class="prima-dopo-bold-divider"></div>
                     <h1 ref="title" class="prima-dopo-title purple">Medicina Estetica</h1>
                     <span ref="subtitle" class="prima-dopo-subtitle purple">Prima e Dopo</span>
@@ -12,9 +13,11 @@
                         ref="galleryEstetica"
                         :items="esteticaArr"/>
                     <scroll-down
+                        ref="scrollDown"
                         color="yellow"
                         trigger="scroll-down-trigger"
-                        scroll_to="#gallery-odontoiatria"/>
+                        scroll_to="#gallery-odontoiatria"
+                        restore_trigger="scroll-down-reset-trigger"/>
                 </div>
             </div>
         </div>
@@ -65,6 +68,11 @@ export default {
         }
     },
     methods: {
+        scrollDownHandler: function(e) {
+            if (e.type == 'enter') {
+                this.$refs.scrollDown.reset()
+            }
+        },
         getContainersHeight: function() {
             this.estetica = this.$refs.estetica.offsetHeight
             this.odontoiatria = this.$refs.odontoiatria.offsetHeight
@@ -157,6 +165,13 @@ export default {
 
 <style lang="scss">
 @import '~styles/shared';
+
+
+#scroll-down-reset-trigger {
+    width: 300px;
+    background-color: $red;
+    height: 2px;
+}
 
 // #prima-dopo-studio-illust-ref,
 // #prima-dopo-silvia-illust-ref,
