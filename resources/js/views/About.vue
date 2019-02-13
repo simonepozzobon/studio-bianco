@@ -122,6 +122,7 @@ export default {
         '$root.window': function(value) {
             this.positionIllustration()
             this.getContainersHeight()
+            this.resetSilvia()
 
             if (value.w > 1920) {
                 this.studioWidth = '70%'
@@ -236,11 +237,27 @@ export default {
 
             }
         },
+        resetSilvia: function() {
+            let foto = this.$refs.silviaFoto.$el
+            let illust = this.$refs.silvia.$el
+
+            foto.removeAttribute('style')
+            illust.removeAttribute('style')
+            this.silvia = false
+
+            this.positionIllustration()
+        },
         toggleSilvia: function() {
             if (!this.silvia && !this.$root.isMobile) {
                 let master = new TimelineMax({
                     paused: true
                 })
+
+                master.set(['#silvia-foto', '#silvia-illust'], {
+                    x: 0,
+                    xPercent: 0,
+                })
+
                 master.fromTo('#silvia-illust', 1, {
                     yPercent: 0,
                 }, {
@@ -262,6 +279,7 @@ export default {
                 let master = new TimelineMax({
                     paused: true
                 })
+
                 master.fromTo('#silvia-illust', 1, {
                     yPercent: 100,
                 }, {
@@ -288,6 +306,8 @@ export default {
                     position: 'absolute',
                     display: 'flex',
                     xPercent: 200,
+                    yPercent: 0,
+                    y: 0,
                     top: 0,
                 })
 
@@ -314,6 +334,11 @@ export default {
             } else {
                 let master = new TimelineMax({
                     paused: true,
+                })
+
+                master.set(['#silvia-foto', '#silvia-illust'], {
+                    y: 0,
+                    yPercent: 0,
                 })
 
                 master.fromTo(this.$refs.silviaFoto.$el, 1, {
