@@ -113,6 +113,10 @@ export default {
     },
     mounted: function() {
         this.init()
+        this.$refs.icon.style.position = 'fixed'
+        this.$refs.icon.style.bottom = '16px'
+        console.log('ScrollDown mounted')
+        console.log(window.innerHeight)
     }
 }
 </script>
@@ -121,9 +125,9 @@ export default {
 @import '~styles/shared';
 
 #scroll-down {
-    position: fixed;
+    // position: fixed;
     left: 50%;
-    bottom: 16px;
+    // bottom: 16px;
     width: 64px;
     height: 64px;
     transform: translateX(-50%);

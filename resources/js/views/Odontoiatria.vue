@@ -177,6 +177,7 @@ export default {
         this.$root.navColor = 1
         this.$root.hasFooter = true
         this.positionIllustration()
+        console.log('Odontoiatria mounted')
     }
 }
 </script>

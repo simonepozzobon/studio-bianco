@@ -75,13 +75,15 @@ export default {
             this.$refs.mobileNav.toggleMobile()
         },
         leave: function(el, done) {
-            // console.log('leave', el, this.elEnter)
+            console.log('leave', el,document.body.contains(el))
 
             if (this.isAnimating) {
                 // console.log('animazione home')
                 let container = el.getElementsByClassName('homesplit-container')[0]
                 let panelLeft = el.getElementsByClassName('homesplit-left')[0]
                 let panelRight = el.getElementsByClassName('homesplit-right')[0]
+
+                console.log(container, panelLeft, panelRight)
 
                 let master = new TimelineMax({
                     paused: true,
@@ -203,6 +205,7 @@ export default {
             }
         },
         enter: function(el, done) {
+            console.log('entrato', el, document.body.contains(el))
             if (this.isAnimating) {
                 this.elEnter = el
                 TweenLite.set(this.elEnter, {
