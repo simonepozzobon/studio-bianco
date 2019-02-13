@@ -55,11 +55,11 @@ export default {
         height: 100%;
         z-index: 1;
         border-style: solid;
+        border-width: 16px;
         border-top-color: #e1a893;
         border-left-color: #283745;
         border-right-color: #283745;
         border-bottom-color: #e1a893;
-        border-width: 16px;
 
         @include media-breakpoint-down('xl') {
             width: calc(80% - 44px); // da rivedere per responsive

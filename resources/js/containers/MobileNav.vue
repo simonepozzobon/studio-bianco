@@ -43,7 +43,7 @@
             </li>
             <li>
                 <router-link tag="a" class="mobile-nav-link" :to="{ path: '/prima-e-dopo' }" exact-active-class="active" @click.native="toggleMobile">
-                    Prima e Dopo
+                    prima e dopo
                 </router-link>
             </li>
         </ul>

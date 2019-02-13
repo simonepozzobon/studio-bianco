@@ -159,7 +159,9 @@ export default {
         getContainersHeight: function() {
             this.studioHeight = this.$refs.studioContainer.offsetHeight
             this.silviaHeight = this.$refs.silviaContainer.offsetHeight
-            this.pauraHeight = this.$refs.pauraContainer.offsetHeight
+            this.pauraHeight = this.$refs.pauraContainer.getBoundingClientRect().height
+
+            console.log(this.pauraHeight, this.$root.window.h)
         },
         positionIllustration: function() {
             let w = this.$root.window.w
@@ -226,10 +228,7 @@ export default {
             // imposta altezza minima della colonna con la foto
             let silviaIllustHeight = this.$refs.silvia.$el.offsetHeight
             let silviaFotoHeight = this.$refs.silviaFoto.$el.offsetHeight
-
-            if (silviaIllustHeight > silviaFotoHeight) {
-                silviaFotoHeight = silviaIllustHeight
-            }
+            silviaFotoHeight = silviaIllustHeight
 
             this.$refs.silviaContainer.style.minHeight = silviaFotoHeight + 160 + 'px'
 
