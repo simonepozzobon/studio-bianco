@@ -75,7 +75,7 @@ export default {
             this.$refs.mobileNav.toggleMobile()
         },
         leave: function(el, done) {
-            // console.log('leave', el, this.elEnter)
+            // console.log('leave', el)
 
             if (this.isAnimating) {
                 // console.log('animazione home')
@@ -193,6 +193,8 @@ export default {
                     this.isAnimating = false
                     this.animate = null
                     el.removeAttribute('position')
+                    this.$root.$emit('leave-completed')
+                    // console.log('completato leave', el)
                     done()
                 })
 
@@ -203,12 +205,14 @@ export default {
             }
         },
         enter: function(el, done) {
+            // console.log('enter', el)
             if (this.isAnimating) {
                 this.elEnter = el
                 TweenLite.set(this.elEnter, {
                     autoAlpha: 0,
                     onComplete: () => {
                         this.$root.$emit('page-animation-load')
+                        // console.log('completato enter', el)
                         done()
                         return
                     }

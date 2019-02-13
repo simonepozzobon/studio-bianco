@@ -70,6 +70,7 @@ export default {
     },
     methods: {
         reset: function() {
+            console.log('show')
             TweenMax.to(this.$refs.icon, .6, {
                 autoAlpha: 1,
                 onComplete: () => {
@@ -78,6 +79,7 @@ export default {
             })
         },
         hide: function() {
+            console.log('hide')
             TweenMax.to(this.$refs.icon, .6, {
                 autoAlpha: 0,
                 onComplete: () => {
@@ -117,14 +119,50 @@ export default {
                 },
                 ease: Power2.easeInOut,
             })
+        },
+        resetStyle: function() {
+            let el = this.$refs.icon.style
+            let height = window.innerHeight - 64 - 16
+            el.top = height + 'px' // imposta l'altezza dall'alto in base alla finestra
+            this.reset()
+        },
+        setStyle: function() {
+            let el = this.$refs.icon.style
+            el.position = 'fixed'
+            el.left = '50%'
+            el.bottom = '16px'
+            el.width = '64px'
+            el.height = '64px'
+            el.transform = 'translateX(-50%)'
+            el.zIndex = '4'
         }
     },
     mounted: function() {
         this.init()
+        // this.setStyle()
+
+        this.$root.$on('leave-completed', () => {
+            this.reset()
+            this.$nextTick(() => {
+                // this.resetStyle()
+            })
+        })
     }
 }
 </script>
 
 <style lang="scss">
 @import '~styles/shared';
+
+#scroll-down {
+    position: fixed;
+    left: 50%;
+    top: calc(100vh - 80px);
+    // bottom: 16px;
+    width: 64px;
+    height: 64px;
+    transform: translateX(-50%);
+    z-index: 4;
+}
+
 </style>

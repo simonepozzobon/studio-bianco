@@ -13931,14 +13931,3 @@ a.text-dark:focus {
   }
 }
 
-#scroll-down {
-  position: fixed;
-  left: 50%;
-  bottom: 16px;
-  width: 64px;
-  height: 64px;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  z-index: 4;
-}
-
