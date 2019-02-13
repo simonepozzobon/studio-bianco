@@ -104,12 +104,17 @@
                 </div>
             </div>
         </div>
+        <main-footer />
     </div>
 </template>
 
 <script>
+import MainFooter from '../containers/MainFooter.vue'
 export default {
     name: 'CookiesPolicy',
+    components: {
+        MainFooter,
+    },
     watch: {
         '$root.window': function(w) {
             if (this.$root.isMobile) {
@@ -120,6 +125,7 @@ export default {
         }
     },
     mounted: function() {
+        this.$root.navColor = 1
         this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
     }
 }

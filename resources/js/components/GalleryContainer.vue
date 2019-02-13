@@ -4,31 +4,24 @@
             class="gallery-images"
             :items="items"/>
 
-        <!-- <gallery-controller
-            class="gallery-controller"/> -->
-
-        <gallery-background-blue
+        <gallery-background
             class="gallery-bg"
-            v-if="this.background == 'blue'"/>
-
-        <gallery-background-brown
-            class="gallery-bg"
-            v-else/>
+            :color="this.background"/>
     </div>
 </template>
 
 <script>
-import GalleryBackgroundBlue from './GalleryBackgroundBlue.vue'
-import GalleryBackgroundBrown from './GalleryBackgroundBrown.vue'
-import GalleryController from './GalleryController.vue'
+import GalleryBackground from './GalleryBackground.vue'
+// import GalleryController from './GalleryController.vue'
+// import GalleryFrame from './GalleryFrame.vue'
 import GalleryImages from './GalleryImages.vue'
 
 export default {
     name: 'GalleryContainer',
     components: {
-        GalleryBackgroundBlue,
-        GalleryBackgroundBrown,
-        GalleryController,
+        GalleryBackground,
+        // GalleryController,
+        // GalleryFrame,
         GalleryImages,
     },
     props: {
@@ -55,18 +48,18 @@ export default {
     justify-content: center;
     align-items: center;
 
-
-    .gallery-controller {
-        position: absolute;
-        z-index: 2;
-    }
-
     .gallery-images {
         position: absolute;
         width: calc(80% - 44px); // da rivedere per responsive
         max-width: 1100px;
         height: 100%;
         z-index: 1;
+        border-style: solid;
+        border-top-color: #e1a893;
+        border-left-color: #283745;
+        border-right-color: #283745;
+        border-bottom-color: #e1a893;
+        border-width: 16px;
 
         @include media-breakpoint-down('xl') {
             width: calc(80% - 44px); // da rivedere per responsive
@@ -75,6 +68,8 @@ export default {
         @include media-breakpoint-down('md') {
             width: calc(100% - 44px); // da rivedere per responsive
         };
+
+
     }
 
     .gallery-bg {
@@ -87,12 +82,12 @@ export default {
             width: calc(80% - 44px); // da rivedere per responsive
         };
 
-        @include media-breakpoint-down('md') {
-            width: calc(100% - 44px); // da rivedere per responsive
+        @include media-breakpoint-down('xl') {
+            width: calc(80% - 44px); // da rivedere per responsive
         };
 
         @include media-breakpoint-down('md') {
-            width: 100%; // da rivedere per responsive
+            width: calc(100% - 44px); // da rivedere per responsive
         };
     }
 }

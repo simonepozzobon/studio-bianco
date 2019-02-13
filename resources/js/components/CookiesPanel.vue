@@ -26,7 +26,9 @@
                         </p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Maggiori Info</button>
+                        <router-link tag="button" class="btn btn-primary" :to="{ path: '/privacy' }" data-dismiss="modal">
+                            Maggiori Info
+                        </router-link>
                         <button type="button" class="btn btn-pink" @click="cookieAccepted">Accetta</button>
                     </div>
                 </div>

@@ -76,7 +76,7 @@ export default {
     height: 100%;
     justify-content: center;
     align-items: center;
-    padding: 10%;
+    padding: 0 10%;
     margin-left: 0;
     margin-right: 0;
 

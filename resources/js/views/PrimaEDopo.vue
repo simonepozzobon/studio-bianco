@@ -35,8 +35,8 @@
                 </div>
             </div>
         </div>
-        <div id="scroll-down-trigger"></div>
         <main-footer />
+        <div id="scroll-down-trigger"></div>
     </div>
 </template>
 
