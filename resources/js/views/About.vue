@@ -160,8 +160,6 @@ export default {
             this.studioHeight = this.$refs.studioContainer.offsetHeight
             this.silviaHeight = this.$refs.silviaContainer.offsetHeight
             this.pauraHeight = this.$refs.pauraContainer.getBoundingClientRect().height
-
-            console.log(this.pauraHeight, this.$root.window.h)
         },
         positionIllustration: function() {
             let w = this.$root.window.w
