@@ -70,7 +70,7 @@ export default {
     },
     methods: {
         reset: function() {
-            console.log('show')
+            // console.log('show')
             TweenMax.to(this.$refs.icon, .6, {
                 autoAlpha: 1,
                 onComplete: () => {
@@ -79,7 +79,7 @@ export default {
             })
         },
         hide: function() {
-            console.log('hide')
+            // console.log('hide')
             TweenMax.to(this.$refs.icon, .6, {
                 autoAlpha: 0,
                 onComplete: () => {

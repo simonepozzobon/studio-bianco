@@ -188,7 +188,7 @@ export default {
 
 #scroll-down-reset-trigger {
     width: 300px;
-    background-color: $red;
+    // background-color: $red;
     height: 1px;
 }
 
