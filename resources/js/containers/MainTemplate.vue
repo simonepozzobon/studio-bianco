@@ -98,7 +98,7 @@ export default {
                     x: 0,
                     y: 0,
                 })
-
+                console.log(this.elEnter)
                 t1.set(this.elEnter, {
                     position: 'absolute',
                     autoAlpha: 1,
@@ -137,7 +137,7 @@ export default {
                         }
                     }, .1)
 
-                    master.play()
+                    // master.play()
                 } else {
                     let testa = document.getElementById('home-illust-testa')
 
@@ -186,13 +186,14 @@ export default {
 
                 t1.to(this.elEnter, .6, {
                     y: 0,
-                    position: 'inherit',
+                    position: 'relative',
                 }, 2)
 
                 master.eventCallback('onComplete', () => {
                     this.isAnimating = false
                     this.animate = null
-                    el.removeAttribute('position')
+                    el.removeAttribute('style')
+                    this.elEnter.removeAttribute('style')
                     this.$root.$emit('leave-completed')
                     // console.log('completato leave', el)
                     done()
