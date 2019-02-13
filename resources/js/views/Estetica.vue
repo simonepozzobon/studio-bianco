@@ -80,6 +80,8 @@ export default {
         scrollDownHandler: function(e) {
             if (e.type == 'enter') {
                 this.$refs.scrollDown.reset()
+            } else if (e.type == 'exit') {
+                this.$refs.scrollDown.hide()
             }
         },
         panelOpen: function(height) {

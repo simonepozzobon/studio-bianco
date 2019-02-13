@@ -77,29 +77,37 @@ export default {
                 }
             })
         },
-        init: function() {
-            if (this.controller) {
-                this.controller.destroy()
-            }
-            this.controller = new ScrollMagic.Controller()
-            let scroll = new ScrollMagic.Scene({
-                triggerElement: document.getElementById(this.trigger),
-                offset: 200,
-                duration: 1,
-                triggerHook: 'onEnter'
+        hide: function() {
+            TweenMax.to(this.$refs.icon, .6, {
+                autoAlpha: 0,
+                onComplete: () => {
+                    this.animated = true
+                }
             })
-                .on('enter', e => {
-                    if (!this.animated) {
-                        TweenMax.to(this.$refs.icon, .6, {
-                            autoAlpha: 0,
-                            onComplete: () => {
-                                this.animated = true
-                            }
-                        })
-                    }
-                })
-                // .addIndicators({ name: '1 (duration: 45)'})
-                .addTo(this.controller)
+        },
+        init: function() {
+            // if (this.controller) {
+            //     this.controller.destroy()
+            // }
+            // this.controller = new ScrollMagic.Controller()
+            // let scroll = new ScrollMagic.Scene({
+            //     triggerElement: document.getElementById(this.trigger),
+            //     offset: 200,
+            //     duration: 1,
+            //     triggerHook: 'onEnter'
+            // })
+            //     .on('enter', e => {
+            //         if (!this.animated) {
+            //             TweenMax.to(this.$refs.icon, .6, {
+            //                 autoAlpha: 0,
+            //                 onComplete: () => {
+            //                     this.animated = true
+            //                 }
+            //             })
+            //         }
+            //     })
+            //     // .addIndicators({ name: '1 (duration: 45)'})
+            //     .addTo(this.controller)
         },
         goTo: function() {
             TweenMax.to(window, .6, {
@@ -119,14 +127,4 @@ export default {
 
 <style lang="scss">
 @import '~styles/shared';
-
-#scroll-down {
-    position: fixed;
-    left: 50%;
-    bottom: 16px;
-    width: 64px;
-    height: 64px;
-    transform: translateX(-50%);
-    z-index: 4;
-}
 </style>
