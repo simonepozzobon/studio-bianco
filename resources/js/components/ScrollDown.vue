@@ -14,9 +14,9 @@
 import {TweenMax} from 'gsap'
 import ScrollToPlugin from 'gsap/ScrollToPlugin'
 
-import ScrollMagic from 'scrollmagic'
-import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
-import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
+// import ScrollMagic from 'scrollmagic'
+// import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
+// import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
 
 export default {
     name: 'ScrollDown',
