@@ -241,6 +241,11 @@ export default {
             padding-left: 0;
             padding-right: 0;
             text-align: center;
+
+
+            li {
+                text-align: left;
+            }
         }
 
         .estetica-bold-divider {

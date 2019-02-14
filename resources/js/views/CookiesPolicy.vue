@@ -125,7 +125,7 @@ export default {
         }
     },
     mounted: function() {
-        this.$root.navColor = 1
+        this.$root.navColor = 2
         this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
     }
 }
@@ -136,7 +136,7 @@ export default {
 
 .privacy {
     @include make-container();
-    background-color: $pink;
+    background-color: $light-brown;
     max-width: 100vw;
     overflow-x: hidden;
 
@@ -206,6 +206,10 @@ export default {
                 padding-left: $spacer;
                 padding-right: $spacer;
                 text-align: center;
+
+                li {
+                    text-align: left;
+                }
             }
 
             .privacy-bold-divider {

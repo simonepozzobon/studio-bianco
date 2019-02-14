@@ -249,6 +249,11 @@ export default {
             padding-left: 0;
             padding-right: 0;
             text-align: center;
+
+
+            li {
+                text-align: left;
+            }
         }
 
         .odontoiatria-bold-divider {
