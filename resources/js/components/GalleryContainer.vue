@@ -69,6 +69,10 @@ export default {
             width: calc(100% - 44px); // da rivedere per responsive
         };
 
+        @include media-breakpoint-down('xs') {
+            border-width: 8px;
+        }
+
 
     }
 

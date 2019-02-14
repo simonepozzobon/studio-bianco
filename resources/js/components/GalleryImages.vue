@@ -57,16 +57,23 @@ export default {
 .swiper-button-prev {
     left: 5%;
     background-image: url('/svg/prev-arrow.svg');
+    background-position: center;
+    background-size: contain;
+
     @include media-breakpoint-down('xs') {
-        left: 0;
+        left: 4%;
+        width: 12px;
     };
 }
 
 .swiper-button-next {
     right: 5%;
     background-image: url('/svg/next-arrow.svg');
+    background-position: center;
+    background-size: contain;
     @include media-breakpoint-down('xs') {
-        right: 0;
+        right: 4%;
+        width: 12px;
     };
 }
 

@@ -88,8 +88,8 @@ export default {
                 this.$refs.containerEstetica.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
                 this.$refs.containerOdontoiatria.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
             } else {
-                this.$refs.containerEstetica.style.paddingTop = this.$root.navbarHeight + 'px'
-                this.$refs.containerOdontoiatria.style.paddingTop = this.$root.navbarHeight + 'px'
+                this.$refs.containerEstetica.style.paddingTop = 0
+                this.$refs.containerOdontoiatria.style.paddingTop = 0
             }
 
             // Definizione degli elementi (galleria e contenitore)
@@ -252,6 +252,10 @@ export default {
             font-family: $font-family-custom;
             width: 100%;
             position: relative;
+
+            @include media-breakpoint-down('md') {
+                padding: ($spacer * 2) ($spacer / 2);
+            }
 
             .prima-dopo-bold-divider {
                 content: '';
