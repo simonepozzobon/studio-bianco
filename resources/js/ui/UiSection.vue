@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="ui-section row bg-light-brown" ref="container">
+    <div :class="'ui-section row bg-'+color" ref="container">
         <ui-section-block>
             <ui-section-content
                 title="About"
@@ -25,25 +25,7 @@
     </div>
 </template>
 
-<script>
-import * as Studio from '../animations/studio.json'
-import UiSectionBlock from './UiSectionBlock.vue'
-import UiSectionContent from './UiSectionContent.vue'
-import UiSectionIllust from './UiSectionIllust.vue'
-export default {
-    name: 'UiSection',
-    components: {
-        UiSectionBlock,
-        UiSectionContent,
-        UiSectionIllust,
-    },
-    data: function() {
-        return {
-            animData: Studio,
-        }
-    }
-}
-</script>
+<script/>
 
 <style lang="scss" scoped>
 @import '~styles/shared';

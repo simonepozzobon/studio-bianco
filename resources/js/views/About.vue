@@ -1,7 +1,7 @@
 <template lang="html">
     <div class="about">
-        <ui-section>
-            
+        <ui-section
+            color="light-brown">
         </ui-section>
     </div>
 </template>
