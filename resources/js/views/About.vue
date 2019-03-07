@@ -36,7 +36,9 @@
                     :containerHeight="studioHeight"/>
                 <div id="about-studio-illust-ref" class="ref"></div>
             </div>
-            <studio-gallery></studio-gallery>
+        </div>
+        <div class="about-container no-full">
+            <studio-gallery ref="gallery"></studio-gallery>
         </div>
         <div id="silvia-citella" class="about-container bg-light-cyan">
             <div class="about-right order-lg-2">
@@ -174,7 +176,7 @@ export default {
 
             } else if (w >= 1920) {
                 this.$refs.container.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
-                this.$refs.studio.$el.style.paddingTop = '5%'
+                this.$refs.studio.$el.style.paddingTop = '10%'
                 this.$refs.silvia.$el.style.paddingTop = '20%'
                 this.$refs.paura.$el.style.paddingTop = '10%'
                 this.studioWidth = '70%'
@@ -198,33 +200,35 @@ export default {
                 this.$refs.silvia.$el.style.position = null
 
                 if (contentHeight <= windowHeight) {
-                    this.$refs.studioContainer.style.position = 'relative'
-                    this.$refs.panel.style.position = 'absolute'
-                    this.$refs.panel.style.top = '5vh'
-                    this.$refs.studio.$el.style.position = 'absolute'
-                    this.$refs.studio.$el.style.top = '5vh'
+                    // this.$refs.studioContainer.style.position = 'relative'
+                    // this.$refs.panel.style.position = 'absolute'
+                    // this.$refs.panel.style.top = '5vh'
+
+                    // this.$refs.studio.$el.style.position = 'absolute'
+                    // this.$refs.studio.$el.style.top = '5vh'
+
                 } else {
-                    this.$refs.studioContainer.style.position = null
-                    this.$refs.panel.style.position = null
-                    this.$refs.studio.$el.style.position = null
-                    this.$refs.panel.style.top = null
+                    // this.$refs.studioContainer.style.position = null
+                    // this.$refs.panel.style.position = null
+                    // this.$refs.studio.$el.style.position = null
+                    // this.$refs.panel.style.top = null
                 }
 
                 if (illustHeight > contentHeight) {
                     let delta = (illustHeight - contentHeight) + windowHeight
                     this.$refs.container.style.height = delta + 'px'
                 } else {
-                    this.$refs.container.style.paddingBottom = null
+                    // this.$refs.container.style.paddingBottom = null
                 }
             } else {
-                this.$refs.studioContainer.style.position = null
-                this.$refs.panel.style.position = null
-                this.$refs.studio.$el.style.position = null
-                this.$refs.panel.style.top = null
+                // this.$refs.studioContainer.style.position = null
+                // this.$refs.panel.style.position = null
+                // this.$refs.studio.$el.style.position = null
+                // this.$refs.panel.style.top = null
 
-                this.$refs.silviaFoto.$el.style.position = 'absolute'
+                // this.$refs.silviaFoto.$el.style.position = 'absolute'
                 this.$refs.silviaFoto.$el.style.display = 'none'
-                this.$refs.silvia.$el.style.position = 'absolute'
+                // this.$refs.silvia.$el.style.position = 'absolute'
             }
 
             // imposta altezza minima della colonna con la foto
@@ -408,6 +412,10 @@ export default {
         min-height: 100vh;
         max-width: 100vw;
         overflow: hidden;
+
+        &.no-full {
+            min-height: inherit;
+        }
 
         > div {
             display: flex;
