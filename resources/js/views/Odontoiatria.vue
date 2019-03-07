@@ -155,28 +155,31 @@ export default {
                 let illustHeight = this.$refs.illust.$el.offsetHeight
 
                 if (contentHeight <= windowHeight) {
-                    this.$refs.content.style.position = 'relative'
-                    this.$refs.panel.style.position = 'absolute'
-                    this.$refs.panel.style.top = '5vh'
-                    this.$refs.illust.$el.style.position = 'absolute'
-                    this.$refs.illust.$el.style.top = '5vh'
+                    this.$refs.content.style.justifyContent = 'flex-start'
+                    // this.$refs.content.style.position = 'relative'
+                    // this.$refs.panel.style.position = 'absolute'
+                    // this.$refs.panel.style.top = '5vh'
+                    // this.$refs.illust.$el.style.position = 'absolute'
+                    // this.$refs.illust.$el.style.top = '5vh'
                 } else {
-                    this.$refs.content.style.position = null
-                    this.$refs.panel.style.position = null
-                    this.$refs.panel.style.top = null
+                    this.$refs.content.style.justifyContent = 'center'
+                    // this.$refs.content.style.position = null
+                    // this.$refs.panel.style.position = null
+                    // this.$refs.panel.style.top = null
                 }
 
-                if (illustHeight > contentHeight) {
-                    let delta = (illustHeight - contentHeight) / 2
-                    this.$refs.container.style.paddingBottom = delta + 'px'
-                } else {
-                    this.$refs.container.style.paddingBottom = null
-                }
+                // if (illustHeight > contentHeight) {
+                //     let delta = (illustHeight - contentHeight) / 2
+                //     this.$refs.container.style.paddingBottom = delta + 'px'
+                // } else {
+                //     this.$refs.container.style.paddingBottom = null
+                // }
             } else {
-                this.$refs.content.style.position = null
-                this.$refs.panel.style.position = null
-                this.$refs.illust.$el.style.position = null
-                this.$refs.panel.style.top = null
+                this.$refs.content.style.justifyContent = 'center'
+                // this.$refs.content.style.position = null
+                // this.$refs.panel.style.position = null
+                // this.$refs.illust.$el.style.position = null
+                // this.$refs.panel.style.top = null
             }
         },
     },

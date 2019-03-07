@@ -72,9 +72,12 @@
                 </div>
             </div>
         </div>
-        <div class="contact-container" v-if="this.$root.isMobile">
+        <div class="contact-container" v-if="this.$root.isMobile" ref="containerMob">
             <div class="contact-left">
-                <contact-illust width="90%"/>
+                <contact-illust
+                    width="90%"
+                    ref="illust"
+                    />
             </div>
         </div>
     </div>
@@ -182,7 +185,7 @@ export default {
                 this.$refs.illust.$el.style.paddingTop = '5%'
                 this.illustWidth = '63%'
             } else {
-                this.$refs.container.style.paddingTop = this.$root.navbarHeight + 'px'
+                this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
             }
 
             if (!this.$root.isMobile) {
@@ -191,29 +194,33 @@ export default {
                 let windowHeight = this.$root.window.h - this.$root.navbarFullHeight
 
                 if (contentHeight <= windowHeight) {
-                    this.$refs.content.style.position = 'relative'
-                    this.$refs.panel.style.position = 'absolute'
-                    this.$refs.panel.style.top = '5vh'
-                    this.$refs.illust.$el.style.position = 'absolute'
-                    this.$refs.illust.$el.style.top = '5vh'
+                    this.$refs.content.style.justifyContent = 'flex-start'
+                    // this.$refs.content.style.position = 'relative'
+                    // this.$refs.panel.style.position = 'absolute'
+                    // this.$refs.panel.style.top = '5vh'
+                    // this.$refs.illust.$el.style.position = 'absolute'
+                    // this.$refs.illust.$el.style.top = '5vh'
                 } else {
-                    this.$refs.content.style.position = null
-                    this.$refs.panel.style.position = null
-                    this.$refs.illust.$el.style.position = null
-                    this.$refs.panel.style.top = null
+                    this.$refs.content.style.justifyContent = 'center'
+                    // this.$refs.content.style.position = null
+                    // this.$refs.panel.style.position = null
+                    // this.$refs.illust.$el.style.position = null
+                    // this.$refs.panel.style.top = null
                     this.$refs.container.style.height = contentHeight + this.$root.navbarFullHeight + 64 + 'px'
                 }
 
-                if (illustHeight > contentHeight) {
-                    this.$refs.container.paddingBottom = illustHeight - contentHeight + 64 + 'px'
-                } else {
-                    this.$refs.container.paddingBottom = null
-                }
+                // if (illustHeight > contentHeight) {
+                //     this.$refs.container.paddingBottom = illustHeight - contentHeight + 64 + 'px'
+                // } else {
+                //     this.$refs.container.paddingBottom = null
+                // }
             } else {
-                this.$refs.content.style.position = null
-                this.$refs.panel.style.position = null
-                this.$refs.illust.$el.style.position = null
-                this.$refs.panel.style.top = null
+                this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 30 + 'px'
+                this.$refs.content.style.justifyContent = 'center'
+                // this.$refs.content.style.position = null
+                // this.$refs.panel.style.position = null
+                // this.$refs.illust.$el.style.position = null
+                // this.$refs.panel.style.top = null
             }
         }
     },
@@ -228,7 +235,9 @@ export default {
             transformOrigin: "center top 0",
         })
 
-        this.positionIllustration()
+        this.$nextTick(() => {
+            this.positionIllustration()
+        })
     }
 }
 </script>
@@ -251,6 +260,9 @@ export default {
     .contact-container {
         @include make-row();
         min-height: 80vh;
+        @include media-breakpoint-down('md') {
+            min-height: 40vh;
+        }
 
         > div {
             display: flex;
