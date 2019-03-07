@@ -36,6 +36,7 @@
                     :containerHeight="studioHeight"/>
                 <div id="about-studio-illust-ref" class="ref"></div>
             </div>
+            <studio-gallery></studio-gallery>
         </div>
         <div id="silvia-citella" class="about-container bg-light-cyan">
             <div class="about-right order-lg-2">
@@ -107,6 +108,7 @@ import AboutSilviaFoto from '../components/AboutSilviaFoto.vue'
 import AboutSilviaIllust from '../components/AboutSilviaIllust.vue'
 import MainFooter from '../containers/MainFooter.vue'
 import ScrollDown from '../components/ScrollDown.vue'
+import StudioGallery from '../components/StudioGallery.vue'
 
 export default {
     name: 'About',
@@ -117,6 +119,7 @@ export default {
         AboutSilviaIllust,
         MainFooter,
         ScrollDown,
+        StudioGallery,
     },
     watch: {
         '$root.window': function(value) {

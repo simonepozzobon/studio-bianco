@@ -4,12 +4,17 @@
         <swiper-slide
             v-for="(item, i) in this.items"
             :key="i">
-            <div class="slide-container">
-                <div class="slide-right">
+            <div class="slide-container" v-if="!single">
+                <div class="slide-right with-filter">
                     <img :src="item.before.thumb" alt="" class="img-fluid">
                 </div>
-                <div class="slide-left">
+                <div class="slide-left with-filter">
                     <img :src="item.after.thumb" alt=""  class="img-fluid">
+                </div>
+            </div>
+            <div class="slide-container" v-else>
+                <div class="slide-right">
+                    <img :src="item.img" alt="" class="img-fluid">
                 </div>
             </div>
         </swiper-slide>
@@ -32,6 +37,10 @@ export default {
         items: {
             type: Array,
             default: function() {},
+        },
+        single: {
+            type: Boolean,
+            default: false,
         }
     },
     data: function() {
@@ -108,8 +117,10 @@ export default {
             margin: $spacer / 4;
         };
 
-        img {
-            filter: grayscale(100%);
+        &.with-filter {
+            img {
+                filter: grayscale(100%);
+            }
         }
     }
 }
