@@ -605,7 +605,7 @@ export default {
     width: 100%;
     // max-width: 1100px;
     // min-height: 400px;
-    // opacity: 0;
+    opacity: 0;
 
     display: flex;
     flex-direction: column;
