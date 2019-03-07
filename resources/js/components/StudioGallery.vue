@@ -128,38 +128,58 @@ export default {
             this.galleries[1].w = rectE.width
             this.mainCHeight = rectMain.height
 
+
+            let actionO = this.$refs.action_o
+            let actionE = this.$refs.action_e
+
             TweenLite.set([odontoiatra, estetica], {
                 height: 0,
                 autoAlpha: 0,
                 transformOrigin: 'center bottom 0',
             })
 
-
-            let odontoiatraC = this.$refs.odontoiatraContainer
-            let esteticaC = this.$refs.esteticaContainer
-
-            let rectOC = odontoiatraC.getBoundingClientRect()
-            let rectEC = esteticaC.getBoundingClientRect()
-
-            this.galleries[2].h = rectOC.height
-            this.galleries[2].w = rectOC.width
-            this.galleries[3].h = rectEC.height
-            this.galleries[3].w = rectEC.width
-
-
-            TweenLite.set(mainContainer, {
-                height: 0,
-                position: 'relative',
-                transformOrigin: 'center top 0',
+            TweenLite.set([actionO, actionE], {
+                autoAlpha: 0,
             })
 
-            if (!this.master) {
-                this.initAnim()
-            }
+            this.$nextTick(() => {
+                let odontoiatraC = this.$refs.odontoiatraContainer
+                let esteticaC = this.$refs.esteticaContainer
 
-            if (!this.initialized) {
-                this.initialized = true
-            }
+                let rectOC = odontoiatraC.getBoundingClientRect()
+                let rectEC = esteticaC.getBoundingClientRect()
+
+                this.galleries[2].h = rectOC.height
+                this.galleries[2].w = rectOC.width
+                this.galleries[3].h = rectEC.height
+                this.galleries[3].w = rectEC.width
+
+                let master = new TimelineMax()
+                master.fromTo(mainContainer, .5, {
+                    height: rectMain.height,
+                    opacity: 0,
+                    transformOrigin: 'center top 0',
+                    ease: Back.easeIn,
+                },{
+                    height: 0,
+                    opacity: 1,
+                    position: 'relative',
+                    transformOrigin: 'center top 0',
+                    ease: Back.easeInOut,
+                }).eventCallback('onComplete', () => {
+                    if (!this.master) {
+                        this.initAnim()
+                    }
+
+                    if (!this.initialized) {
+                        this.initialized = true
+                    }
+                })
+
+
+
+            })
+
 
         },
         checkTimelines: function() {
@@ -198,6 +218,7 @@ export default {
                     TweenLite.set(mainContainer, {
                         height: this.mainCHeight,
                         position: 'auto',
+                        opacity: 0,
                         transformOrigin: 'center top 0',
                     })
                     TweenLite.set([odontoiatra, estetica], {
@@ -207,6 +228,9 @@ export default {
                     })
                     TweenLite.set(galleryEl, {
                         clearProps: 'all'
+                    })
+                    
+                    TweenLite.set([actionO, actionE], {
                     })
 
                     TweenLite.set([
@@ -571,6 +595,7 @@ export default {
     width: 100%;
     max-width: 1100px;
     // min-height: 400px;
+    opacity: 0;
 
     display: flex;
     flex-direction: column;
