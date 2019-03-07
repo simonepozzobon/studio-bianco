@@ -98,7 +98,7 @@ export default {
                     x: 0,
                     y: 0,
                 })
-                console.log(this.elEnter)
+                // console.log(this.elEnter)
                 master.set(this.elEnter, {
                     position: 'absolute',
                     autoAlpha: 1,

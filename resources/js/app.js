@@ -46,6 +46,7 @@ const app = new Vue({
             isMobile: false,
             isDesktop: false,
             initialized: false,
+            swiperInitialized: false,
         }
     },
     methods: {

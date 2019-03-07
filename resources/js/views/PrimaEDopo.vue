@@ -82,8 +82,6 @@ export default {
         getContainersHeight: function() {
             this.estetica = this.$refs.estetica.offsetHeight
             this.odontoiatria = this.$refs.odontoiatria.offsetHeight
-
-            console.log(this.estetica);
         },
         positionIllustration: function() {
             let w = this.$root.window.w

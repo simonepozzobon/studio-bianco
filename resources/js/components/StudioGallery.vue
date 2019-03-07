@@ -14,6 +14,7 @@
                         class="studio-images"
                         :items="this.odonto"
                         :single="true"
+                        @ready="init('odontoiatria')"
                         @images-ready="imagesReady('odontoiatria')"/>
                 </div>
                 <div class="gallery-select" @click="openOdonto" ref="action_o">
@@ -29,6 +30,7 @@
                         class="studio-images"
                         :items="this.estetica"
                         :single="true"
+                        @ready="init('estetica')"
                         @images-ready="imagesReady('estetica')"/>
                 </div>
                 <div class="gallery-select" @click="openEstetica" ref="action_e">
@@ -111,7 +113,9 @@ export default {
 
             if (!this.initialized && this.ready.estetica && this.ready.odontoiatria) {
                 this.getGalleryHeight()
+                this.$root.swiperInitialized = true
             }
+
         },
         getGalleryHeight: function() {
             let odontoiatra = this.$refs.odontoiatra
@@ -574,10 +578,16 @@ export default {
                 }
             })
 
+        },
+        init: function(type) {
         }
     },
     mounted: function() {
         this.checkTimelines()
+        if (this.$root.swiperInitialized) {
+            this.getGalleryHeight()
+
+        }
     }
 }
 </script>
@@ -595,7 +605,7 @@ export default {
     width: 100%;
     // max-width: 1100px;
     // min-height: 400px;
-    opacity: 0;
+    // opacity: 0;
 
     display: flex;
     flex-direction: column;
