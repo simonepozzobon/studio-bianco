@@ -229,7 +229,7 @@ export default {
                     TweenLite.set(galleryEl, {
                         clearProps: 'all'
                     })
-                    
+
                     TweenLite.set([actionO, actionE], {
                     })
 
@@ -593,7 +593,7 @@ export default {
 
 .studio-gallery {
     width: 100%;
-    max-width: 1100px;
+    // max-width: 1100px;
     // min-height: 400px;
     opacity: 0;
 
@@ -606,7 +606,7 @@ export default {
     height: auto;
 
     &__gallery {
-        width: 64%;
+        width: 90%;
 
         display: flex;
         flex-direction: column;
@@ -618,6 +618,19 @@ export default {
 
         overflow: hidden;
         height: auto;
+
+        @include media-breakpoint-down('xxl') {
+            width: 60%; // da rivedere per responsive
+        };
+
+        @include media-breakpoint-down('xl') {
+            width: 70%; // da rivedere per responsive
+        };
+
+        @include media-breakpoint-down('md') {
+            width: 90%; // da rivedere per responsive
+        };
+
     }
 
 
@@ -645,7 +658,7 @@ export default {
         // left: 50%;
         // transform: translate(-50%, -50%);
 
-        max-width: 1100px;
+        // max-width: 1100px;
         width: 100%;
         height: 100%;
 

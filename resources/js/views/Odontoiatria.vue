@@ -66,6 +66,11 @@ export default {
             } else {
                 this.illustWidth = '92.2%'
             }
+        },
+        '$route.path': function(path) {
+            this.positionIllustration()
+            console.log(path);
+            console.log('cosidsofkldsjflk');
         }
     },
     data: function() {

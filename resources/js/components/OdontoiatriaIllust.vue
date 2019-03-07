@@ -48,20 +48,26 @@ export default {
     },
     methods: {
         load: function() {
-            return new Promise(resolve => {
+            return new Promise((resolve, reject) => {
                 if (this.anim) {
                     this.anim.destroy()
                 }
-                this.anim = lottie.loadAnimation({
-                    container: document.getElementById('odontoiatria-illust'),
-                    renderer: 'svg',
-                    loop: false,
-                    autoplay: true,
-                    animationData: Dente,
-                    name: 'Studio'
-                })
 
-                resolve()
+                if (document.getElementById('odontoiatria-illust')) {
+                    this.anim = lottie.loadAnimation({
+                        container: document.getElementById('odontoiatria-illust'),
+                        renderer: 'svg',
+                        loop: false,
+                        autoplay: true,
+                        animationData: Dente,
+                        name: 'Studio'
+                    })
+
+                    resolve()
+                } else {
+                    reject()
+                }
+
             })
         },
         onResize: function() {
@@ -91,17 +97,23 @@ export default {
         }
     },
     mounted: function() {
-        this.$root.$on('page-animation-load', () => {
-            if (!this.isMobile) {
-                this.direct = false
-                this.load().then(() => {
-                    this.anim.goToAndStop(0, true)
-                })
+        this.$root.$on('page-animation-load', (name) => {
+            if (name == 'odontoiatria') {
+                if (!this.isMobile) {
+                    this.direct = false
+                    this.load().then(() => {
+                        this.anim.goToAndStop(0, true)
+                    })
+                }
             }
         })
 
-        this.$root.$on('page-animation-start', () => {
-            this.anim.goToAndPlay(0, true)
+        this.$root.$on('page-animation-start', (name) => {
+            if (name == 'odontoiatria') {
+                if (this.anim) {
+                    this.anim.goToAndPlay(0, true)
+                }
+            }
         })
 
         if (this.direct) {

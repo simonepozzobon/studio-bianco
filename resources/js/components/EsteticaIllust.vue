@@ -48,23 +48,30 @@ export default {
     },
     methods: {
         load: function() {
-            return new Promise(resolve => {
+            return new Promise((resolve, reject) => {
                 if (this.anim) {
                     this.anim.destroy()
                 }
-                this.anim = lottie.loadAnimation({
-                    container: document.getElementById('estetica-illust'),
-                    renderer: 'svg',
-                    loop: true,
-                    autoplay: true,
-                    animationData: Estetica,
-                    name: 'Studio'
-                })
 
-                this.anim.addEventListener('enterFrame', () => {
-                    this.repeat()
-                })
-                resolve()
+                if (document.getElementById('estetica-illust')) {
+                    this.anim = lottie.loadAnimation({
+                        container: document.getElementById('estetica-illust'),
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        animationData: Estetica,
+                        name: 'Studio'
+                    })
+
+                    this.anim.addEventListener('enterFrame', () => {
+                        this.repeat()
+                    })
+
+                    resolve()
+                } else {
+                    reject()
+                }
+
             })
         },
         repeat: function() {
@@ -99,17 +106,24 @@ export default {
         }
     },
     mounted: function() {
-        this.$root.$on('page-animation-load', () => {
-            if (!this.isMobile) {
-                this.direct = false
-                this.load().then(() => {
-                    this.anim.goToAndStop(0, true)
-                })
+        this.$root.$on('page-animation-load', (name) => {
+            if (name == 'estetica') {
+                if (!this.isMobile) {
+                    this.direct = false
+
+                    this.load().then(() => {
+                        this.anim.goToAndStop(0, true)
+                    })
+                }
             }
         })
 
-        this.$root.$on('page-animation-start', () => {
-            this.anim.goToAndPlay(0, true)
+        this.$root.$on('page-animation-start', (name) => {
+            if (name == 'estetica') {
+                if (this.anim) {
+                    this.anim.goToAndPlay(0, true)
+                }
+            }
         })
 
         if (this.direct) {

@@ -101,6 +101,9 @@ export default {
             } else {
                 this.illustWidth = '79%'
             }
+        },
+        '$route.path': function() {
+            this.positionIllustration()
         }
     },
     data: function() {

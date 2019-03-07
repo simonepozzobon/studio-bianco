@@ -52,10 +52,10 @@ export default {
     },
     watch: {
         '$route': function(to, from) {
-            // TweenLite.to(window, .2, {
-            //     scrollTo: 0,
-            //     ease: Power2.easeInOut,
-            // })
+            TweenLite.to(window, .2, {
+                scrollTo: 0,
+                ease: Power2.easeInOut,
+            })
 
             if (from.name == 'home' && to.name == 'odontoiatria' && !this.isAnimating && !this.$root.isMobile) {
                 // console.log('slide rosa')
@@ -88,10 +88,10 @@ export default {
                     reversed: true,
                 })
 
-                let t1 = new TimelineLite()
-                master.add(t1)
+                // let t1 = new TimelineLite()
+                // master.add(t1)
 
-                t1.set(el, {
+                master.set(el, {
                     position: 'absolute',
                     width: '100vw',
                     height: '100vh',
@@ -99,30 +99,30 @@ export default {
                     y: 0,
                 })
                 console.log(this.elEnter)
-                t1.set(this.elEnter, {
+                master.set(this.elEnter, {
                     position: 'absolute',
                     autoAlpha: 1,
                     x: 0,
                     y: this.$root.window.h
                 })
 
-                t1.set(container, {
+                master.set(container, {
                     flexWrap: 'nowrap'
                 })
 
                 if (this.animate == 'odontoiatria') {
                     let dente = document.getElementById('home-illust-dente')
 
-                    t1.set(dente, {
+                    master.set(dente, {
                         height: dente.offsetHeight
                     })
 
                     // animazione per odontoiatria
-                    t1.set(panelLeft, {
+                    master.set(panelLeft, {
                         transformOrigin: 'right center 0',
                     })
 
-                    t1.fromTo(panelLeft, .6, {
+                    master.fromTo(panelLeft, .6, {
                         xPercent: 0
                     }, {
                         width: '100%',
@@ -141,16 +141,16 @@ export default {
                 } else {
                     let testa = document.getElementById('home-illust-testa')
 
-                    t1.set(testa, {
+                    master.set(testa, {
                         height: testa.offsetHeight
                     })
 
                     // animazione per medicina estetica
-                    t1.set(panelRight, {
+                    master.set(panelRight, {
                         transformOrigin: "left center 0",
                     })
 
-                    t1.fromTo(panelLeft, .6, {
+                    master.fromTo(panelLeft, .6, {
                         autoAlpha: 1,
                         xPercent: 0
                     },{
@@ -159,7 +159,7 @@ export default {
                         ease: Cubic.easeInOut,
                     }, .1)
 
-                    t1.fromTo(panelRight, .6, {
+                    master.fromTo(panelRight, .6, {
                         xPercent: 0
                     },{
                         width: '100%',
@@ -177,14 +177,16 @@ export default {
 
                 }
 
-                t1.to(container, .6, {
+                master.to(container, .6, {
                     yPercent: -100,
                     onStart: () => {
-                        this.$root.$emit('page-animation-start')
+                        this.$nextTick(() => {
+                            this.$root.$emit('page-animation-start', this.animate)
+                        })
                     }
                 }, 2)
 
-                t1.to(this.elEnter, .6, {
+                master.to(this.elEnter, .6, {
                     y: 0,
                     position: 'relative',
                 }, 2)
@@ -194,12 +196,12 @@ export default {
                     this.animate = null
                     el.removeAttribute('style')
                     this.elEnter.removeAttribute('style')
-                    this.$root.$emit('leave-completed')
+                    // this.$root.$emit('leave-completed')
                     // console.log('completato leave', el)
                     done()
                 })
 
-                master.play()
+                master.progress(1).progress(0).play()
             } else {
                 // pass through
                 done()
@@ -212,9 +214,11 @@ export default {
                 TweenLite.set(this.elEnter, {
                     autoAlpha: 0,
                     onComplete: () => {
-                        this.$root.$emit('page-animation-load')
+                        this.$nextTick(() => {
+                            this.$root.$emit('page-animation-load', this.animate)
+                            done()
+                        })
                         // console.log('completato enter', el)
-                        done()
                         return
                     }
                 })
@@ -230,7 +234,7 @@ export default {
         this.$root.estetica = parsedEstetica
         this.$root.odontoiatria = parsedOdontoiatria
         this.$root.comparisons = parsedComparisons
-    }
+    },
 }
 </script>
 

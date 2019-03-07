@@ -56,6 +56,10 @@ export default {
         '$root.window': function(value) {
             this.positionIllustration()
             this.getContainersHeight()
+        },
+        '$route.path': function() {
+            this.positionIllustration()
+            this.getContainersHeight()
         }
     },
     data: function() {

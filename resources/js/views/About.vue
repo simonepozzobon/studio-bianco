@@ -140,6 +140,11 @@ export default {
                 this.silviaFotoWidth = '59.5%'
                 this.pauraWidth = '85%'
             }
+        },
+        '$route': function() {
+            this.positionIllustration()
+            this.getContainersHeight()
+            this.resetSilvia()
         }
     },
     data: function() {
@@ -201,6 +206,7 @@ export default {
 
                 if (contentHeight <= windowHeight) {
                     // this.$refs.studioContainer.style.position = 'relative'
+                    this.$refs.studioContainer.style.justifyContent = 'flex-start'
                     // this.$refs.panel.style.position = 'absolute'
                     // this.$refs.panel.style.top = '5vh'
 
@@ -210,19 +216,24 @@ export default {
                 } else {
                     // this.$refs.studioContainer.style.position = null
                     // this.$refs.panel.style.position = null
+                    this.$refs.studioContainer.style.justifyContent = 'center'
+
                     // this.$refs.studio.$el.style.position = null
                     // this.$refs.panel.style.top = null
                 }
 
-                if (illustHeight > contentHeight) {
-                    let delta = (illustHeight - contentHeight) + windowHeight
-                    this.$refs.container.style.height = delta + 'px'
-                } else {
-                    // this.$refs.container.style.paddingBottom = null
-                }
+                // if (illustHeight > contentHeight) {
+                //     let delta = (illustHeight - contentHeight) + windowHeight
+                //     console.log('siamo 1u89');
+                //     this.$refs.container.style.height = delta + 'px'
+                // } else {
+                //     // this.$refs.container.style.paddingBottom = null
+                // }
             } else {
                 // this.$refs.studioContainer.style.position = null
                 // this.$refs.panel.style.position = null
+                this.$refs.studioContainer.style.justifyContent = 'center'
+
                 // this.$refs.studio.$el.style.position = null
                 // this.$refs.panel.style.top = null
 
