@@ -52,10 +52,10 @@ export default {
     },
     watch: {
         '$route': function(to, from) {
-            TweenLite.to(window, .2, {
-                scrollTo: 0,
-                ease: Power2.easeInOut,
-            })
+            // TweenLite.to(window, .2, {
+            //     scrollTo: 0,
+            //     ease: Power2.easeInOut,
+            // })
 
             if (from.name == 'home' && to.name == 'odontoiatria' && !this.isAnimating && !this.$root.isMobile) {
                 // console.log('slide rosa')

@@ -44,6 +44,7 @@ export default {
     position: relative;
     width: 100%; // da rivedere per responsive
     z-index: 1;
+
     display: flex;
     justify-content: center;
     align-items: center;

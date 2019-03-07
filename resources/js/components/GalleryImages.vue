@@ -1,35 +1,29 @@
 <template lang="html">
-    <swiper :options="swiperOption" ref="mySwiper">
+    <swiper
+        :options="swiperOption"
+        ref="Swiper"
+        @ready="init"
+        @imagesReady="imagesReady">
         <!-- slides -->
         <swiper-slide
             v-for="(item, i) in this.items"
             :key="i">
-            <div class="slide-container" v-if="!single">
-                <div class="slide-right with-filter">
-                    <img :src="item.before.thumb" alt="" class="img-fluid">
-                </div>
-                <div class="slide-left with-filter">
-                    <img :src="item.after.thumb" alt=""  class="img-fluid">
-                </div>
-            </div>
-            <div class="slide-container" v-else>
-                <div class="slide-right">
-                    <img :src="item.img" alt="" class="img-fluid">
-                </div>
-            </div>
+            <gallery-slide :item="item" :single="single"/>
         </swiper-slide>
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
+        <div ref="prev" class="swiper-button-prev" slot="button-prev"></div>
+        <div ref="next" class="swiper-button-next" slot="button-next"></div>
     </swiper>
 </template>
 
 <script>
+import GallerySlide from './GallerySlide.vue'
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
 export default {
     name: 'GalleryImages',
     components: {
+        GallerySlide,
         swiper,
         swiperSlide
     },
@@ -43,9 +37,15 @@ export default {
             default: false,
         }
     },
+    computed: {
+        swiper: function() {
+            return this.$refs.Swiper.swiper
+        }
+    },
     data: function() {
         return {
             swiperOption: {
+                updateOnImagesReady: true,
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev'
@@ -53,8 +53,15 @@ export default {
             }
         }
     },
+    methods: {
+        imagesReady: function() {
+            this.$emit('images-ready')
+        },
+        init: function() {
+            this.$emit('ready')
+        },
+    },
     mounted: function() {
-        console.log(this.items)
     }
 
 }
@@ -89,39 +96,12 @@ export default {
 .slide-container {
     @include make-row();
     max-width: 100%;
-    height: 100%;
     justify-content: center;
     align-items: center;
     padding: 0 10%;
     margin-left: 0;
     margin-right: 0;
 
-    .slide-left,
-    .slide-right {
-        border: 12px solid $white;
-        margin: $spacer;
-        flex: 0 0 39%;
-        max-width: 39%;
 
-        @include media-breakpoint-down('md') {
-            border: 8px solid $white;
-            flex: 0 0 40%;
-            max-width: 40%;
-            margin: $spacer / 2;
-        };
-
-        @include media-breakpoint-down('xs') {
-            border: 4px solid $white;
-            flex: 0 0 40%;
-            max-width: 40%;
-            margin: $spacer / 4;
-        };
-
-        &.with-filter {
-            img {
-                filter: grayscale(100%);
-            }
-        }
-    }
 }
 </style>
