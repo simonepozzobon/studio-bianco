@@ -19,7 +19,7 @@
                         @ready="init"
                         @images-ready="imagesReady"/>
                 </div>
-                <div class="gallery-select" ref="action_o">
+                <div class="gallery-select gallery-select--blue" ref="action_o">
                     <div class="gallery-select__container">
                         <span class="gallery-select__dot">•</span>
                         <span class="gallery-select__text"> {{ galleryText }} </span>
@@ -103,23 +103,31 @@ export default {
                 this.galleryTextCache = 'odontoiatria'
 
                 let uuid = this.uuid()
-                this.cacheAnimation(true, 'Odontoiatria', uuid)
+                this.cacheAnimation(true, 'Odontoiatria', uuid, 'blue')
 
             } else if (item.type == 'estetica' && this.galleryTextCache != 'estetica') {
                 this.galleryTextCache = 'estetica'
 
                 let uuid = this.uuid()
-                this.cacheAnimation(true, 'Medicina Estetica', uuid)
+                this.cacheAnimation(true, 'Medicina Estetica', uuid, 'yellow')
             }
 
 
             // let uuid = this.uuid()
             // this.cacheAnimation(true, Math.random(), uuid)
         },
-        generateAnimation: function(newText = null, uuid) {
+        generateAnimation: function(obj) {
+            let newText = obj.text
+            let uuid = obj.uuid
+            let color = obj.color
+
             let container = this.$refs.action_o
             let el = container.getElementsByClassName('gallery-select__container')[0]
             let elHeight = el.getBoundingClientRect().height
+
+            // imposto un'altezza minima all container per evitare degli scatti
+            // quando passo da posizione assoluta a relativa
+
             container.style.minHeight = elHeight + 'px'
 
             // genera il nuovo elemento da sostituire
@@ -127,6 +135,9 @@ export default {
             let text = clone.getElementsByClassName('gallery-select__text')[0]
             text.innerText = ' ' + newText + ' '
             // imposto l'opacità a zero per non vederlo subito
+            clone.classList.remove('gallery-select--blue', 'gallery-select-yellow')
+            clone.classList.add('gallery-select--'+color)
+
             clone.style.opacity = 0
             clone.style.position = 'absolute'
 
@@ -139,6 +150,8 @@ export default {
             let outEase = this.ease_4
             let inEase = this.ease_3
             let invscale = 1 / scale
+            let startColor = '#b1c5cf'
+            let endColor = '#dcba80'
 
             let master = new TimelineMax({
                 paused: true
@@ -203,7 +216,7 @@ export default {
             // ritorno l'animazione pre-caricata per avviarla da cachedPlay()
             return master
         },
-        cacheAnimation: function(adding = true, text = null, uuid) {
+        cacheAnimation: function(adding = true, text = null, uuid, color = 'blue') {
             if (adding) {
                 // genera l'oggetto da aggiungere in coda ma non l'animazione
                 // altrimenti il clone potrebbe non esistere o non essere lo stesso
@@ -211,6 +224,7 @@ export default {
                 let obj = {
                     uuid: uuid,
                     text: text,
+                    color: color,
                 }
                 this.animCache.push(obj)
             } else {
@@ -247,7 +261,7 @@ export default {
             } else {
                 // altrimenti ne genera una con le caratteristiche scelte
                 // e poi la riproduce
-                let animation = this.generateAnimation(obj.text, obj.uuid)
+                let animation = this.generateAnimation(obj)
                 let newobj = {
                     ...obj,
                     animation: animation
@@ -783,6 +797,7 @@ export default {
 }
 
 .gallery-select {
+    $self: &;
     position: relative;
     width: 100%;
     display: flex;
@@ -808,6 +823,19 @@ export default {
         font-weight: bold;
         display: block;
     }
+
+    &--blue {
+        #{ $self }__dot {
+            color: #b1c5cf;
+        }
+    }
+
+    &--yellow {
+        #{ $self }__dot {
+            color: #dcba80;
+        }
+    }
 }
+
 
 </style>
