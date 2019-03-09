@@ -111,10 +111,16 @@ export default {
                 let uuid = this.uuid()
                 this.cacheAnimation(true, 'Medicina Estetica', uuid)
             }
+
+
+            // let uuid = this.uuid()
+            // this.cacheAnimation(true, Math.random(), uuid)
         },
         generateAnimation: function(newText = null, uuid) {
             let container = this.$refs.action_o
             let el = container.getElementsByClassName('gallery-select__container')[0]
+            let elHeight = el.getBoundingClientRect().height
+            container.style.minHeight = elHeight + 'px'
 
             // genera il nuovo elemento da sostituire
             let clone = el.cloneNode(true)
@@ -127,25 +133,54 @@ export default {
             container.appendChild(clone)
 
             // inizializzo l'animazione
+            let scale = 0.9
+            let duration = .6
+            let baseEase = this.baseEase
+            let outEase = this.ease_4
+            let inEase = this.ease_3
+            let invscale = 1 / scale
+
             let master = new TimelineMax({
                 paused: true
             })
 
-            master.fromTo(el, .3, {
-                autoAlpha: 1,
-                position: 'relative',
-            }, {
-                autoAlpha: 0,
+            master.set(el, {
                 position: 'absolute',
-            }, 0)
+            })
 
-            master.fromTo(clone, .3, {
+            master.fromTo(el, duration, {
+                autoAlpha: 1,
+                ease: ExpoScaleEase.config(scale, 1, baseEase),
+            }, {
                 autoAlpha: 0,
-                position: 'absolute',
+                ease: ExpoScaleEase.config(scale, 1, baseEase),
+            }, .1)
+
+            master.fromTo(el, duration, {
+                y: 0,
+                ease: ExpoScaleEase.config(scale, 1, inEase),
+            }, {
+                y: 40,
+                ease: ExpoScaleEase.config(scale, 1, inEase),
+            }, .1)
+
+            master.fromTo(clone, duration, {
+                autoAlpha: 0,
+                ease: ExpoScaleEase.config(scale, 1, baseEase),
             }, {
                 autoAlpha: 1,
-                position: 'relative',
-            }, 0)
+                ease: ExpoScaleEase.config(scale, 1, baseEase),
+            }, .1)
+
+
+            master.fromTo(clone, duration, {
+                y: -20,
+                ease: ExpoScaleEase.config(scale, 1, inEase),
+            }, {
+                y: 0,
+                ease: ExpoScaleEase.config(scale, 1, inEase),
+            }, .1)
+
 
             // effettuo il preload per avere un animazione più fluida
             master.progress(1).progress(0)
@@ -153,6 +188,9 @@ export default {
                     // aggiungo un callback quando l'animazione è finita
                     // per rimuovere il testo originale e re-imposto la variabile
                     // globale su false per procedere con le altre animazioni in coda
+                    clone.style.position = 'relative'
+                    container.style.minHeight = null
+
                     container.removeChild(el)
                     this.$nextTick(() => {
                         this.isAnimating = false
