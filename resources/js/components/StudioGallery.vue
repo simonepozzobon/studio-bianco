@@ -36,8 +36,12 @@
 </template>
 
 <script>
+
+
 import GalleryImages from './GalleryImages.vue'
 import { IconArrowDown } from '../ui'
+import CustomEase from 'gsap/CustomEase'
+// import GSDevTools from 'gsap/GSDevTools'
 export default {
     name: 'StudioGallery',
     components: {
@@ -63,10 +67,13 @@ export default {
                 { img: '/img/medicina_estetica_03.jpg', type: 'estetica' },
             ],
             baseEase: Sine.easeInOut,
-            ease_2: Back.easeInOut.config(1.1),
+            ease_2: Sine.easeInOut,
             ease_3: Back.easeOut.config(1.1),
             ease_4: Back.easeIn.config(1.1),//Back.easeInOut.config(1.1),
-            ease_5: Power4.easeInOut,
+            ease_5: Back.easeInOut,
+            ease_6: Back.easeInOut.config(1.1),
+            ease_7: Power4.easeInOut,
+            customEase: '',
             open: false,
             opened: null,
             master: null,
@@ -110,29 +117,29 @@ export default {
             if (item.type == 'odontoiatria' && this.galleryTextCache != 'odontoiatria') {
                 this.galleryTextCache = 'odontoiatria'
 
-                // let uuid = this.uuid()
-                // this.cacheAnimation(true, 'Odontoiatria', uuid, 'blue')
+                let uuid = this.uuid()
+                this.cacheAnimation(true, 'Odontoiatria', uuid, 'blue')
 
             } else if (item.type == 'estetica' && this.galleryTextCache != 'estetica') {
                 this.galleryTextCache = 'estetica'
 
-                // let uuid = this.uuid()
-                // this.cacheAnimation(true, 'Medicina Estetica', uuid, 'yellow')
+                let uuid = this.uuid()
+                this.cacheAnimation(true, 'Medicina Estetica', uuid, 'yellow')
             }
 
 
-            let uuid = this.uuid()
-            let colorId
-
-            if (this.testCounter == 0) {
-                colorId = 1
-
-            } else {
-                colorId = 0
-            }
-
-            this.testCounter = colorId
-            this.cacheAnimation(true, Math.random(), uuid, this.colors[colorId])
+            // let uuid = this.uuid()
+            // let colorId
+            //
+            // if (this.testCounter == 0) {
+            //     colorId = 1
+            //
+            // } else {
+            //     colorId = 0
+            // }
+            //
+            // this.testCounter = colorId
+            // this.cacheAnimation(true, Math.random(), uuid, this.colors[colorId])
         },
         generateAnimation: function(obj) {
             let newText = obj.text
@@ -186,12 +193,12 @@ export default {
             text.innerText = ' ' + newText + ' '
 
             // imposto l'opacità a zero per non vederlo subito
-            clone.classList.remove('gallery-select--blue', 'gallery-select-yellow')
+            clone.classList.remove('gallery-select--blue', 'gallery-select--yellow')
             clone.classList.add('gallery-select--'+color)
 
             clone.style.opacity = 0
             clone.style.position = 'absolute'
-            clone.style.overflow = 'hidden'
+            // clone.style.overflow = 'hidden'
             container.appendChild(clone)
 
             let elTextCC = clone.getElementsByClassName('gallery-select__text-container')[0]
@@ -219,7 +226,7 @@ export default {
             elTextFC.style.height = elTextCCRect.height + 'px'
             elTextFC.style.width = 0
 
-            elTextClone.style.display = 'inline-block'
+            elTextClone.style.display = 'block'
             elTextClone.style.position = 'absolute'
             elTextClone.style.width = elTextWC + 'px'
 
@@ -235,12 +242,17 @@ export default {
 
             // inizializzo l'animazione
             let scale = 2
-            let duration = .6
+            let duration = .4
             let durationFaster = duration - (duration * 0.3)
-            let baseEase = this.ease_2
-            let outEase = this.ease_5
+            let duration33 = durationFaster - (durationFaster * 0.3)
+            let duration40 = durationFaster - (durationFaster * 0.4)
+            let dotOpacityTime = durationFaster * 0.3
+            let ease_6 = this.customEase
+            let outEase = this.ease_7
             let inEase = this.ease_3
             let invscale = 1 / scale
+
+            console.log('total', duration + durationFaster );
 
             let startColor = '#b1c5cf'
             let endColor = '#dcba80'
@@ -251,8 +263,12 @@ export default {
             }
 
             let master = new TimelineMax({
-                paused: true
+                id: uuid,
+                paused: true,
             })
+
+            // master.addLabel('bouncyBalls', duration33)
+
 
             master.set(el, {
                 position: 'absolute',
@@ -261,25 +277,34 @@ export default {
             // pallini vanno verso il centro
             master.fromTo(dotL, durationFaster, {
                 x: 0,
-                ease: ExpoScaleEase.config(invscale, 1, baseEase),
+                ease: ExpoScaleEase.config(invscale, 1, ease_6),
             }, {
                 x: LMid / 2,
-                ease: ExpoScaleEase.config(invscale, 1, baseEase),
+                ease: ExpoScaleEase.config(invscale, 1, ease_6),
             }, 0)
 
             master.fromTo(dotR, durationFaster, {
                 x: 0,
-                ease: ExpoScaleEase.config(invscale, 1, baseEase),
+                ease: ExpoScaleEase.config(invscale, 1, ease_6),
             }, {
                 x: RMid / 2,
-                ease: ExpoScaleEase.config(invscale, 1, baseEase),
+                ease: ExpoScaleEase.config(invscale, 1, ease_6),
             }, 0)
 
-            master.fromTo([dotL, dotR], duration, {
+            master.fromTo([dotL, dotR], durationFaster, {
                 color: startColor,
             }, {
                 color: endColor,
             }, 0)
+
+            master.addLabel('bouncyBalls', duration33)
+            master.addLabel('secondPart', durationFaster)
+
+            master.fromTo([dotL, dotR], dotOpacityTime, {
+                autoAlpha: 1,
+            }, {
+                autoAlpha: 0,
+            }, duration40)
 
             // testo a scomparsa centrale
             master.fromTo(elTextF, duration, {
@@ -309,15 +334,13 @@ export default {
             }, 0)
 
 
-            master.fromTo([dotL, dotR, elTextF], .1, {
+            master.fromTo([elTextF], .1, {
                 autoAlpha: 1,
             }, {
                 autoAlpha: 0,
-            },duration - .1)
+            }, duration33)
 
-            master.addLabel('secondPart', durationFaster + .1)
             master.addLabel('destroyOld', duration)
-
 
             // Clone
 
@@ -325,23 +348,27 @@ export default {
                 autoAlpha: 0,
             }, {
                 autoAlpha: 1,
-            }, 'secondPart')
+            }, duration33)
 
             master.fromTo(dotCL, duration, {
                 x: LCMid / 2,
-                ease: ExpoScaleEase.config(invscale, 1, inEase),
+                // ease: ExpoScaleEase.config(invscale, 1, inEase),
+                ease: ExpoScaleEase.config(scale, 1, ease_6),
             }, {
                 x: 0,
-                ease: ExpoScaleEase.config(invscale, 1, inEase),
-            }, 'secondPart+=0.1')
+                // ease: ExpoScaleEase.config(invscale, 1, inEase),
+                ease: ExpoScaleEase.config(scale, 1, ease_6),
+            }, duration33)
 
             master.fromTo(dotCR, duration, {
                 x: RCMid / 2,
-                ease: ExpoScaleEase.config(invscale, 1, inEase),
+                // ease: ExpoScaleEase.config(invscale, 1, inEase),
+                ease: ExpoScaleEase.config(scale, 1, ease_6),
             }, {
                 x: 0,
-                ease: ExpoScaleEase.config(invscale, 1, inEase),
-            }, 'secondPart+=0.1')
+                // ease: ExpoScaleEase.config(invscale, 1, inEase),
+                ease: ExpoScaleEase.config(scale, 1, ease_6),
+            }, duration33)
 
 
             master.fromTo(elTextFC, durationFaster, {
@@ -352,8 +379,7 @@ export default {
                 width: elTextWC,
                 transformOrigin: 'center center',
                 ease: ExpoScaleEase.config(invscale, 1, outEase),
-            }, 'secondPart+=0.1')
-
+            }, durationFaster)
 
             master.fromTo(elTextClone, durationFaster, {
                 x: textMidC / 2,
@@ -361,7 +387,8 @@ export default {
             }, {
                 x: 0,
                 ease: ExpoScaleEase.config(invscale, 1, outEase),
-            }, 'secondPart+=0.1')
+            }, durationFaster)
+
 
             master.fromTo(elTextClone, duration, {
                 opacity: 0,
@@ -369,21 +396,29 @@ export default {
             }, {
                 opacity: 1,
                 ease: ExpoScaleEase.config(scale, 1, inEase),
-            }, 'secondPart+=0.1')
+            }, durationFaster)
 
 
             // effettuo il preload per avere un animazione più fluida
             master.progress(1).progress(0)
 
-                .addCallback(() => {
-                    container.removeChild(el)
-                }, 'destroyOld')
+                // .addCallback(() => {
+                //     // container.removeChild(el)
+                //     // master.pause()
+                // }, 'destroyOld')
+                // .addCallback(() => {
+                //     // console.log('bouncy balls');
+                //     // master.pause()
+                // }, 'bouncyBalls')
 
                 .eventCallback('onComplete', () => {
                     // aggiungo un callback quando l'animazione è finita
                     // per rimuovere il testo originale e re-imposto la variabile
                     // globale su false per procedere con le altre animazioni in coda
-                    clone.style.position = 'relative'
+                    container.removeChild(el)
+                    TweenMax.set([clone, dotCL, dotCR, elTextFC, elTextClone], {
+                        clearProps: 'all'
+                    })
 
                     elTextCC.style.position = null
                     elTextCC.style.overflow = null
@@ -400,7 +435,8 @@ export default {
                     elTextClone.style.width = null
                     container.style.minHeight = null
 
-                    // container.removeChild(el)
+                    clone.style.position = 'relative'
+
                     this.$nextTick(() => {
                         this.isAnimating = false
                         // lancio cacheAnimation per rimuovere dalla coda la
@@ -647,7 +683,7 @@ export default {
             this.master.progress(1).progress(0)
 
             // debug
-            this.toggle()
+            // this.toggle()
         },
         generateMainClose: function(timeline, el, height, scale, duration) {
             let invscale = 1 / scale
@@ -671,6 +707,9 @@ export default {
                 let duration = 0.6
                 let invscale = 1 / scale
                 let padding = 24
+                // if (this.$root.window.w < 576) {
+                //     padding = 16
+                // }
 
                 let galleryHeight = h + (padding * 3)
                 let containerHeight = h + hC + (padding * 5)
@@ -894,6 +933,7 @@ export default {
     },
     mounted: function() {
         this.checkTimelines()
+        this.customEase = CustomEase.create("custom", "M0,0,C0,0,0.035,-0.003,0.055,-0.01,0.1,-0.027,0.129,-0.047,0.175,-0.063,0.193,-0.07,0.209,-0.074,0.227,-0.073,0.248,-0.071,0.269,-0.066,0.287,-0.054,0.309,-0.04,0.326,-0.02,0.342,0.002,0.363,0.033,0.374,0.058,0.39,0.094,0.41,0.142,0.421,0.172,0.435,0.224,0.477,0.392, 0.51,0.611,0.553,0.945,0.558,0.986,0.564,1.008,0.573,1.048,0.576,1.06,0.578,1.067,0.583,1.078,0.586,1.086,0.59,1.092,0.595,1.097,0.597,1.1,0.602,1.102,0.605,1.102,0.609,1.101,0.615,1.099,0.618,1.095,0.64,1.067,0.654,1.04,0.678,1.008,0.683,1.002,0.689,0.997,0.696,0.992,0.702,0.988,0.708,0.985,0.715,0.983,0.725,0.981,0.733,0.981,0.743,0.983,0.765,0.986,0.778,0.993,0.801,0.997,0.814,1,0.823,1.002,0.836,1.002,0.898,1.002,1,0.999,1,0.999")
         if (this.$root.swiperInitialized) {
             this.getGalleryHeight()
 
@@ -915,7 +955,7 @@ export default {
     width: 100%;
     // max-width: 1100px;
     // min-height: 400px;
-    opacity: 1;
+    opacity: 0;
 
     display: flex;
     flex-direction: column;
@@ -926,7 +966,7 @@ export default {
     height: auto;
 
     &__gallery {
-        width: 90%;
+        width: 85%;
 
         display: flex;
         flex-direction: column;
@@ -940,15 +980,15 @@ export default {
         height: auto;
 
         @include media-breakpoint-down('xxl') {
-            width: 60%; // da rivedere per responsive
+            width: 50%; // da rivedere per responsive
         };
 
         @include media-breakpoint-down('xl') {
-            width: 70%; // da rivedere per responsive
+            width: 55%; // da rivedere per responsive
         };
 
         @include media-breakpoint-down('md') {
-            width: 90%; // da rivedere per responsive
+            width: 70%; // da rivedere per responsive
         };
 
     }
@@ -1012,6 +1052,8 @@ export default {
         position: relative;
         display: flex;
         align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
     &__dot {
