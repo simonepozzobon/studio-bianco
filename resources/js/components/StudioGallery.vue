@@ -7,36 +7,24 @@
             </button>
         </div>
         <div class="studio-gallery" ref="galleries">
-            <div class="studio-gallery__gallery" ref="odontoiatraContainer">
-                <div class="studio-gallery__container" ref="odontoiatra">
+            <div class="studio-gallery__gallery" ref="galleryContainer">
+                <div class="studio-gallery__container" ref="gallery">
                     <gallery-images
                         ref="galleryO"
                         class="studio-images"
-                        :items="this.odonto"
+                        :items="this.images"
                         :single="true"
-                        @ready="init('odontoiatria')"
-                        @images-ready="imagesReady('odontoiatria')"/>
+                        :listen-change="true"
+                        @slide-change="slideChange"
+                        @ready="init"
+                        @images-ready="imagesReady"/>
                 </div>
-                <div class="gallery-select" @click="openOdonto" ref="action_o">
-                    <span class="gallery-select__dot">•</span>
-                    <span class="gallery-select__text"> Odontoiatra </span>
-                    <span class="gallery-select__dot">•</span>
-                </div>
-            </div>
-            <div class="studio-gallery__gallery" ref="esteticaContainer">
-                <div class="studio-gallery__container" ref="estetica">
-                    <gallery-images
-                        ref="galleryE"
-                        class="studio-images"
-                        :items="this.estetica"
-                        :single="true"
-                        @ready="init('estetica')"
-                        @images-ready="imagesReady('estetica')"/>
-                </div>
-                <div class="gallery-select" @click="openEstetica" ref="action_e">
-                    <span class="gallery-select__dot">•</span>
-                    <span class="gallery-select__text"> Medicina Estetica </span>
-                    <span class="gallery-select__dot">•</span>
+                <div class="gallery-select" ref="action_o">
+                    <div class="gallery-select__container">
+                        <span class="gallery-select__dot">•</span>
+                        <span class="gallery-select__text"> {{ galleryText }} </span>
+                        <span class="gallery-select__dot">•</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,16 +49,14 @@ export default {
     },
     data: function() {
         return {
-            odonto: [
-                { img: '/img/odontoiatria_01.jpg' },
-                { img: '/img/odontoiatria_02.jpg' },
-                { img: '/img/odontoiatria_03.jpg' },
-                { img: '/img/odontoiatria_04.jpg' },
-            ],
-            estetica: [
-                { img: '/img/medicina_estetica_01.jpg' },
-                { img: '/img/medicina_estetica_02.jpg' },
-                { img: '/img/medicina_estetica_03.jpg' },
+            images: [
+                { img: '/img/odontoiatria_01.jpg', type: 'odontoiatria' },
+                { img: '/img/odontoiatria_02.jpg', type: 'odontoiatria' },
+                { img: '/img/odontoiatria_03.jpg', type: 'odontoiatria' },
+                { img: '/img/odontoiatria_04.jpg', type: 'odontoiatria' },
+                { img: '/img/medicina_estetica_01.jpg', type: 'estetica' },
+                { img: '/img/medicina_estetica_02.jpg', type: 'estetica' },
+                { img: '/img/medicina_estetica_03.jpg', type: 'estetica' },
             ],
             baseEase: Sine.easeInOut,
             ease_2: Sine.easeInOut,
@@ -85,7 +71,7 @@ export default {
             galleries: [
                 { h: 0, w: 0 }, // odontoiatra
                 { h: 0, w: 0 }, // estetica
-                { h: 0, w: 0 }, //odontoiatraContainer
+                { h: 0, w: 0 }, //galleryContainer
                 { h: 0, w: 0 }, //esteticaContainer
             ],
             initialized: false,
@@ -98,65 +84,174 @@ export default {
             hasListener: false,
             counter: 0,
             resolveCounter: 0,
+            galleryTextCache: 'odontoiatria',
+            galleryText: 'Odontoiatria',
+            isAnimating: false,
+            animCache: [],
+            testCounter: 0,
         }
     },
     methods: {
-        imagesReady: function(type) {
-            switch (type) {
-                case 'odontoiatria':
-                    this.ready.odontoiatria = true
-                    break;
-                case 'estetica':
-                    this.ready.estetica = true
-                    break;
+        uuid: function() {
+            // https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
+            return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+            )
+        },
+        slideChange: function(item) {
+            if (item.type == 'odontoiatria' && this.galleryTextCache != 'odontoiatria') {
+                this.galleryTextCache = 'odontoiatria'
+
+                let uuid = this.uuid()
+                this.cacheAnimation(true, 'Odontoiatria', uuid)
+
+            } else if (item.type == 'estetica' && this.galleryTextCache != 'estetica') {
+                this.galleryTextCache = 'estetica'
+
+                let uuid = this.uuid()
+                this.cacheAnimation(true, 'Medicina Estetica', uuid)
+            }
+        },
+        generateAnimation: function(newText = null, uuid) {
+            let container = this.$refs.action_o
+            let el = container.getElementsByClassName('gallery-select__container')[0]
+
+            // genera il nuovo elemento da sostituire
+            let clone = el.cloneNode(true)
+            let text = clone.getElementsByClassName('gallery-select__text')[0]
+            text.innerText = ' ' + newText + ' '
+            // imposto l'opacità a zero per non vederlo subito
+            clone.style.opacity = 0
+            clone.style.position = 'absolute'
+
+            container.appendChild(clone)
+
+            // inizializzo l'animazione
+            let master = new TimelineMax({
+                paused: true
+            })
+
+            master.fromTo(el, .3, {
+                autoAlpha: 1,
+                position: 'relative',
+            }, {
+                autoAlpha: 0,
+                position: 'absolute',
+            }, 0)
+
+            master.fromTo(clone, .3, {
+                autoAlpha: 0,
+                position: 'absolute',
+            }, {
+                autoAlpha: 1,
+                position: 'relative',
+            }, 0)
+
+            // effettuo il preload per avere un animazione più fluida
+            master.progress(1).progress(0)
+                .eventCallback('onComplete', () => {
+                    // aggiungo un callback quando l'animazione è finita
+                    // per rimuovere il testo originale e re-imposto la variabile
+                    // globale su false per procedere con le altre animazioni in coda
+                    container.removeChild(el)
+                    this.$nextTick(() => {
+                        this.isAnimating = false
+                        // lancio cacheAnimation per rimuovere dalla coda la
+                        // animazione appena conclusa
+                        this.cacheAnimation(false, null, uuid)
+                    })
+                })
+
+            // ritorno l'animazione pre-caricata per avviarla da cachedPlay()
+            return master
+        },
+        cacheAnimation: function(adding = true, text = null, uuid) {
+            if (adding) {
+                // genera l'oggetto da aggiungere in coda ma non l'animazione
+                // altrimenti il clone potrebbe non esistere o non essere lo stesso
+                // quando finisce l'animazione
+                let obj = {
+                    uuid: uuid,
+                    text: text,
+                }
+                this.animCache.push(obj)
+            } else {
+                // se deve rimuovere l'animazione conclusa dalla cache,
+                // la cerca attraverso uuid e poi la elimina
+                let idx = this.animCache.findIndex(obj => obj.uuid == uuid)
+                if (idx > -1) {
+                    this.animCache.splice(idx, 1)
+                    // se la coda ha altre animazioni da fare fa partire la
+                    // riproduzione o genera una nuova animazione attraverso
+                    // cachedPlay()
+                    if (this.animCache.length > 0 && !this.isAnimating) {
+                        this.cachedPlay(this.animCache[0])
+                    }
+                }
             }
 
-            if (!this.initialized && this.ready.estetica && this.ready.odontoiatria) {
+            // se non ci sono animazioni e la cache contiene delle animazione avvia la riproduzione
+            if (!this.isAnimating) {
+                if (this.animCache.length > 0 && adding) {
+                    this.cachedPlay(this.animCache[0])
+                }
+            }
+        },
+        cachedPlay: function(obj) {
+            // se l'oggetto ha l'animazione allora riproduce la timeline
+            if (obj.hasOwnProperty('animation')) {
+                // imposta la variabile globale su true
+                this.isAnimating = true
+                // poi fa partire la riproduzione
+                this.$nextTick(() => {
+                    obj.animation.play()
+                })
+            } else {
+                // altrimenti ne genera una con le caratteristiche scelte
+                // e poi la riproduce
+                let animation = this.generateAnimation(obj.text, obj.uuid)
+                let newobj = {
+                    ...obj,
+                    animation: animation
+                }
+                this.cachedPlay(newobj)
+            }
+        },
+        imagesReady: function() {
+            if (!this.initialized) {
                 this.getGalleryHeight()
                 this.$root.swiperInitialized = true
             }
-
         },
         getGalleryHeight: function() {
-            let odontoiatra = this.$refs.odontoiatra
-            let estetica = this.$refs.estetica
+            let odontoiatra = this.$refs.gallery
             let mainContainer = this.$refs.galleries
 
             let rectO = odontoiatra.getBoundingClientRect()
-            let rectE = estetica.getBoundingClientRect()
             let rectMain = mainContainer.getBoundingClientRect()
 
             this.galleries[0].h = rectO.height
             this.galleries[0].w = rectO.width
-            this.galleries[1].h = rectE.height
-            this.galleries[1].w = rectE.width
             this.mainCHeight = rectMain.height
 
-
             let actionO = this.$refs.action_o
-            let actionE = this.$refs.action_e
 
-            TweenLite.set([odontoiatra, estetica], {
+            TweenLite.set(odontoiatra, {
                 height: 0,
                 autoAlpha: 0,
                 transformOrigin: 'center bottom 0',
             })
 
-            TweenLite.set([actionO, actionE], {
+            TweenLite.set(actionO, {
                 autoAlpha: 0,
             })
 
             this.$nextTick(() => {
-                let odontoiatraC = this.$refs.odontoiatraContainer
-                let esteticaC = this.$refs.esteticaContainer
-
+                let odontoiatraC = this.$refs.galleryContainer
                 let rectOC = odontoiatraC.getBoundingClientRect()
-                let rectEC = esteticaC.getBoundingClientRect()
 
-                this.galleries[2].h = rectOC.height
-                this.galleries[2].w = rectOC.width
-                this.galleries[3].h = rectEC.height
-                this.galleries[3].w = rectEC.width
+                this.galleries[1].h = rectOC.height
+                this.galleries[1].w = rectOC.width
 
                 let master = new TimelineMax()
                 master.fromTo(mainContainer, .5, {
@@ -204,14 +299,11 @@ export default {
         resetAnim: function() {
 
             this.hasListener = true
-            let odontoiatra = this.$refs.odontoiatra
-            let estetica = this.$refs.estetica
+            let odontoiatra = this.$refs.gallery
             let mainContainer = this.$refs.galleries
             let icon = this.$refs.icon.$el
-            let odontoiatraC = this.$refs.odontoiatraContainer
-            let esteticaC = this.$refs.esteticaContainer
+            let odontoiatraC = this.$refs.galleryContainer
             let actionO = this.$refs.action_o
-            let actionE = this.$refs.action_e
 
 
             if (this.master) {
@@ -225,7 +317,7 @@ export default {
                         opacity: 0,
                         transformOrigin: 'center top 0',
                     })
-                    TweenLite.set([odontoiatra, estetica], {
+                    TweenLite.set(odontoiatra, {
                         height: 'auto',
                         autoAlpha: 1,
                         transformOrigin: 'center bottom 0',
@@ -234,24 +326,20 @@ export default {
                         clearProps: 'all'
                     })
 
-                    TweenLite.set([actionO, actionE], {
+                    TweenLite.set(actionO, {
                     })
 
                     TweenLite.set([
                             odontoiatra,
-                            estetica,
                             mainContainer,
                             icon,
                             odontoiatraC,
-                            esteticaC,
                             actionO,
-                            actionE
                         ], {
                             clearProps: 'all'
                         })
 
                     this.$nextTick(() => {
-                        this.$refs.galleryE.swiper.update()
                         this.$refs.galleryO.swiper.update()
                         this.getGalleryHeight()
                     })
@@ -262,10 +350,9 @@ export default {
         },
         initAnim: function() {
             let icon = this.$refs.icon.$el
-            let el = this.$refs.odontoiatra
-            let container = this.$refs.odontoiatraContainer
+            let el = this.$refs.gallery
+            let container = this.$refs.galleryContainer
             let actionO = this.$refs.action_o
-            let actionE = this.$refs.action_e
 
 
             this.master = new TimelineMax({
@@ -309,19 +396,10 @@ export default {
                 ease: this.ease_2,
             }, 0)
 
-            this.master.fromTo(actionE, .6, {
-                autoAlpha: 0,
-                yPercent: -80,
-                zIndex: 0,
-                ease: Back.easeIn,
-            }, {
-                autoAlpha: 1,
-                yPercent: 0,
-                zIndex: 1,
-                ease: Back.easeOut,
-            }, .2)
-
             this.master.progress(1).progress(0)
+
+            // debug
+            this.toggle()
         },
         generateMainClose: function(timeline, el, height, scale, duration) {
             let invscale = 1 / scale
@@ -350,6 +428,7 @@ export default {
                 let containerHeight = h + hC + (padding * 5)
                 let containerWidth = wC + (padding * 4)
 
+
                 let galleryEl = el.getElementsByClassName('studio-images')[0]
 
                 let otherHC = 0
@@ -358,8 +437,7 @@ export default {
                 }
 
                 let mainContainer = this.$refs.galleries
-                let mainCH = this.mainCHeight + (padding * 5) + hC + otherHC - h
-
+                let mainCH = this.mainCHeight + (padding * 5) + hC + otherHC
 
                 let gallery = new TimelineMax({
                     paused: true,
@@ -508,42 +586,26 @@ export default {
             } else {
                 this.open = true
             }
-            let el = this.$refs.odontoiatra
-            let container = this.$refs.odontoiatraContainer
+            let el = this.$refs.gallery
+            let container = this.$refs.galleryContainer
 
 
             if (this.opened) {
                 let open = this.opened
                 this.openGallery(open.el, open.container, open.h, open.hC, open.wC, null, false)
-                this.openGallery(el, container, this.galleries[0].h, this.galleries[2].h, this.galleries[2].w, 3)
+                this.openGallery(el, container, this.galleries[0].h, this.galleries[1].h, this.galleries[1].w, 3)
                 this.counter = this.counter + 2
 
             } else {
-                this.openGallery(el, container, this.galleries[0].h, this.galleries[2].h, this.galleries[2].w, 3)
-                this.counter = this.counter + 1
-
-            }
-        },
-        openEstetica: function() {
-            this.open = true
-            let el = this.$refs.estetica
-            let container = this.$refs.esteticaContainer
-
-            if (this.opened) {
-                let open = this.opened
-                this.openGallery(open.el, open.container, open.h, open.hC, open.wC, null, false)
-                this.openGallery(el, container, this.galleries[1].h, this.galleries[3].h, this.galleries[3].w, 2)
-                this.counter = this.counter + 2
-            } else {
-                this.openGallery(el, container, this.galleries[1].h, this.galleries[3].h, this.galleries[3].w, 2)
+                this.openGallery(el, container, this.galleries[0].h, this.galleries[1].h, this.galleries[1].w, 3)
                 this.counter = this.counter + 1
 
             }
         },
         toggle: function(event, reset = false) {
             return new Promise(resolve => {
-                let el = this.$refs.odontoiatra
-                let container = this.$refs.odontoiatraContainer
+                let el = this.$refs.gallery
+                let container = this.$refs.galleryContainer
 
                 if (this.master) {  // se l'animazioni è stata inizializzata
                     if (!this.open) {
@@ -551,7 +613,7 @@ export default {
                         if (reset) {
                             resolve()
                         } else {
-                            this.openGallery(el, container, this.galleries[0].h, this.galleries[2].h, this.galleries[2].w, 3).then(() => {
+                            this.openGallery(el, container, this.galleries[0].h, this.galleries[1].h, this.galleries[1].w, 3).then(() => {
                                 resolve()
                             })
                             this.master.progress(0).play()
@@ -605,7 +667,7 @@ export default {
     width: 100%;
     // max-width: 1100px;
     // min-height: 400px;
-    opacity: 0;
+    opacity: 1;
 
     display: flex;
     flex-direction: column;
@@ -684,9 +746,18 @@ export default {
 
 .gallery-select {
     position: relative;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     // padding-top: $spacer * 3/2;
+
+    &__container {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
 
     &__dot {
         display: block;

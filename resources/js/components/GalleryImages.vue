@@ -3,7 +3,8 @@
         :options="swiperOption"
         ref="Swiper"
         @ready="init"
-        @imagesReady="imagesReady">
+        @imagesReady="imagesReady"
+        @slideChange="slideChange">
         <!-- slides -->
         <swiper-slide
             v-for="(item, i) in this.items"
@@ -35,7 +36,11 @@ export default {
         single: {
             type: Boolean,
             default: false,
-        }
+        },
+        listenChange: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         swiper: function() {
@@ -60,6 +65,16 @@ export default {
         init: function() {
             this.$emit('ready')
         },
+        slideChange: function() {
+            let idx = null
+            if (this.listenChange) {
+                this.$nextTick(() => {
+                    idx = this.swiper.realIndex
+                    let item = this.items[idx]
+                    this.$emit('slide-change', item)
+                })
+            }
+        }
     },
     mounted: function() {
     },
