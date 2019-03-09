@@ -252,7 +252,7 @@ export default {
             let inEase = this.ease_3
             let invscale = 1 / scale
 
-            console.log('total', duration + durationFaster );
+            // console.log('total', duration + durationFaster );
 
             let startColor = '#b1c5cf'
             let endColor = '#dcba80'
@@ -1003,7 +1003,7 @@ export default {
         justify-content: center;
         align-items: flex-start;
 
-        border-width: 3px;
+        border-width: 5px;
         border-style: solid;
         border-color: #dda48f;
 
