@@ -22,7 +22,11 @@
                 <div class="gallery-select gallery-select--blue" ref="action_o">
                     <div class="gallery-select__container">
                         <span class="gallery-select__dot">•</span>
-                        <span class="gallery-select__text"> {{ galleryText }} </span>
+                        <div class="gallery-select__text-container">
+                            <div class="gallery-select__text-frame">
+                                <span class="gallery-select__text"> {{ galleryText }} </span>
+                            </div>
+                        </div>
                         <span class="gallery-select__dot">•</span>
                     </div>
                 </div>
@@ -59,10 +63,10 @@ export default {
                 { img: '/img/medicina_estetica_03.jpg', type: 'estetica' },
             ],
             baseEase: Sine.easeInOut,
-            ease_2: Sine.easeInOut,
+            ease_2: Back.easeInOut.config(1.1),
             ease_3: Back.easeOut.config(1.1),
             ease_4: Back.easeIn.config(1.1),//Back.easeInOut.config(1.1),
-            ease_5: Back.easeInOut,
+            ease_5: Power4.easeInOut,
             open: false,
             opened: null,
             master: null,
@@ -89,6 +93,10 @@ export default {
             isAnimating: false,
             animCache: [],
             testCounter: 0,
+            colors: [
+                'blue',
+                'yellow'
+            ],
         }
     },
     methods: {
@@ -102,28 +110,71 @@ export default {
             if (item.type == 'odontoiatria' && this.galleryTextCache != 'odontoiatria') {
                 this.galleryTextCache = 'odontoiatria'
 
-                let uuid = this.uuid()
-                this.cacheAnimation(true, 'Odontoiatria', uuid, 'blue')
+                // let uuid = this.uuid()
+                // this.cacheAnimation(true, 'Odontoiatria', uuid, 'blue')
 
             } else if (item.type == 'estetica' && this.galleryTextCache != 'estetica') {
                 this.galleryTextCache = 'estetica'
 
-                let uuid = this.uuid()
-                this.cacheAnimation(true, 'Medicina Estetica', uuid, 'yellow')
+                // let uuid = this.uuid()
+                // this.cacheAnimation(true, 'Medicina Estetica', uuid, 'yellow')
             }
 
 
-            // let uuid = this.uuid()
-            // this.cacheAnimation(true, Math.random(), uuid)
+            let uuid = this.uuid()
+            let colorId
+
+            if (this.testCounter == 0) {
+                colorId = 1
+
+            } else {
+                colorId = 0
+            }
+
+            this.testCounter = colorId
+            this.cacheAnimation(true, Math.random(), uuid, this.colors[colorId])
         },
         generateAnimation: function(obj) {
             let newText = obj.text
             let uuid = obj.uuid
             let color = obj.color
-
             let container = this.$refs.action_o
             let el = container.getElementsByClassName('gallery-select__container')[0]
+            let clone = el.cloneNode(true)
+
+
+            let elTextC = el.getElementsByClassName('gallery-select__text-container')[0]
+            let elTextF = el.getElementsByClassName('gallery-select__text-frame')[0]
+            let elText = el.getElementsByClassName('gallery-select__text')[0]
+
             let elHeight = el.getBoundingClientRect().height
+
+            let dots = el.getElementsByClassName('gallery-select__dot')
+            let dotL = dots[0]
+            let dotR = dots[1]
+            let dotLRect = dotL.getBoundingClientRect()
+            let dotRRect = dotR.getBoundingClientRect()
+
+            let elTextCRect = elTextC.getBoundingClientRect()
+            let elTextW = elTextCRect.width
+
+
+
+            elTextC.style.position = 'relative'
+            elTextC.style.overflow = 'hidden'
+            elTextC.style.width = elTextW + 'px'
+            elTextC.style.height = elTextCRect.height + 'px'
+
+            elTextF.style.position = 'absolute'
+            elTextF.style.overflow = 'hidden'
+            elTextF.style.height = elTextCRect.height + 'px'
+            elTextF.style.width = elTextW + 'px'
+
+            elText.style.display = 'inline-block'
+            elText.style.position = 'absolute'
+            elText.style.width = elTextW + 'px'
+
+            let textMid = elTextCRect.left - elTextCRect.right
 
             // imposto un'altezza minima all container per evitare degli scatti
             // quando passo da posizione assoluta a relativa
@@ -131,27 +182,73 @@ export default {
             container.style.minHeight = elHeight + 'px'
 
             // genera il nuovo elemento da sostituire
-            let clone = el.cloneNode(true)
             let text = clone.getElementsByClassName('gallery-select__text')[0]
             text.innerText = ' ' + newText + ' '
+
             // imposto l'opacità a zero per non vederlo subito
             clone.classList.remove('gallery-select--blue', 'gallery-select-yellow')
             clone.classList.add('gallery-select--'+color)
 
             clone.style.opacity = 0
             clone.style.position = 'absolute'
-
+            clone.style.overflow = 'hidden'
             container.appendChild(clone)
 
+            let elTextCC = clone.getElementsByClassName('gallery-select__text-container')[0]
+            let elTextFC = clone.getElementsByClassName('gallery-select__text-frame')[0]
+            let elTextClone = clone.getElementsByClassName('gallery-select__text')[0]
+
+            let dotsC = clone.getElementsByClassName('gallery-select__dot')
+            let dotCL = dotsC[0]
+            let dotCR = dotsC[1]
+            let dotCLRect = dotCL.getBoundingClientRect()
+            let dotCRRect = dotCR.getBoundingClientRect()
+
+
+            let elTextCCRect = elTextCC.getBoundingClientRect()
+            let elTextWC = elTextCCRect.width
+
+
+            elTextCC.style.position = 'relative'
+            elTextCC.style.overflow = 'hidden'
+            elTextCC.style.width = elTextWC + 'px'
+            elTextCC.style.height = elTextCCRect.height + 'px'
+
+            elTextFC.style.position = 'absolute'
+            elTextFC.style.overflow = 'hidden'
+            elTextFC.style.height = elTextCCRect.height + 'px'
+            elTextFC.style.width = 0
+
+            elTextClone.style.display = 'inline-block'
+            elTextClone.style.position = 'absolute'
+            elTextClone.style.width = elTextWC + 'px'
+
+            let textMidC = elTextCCRect.left - elTextCCRect.right
+            let LCMid = dotCRRect.left - dotCLRect.left
+            let RCMid = dotCLRect.left - dotCRRect.left
+
+
+            let LxDelta = dotCLRect.left - dotLRect.left
+            let RxDelta = dotCRRect.left - dotRRect.left
+            let LMid = dotRRect.left - dotLRect.left
+            let RMid = dotLRect.left - dotRRect.left
+
             // inizializzo l'animazione
-            let scale = 0.9
+            let scale = 2
             let duration = .6
-            let baseEase = this.baseEase
-            let outEase = this.ease_4
+            let durationFaster = duration - (duration * 0.3)
+            let baseEase = this.ease_2
+            let outEase = this.ease_5
             let inEase = this.ease_3
             let invscale = 1 / scale
+
             let startColor = '#b1c5cf'
             let endColor = '#dcba80'
+
+            if (color == 'blue') {
+                startColor = '#dcba80'
+                endColor = '#b1c5cf'
+            }
 
             let master = new TimelineMax({
                 paused: true
@@ -161,50 +258,149 @@ export default {
                 position: 'absolute',
             })
 
-            master.fromTo(el, duration, {
+            // pallini vanno verso il centro
+            master.fromTo(dotL, durationFaster, {
+                x: 0,
+                ease: ExpoScaleEase.config(invscale, 1, baseEase),
+            }, {
+                x: LMid / 2,
+                ease: ExpoScaleEase.config(invscale, 1, baseEase),
+            }, 0)
+
+            master.fromTo(dotR, durationFaster, {
+                x: 0,
+                ease: ExpoScaleEase.config(invscale, 1, baseEase),
+            }, {
+                x: RMid / 2,
+                ease: ExpoScaleEase.config(invscale, 1, baseEase),
+            }, 0)
+
+            master.fromTo([dotL, dotR], duration, {
+                color: startColor,
+            }, {
+                color: endColor,
+            }, 0)
+
+            // testo a scomparsa centrale
+            master.fromTo(elTextF, duration, {
+                width: elTextW,
+                transformOrigin: 'center center',
+                ease: ExpoScaleEase.config(scale, 1, inEase),
+            }, {
+                width: 0,
+                transformOrigin: 'center center',
+                ease: ExpoScaleEase.config(scale, 1, inEase),
+            }, 0)
+
+            master.fromTo(elText, duration, {
+                x: 0,
+                ease: ExpoScaleEase.config(scale, 1, inEase),
+            }, {
+                x: textMid / 2,
+                ease: ExpoScaleEase.config(scale, 1, inEase),
+            }, 0)
+
+            master.fromTo(elText, durationFaster, {
+                opacity: 1,
+                ease: ExpoScaleEase.config(scale, 1, outEase),
+            }, {
+                opacity: 0,
+                ease: ExpoScaleEase.config(scale, 1, outEase),
+            }, 0)
+
+
+            master.fromTo([dotL, dotR, elTextF], .1, {
                 autoAlpha: 1,
-                ease: ExpoScaleEase.config(scale, 1, baseEase),
             }, {
                 autoAlpha: 0,
-                ease: ExpoScaleEase.config(scale, 1, baseEase),
-            }, .1)
+            },duration - .1)
 
-            master.fromTo(el, duration, {
-                y: 0,
-                ease: ExpoScaleEase.config(scale, 1, inEase),
-            }, {
-                y: 40,
-                ease: ExpoScaleEase.config(scale, 1, inEase),
-            }, .1)
+            master.addLabel('secondPart', durationFaster + .1)
+            master.addLabel('destroyOld', duration)
 
-            master.fromTo(clone, duration, {
+
+            // Clone
+
+            master.fromTo(clone, .1, {
                 autoAlpha: 0,
-                ease: ExpoScaleEase.config(scale, 1, baseEase),
             }, {
                 autoAlpha: 1,
-                ease: ExpoScaleEase.config(scale, 1, baseEase),
-            }, .1)
+            }, 'secondPart')
+
+            master.fromTo(dotCL, duration, {
+                x: LCMid / 2,
+                ease: ExpoScaleEase.config(invscale, 1, inEase),
+            }, {
+                x: 0,
+                ease: ExpoScaleEase.config(invscale, 1, inEase),
+            }, 'secondPart+=0.1')
+
+            master.fromTo(dotCR, duration, {
+                x: RCMid / 2,
+                ease: ExpoScaleEase.config(invscale, 1, inEase),
+            }, {
+                x: 0,
+                ease: ExpoScaleEase.config(invscale, 1, inEase),
+            }, 'secondPart+=0.1')
 
 
-            master.fromTo(clone, duration, {
-                y: -20,
+            master.fromTo(elTextFC, durationFaster, {
+                width: 0,
+                transformOrigin: 'center center',
+                ease: ExpoScaleEase.config(invscale, 1, outEase),
+            }, {
+                width: elTextWC,
+                transformOrigin: 'center center',
+                ease: ExpoScaleEase.config(invscale, 1, outEase),
+            }, 'secondPart+=0.1')
+
+
+            master.fromTo(elTextClone, durationFaster, {
+                x: textMidC / 2,
+                ease: ExpoScaleEase.config(invscale, 1, outEase),
+            }, {
+                x: 0,
+                ease: ExpoScaleEase.config(invscale, 1, outEase),
+            }, 'secondPart+=0.1')
+
+            master.fromTo(elTextClone, duration, {
+                opacity: 0,
                 ease: ExpoScaleEase.config(scale, 1, inEase),
             }, {
-                y: 0,
+                opacity: 1,
                 ease: ExpoScaleEase.config(scale, 1, inEase),
-            }, .1)
+            }, 'secondPart+=0.1')
 
 
             // effettuo il preload per avere un animazione più fluida
             master.progress(1).progress(0)
+
+                .addCallback(() => {
+                    container.removeChild(el)
+                }, 'destroyOld')
+
                 .eventCallback('onComplete', () => {
                     // aggiungo un callback quando l'animazione è finita
                     // per rimuovere il testo originale e re-imposto la variabile
                     // globale su false per procedere con le altre animazioni in coda
                     clone.style.position = 'relative'
+
+                    elTextCC.style.position = null
+                    elTextCC.style.overflow = null
+                    elTextCC.style.width = null
+                    elTextCC.style.height = null
+
+                    elTextFC.style.position = null
+                    elTextFC.style.overflow = null
+                    elTextFC.style.height = null
+                    elTextFC.style.width = null
+
+                    elTextClone.style.display = null
+                    elTextClone.style.position = null
+                    elTextClone.style.width = null
                     container.style.minHeight = null
 
-                    container.removeChild(el)
+                    // container.removeChild(el)
                     this.$nextTick(() => {
                         this.isAnimating = false
                         // lancio cacheAnimation per rimuovere dalla coda la
@@ -805,6 +1001,12 @@ export default {
     align-items: center;
     justify-content: center;
     // padding-top: $spacer * 3/2;
+
+    &__text-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     &__container {
         position: relative;
