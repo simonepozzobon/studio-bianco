@@ -1,6 +1,6 @@
 <template lang="html">
     <swiper
-        :options="swiperOption"
+        :options="swiperOptions"
         ref="Swiper"
         @ready="init"
         @imagesReady="imagesReady"
@@ -9,10 +9,12 @@
         <swiper-slide
             v-for="(item, i) in this.items"
             :key="i">
-            <gallery-slide :item="item" :single="single"/>
+            <gallery-slide
+                :item="item"
+                :single="single"/>
         </swiper-slide>
-        <div ref="prev" class="swiper-button-prev" slot="button-prev"></div>
-        <div ref="next" class="swiper-button-next" slot="button-next"></div>
+        <div ref="prev" class="swiper-button-prev" slot="button-prev" v-if="!single"></div>
+        <div ref="next" class="swiper-button-next" slot="button-next" v-if="!single"></div>
     </swiper>
 </template>
 
@@ -41,11 +43,24 @@ export default {
             type: Boolean,
             default: false,
         },
+        gutter: {
+            type: Number,
+            default: null,
+        }
     },
     computed: {
         swiper: function() {
             return this.$refs.Swiper.swiper
-        }
+        },
+        swiperOptions: function() {
+            if (this.gutter) {
+                return {
+                    ...this.swiperOption,
+                    spaceBetween: this.gutter
+                }
+            }
+            return this.swiperOption
+        },
     },
     data: function() {
         return {
@@ -117,6 +132,9 @@ export default {
     margin-left: 0;
     margin-right: 0;
 
+    &.is-single {
+        padding: inherit;
+    }
 
 }
 </style>

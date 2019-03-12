@@ -7,7 +7,7 @@
             <img :src="item.after.thumb" alt=""  class="img-fluid">
         </div>
     </div>
-    <div class="slide-container" v-else>
+    <div class="slide-container is-single" v-else>
         <div class="slide-single">
             <img :src="item.img" alt="" class="img-fluid">
         </div>
@@ -68,6 +68,7 @@ export default {
     // margin: $spacer;
     flex: 0 0 100%;
     max-width: 100%;
+    
 
     // @include media-breakpoint-down('md') {
     //     // border: 8px solid $white;

@@ -7,6 +7,15 @@
             </button>
         </div>
         <div class="studio-gallery" ref="galleries">
+            <div
+                class="studio-gallery__controller-left"
+                ref="controllerLeft">
+                <gallery-single-controller
+                    :direction="true"
+                    :width="this.padding"
+                    :is-disabled="leftControllerStatus"
+                    @slide-move="slideMove"/>
+            </div>
             <div class="studio-gallery__gallery" ref="galleryContainer">
                 <div class="studio-gallery__container" ref="gallery">
                     <gallery-images
@@ -15,6 +24,7 @@
                         :items="this.images"
                         :single="true"
                         :listen-change="true"
+                        :gutter="this.padding"
                         @slide-change="slideChange"
                         @ready="init"
                         @images-ready="imagesReady"/>
@@ -31,6 +41,15 @@
                     </div>
                 </div>
             </div>
+            <div
+                class="studio-gallery__controller-right"
+                ref="controllerRight">
+                <gallery-single-controller
+                    :direction="false"
+                    :width="this.padding"
+                    :is-disabled="rightControllerStatus"
+                    @slide-move="slideMove"/>
+            </div>
         </div>
     </div>
 </template>
@@ -39,6 +58,7 @@
 
 
 import GalleryImages from './GalleryImages.vue'
+import GallerySingleController from './GallerySingleController.vue'
 import { IconArrowDown } from '../ui'
 import CustomEase from 'gsap/CustomEase'
 // import GSDevTools from 'gsap/GSDevTools'
@@ -46,6 +66,7 @@ export default {
     name: 'StudioGallery',
     components: {
         GalleryImages,
+        GallerySingleController,
         IconArrowDown,
     },
     watch: {
@@ -104,6 +125,10 @@ export default {
                 'blue',
                 'yellow'
             ],
+            padding: 24,
+            paddingContainer: 24,
+            leftControllerStatus: true,
+            rightControllerStatus: false,
         }
     },
     methods: {
@@ -112,6 +137,38 @@ export default {
             return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
                 (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
             )
+        },
+        checkControllersInit: function() {
+
+        },
+        slideMove: function(direction = false) {
+            let swiper = this.$refs.galleryO.swiper
+            let slides = swiper.slides.length
+            let currentIdx = swiper.realIndex
+            if (direction) {
+                // go to previous
+                if (currentIdx <= 1) {
+                    this.leftControllerStatus = true
+                }
+
+                if (currentIdx <= (slides - 1)) {
+                    this.rightControllerStatus = false
+                }
+
+                swiper.slidePrev()
+
+            } else {
+                // go to next
+                if (currentIdx >= 0) {
+                    this.leftControllerStatus = false
+                }
+
+                if (currentIdx >= (slides - 2)) {
+                    this.rightControllerStatus = true
+                }
+
+                swiper.slideNext()
+            }
         },
         slideChange: function(item) {
             if (item.type == 'odontoiatria' && this.galleryTextCache != 'odontoiatria') {
@@ -164,8 +221,6 @@ export default {
 
             let elTextCRect = elTextC.getBoundingClientRect()
             let elTextW = elTextCRect.width
-
-
 
             elTextC.style.position = 'relative'
             elTextC.style.overflow = 'hidden'
@@ -402,15 +457,6 @@ export default {
             // effettuo il preload per avere un animazione più fluida
             master.progress(1).progress(0)
 
-                // .addCallback(() => {
-                //     // container.removeChild(el)
-                //     // master.pause()
-                // }, 'destroyOld')
-                // .addCallback(() => {
-                //     // console.log('bouncy balls');
-                //     // master.pause()
-                // }, 'bouncyBalls')
-
                 .eventCallback('onComplete', () => {
                     // aggiungo un callback quando l'animazione è finita
                     // per rimuovere il testo originale e re-imposto la variabile
@@ -610,9 +656,6 @@ export default {
                         clearProps: 'all'
                     })
 
-                    TweenLite.set(actionO, {
-                    })
-
                     TweenLite.set([
                             odontoiatra,
                             mainContainer,
@@ -634,8 +677,6 @@ export default {
         },
         initAnim: function() {
             let icon = this.$refs.icon.$el
-            let el = this.$refs.gallery
-            let container = this.$refs.galleryContainer
             let actionO = this.$refs.action_o
 
 
@@ -683,7 +724,7 @@ export default {
             this.master.progress(1).progress(0)
 
             // debug
-            // this.toggle()
+            this.toggle()
         },
         generateMainClose: function(timeline, el, height, scale, duration) {
             let invscale = 1 / scale
@@ -706,7 +747,10 @@ export default {
                 let baseEase = this.baseEase
                 let duration = 0.6
                 let invscale = 1 / scale
-                let padding = 24
+                let padding = this.padding
+                let paddingContainer = this.paddingContainer
+                let controllerLeft = this.$refs.controllerLeft
+                let controllerRight = this.$refs.controllerRight
                 // if (this.$root.window.w < 576) {
                 //     padding = 16
                 // }
@@ -762,7 +806,15 @@ export default {
                     ease: ExpoScaleEase.config(invscale, 1, this.baseEase),
                 }, 0)
 
-                gallery.fromTo(container, duration, {
+                gallery.fromTo([controllerRight, controllerLeft], duration, {
+                    autoAlpha: 0,
+                    ease: ExpoScaleEase.config(scale, 1, this.baseEase),
+                }, {
+                    autoAlpha: 1,
+                    ease: ExpoScaleEase.config(scale, 1, this.baseEase),
+                }, 0)
+
+                gallery.fromTo([container, controllerRight, controllerLeft], duration, {
                     height: hC,
                     backgroundColor: 'transparent',
                     ease: ExpoScaleEase.config(scale, 1, this.baseEase),
@@ -792,24 +844,24 @@ export default {
                     ease: ExpoScaleEase.config(scale, 1, this.baseEase),
                 }, 0)
 
-                let borderColor = invscale
-                let borderDuration = duration - .4
-
-                if (borderDuration <= .1) {
-                    borderDuration = .2
-                }
-
-                if (!direction) {
-                    borderColor = scale
-                }
-
-                gallery.fromTo(el, borderDuration, {
-                    borderColor: 'transparent',
-                    ease: ExpoScaleEase.config(borderColor, 1, this.baseEase),
-                }, {
-                    borderColor: '#dda48f',
-                    ease: ExpoScaleEase.config(borderColor, 1, this.baseEase),
-                }, .4)
+                // let borderColor = invscale
+                // let borderDuration = duration - .4
+                //
+                // if (borderDuration <= .1) {
+                //     borderDuration = .2
+                // }
+                //
+                // if (!direction) {
+                //     borderColor = scale
+                // }
+                //
+                // gallery.fromTo(el, borderDuration, {
+                //     borderColor: 'transparent',
+                //     ease: ExpoScaleEase.config(borderColor, 1, this.baseEase),
+                // }, {
+                //     borderColor: '#dda48f',
+                //     ease: ExpoScaleEase.config(borderColor, 1, this.baseEase),
+                // }, .4)
 
 
                 if (direction) {
@@ -936,7 +988,6 @@ export default {
         this.customEase = CustomEase.create("custom", "M0,0,C0,0,0.035,-0.003,0.055,-0.01,0.1,-0.027,0.129,-0.047,0.175,-0.063,0.193,-0.07,0.209,-0.074,0.227,-0.073,0.248,-0.071,0.269,-0.066,0.287,-0.054,0.309,-0.04,0.326,-0.02,0.342,0.002,0.363,0.033,0.374,0.058,0.39,0.094,0.41,0.142,0.421,0.172,0.435,0.224,0.477,0.392, 0.51,0.611,0.553,0.945,0.558,0.986,0.564,1.008,0.573,1.048,0.576,1.06,0.578,1.067,0.583,1.078,0.586,1.086,0.59,1.092,0.595,1.097,0.597,1.1,0.602,1.102,0.605,1.102,0.609,1.101,0.615,1.099,0.618,1.095,0.64,1.067,0.654,1.04,0.678,1.008,0.683,1.002,0.689,0.997,0.696,0.992,0.702,0.988,0.708,0.985,0.715,0.983,0.725,0.981,0.733,0.981,0.743,0.983,0.765,0.986,0.778,0.993,0.801,0.997,0.814,1,0.823,1.002,0.836,1.002,0.898,1.002,1,0.999,1,0.999")
         if (this.$root.swiperInitialized) {
             this.getGalleryHeight()
-
         }
     }
 }
@@ -953,17 +1004,30 @@ export default {
 
 .studio-gallery {
     width: 100%;
-    // max-width: 1100px;
-    // min-height: 400px;
     opacity: 0;
 
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    // flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 
     overflow: hidden;
     height: auto;
+
+    &__controller-right,
+    &__controller-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__controller-right {
+        padding-right: 24px;
+    }
+
+    &__controller-left {
+        padding-left: 24px;
+    }
 
     &__gallery {
         width: 85%;
