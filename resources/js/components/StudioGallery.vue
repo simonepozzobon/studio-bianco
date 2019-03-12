@@ -138,9 +138,6 @@ export default {
                 (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
             )
         },
-        checkControllersInit: function() {
-
-        },
         slideMove: function(direction = false) {
             let swiper = this.$refs.galleryO.swiper
             let slides = swiper.slides.length
@@ -724,7 +721,7 @@ export default {
             this.master.progress(1).progress(0)
 
             // debug
-            this.toggle()
+            // this.toggle()
         },
         generateMainClose: function(timeline, el, height, scale, duration) {
             let invscale = 1 / scale
