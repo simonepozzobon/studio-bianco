@@ -46,7 +46,7 @@ export default {
         gutter: {
             type: Number,
             default: null,
-        }
+        },
     },
     computed: {
         swiper: function() {

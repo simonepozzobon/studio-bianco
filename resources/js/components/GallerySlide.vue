@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="slide-container" v-if="!this.single">
+    <div class="slide-container slide-container-center" v-if="!this.single">
         <div class="slide-right with-filter">
             <img :src="item.before.thumb" alt="" class="img-fluid">
         </div>
@@ -68,7 +68,7 @@ export default {
     // margin: $spacer;
     flex: 0 0 100%;
     max-width: 100%;
-    
+
 
     // @include media-breakpoint-down('md') {
     //     // border: 8px solid $white;

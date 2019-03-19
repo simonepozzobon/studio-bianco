@@ -125,7 +125,7 @@ export default {
                 'blue',
                 'yellow'
             ],
-            padding: 24,
+            padding: 0,
             paddingContainer: 24,
             leftControllerStatus: true,
             rightControllerStatus: false,
@@ -721,7 +721,7 @@ export default {
             this.master.progress(1).progress(0)
 
             // debug
-            // this.toggle()
+            this.toggle()
         },
         generateMainClose: function(timeline, el, height, scale, duration) {
             let invscale = 1 / scale
@@ -1039,6 +1039,11 @@ export default {
 
         overflow: hidden;
         height: auto;
+        padding-top: $spacer;
+        padding-left: $spacer;
+        padding-right: $spacer;
+        padding-bottom: 0;
+
 
         @include media-breakpoint-down('xxl') {
             width: 50%; // da rivedere per responsive
@@ -1059,6 +1064,7 @@ export default {
         position: relative;
         width: 100%;
         height: 100%;
+        margin-top: $spacer * 2;
 
         display: flex;
         justify-content: center;
@@ -1084,7 +1090,7 @@ export default {
         height: 100%;
 
         .swiper-button-prev {
-            left: 0% !important;
+            right: 2% !important;
         }
 
         .swiper-button-next {
@@ -1101,7 +1107,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // padding-top: $spacer * 3/2;
+    padding-top: $spacer * 3/2;
 
     &__text-container {
         display: flex;

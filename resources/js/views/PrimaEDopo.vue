@@ -92,7 +92,7 @@ export default {
                 this.$refs.containerEstetica.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
                 this.$refs.containerOdontoiatria.style.paddingTop = this.$root.navbarHeight + 30 + 'px'
             } else {
-                this.$refs.containerEstetica.style.paddingTop = 0
+                this.$refs.containerEstetica.style.paddingTop = this.$root.navbarHeight + 'px'
                 this.$refs.containerOdontoiatria.style.paddingTop = 0
             }
 
@@ -114,28 +114,30 @@ export default {
 
 
                 if (contentHeight <= windowHeight) {
-                    this.$refs.estetica.style.position = 'relative'
-                    this.$refs.panelEstetica.style.top = '5vh'
-                    this.$refs.panelOdontoiatria.style.top = '5vh'
-
-                    elEstetica.style.height = null
-                    elOdontoiatria.style.height = null
-                    galleryEstetica.style.height = null
-                    galleryOdontoiatria.style.height = null
+                    // this.$refs.estetica.style.position = 'relative'
+                    this.$refs.estetica.style.justifyContent = 'flex-start'
+                    // this.$refs.panelEstetica.style.top = '5vh'
+                    // this.$refs.panelOdontoiatria.style.top = '5vh'
+                    //
+                    // elEstetica.style.height = null
+                    // elOdontoiatria.style.height = null
+                    // galleryEstetica.style.height = null
+                    // galleryOdontoiatria.style.height = null
 
                 } else {
-                    this.$refs.estetica.style.position = null
-                    this.$refs.panelEstetica.style.top = null
-                    this.$refs.panelOdontoiatria.style.top = null
-                    // console.log('va regolata la dimensione')
-
-                    let hDiv = this.$refs.hDiv.offsetHeight + 16
-                    let vDiv = this.$refs.vDiv.offsetHeight + 32
-                    let title = this.$refs.title.offsetHeight + 8
-                    let subtitle = this.$refs.subtitle.offsetHeight
-
-                    let headingHeight = hDiv + vDiv + title + subtitle
-                    let delta = windowHeight - headingHeight - (16 * 4 * 2) - 200
+                    this.$refs.estetica.style.justifyContent = 'center'
+                    // this.$refs.estetica.style.position = null
+                    // this.$refs.panelEstetica.style.top = null
+                    // this.$refs.panelOdontoiatria.style.top = null
+                    // // console.log('va regolata la dimensione')
+                    //
+                    // let hDiv = this.$refs.hDiv.offsetHeight + 16
+                    // let vDiv = this.$refs.vDiv.offsetHeight + 32
+                    // let title = this.$refs.title.offsetHeight + 8
+                    // let subtitle = this.$refs.subtitle.offsetHeight
+                    //
+                    // let headingHeight = hDiv + vDiv + title + subtitle
+                    // let delta = windowHeight - headingHeight - (16 * 4 * 2) - 200
 
                     // elEstetica.style.height = delta + 'px'
                     // elOdontoiatria.style.height = delta + 'px'
@@ -146,12 +148,13 @@ export default {
                 }
 
             } else {
-                this.$refs.estetica.style.position = null
-
-                elEstetica.style.height = null
-                elOdontoiatria.style.height = null
-                galleryEstetica.style.height = null
-                galleryOdontoiatria.style.height = null
+                this.$refs.estetica.style.justifyContent = 'center'
+                // this.$refs.estetica.style.position = null
+                //
+                // elEstetica.style.height = null
+                // elOdontoiatria.style.height = null
+                // galleryEstetica.style.height = null
+                // galleryOdontoiatria.style.height = null
             }
         },
     },

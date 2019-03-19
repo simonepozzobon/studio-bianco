@@ -1,7 +1,7 @@
 <template lang="html">
     <div class="gallery-container">
         <gallery-images
-            class="gallery-images"
+            class="gallery-images gallery-images-center"
             :items="items"/>
 
         <gallery-background
@@ -74,7 +74,12 @@ export default {
             border-width: 8px;
         }
 
-
+        &.gallery-images-center {
+            .swiper-slide {
+                display: flex;
+                align-items: center;
+            }
+        }
     }
 
     .gallery-bg {

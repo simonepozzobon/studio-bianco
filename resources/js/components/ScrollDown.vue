@@ -114,8 +114,9 @@ export default {
         goTo: function() {
             TweenMax.to(window, .6, {
                 scrollTo: {
-                    offsetY: (this.$root.navbarFullHeight + 20),
+                    offsetY: 0,
                     y: this.scroll_to,
+                    autoKill: false,
                 },
                 ease: Power2.easeInOut,
             })
