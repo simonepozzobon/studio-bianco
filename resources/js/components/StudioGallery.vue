@@ -12,7 +12,7 @@
                 ref="controllerLeft">
                 <gallery-single-controller
                     :direction="true"
-                    :width="this.padding"
+                    :width="this.paddingContainer"
                     :is-disabled="leftControllerStatus"
                     @slide-move="slideMove"/>
             </div>
@@ -46,7 +46,7 @@
                 ref="controllerRight">
                 <gallery-single-controller
                     :direction="false"
-                    :width="this.padding"
+                    :width="this.paddingContainer"
                     :is-disabled="rightControllerStatus"
                     @slide-move="slideMove"/>
             </div>
@@ -754,7 +754,7 @@ export default {
 
                 let galleryHeight = h + (padding * 3)
                 let containerHeight = h + hC + (padding * 5)
-                let containerWidth = wC + (padding * 4)
+                let containerWidth = wC - (this.paddingContainer * 2) + (padding * 4)
 
 
                 let galleryEl = el.getElementsByClassName('studio-images')[0]
@@ -1020,10 +1020,12 @@ export default {
 
     &__controller-right {
         padding-right: 24px;
+        padding-left: 24px;
     }
 
     &__controller-left {
         padding-left: 24px;
+        padding-right: 24px;
     }
 
     &__gallery {
@@ -1064,7 +1066,7 @@ export default {
         position: relative;
         width: 100%;
         height: 100%;
-        margin-top: $spacer * 2;
+        margin-top: $spacer * 4;
 
         display: flex;
         justify-content: center;
@@ -1090,7 +1092,7 @@ export default {
         height: 100%;
 
         .swiper-button-prev {
-            right: 2% !important;
+            left: 0% !important;
         }
 
         .swiper-button-next {
