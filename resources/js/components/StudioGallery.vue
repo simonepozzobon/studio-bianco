@@ -721,7 +721,7 @@ export default {
             this.master.progress(1).progress(0)
 
             // debug
-            this.toggle()
+            // this.toggle()
         },
         generateMainClose: function(timeline, el, height, scale, duration) {
             let invscale = 1 / scale
