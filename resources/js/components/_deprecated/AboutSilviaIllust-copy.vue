@@ -4,7 +4,7 @@
 
 <script>
 import lottie from 'lottie-web'
-import * as Silvia from '../animations/silvia.json'
+// import * as Silvia from '../animations/silvia.json'
 
 export default {
     name: 'AboutSilviaIllust',
@@ -25,6 +25,11 @@ export default {
     watch: {
         loaded: function(value) {
             this.animate()
+        },
+        '$root.animations.studio': function(data) {
+            if (data) {
+                this.init()
+            }
         }
     },
     methods: {
@@ -32,18 +37,20 @@ export default {
             this.play()
         },
         init: function() {
-            this.anim = lottie.loadAnimation({
-                container: this.$refs.anim,
-                renderer: 'svg',
-                loop: false,
-                autoplay: true,
-                animationData: Silvia,
-                name: 'Silvia'
-            })
+            if (this.$root.animations['studio']) {
+                this.anim = lottie.loadAnimation({
+                    container: this.$refs.anim,
+                    renderer: 'svg',
+                    loop: false,
+                    autoplay: true,
+                    animationData: this.$root.animations['studio'],
+                    name: 'Silvia'
+                })
 
-            this.anim.setSpeed(this.speed)
-            this.anim.pause()
-            this.loaded = true
+                this.anim.setSpeed(this.speed)
+                this.anim.pause()
+                this.loaded = true
+            }
         },
         play: function() {
             this.anim.play()

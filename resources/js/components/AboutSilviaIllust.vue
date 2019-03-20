@@ -4,7 +4,7 @@
 
 <script>
 import lottie from 'lottie-web'
-import * as Silvia from '../animations/silvia2.json'
+// import * as Silvia from '../animations/silvia2.json'
 
 import ScrollMagic from 'scrollmagic'
 // import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
@@ -52,6 +52,11 @@ export default {
                     this.anim.play()
                 }
             }
+        },
+        '$root.animations.silvia2': function(data) {
+            if (data) {
+                this.load()
+            }
         }
     },
     methods: {
@@ -89,20 +94,22 @@ export default {
                 if (this.anim) {
                     this.anim.destroy()
                 }
-                this.anim = lottie.loadAnimation({
-                    container: this.$refs.illust,
-                    renderer: 'svg',
-                    loop: true,
-                    autoplay: false,
-                    animationData: Silvia,
-                    name: 'Silvia'
-                })
+                if (this.$root.animation['silvia2']) {
+                    this.anim = lottie.loadAnimation({
+                        container: this.$refs.illust,
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: false,
+                        animationData: this.$root.animation['silvia2'],
+                        name: 'Silvia'
+                    })
 
-                this.anim.addEventListener('enterFrame', () => {
-                    this.repeat()
-                })
+                    this.anim.addEventListener('enterFrame', () => {
+                        this.repeat()
+                    })
 
-                resolve()
+                    resolve()
+                }
             })
         },
         repeat: function() {

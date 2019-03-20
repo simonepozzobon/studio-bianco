@@ -4,7 +4,7 @@
 
 <script>
 import lottie from 'lottie-web'
-import * as Paura from '../animations/strumenti.json'
+// import * as Paura from '../animations/strumenti.json'
 
 import ScrollMagic from 'scrollmagic'
 // import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
@@ -43,6 +43,11 @@ export default {
                     this.controller.destroy()
                 }
             }
+        },
+        '$root.animations.strumenti': function(data) {
+            if (data) {
+                this.load()
+            }
         }
     },
     methods: {
@@ -51,20 +56,22 @@ export default {
                 if (this.anim) {
                     this.anim.destroy()
                 }
-                this.anim = lottie.loadAnimation({
-                    container: this.$refs.illust,
-                    renderer: 'svg',
-                    loop: true,
-                    autoplay: true,
-                    animationData: Paura,
-                    name: 'Studio'
-                })
+                if (this.$root.animations['strumenti']) {
+                    this.anim = lottie.loadAnimation({
+                        container: this.$refs.illust,
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        animationData: this.$root.animations['strumenti'],
+                        name: 'Studio'
+                    })
 
-                this.anim.addEventListener('enterFrame', () => {
-                    this.repeat()
-                })
-                this.anim.play()
-                resolve()
+                    this.anim.addEventListener('enterFrame', () => {
+                        this.repeat()
+                    })
+                    this.anim.play()
+                    resolve()
+                }
             })
         },
         repeat: function() {

@@ -4,7 +4,7 @@
 
 <script>
 import lottie from 'lottie-web'
-import * as Studio from '../animations/studio.json'
+// import * as Studio from '../animations/studio.json'
 
 import ScrollMagic from 'scrollmagic'
 // import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
@@ -44,6 +44,11 @@ export default {
                     this.controller.destroy()
                 }
             }
+        },
+        '$root.animations.studio': function(data) {
+            if (data) {
+                this.load()
+            }
         }
     },
     methods: {
@@ -52,24 +57,26 @@ export default {
                 if (this.anim) {
                     this.anim.destroy()
                 }
-                let illust = this.$refs.illust
-                let initialPadding = 4 * 16 // 4rem
-                illust.style.top = initialPadding + 'px'
+                if (this.$root.animations['studio']) {
+                    let illust = this.$refs.illust
+                    let initialPadding = 4 * 16 // 4rem
+                    illust.style.top = initialPadding + 'px'
 
-                this.anim = lottie.loadAnimation({
-                    container: this.$refs.illust,
-                    renderer: 'svg',
-                    loop: true,
-                    autoplay: true,
-                    animationData: Studio,
-                    name: 'Studio'
-                })
+                    this.anim = lottie.loadAnimation({
+                        container: this.$refs.illust,
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        animationData: this.$root.animations['studio'],
+                        name: 'Studio'
+                    })
 
-                this.anim.addEventListener('enterFrame', () => {
-                    this.repeat()
-                })
-                this.anim.play()
-                resolve()
+                    this.anim.addEventListener('enterFrame', () => {
+                        this.repeat()
+                    })
+                    this.anim.play()
+                    resolve()
+                }
             })
         },
         repeat: function() {
