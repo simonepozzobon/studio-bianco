@@ -37,6 +37,7 @@ export default {
         fadeOut: function() {
             TweenMax.set(window, {
                 scrollTo: 0,
+                autoKill: false,
             })
             TweenMax.to(this.$refs.illust, .3, {
                 autoAlpha: 0,

@@ -87,7 +87,7 @@
 import ContactIllust from '../components/ContactIllust.vue'
 import { IconMap, IconArrowDown } from '../ui'
 import { TimelineMax } from 'gsap'
-import ScrollToPlugin from 'gsap/ScrollToPlugin'
+require('gsap/ScrollToPlugin')
 
 export default {
     name: 'Contact',
@@ -162,6 +162,7 @@ export default {
                     this.master.to(window, .6, {
                         scrollTo: '#form-ref',
                         offsetY: 500,
+                        autoKill: false,
                         ease: Power2.easeInOut
                     })
 

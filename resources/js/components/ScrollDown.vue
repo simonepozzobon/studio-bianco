@@ -12,7 +12,7 @@
 
 <script>
 import {TweenMax} from 'gsap'
-import ScrollToPlugin from 'gsap/ScrollToPlugin'
+require('gsap/ScrollToPlugin')
 
 // import ScrollMagic from 'scrollmagic'
 // import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'

@@ -8,11 +8,20 @@
 require('./bootstrap');
 
 import Vue from 'vue'
+import * as Sentry from '@sentry/browser'
 import VueRouter from 'vue-router'
 import MainTemplate from './containers/MainTemplate.vue'
 import routes from './routes'
 import Cookie from './Cookies'
 import checkView from 'vue-check-view'
+
+Sentry.init({
+    dsn: 'https://3ed042c3491243f6a922b9f5ee4e949f@sentry.io/1419615',
+    integrations: [new Sentry.Integrations.Vue({
+        Vue,
+        attachProps: true
+    })]
+})
 
 Vue.use(VueRouter)
 Vue.use(checkView)

@@ -54,6 +54,7 @@ export default {
         '$route': function(to, from) {
             TweenLite.to(window, .2, {
                 scrollTo: 0,
+                autoKill: false,
                 ease: Power2.easeInOut,
             })
 

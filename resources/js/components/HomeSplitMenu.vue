@@ -24,7 +24,7 @@ import HomeHorizontalSep from './HomeHorizontalSep.vue'
 import HomeIllustLeft from './HomeIllustLeft.vue'
 import HomeIllustRight from './HomeIllustRight.vue'
 import { TimelineMax } from 'gsap'
-import ScrollToPlugin from 'gsap/ScrollToPlugin'
+require('gsap/ScrollToPlugin')
 
 export default {
     name: 'HomeSplitMenu',
