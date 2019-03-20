@@ -94,13 +94,13 @@ export default {
                 if (this.anim) {
                     this.anim.destroy()
                 }
-                if (this.$root.animation['silvia_illust']) {
+                if (this.$root.animations['silvia_illust']) {
                     this.anim = lottie.loadAnimation({
                         container: this.$refs.illust,
                         renderer: 'svg',
                         loop: true,
                         autoplay: false,
-                        animationData: this.$root.animation['silvia_illust'],
+                        animationData: this.$root.animations['silvia_illust'],
                         name: 'Silvia'
                     })
 
