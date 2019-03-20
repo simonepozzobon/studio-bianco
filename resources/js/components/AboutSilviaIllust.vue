@@ -4,7 +4,7 @@
 
 <script>
 import lottie from 'lottie-web'
-// import * as Silvia from '../animations/silvia2.json'
+// import * as Silvia from '../animations/silvia_illust.json'
 
 import ScrollMagic from 'scrollmagic'
 // import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
@@ -53,7 +53,7 @@ export default {
                 }
             }
         },
-        '$root.animations.silvia2': function(data) {
+        '$root.animations.silvia_illust': function(data) {
             if (data) {
                 this.load()
             }
@@ -94,13 +94,13 @@ export default {
                 if (this.anim) {
                     this.anim.destroy()
                 }
-                if (this.$root.animation['silvia2']) {
+                if (this.$root.animation['silvia_illust']) {
                     this.anim = lottie.loadAnimation({
                         container: this.$refs.illust,
                         renderer: 'svg',
                         loop: true,
                         autoplay: false,
-                        animationData: this.$root.animation['silvia2'],
+                        animationData: this.$root.animation['silvia_illust'],
                         name: 'Silvia'
                     })
 

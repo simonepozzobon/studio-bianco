@@ -66,7 +66,7 @@ const app = new Vue({
                 scultura_home: null,
                 dente_home: null,
                 quadri_medicina_estetica: null,
-                silvia2: null,
+                silvia_illust: null,
                 strumenti: null,
                 studio: null,
                 silvia: null
