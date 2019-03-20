@@ -16,12 +16,17 @@ export default {
     methods: {
         load: function() {
             return new Promise(resolve => {
+                // console.log(LogoAnim);
+                if (this.anim) {
+                    this.anim.destroy()
+                }
+
                 this.anim = lottie.loadAnimation({
                     container: this.$refs.illust,
                     renderer: 'svg',
                     loop: false,
                     autoplay: false,
-                    animationData: LogoAnim,
+                    animationData: LogoAnim.default,
                     name: 'LogoAnim'
                 })
 

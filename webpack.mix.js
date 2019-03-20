@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
+const section = process.env.SECTION
 
-if (process.env.section) {
-    require(path.resolve(__dirname)+`/webpack.${process.env.section}.mix.js`)
+if (section) {
+    require( path.resolve(__dirname) + `/webpack.${section}.mix.js` )
 }
