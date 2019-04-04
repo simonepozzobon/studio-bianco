@@ -8,6 +8,16 @@
         <title>Studio Bianco</title>
 
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137741602-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-137741602-1');
+        </script>
+
     </head>
     <body class="bg-dark">
         <div id="app">
