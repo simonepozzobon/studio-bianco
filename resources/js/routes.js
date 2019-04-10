@@ -18,7 +18,14 @@ const routes = [
     {
         path: '/odontoiatria',
         name: 'odontoiatria',
-        component: require('./views/Odontoiatria.vue').default
+        component: require('./views/Odontoiatria.vue').default,
+        children: [
+            {
+                path: ':slug',
+                name: 'odontoiatria-accordion',
+                component: require('./views/Odontoiatria.vue').default,
+            }
+        ]
     },
     {
         path: '/medicina-estetica',

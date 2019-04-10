@@ -8,12 +8,27 @@
                     <h1 class="odontoiatria-title" ref="title">Servizi</h1>
                     <span class="odontoiatria-subtitle">Odontoiatria</span>
                     <div class="odontoiatria-v-div"></div>
-                    <accordion
-                        :items="services"
-                        @panel-open="panelOpen"
-                        @panel-close="panelClose"
-                        @panel-height-changed="panelChange"
-                        @remove-height="removeHeight"/>
+
+                    <ui-accordion
+                        :scroll-on-complete="false"
+                        :is-dynamic="false">
+                        <ui-accordion-single
+                            v-for="(service, i) in services"
+                            :idx="service.id"
+                            :color-heading="i | isEven"
+                            :key="service.id">
+                            <template v-slot:title>
+                                {{ service.title }}
+                            </template>
+                            <template v-slot:content>
+                                <h3>{{ service.title }}</h3>
+                                <home-horizontal-sep width="50px" color="#e5c386" class="pb-3"/>
+                                <div v-html="service.description">
+                                </div>
+                            </template>
+                        </ui-accordion-single>
+                    </ui-accordion>
+
                     <scroll-down
                         ref="scrollDown"
                         color="blue"
@@ -46,15 +61,21 @@ import Parcelle from '../components/Parcelle.vue'
 import ScrollDown from '../components/ScrollDown.vue'
 // import services from '../dummies/services'
 
+import HomeHorizontalSep from '../components/HomeHorizontalSep.vue'
+import { UiAccordion, UiAccordionSingle } from '../ui'
+
 export default {
     name: 'Odontoiatria',
     components: {
         Accordion,
         Convenzioni,
+        HomeHorizontalSep,
         MainFooter,
         OdontoiatriaIllust,
         Parcelle,
         ScrollDown,
+        UiAccordion,
+        UiAccordionSingle,
     },
     watch: {
         '$root.window': function(value) {
@@ -69,8 +90,6 @@ export default {
         },
         '$route.path': function(path) {
             this.positionIllustration()
-            console.log(path);
-            console.log('cosidsofkldsjflk');
         }
     },
     data: function() {
@@ -156,37 +175,28 @@ export default {
 
                 if (contentHeight <= windowHeight) {
                     this.$refs.content.style.justifyContent = 'flex-start'
-                    // this.$refs.content.style.position = 'relative'
-                    // this.$refs.panel.style.position = 'absolute'
-                    // this.$refs.panel.style.top = '5vh'
-                    // this.$refs.illust.$el.style.position = 'absolute'
-                    // this.$refs.illust.$el.style.top = '5vh'
                 } else {
                     this.$refs.content.style.justifyContent = 'center'
-                    // this.$refs.content.style.position = null
-                    // this.$refs.panel.style.position = null
-                    // this.$refs.panel.style.top = null
                 }
-
-                // if (illustHeight > contentHeight) {
-                //     let delta = (illustHeight - contentHeight) / 2
-                //     this.$refs.container.style.paddingBottom = delta + 'px'
-                // } else {
-                //     this.$refs.container.style.paddingBottom = null
-                // }
             } else {
                 this.$refs.content.style.justifyContent = 'center'
-                // this.$refs.content.style.position = null
-                // this.$refs.panel.style.position = null
-                // this.$refs.illust.$el.style.position = null
-                // this.$refs.panel.style.top = null
             }
         },
+    },
+    filters: {
+        isEven: function(num) {
+            if (num % 2 == 0) {
+                return true
+            }
+            return false
+            // return true
+        }
     },
     mounted: function() {
         this.$root.navColor = 1
         this.$root.hasFooter = true
         this.positionIllustration()
+        console.log(this.$route.params);
     }
 }
 </script>

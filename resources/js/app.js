@@ -42,7 +42,7 @@ const app = new Vue({
     },
     data: function() {
         return {
-            baseUrl: process.env.MIX_APP_URL,
+            baseUrl: window.location.origin,
             window: {
                 w: 0,
                 h: 0,
