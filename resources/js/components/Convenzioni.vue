@@ -6,60 +6,140 @@
                 <h1 ref="title" class="convenzioni-title text-white">Convenzioni</h1>
                 <span class="convenzioni-subtitle text-white">Assicurazioni in convenzione diretta</span>
                 <div class="row py-5 mt-5 justify-content-center">
-                    <div class="col-12 col-md">
-                        <img src="/img/logo_1.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-12 col-md"
+                        title="Convenzioni - UniSalute">
+                        <img
+                            src="/img/logo_1.png"
+                            alt="Convenzioni - UniSalute"
+                            class="convenzioni-logo-img">
                     </div>
-                    <div class="col-12 col-md">
-                        <img src="/img/logo_2.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-12 col-md"
+                        title="Convenzioni - Blue Assistance">
+                        <img
+                            src="/img/logo_2.png"
+                            alt="Convenzioni - Blue Assistance"
+                            class="convenzioni-logo-img">
                     </div>
-                    <div class="col-12 col-md">
-                        <img src="/img/logo_3.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-12 col-md"
+                        title="Convenzioni - Pronto Care">
+                        <img
+                            src="/img/logo_3.png"
+                            alt="Convenzioni - Pronto Care"
+                            class="convenzioni-logo-img">
                     </div>
-                    <div class="col-12 col-md">
-                        <img src="/img/logo_4.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-12 col-md"
+                        title="Convenzioni - Fasdac">
+                        <img
+                            src="/img/logo_4.png"
+                            alt="Convenzioni - Fasdac"
+                            class="convenzioni-logo-img">
                     </div>
-                    <div class="col-12 col-md">
-                        <img src="/img/logo_5.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-12 col-md"
+                        title="Convenzioni - Fasi">
+                        <img
+                            src="/img/logo_5.png"
+                            alt="Convenzioni - Fasi"
+                            class="convenzioni-logo-img">
                     </div>
                 </div>
                 <span class="convenzioni-subtitle text-white">Assicurazioni in convenzione indiretta</span>
                 <div class="row py-5 mt-5 justify-content-center">
-                    <div class="col-md-3">
-                        <img src="/img/logo_6.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-md-3"
+                        title="Convenzioni - Faschim - Fondo Assistenza Sanintaria">
+                        <img
+                            src="/img/logo_6.png"
+                            alt="Convenzioni - Faschim - Fondo Assistenza Sanintaria"
+                            class="convenzioni-logo-img">
                     </div>
-                    <div class="col-md-3">
-                        <img src="/img/logo_7.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-md-3"
+                        title="Convenzioni - Previmedical - Servizi per la sanità integrativa">
+                        <img
+                            src="/img/logo_7.png"
+                            alt="Convenzioni - Previmedical - Servizi per la sanità integrativa"
+                            class="convenzioni-logo-img">
                     </div>
 
-                    <div class="col-md-3">
-                        <img src="/img/logo_8.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-md-3"
+                        title="Convenzioni - Intesa San Paolo">
+                        <img
+                            src="/img/logo_8.png"
+                            alt="Convenzioni - Intesa San Paolo"
+                            class="convenzioni-logo-img">
                     </div>
-                    <div class="col-md-3">
-                        <img src="/img/logo_9.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-md-3"
+                        title="Convenzioni - RBM - Assicurazioni Salute">
+                        <img
+                            src="/img/logo_9.png"
+                            alt="Convenzioni - RBM - Assicurazioni Salute"
+                            class="convenzioni-logo-img">
                     </div>
-                    <div class="col-md-3">
-                        <img src="/img/logo_10.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-md-3"
+                        title="Convenzioni - A Fondo Assitenza UBI">
+                        <img
+                            src="/img/logo_10.png"
+                            alt="Convenzioni - A Fondo Assitenza UBI"
+                            class="convenzioni-logo-img">
                     </div>
-                    <div class="col-md-3">
-                        <img src="/img/logo_11.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-md-3"
+                        title="Convenzioni - Fisde">
+                        <img
+                            src="/img/logo_11.png"
+                            alt="Convenzioni - Fisde"
+                            class="convenzioni-logo-img">
                     </div>
                     <!-- <div class="margin-auto"></div> -->
 
 
-                    <div class="col-md-3">
-                        <img src="/img/logo_12.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-md-3"
+                        title="Convenzioni - Quas">
+                        <img
+                            src="/img/logo_12.png"
+                            alt="Convenzioni - Quas"
+                            class="convenzioni-logo-img">
                     </div>
-                    <div class="col-md-3">
-                        <img src="/img/logo_13.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-md-3"
+                        title="Convenzioni - Fiasid">
+                        <img
+                            src="/img/logo_13.png"
+                            alt="Convenzioni - Fiasid"
+                            class="convenzioni-logo-img">
                     </div>
-                    <div class="col-md-3">
-                        <img src="/img/logo_14.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-md-3"
+                        title="Convenzioni - Fasdip">
+                        <img
+                            src="/img/logo_14.png"
+                            alt="Convenzioni - Fasdip"
+                            class="convenzioni-logo-img">
                     </div>
-                    <div class="col-md-3">
-                        <img src="/img/logo_15.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-md-3"
+                        title="Convenzioni - Fasie">
+                        <img
+                            src="/img/logo_15.png"
+                            alt="Convenzioni - Fasie"
+                            class="convenzioni-logo-img">
                     </div>
-                    <div class="col-md-3">
-                        <img src="/img/logo_16.png" alt="" class="convenzioni-logo-img">
+                    <div
+                        class="col-md-3"
+                        title="Convenzioni - Casagit">
+                        <img
+                            src="/img/logo_16.png"
+                            alt="Convenzioni - Casagit"
+                            class="convenzioni-logo-img">
                     </div>
                 </div>
             </div>
