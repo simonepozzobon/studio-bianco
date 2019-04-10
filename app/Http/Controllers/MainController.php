@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class MainController extends Controller
 {
-    public function index() {
+    public function index($slug = '/') {
         $odontoiatria = Service::where('category_id', 1)->get();
         $estetica = Service::where('category_id', 2)->get();
 
@@ -25,7 +25,29 @@ class MainController extends Controller
             return $item;
         });
 
-        return view('welcome', compact('odontoiatria', 'estetica', 'comparisons'));
+        $services = Service::all();
+        $chunks = array_filter(explode('/', $slug));
+
+        $meta = [
+            'title' => null,
+            'description' => null,
+        ];
+
+        if (count($chunks) > 0) {
+            foreach ($chunks as $key => $chunk) {
+                $results = $services->filter(function($service, $key) use ($chunk) {
+                    return $service->slug == $chunk;
+                });
+
+                if (count($results) > 0) {
+                    $result = $results[0];
+                    $meta['title'] = $result->seo_title;
+                    $meta['description'] = $result->seo_description;
+                }
+            }
+        }
+
+        return view('welcome', compact('odontoiatria', 'estetica', 'comparisons', 'meta'));
     }
 
     public function cookies_preferences(Request $request) {
