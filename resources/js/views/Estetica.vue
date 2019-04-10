@@ -8,11 +8,27 @@
                     <h1 class="estetica-title" ref="title">Servizi</h1>
                     <span class="estetica-subtitle">Medicina Estetica</span>
                     <div class="estetica-v-div"></div>
-                    <accordion
-                        :items="services"
-                        @panel-open="panelOpen"
-                        @panel-close="panelClose"
-                        @remove-height="removeHeight"/>
+
+                    <ui-accordion
+                        :scroll-on-complete="false"
+                        :is-dynamic="false">
+                        <ui-accordion-single
+                            v-for="(service, i) in services"
+                            :idx="service.id"
+                            :color-heading="i | isEven"
+                            :key="service.id">
+                            <template v-slot:title>
+                                {{ service.title }}
+                            </template>
+                            <template v-slot:content>
+                                <h3>{{ service.title }}</h3>
+                                <home-horizontal-sep width="50px" color="#e5c386" class="pb-3"/>
+                                <div v-html="service.description">
+                                </div>
+                            </template>
+                        </ui-accordion-single>
+                    </ui-accordion>
+
                     <scroll-down
                         ref="scrollDown"
                         color="yellow"
@@ -44,15 +60,21 @@ import MainFooter from '../containers/MainFooter.vue'
 import Parcelle from '../components/Parcelle.vue'
 import ScrollDown from '../components/ScrollDown.vue'
 
+import HomeHorizontalSep from '../components/HomeHorizontalSep.vue'
+import { UiAccordion, UiAccordionSingle } from '../ui'
+
 export default {
     name: 'Odontoiatria',
     components: {
         Accordion,
         Convenzioni,
         EsteticaIllust,
+        HomeHorizontalSep,
         MainFooter,
         Parcelle,
         ScrollDown,
+        UiAccordion,
+        UiAccordionSingle,
     },
     watch: {
         '$root.window': function(value) {
@@ -162,6 +184,14 @@ export default {
                 // this.$refs.illust.$el.style.position = null
                 // this.$refs.panel.style.top = null
             }
+        }
+    },
+    filters: {
+        isEven: function(num) {
+            if (num % 2 == 0) {
+                return true
+            }
+            return false
         }
     },
     mounted: function(){

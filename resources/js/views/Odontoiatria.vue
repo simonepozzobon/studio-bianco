@@ -189,7 +189,6 @@ export default {
                 return true
             }
             return false
-            // return true
         }
     },
     mounted: function() {
