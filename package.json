@@ -37,7 +37,7 @@
     },
     "dependencies": {
         "@sentry/browser": "^4.6.4",
-        "bootstrap-vue": "^2.0.0-rc.11",
+        "bootstrap-vue": "^2.0.0-rc.18",
         "gsap": "^2.1.2",
         "scrollmagic": "^2.0.6",
         "vue-check-view": "^0.2.4",

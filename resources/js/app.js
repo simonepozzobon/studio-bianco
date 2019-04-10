@@ -92,7 +92,7 @@ const app = new Vue({
             let counter = Object.keys(this.animations).length
             for (let key in this.animations) {
                 if (this.animations.hasOwnProperty(key)) {
-                    let url = this.baseUrl + '/js/anims/' + key + '.json'
+                    let url = window.location.origin + '/js/anims/' + key + '.json'
                     // request
                     axios.get(url).then(response => {
                         this.animations[key] = response.data

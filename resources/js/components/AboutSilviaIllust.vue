@@ -55,7 +55,7 @@ export default {
         },
         '$root.animations.silvia_illust': function(data) {
             if (data) {
-                this.load()
+                this.animate()
             }
         }
     },

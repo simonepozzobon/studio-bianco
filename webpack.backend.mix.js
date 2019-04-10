@@ -33,7 +33,7 @@ mix
         }
     })
     .browserSync({
-        proxy: 'http://studio-bianco.test:89',
+        proxy: 'http://studio-bianco.test',
         browser: 'google chrome',
         port: 3010,
         files: [
