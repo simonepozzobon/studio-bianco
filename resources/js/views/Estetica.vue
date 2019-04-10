@@ -14,8 +14,10 @@
                         :scroll-on-complete="false"
                         :is-dynamic="false">
                         <ui-accordion-single
+                            base="medicinaestetica-accordion"
                             v-for="(service, i) in services"
                             :idx="service.id"
+                            :obj="service"
                             :color-heading="i | isEven"
                             :key="service.id">
                             <template v-slot:title>

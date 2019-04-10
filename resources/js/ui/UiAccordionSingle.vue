@@ -35,6 +35,15 @@ export default {
         IconArrowDown,
     },
     props: {
+        base: {
+            type: String,
+            default: null,
+            required: true,
+        },
+        obj: {
+            type: Object,
+            default: function() {},
+        },
         idx: {
             type: Number,
             default: null,
@@ -248,10 +257,24 @@ export default {
                     this.master.reverse()
                 })
             } else {
-                this.isOpen = true
-                this.$nextTick(() => {
-                    this.master.play()
-                })
+                if (isInternal) {
+                    // cambia route ogni volta che si clicca sull'accordion
+                    this.isOpen = true
+                    this.$nextTick(() => {
+                        this.master.play()
+                        this.$router.push({
+                            name: this.base,
+                            params: {
+                                slug: this.obj.slug
+                            }
+                        })
+                    })
+                } else {
+                    this.isOpen = true
+                    this.$nextTick(() => {
+                        this.master.play()
+                    })
+                }
             }
         },
     },

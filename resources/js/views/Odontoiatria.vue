@@ -15,6 +15,8 @@
                         :is-dynamic="false">
                         <ui-accordion-single
                             v-for="(service, i) in services"
+                            base="odontoiatria-accordion"
+                            :obj="service"
                             :idx="service.id"
                             :color-heading="i | isEven"
                             :key="service.id">

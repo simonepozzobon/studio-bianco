@@ -40,7 +40,7 @@ class MainController extends Controller
                 });
 
                 if (count($results) > 0) {
-                    $result = $results[0];
+                    $result = $results->first();
                     $meta['title'] = $result->seo_title;
                     $meta['description'] = $result->seo_description;
                 }
