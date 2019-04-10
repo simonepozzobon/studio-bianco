@@ -30,7 +30,14 @@ const routes = [
     {
         path: '/medicina-estetica',
         name: 'medicinaestetica',
-        component: require('./views/Estetica.vue').default
+        component: require('./views/Estetica.vue').default,
+        children: [
+            {
+                path: ':slug',
+                name: 'medicinaestetica-accordion',
+                component: require('./views/Estetica.vue').default,
+            }
+        ]
     },
     {
         path: '/contatti',

@@ -10,6 +10,7 @@
                     <div class="odontoiatria-v-div"></div>
 
                     <ui-accordion
+                        ref="accordion"
                         :scroll-on-complete="false"
                         :is-dynamic="false">
                         <ui-accordion-single
@@ -182,6 +183,17 @@ export default {
                 this.$refs.content.style.justifyContent = 'center'
             }
         },
+        checkParams: function() {
+            if (this.$route.params.hasOwnProperty('slug')) {
+                let slug = this.$route.params.slug
+                let service = this.services.filter(item => item.slug == slug)[0]
+                if (service) {
+                    this.$nextTick(() => {
+                        this.$refs.accordion.$emit('toggle-accordion', service.id)
+                    })
+                }
+            }
+        }
     },
     filters: {
         isEven: function(num) {
@@ -191,11 +203,14 @@ export default {
             return false
         }
     },
+    created: function() {
+
+    },
     mounted: function() {
         this.$root.navColor = 1
         this.$root.hasFooter = true
         this.positionIllustration()
-        console.log(this.$route.params);
+        this.$nextTick(this.checkParams)
     }
 }
 </script>

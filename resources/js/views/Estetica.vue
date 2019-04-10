@@ -10,6 +10,7 @@
                     <div class="estetica-v-div"></div>
 
                     <ui-accordion
+                        ref="accordion"
                         :scroll-on-complete="false"
                         :is-dynamic="false">
                         <ui-accordion-single
@@ -184,6 +185,17 @@ export default {
                 // this.$refs.illust.$el.style.position = null
                 // this.$refs.panel.style.top = null
             }
+        },
+        checkParams: function() {
+            if (this.$route.params.hasOwnProperty('slug')) {
+                let slug = this.$route.params.slug
+                let service = this.services.filter(item => item.slug == slug)[0]
+                if (service) {
+                    this.$nextTick(() => {
+                        this.$refs.accordion.$emit('toggle-accordion', service.id)
+                    })
+                }
+            }
         }
     },
     filters: {
@@ -197,11 +209,8 @@ export default {
     mounted: function(){
         this.$root.navColor = 1
         this.$root.hasFooter = true
-        // let el = this.$refs.illust.$el
-        // let elSize = el.getBoundingClientRect()
-        // this.height = elSize.height
         this.positionIllustration()
-        // this.illustHeight = this.$refs.content.offsetHeight
+        this.$nextTick(this.checkParams)
     }
 }
 </script>
