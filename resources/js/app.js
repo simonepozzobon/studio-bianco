@@ -14,6 +14,7 @@ import MainTemplate from './containers/MainTemplate.vue'
 import routes from './routes'
 import Cookie from './Cookies'
 import checkView from 'vue-check-view'
+import Meta from 'vue-meta'
 
 if (process.env.NODE_ENV == 'production') {
     Sentry.init({
@@ -26,6 +27,7 @@ if (process.env.NODE_ENV == 'production') {
 }
 
 Vue.use(VueRouter)
+Vue.use(Meta)
 Vue.use(checkView)
 Vue.prototype.$cookie = Cookie
 
@@ -71,6 +73,7 @@ const app = new Vue({
                 studio: null,
                 silvia: null
             },
+            seos: null,
         }
     },
     methods: {

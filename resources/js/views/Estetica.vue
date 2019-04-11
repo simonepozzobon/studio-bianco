@@ -104,6 +104,37 @@ export default {
             illustHidden: false,
         }
     },
+    metaInfo: function() {
+        return {
+            title: this.$root.seos[2].title,
+            meta: [
+                {
+                    property: 'og:title', vmid: 'og:title', content: this.$root.seos[2].title,
+                },
+                {
+                    property: 'twitter:title', vmid: 'twitter:title', content: this.$root.seos[2].title,
+                },
+                {
+                    vmid: 'description', content: this.$root.seos[2].description,
+                },
+                {
+                    property: 'og:description', vmid: 'og:description', content: this.$root.seos[2].description,
+                },
+                {
+                    property: 'twitter:description', vmid: 'twitter:description', content: this.$root.seos[2].description,
+                },
+                {
+                    property: 'og:image', vmid: 'og:image', content: this.$root.seos[2].img,
+                },
+                {
+                    property: 'twitter:image', vmid: 'twitter:image', content: this.$root.seos[2].img,
+                },
+                {
+                    property: 'og:url', vmid: 'og:url', content: window.location.href,
+                },
+            ],
+        }
+    },
     methods: {
         scrollDownHandler: function(e) {
             if (e.type == 'enter') {

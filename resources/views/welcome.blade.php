@@ -23,8 +23,8 @@
         <meta property="og:description" content="{{ $meta['description'] }}">
         <meta property="twitter:description" content="{{ $meta['description'] }}">
 
-        <meta property="og:image" content="">
-        <meta property="og:url" content="">
+        <meta property="og:image" content="{{ $meta['img'] }}">
+        <meta property="og:url" content="{{ url()->current() }}">
 
         <meta property="twitter:image" content="">
         <meta property="twitter:card" content="summary_large_image">
@@ -57,7 +57,8 @@
             <main-template
                 odontoiatria="{{ $odontoiatria }}"
                 estetica="{{ $estetica }}"
-                comparisons="{{ $comparisons }}">
+                comparisons="{{ $comparisons }}"
+                seos="{{ $seos }}">
             </main-template>
         </div>
         <script src="{{ mix('js/app.js') }}"></script>
