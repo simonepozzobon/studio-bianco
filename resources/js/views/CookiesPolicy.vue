@@ -124,6 +124,37 @@ export default {
             }
         }
     },
+    metaInfo: function() {
+        return {
+            title: this.$root.seos[0].title,
+            meta: [
+                {
+                    property: 'og:title', vmid: 'og:title', content: this.$root.seos[0].title,
+                },
+                {
+                    property: 'twitter:title', vmid: 'twitter:title', content: this.$root.seos[0].title,
+                },
+                {
+                    vmid: 'description', content: this.$root.seos[0].description,
+                },
+                {
+                    property: 'og:description', vmid: 'og:description', content: this.$root.seos[0].description,
+                },
+                {
+                    property: 'twitter:description', vmid: 'twitter:description', content: this.$root.seos[0].description,
+                },
+                {
+                    property: 'og:image', vmid: 'og:image', content: this.$root.seos[0].img,
+                },
+                {
+                    property: 'twitter:image', vmid: 'twitter:image', content: this.$root.seos[0].img,
+                },
+                {
+                    property: 'og:url', vmid: 'og:url', content: window.location.href,
+                },
+            ],
+        }
+    },
     mounted: function() {
         this.$root.navColor = 2
         this.$refs.container.style.paddingTop = this.$root.navbarFullHeight + 'px'
