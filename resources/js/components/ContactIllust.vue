@@ -4,7 +4,7 @@
 
 <script>
 import lottie from 'lottie-web'
-import * as Contatti from '../animations/contatti.json'
+// import * as Contatti from '../animations/contatti.json'
 
 import ScrollMagic from 'scrollmagic'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
@@ -34,26 +34,35 @@ export default {
             loopFrameEnd: 1,
         }
     },
+    watch: {
+        '$root.animations.contatti': function(data) {
+            if (data) {
+                this.load()
+            }
+        }
+    },
     methods: {
         load: function() {
             return new Promise(resolve => {
                 if (this.anim) {
                     this.anim.destroy()
                 }
-                this.anim = lottie.loadAnimation({
-                    container: this.$refs.illust,
-                    renderer: 'svg',
-                    loop: true,
-                    autoplay: true,
-                    animationData: Contatti,
-                    name: 'Contatti'
-                })
+                if (this.$root.animations['contatti']) {
+                    this.anim = lottie.loadAnimation({
+                        container: this.$refs.illust,
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        animationData: this.$root.animations['contatti'],
+                        name: 'Contatti'
+                    })
 
-                this.anim.addEventListener('enterFrame', () => {
-                    this.repeat()
-                })
-                this.anim.play()
-                resolve()
+                    this.anim.addEventListener('enterFrame', () => {
+                        this.repeat()
+                    })
+                    this.anim.play()
+                    resolve()
+                }
             })
         },
         repeat: function() {

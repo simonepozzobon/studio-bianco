@@ -4,7 +4,7 @@
 
 <script>
 import lottie from 'lottie-web'
-import * as Testa from '../animations/scultura_home.json'
+// import * as Testa from '../animations/scultura_home.json'
 
 export default {
     name: 'HomeIllustRight',
@@ -31,33 +31,44 @@ export default {
             loopFrameEnd: 1,
         }
     },
+    watch: {
+        '$root.animations.scultura_home': function(data) {
+            if (data) {
+                this.load()
+            }
+        }
+    },
     methods: {
         load: function() {
-            return new Promise(resolve => {
+            return new Promise((resolve, reject) => {
                 if (this.anim) {
                     this.anim.destroy()
                 }
-                let illust = this.$refs.illust
-                let initialPadding = 4 * 16 // 4rem
-                illust.style.top = initialPadding + 'px'
-                // illust.style.marginLeft = '10%'
+                if (this.$root.animations['scultura_home']) {
+                    let illust = this.$refs.illust
+                    let initialPadding = 4 * 16 // 4rem
+                    illust.style.top = initialPadding + 'px'
+                    // illust.style.marginLeft = '10%'
 
-                this.anim = lottie.loadAnimation({
-                    container: this.$refs.illust,
-                    renderer: 'svg',
-                    loop: false,
-                    autoplay: false,
-                    animationData: Testa,
-                    name: 'testa'
-                })
+                    this.anim = lottie.loadAnimation({
+                        container: this.$refs.illust,
+                        renderer: 'svg',
+                        loop: false,
+                        autoplay: false,
+                        animationData: this.$root.animations['scultura_home'],
+                        name: 'testa'
+                    })
 
-                this.anim.addEventListener('enterFrame', () => {
-                    if (this.anim.currentRawFrame > this.anim.totalFrames - 1) {
-                        this.$root.$emit('estetica-completed')
-                    }
-                })
+                    this.anim.addEventListener('enterFrame', () => {
+                        if (this.anim.currentRawFrame > this.anim.totalFrames - 1) {
+                            this.$root.$emit('estetica-completed')
+                        }
+                    })
 
-                resolve()
+                    resolve()
+                } else {
+                    // reject()
+                }
             })
         },
         play: function() {

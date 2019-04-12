@@ -4,7 +4,7 @@
 
 <script>
 import lottie from 'lottie-web'
-import * as Dente from '../animations/dente.json'
+// import * as Dente from '../animations/dente.json'
 
 import ScrollMagic from 'scrollmagic'
 // import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
@@ -44,6 +44,11 @@ export default {
                     this.controller.destroy()
                 }
             }
+        },
+        '$root.animations.dente': function(data) {
+            if (data) {
+                this.load()
+            }
         }
     },
     methods: {
@@ -53,19 +58,19 @@ export default {
                     this.anim.destroy()
                 }
 
-                if (document.getElementById('odontoiatria-illust')) {
+                if (document.getElementById('odontoiatria-illust') && this.$root.animations['dente']) {
                     this.anim = lottie.loadAnimation({
                         container: document.getElementById('odontoiatria-illust'),
                         renderer: 'svg',
                         loop: false,
                         autoplay: true,
-                        animationData: Dente,
+                        animationData: this.$root.animations['dente'],
                         name: 'Studio'
                     })
 
                     resolve()
                 } else {
-                    reject()
+                    // reject()
                 }
 
             })

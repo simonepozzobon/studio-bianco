@@ -4,7 +4,7 @@
 
 <script>
 import lottie from 'lottie-web'
-import * as Estetica from '../animations/quadri_medicina_estetica.json'
+// import * as Estetica from '../animations/quadri_medicina_estetica.json'
 
 import ScrollMagic from 'scrollmagic'
 // import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
@@ -44,6 +44,11 @@ export default {
                     this.controller.destroy()
                 }
             }
+        },
+        '$root.animations.quadri_medicina_estetica': function(data) {
+            if (data) {
+                this.load()
+            }
         }
     },
     methods: {
@@ -53,13 +58,13 @@ export default {
                     this.anim.destroy()
                 }
 
-                if (document.getElementById('estetica-illust')) {
+                if (document.getElementById('estetica-illust') && this.$root.animations['quadri_medicina_estetica']) {
                     this.anim = lottie.loadAnimation({
                         container: document.getElementById('estetica-illust'),
                         renderer: 'svg',
                         loop: true,
                         autoplay: true,
-                        animationData: Estetica,
+                        animationData: this.$root.animations['quadri_medicina_estetica'],
                         name: 'Studio'
                     })
 
@@ -69,7 +74,7 @@ export default {
 
                     resolve()
                 } else {
-                    reject()
+                    // reject()
                 }
 
             })

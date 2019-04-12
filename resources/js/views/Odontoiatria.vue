@@ -8,12 +8,30 @@
                     <h1 class="odontoiatria-title" ref="title">Servizi</h1>
                     <span class="odontoiatria-subtitle">Odontoiatria</span>
                     <div class="odontoiatria-v-div"></div>
-                    <accordion
-                        :items="services"
-                        @panel-open="panelOpen"
-                        @panel-close="panelClose"
-                        @panel-height-changed="panelChange"
-                        @remove-height="removeHeight"/>
+
+                    <ui-accordion
+                        ref="accordion"
+                        :scroll-on-complete="false"
+                        :is-dynamic="false">
+                        <ui-accordion-single
+                            v-for="(service, i) in services"
+                            base="odontoiatria-accordion"
+                            :obj="service"
+                            :idx="service.id"
+                            :color-heading="i | isEven"
+                            :key="service.id">
+                            <template v-slot:title>
+                                {{ service.title }}
+                            </template>
+                            <template v-slot:content>
+                                <h3>{{ service.title }}</h3>
+                                <home-horizontal-sep width="50px" color="#e5c386" class="pb-3"/>
+                                <div v-html="service.description">
+                                </div>
+                            </template>
+                        </ui-accordion-single>
+                    </ui-accordion>
+
                     <scroll-down
                         ref="scrollDown"
                         color="blue"
@@ -46,15 +64,21 @@ import Parcelle from '../components/Parcelle.vue'
 import ScrollDown from '../components/ScrollDown.vue'
 // import services from '../dummies/services'
 
+import HomeHorizontalSep from '../components/HomeHorizontalSep.vue'
+import { UiAccordion, UiAccordionSingle } from '../ui'
+
 export default {
     name: 'Odontoiatria',
     components: {
         Accordion,
         Convenzioni,
+        HomeHorizontalSep,
         MainFooter,
         OdontoiatriaIllust,
         Parcelle,
         ScrollDown,
+        UiAccordion,
+        UiAccordionSingle,
     },
     watch: {
         '$root.window': function(value) {
@@ -69,8 +93,6 @@ export default {
         },
         '$route.path': function(path) {
             this.positionIllustration()
-            console.log(path);
-            console.log('cosidsofkldsjflk');
         }
     },
     data: function() {
@@ -79,6 +101,37 @@ export default {
             services: this.$root.odontoiatria,
             illustWidth: '92.2%',
             illustHidden: false,
+        }
+    },
+    metaInfo: function() {
+        return {
+            title: this.$root.seos[1].title,
+            meta: [
+                {
+                    property: 'og:title', vmid: 'og:title', content: this.$root.seos[1].title,
+                },
+                {
+                    property: 'twitter:title', vmid: 'twitter:title', content: this.$root.seos[1].title,
+                },
+                {
+                    vmid: 'description', content: this.$root.seos[1].description,
+                },
+                {
+                    property: 'og:description', vmid: 'og:description', content: this.$root.seos[1].description,
+                },
+                {
+                    property: 'twitter:description', vmid: 'twitter:description', content: this.$root.seos[1].description,
+                },
+                {
+                    property: 'og:image', vmid: 'og:image', content: this.$root.seos[1].img,
+                },
+                {
+                    property: 'twitter:image', vmid: 'twitter:image', content: this.$root.seos[1].img,
+                },
+                {
+                    property: 'og:url', vmid: 'og:url', content: window.location.href,
+                },
+            ],
         }
     },
     methods: {
@@ -156,37 +209,41 @@ export default {
 
                 if (contentHeight <= windowHeight) {
                     this.$refs.content.style.justifyContent = 'flex-start'
-                    // this.$refs.content.style.position = 'relative'
-                    // this.$refs.panel.style.position = 'absolute'
-                    // this.$refs.panel.style.top = '5vh'
-                    // this.$refs.illust.$el.style.position = 'absolute'
-                    // this.$refs.illust.$el.style.top = '5vh'
                 } else {
                     this.$refs.content.style.justifyContent = 'center'
-                    // this.$refs.content.style.position = null
-                    // this.$refs.panel.style.position = null
-                    // this.$refs.panel.style.top = null
                 }
-
-                // if (illustHeight > contentHeight) {
-                //     let delta = (illustHeight - contentHeight) / 2
-                //     this.$refs.container.style.paddingBottom = delta + 'px'
-                // } else {
-                //     this.$refs.container.style.paddingBottom = null
-                // }
             } else {
                 this.$refs.content.style.justifyContent = 'center'
-                // this.$refs.content.style.position = null
-                // this.$refs.panel.style.position = null
-                // this.$refs.illust.$el.style.position = null
-                // this.$refs.panel.style.top = null
             }
         },
+        checkParams: function() {
+            if (this.$route.params.hasOwnProperty('slug')) {
+                let slug = this.$route.params.slug
+                let service = this.services.filter(item => item.slug == slug)[0]
+                if (service) {
+                    this.$nextTick(() => {
+                        this.$refs.accordion.$emit('toggle-accordion', service.id)
+                    })
+                }
+            }
+        }
+    },
+    filters: {
+        isEven: function(num) {
+            if (num % 2 == 0) {
+                return true
+            }
+            return false
+        }
+    },
+    created: function() {
+
     },
     mounted: function() {
         this.$root.navColor = 1
         this.$root.hasFooter = true
         this.positionIllustration()
+        this.$nextTick(this.checkParams)
     }
 }
 </script>

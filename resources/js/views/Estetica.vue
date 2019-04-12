@@ -8,11 +8,30 @@
                     <h1 class="estetica-title" ref="title">Servizi</h1>
                     <span class="estetica-subtitle">Medicina Estetica</span>
                     <div class="estetica-v-div"></div>
-                    <accordion
-                        :items="services"
-                        @panel-open="panelOpen"
-                        @panel-close="panelClose"
-                        @remove-height="removeHeight"/>
+
+                    <ui-accordion
+                        ref="accordion"
+                        :scroll-on-complete="false"
+                        :is-dynamic="false">
+                        <ui-accordion-single
+                            base="medicinaestetica-accordion"
+                            v-for="(service, i) in services"
+                            :idx="service.id"
+                            :obj="service"
+                            :color-heading="i | isEven"
+                            :key="service.id">
+                            <template v-slot:title>
+                                {{ service.title }}
+                            </template>
+                            <template v-slot:content>
+                                <h3>{{ service.title }}</h3>
+                                <home-horizontal-sep width="50px" color="#e5c386" class="pb-3"/>
+                                <div v-html="service.description">
+                                </div>
+                            </template>
+                        </ui-accordion-single>
+                    </ui-accordion>
+
                     <scroll-down
                         ref="scrollDown"
                         color="yellow"
@@ -44,15 +63,21 @@ import MainFooter from '../containers/MainFooter.vue'
 import Parcelle from '../components/Parcelle.vue'
 import ScrollDown from '../components/ScrollDown.vue'
 
+import HomeHorizontalSep from '../components/HomeHorizontalSep.vue'
+import { UiAccordion, UiAccordionSingle } from '../ui'
+
 export default {
     name: 'Odontoiatria',
     components: {
         Accordion,
         Convenzioni,
         EsteticaIllust,
+        HomeHorizontalSep,
         MainFooter,
         Parcelle,
         ScrollDown,
+        UiAccordion,
+        UiAccordionSingle,
     },
     watch: {
         '$root.window': function(value) {
@@ -77,6 +102,37 @@ export default {
             services: this.$root.estetica,
             illustWidth: '60%',
             illustHidden: false,
+        }
+    },
+    metaInfo: function() {
+        return {
+            title: this.$root.seos[2].title,
+            meta: [
+                {
+                    property: 'og:title', vmid: 'og:title', content: this.$root.seos[2].title,
+                },
+                {
+                    property: 'twitter:title', vmid: 'twitter:title', content: this.$root.seos[2].title,
+                },
+                {
+                    vmid: 'description', content: this.$root.seos[2].description,
+                },
+                {
+                    property: 'og:description', vmid: 'og:description', content: this.$root.seos[2].description,
+                },
+                {
+                    property: 'twitter:description', vmid: 'twitter:description', content: this.$root.seos[2].description,
+                },
+                {
+                    property: 'og:image', vmid: 'og:image', content: this.$root.seos[2].img,
+                },
+                {
+                    property: 'twitter:image', vmid: 'twitter:image', content: this.$root.seos[2].img,
+                },
+                {
+                    property: 'og:url', vmid: 'og:url', content: window.location.href,
+                },
+            ],
         }
     },
     methods: {
@@ -162,16 +218,32 @@ export default {
                 // this.$refs.illust.$el.style.position = null
                 // this.$refs.panel.style.top = null
             }
+        },
+        checkParams: function() {
+            if (this.$route.params.hasOwnProperty('slug')) {
+                let slug = this.$route.params.slug
+                let service = this.services.filter(item => item.slug == slug)[0]
+                if (service) {
+                    this.$nextTick(() => {
+                        this.$refs.accordion.$emit('toggle-accordion', service.id)
+                    })
+                }
+            }
+        }
+    },
+    filters: {
+        isEven: function(num) {
+            if (num % 2 == 0) {
+                return true
+            }
+            return false
         }
     },
     mounted: function(){
         this.$root.navColor = 1
         this.$root.hasFooter = true
-        // let el = this.$refs.illust.$el
-        // let elSize = el.getBoundingClientRect()
-        // this.height = elSize.height
         this.positionIllustration()
-        // this.illustHeight = this.$refs.content.offsetHeight
+        this.$nextTick(this.checkParams)
     }
 }
 </script>

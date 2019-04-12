@@ -71,6 +71,37 @@ export default {
             odontoiatriaArr: null,
         }
     },
+    metaInfo: function() {
+        return {
+            title: this.$root.seos[5].title,
+            meta: [
+                {
+                    property: 'og:title', vmid: 'og:title', content: this.$root.seos[5].title,
+                },
+                {
+                    property: 'twitter:title', vmid: 'twitter:title', content: this.$root.seos[5].title,
+                },
+                {
+                    vmid: 'description', content: this.$root.seos[5].description,
+                },
+                {
+                    property: 'og:description', vmid: 'og:description', content: this.$root.seos[5].description,
+                },
+                {
+                    property: 'twitter:description', vmid: 'twitter:description', content: this.$root.seos[5].description,
+                },
+                {
+                    property: 'og:image', vmid: 'og:image', content: this.$root.seos[5].img,
+                },
+                {
+                    property: 'twitter:image', vmid: 'twitter:image', content: this.$root.seos[5].img,
+                },
+                {
+                    property: 'og:url', vmid: 'og:url', content: window.location.href,
+                },
+            ],
+        }
+    },
     methods: {
         scrollDownHandler: function(e) {
             if (e.type == 'enter') {
