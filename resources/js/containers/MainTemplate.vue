@@ -55,7 +55,7 @@ export default {
             isAnimating: false,
             animate: null,
             elEnter: null,
-            deviceMobile: null,
+            deviceMobile: false,
         }
     },
     watch: {
