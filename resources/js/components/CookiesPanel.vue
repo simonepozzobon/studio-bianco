@@ -56,7 +56,7 @@ export default {
         }
     },
     mounted: function() {
-        if (!this.accepted) {
+        if (!this.accepted && !window.mobilecheck()) {
             let cookie = this.$cookie.get('studio-bianco-cookie-policy')
             if (cookie) {
                 this.cookie = JSON.parse(cookie)
