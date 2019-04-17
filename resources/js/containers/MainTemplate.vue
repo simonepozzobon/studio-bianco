@@ -84,7 +84,6 @@ export default {
     methods: {
         deviceCheck: function() {
             this.deviceMobile = window.mobilecheck()
-            console.log(this.deviceMobile);
         },
         toggleMobile: function() {
             this.$refs.mobileNav.toggleMobile()

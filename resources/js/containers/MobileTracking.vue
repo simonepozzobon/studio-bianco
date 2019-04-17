@@ -2,10 +2,10 @@
     <div class="mobile-track container-fluid" ref="container">
         <div class="row mobile-track__row">
             <div class="col-6 mobile-track__col" ref="btn">
-                <button class="btn btn-sm btn-block btn-light-brown mobile-track__btn">raggiungici</button>
+                <a href="#" @click="goToContact" class="btn btn-sm btn-block btn-light-brown mobile-track__btn">raggiungici</a>
             </div>
             <div class="col-6 mobile-track__col" ref="btn">
-                <button class="btn btn-sm btn-block btn-light-brown mobile-track__btn">chiamaci</button>
+                <a href="tel:+393922594312" class="btn btn-sm btn-block btn-light-brown mobile-track__btn">chiamaci</a>
             </div>
         </div>
     </div>
@@ -20,6 +20,10 @@ export default {
         }
     },
     methods: {
+        goToContact: function(event) {
+            event.preventDefault()
+            this.$router.push({name: 'contact'})
+        },
         init: function() {
             if (!this.master) {
                 let container = this.$refs.container
