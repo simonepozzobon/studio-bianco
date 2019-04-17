@@ -2,7 +2,7 @@
     <div class="mobile-track container-fluid" ref="container">
         <div class="row mobile-track__row">
             <div class="col-6 mobile-track__col" ref="btn">
-                <a href="#" @click="goToContact" class="btn btn-sm btn-block btn-light-brown mobile-track__btn">raggiungici</a>
+                <a href="#" @click="goToMap" class="btn btn-sm btn-block btn-light-brown mobile-track__btn">raggiungici</a>
             </div>
             <div class="col-6 mobile-track__col" ref="btn">
                 <a href="tel:+393922594312" class="btn btn-sm btn-block btn-light-brown mobile-track__btn">chiamaci</a>
@@ -20,9 +20,15 @@ export default {
         }
     },
     methods: {
-        goToContact: function(event) {
+        goToMap: function(event) {
             event.preventDefault()
-            this.$router.push({name: 'contact'})
+            if /* if we're on iOS, open in Apple Maps */
+            ((navigator.platform.indexOf('iPhone') != -1) ||
+            (navigator.platform.indexOf('iPad') != -1) ||
+            (navigator.platform.indexOf('iPod') != -1))
+                window.open('maps://maps.google.com/maps?daddr=45.695823,9.659198&amp;ll=', '_blank');
+            else /* else use Google */
+                window.open('https://maps.google.com/maps?daddr=45.695823,9.659198&amp;ll=', '_blank');
         },
         init: function() {
             if (!this.master) {
