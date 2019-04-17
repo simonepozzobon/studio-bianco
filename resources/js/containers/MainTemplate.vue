@@ -8,6 +8,7 @@
             @enter="enter">
             <router-view />
         </transition>
+        <mobile-tracking v-if="this.deviceMobile"/>
         <loader />
         <cookies-panel />
     </div>
@@ -18,6 +19,7 @@ import CookiesPanel from '../components/CookiesPanel.vue'
 import Loader from './Loader.vue'
 import MainNav from './MainNav.vue'
 import MobileNav from '../containers/MobileNav.vue'
+import MobileTracking from '../containers/MobileTracking.vue'
 import { TimelineMax } from 'gsap'
 
 export default {
@@ -27,6 +29,7 @@ export default {
         Loader,
         MainNav,
         MobileNav,
+        MobileTracking,
         // MainFooter,
     },
     props: {
@@ -52,10 +55,13 @@ export default {
             isAnimating: false,
             animate: null,
             elEnter: null,
+            deviceMobile: null,
         }
     },
     watch: {
         '$route': function(to, from) {
+            this.deviceCheck()
+
             TweenLite.to(window, .2, {
                 scrollTo: 0,
                 autoKill: false,
@@ -76,6 +82,10 @@ export default {
         }
     },
     methods: {
+        deviceCheck: function() {
+            this.deviceMobile = window.mobilecheck()
+            console.log(this.deviceMobile);
+        },
         toggleMobile: function() {
             this.$refs.mobileNav.toggleMobile()
         },
@@ -230,6 +240,9 @@ export default {
             }
             done()
         }
+    },
+    created: function() {
+        this.deviceCheck()
     },
     beforeMount: function() {
         let parsedEstetica = JSON.parse(this.estetica)

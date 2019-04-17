@@ -1,14 +1,18 @@
 const mix = require('laravel-mix')
 require('laravel-mix-purgecss')
+// require('laravel-mix-bundle-analyzer')
+
 
 mix
     .options({
         processCssUrls: false
     })
-    .js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .purgeCss()
+    .js('resources/js/app.js', 'public/js')
+    // .extract(['vue', 'lodash', 'lottie-web', 'jquery', 'ScrollMagic', 'gsap'])
     .version()
+    // .bundleAnalyzer()
     .webpackConfig(webpack => {
         return {
             resolve: {
