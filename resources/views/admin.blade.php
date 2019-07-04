@@ -7,12 +7,12 @@
 
         <title>Admin - Studio Bianco</title>
 
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body class="">
         <div id="admin">
             <main-template></main-template>
         </div>
-        <script src="{{ mix('js/admin.js') }}"></script>
+        <script src="{{ asset('js/admin.js') }}"></script>
     </body>
 </html>

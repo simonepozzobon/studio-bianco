@@ -5,7 +5,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require('./bootstrap')
+require('./MobileCheck')
 
 import Vue from 'vue'
 import * as Sentry from '@sentry/browser'
@@ -59,6 +60,7 @@ const app = new Vue({
             comparisons: null,
             isMobile: false,
             isDesktop: false,
+            mobileDevice: null,
             initialized: false,
             swiperInitialized: false,
             animationsReady: false,
