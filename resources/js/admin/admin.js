@@ -43,4 +43,4 @@ const admin = new Vue({
     components: {
         MainTemplate
     },
-}).$mount('#admin')
+}).$mount('#backend')

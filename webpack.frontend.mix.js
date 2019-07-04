@@ -13,6 +13,7 @@ mix
     .purgeCss()
     .js('resources/js/app.js', 'public/js')
     // .extract(['vue', 'lodash', 'lottie-web', 'jquery', 'ScrollMagic', 'gsap'])
+    // .bundleAnalyzer()
     .version()
     .polyfill({
         enabled: true,
@@ -20,7 +21,6 @@ mix
         targets: 'last 2 version, not dead',
         debug: true
     })
-    // .bundleAnalyzer()
     .webpackConfig(webpack => {
         return {
             resolve: {

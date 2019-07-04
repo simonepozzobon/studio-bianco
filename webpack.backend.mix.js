@@ -2,12 +2,12 @@ const mix = require('laravel-mix')
 require('laravel-mix-purgecss')
 
 mix
-    .setPublicPath(path.normalize('public/admin'))
+    .setPublicPath(path.normalize('public/backend'))
     .options({
         processCssUrls: false
     })
-    .js('resources/js/admin/admin.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
+    .js('resources/js/admin/admin.js', 'admin.js')
+    // .sass('resources/sass/app.scss', 'public/css')
     .webpackConfig(webpack => {
         return {
             resolve: {
@@ -22,14 +22,14 @@ mix
                     'debug.addIndicators': path.resolve('node_modules', 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js')
                 }
             },
-            module: {
-                rules: [
-                    {
-                        { test: /\.vue$/, loader: 'vue-loader' },
-                        { test: /\.vue\.html$/, loader: 'vue-loader' }
-                    }
-                ]
-            }
+            // module: {
+            //     rules: [
+            //         {
+            //             { test: /\.vue$/, loader: 'vue-loader' },
+            //             { test: /\.vue\.html$/, loader: 'vue-loader' }
+            //         }
+            //     ]
+            // }
         }
     })
     .browserSync({
