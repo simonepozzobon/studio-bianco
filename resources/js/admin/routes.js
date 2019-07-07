@@ -1,19 +1,23 @@
+import Home from './views/Home.vue'
+import Servizi from './views/Servizi.vue'
+import PrimaEDopo from './views/PrimaEDopo.vue'
+
 const routes = [
     {
         path: '/',
         name: 'home',
         alias: '/home',
-        component: require('./views/Home.vue')
+        component: Home,
     },
     {
         path: '/servizi/:category',
         name: 'servizi',
-        component: require('./views/Servizi.vue')
+        component: Servizi,
     },
     {
         path: '/prima-e-dopo',
         name: 'prima-e-dopo',
-        component: require('./views/PrimaEDopo.vue')
+        component: PrimaEDopo,
     },
 ]
 

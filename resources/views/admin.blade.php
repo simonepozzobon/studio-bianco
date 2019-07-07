@@ -10,9 +10,9 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body class="">
-        <div id="admin">
+        <div id="backend">
             <main-template></main-template>
         </div>
-        <script src="{{ asset('js/admin.js') }}"></script>
+        <script src="{{ asset('backend/admin.js') }}"></script>
     </body>
 </html>
