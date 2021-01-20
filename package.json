@@ -41,7 +41,7 @@
     },
     "dependencies": {
         "@sentry/browser": "^4.6.4",
-        "gsap": "^2.1.2",
+        "gsap": "^3.6.0",
         "scrollmagic": "^2.0.6",
         "vue-check-view": "^0.2.4",
         "vue-wysiwyg": "^1.7.2"
