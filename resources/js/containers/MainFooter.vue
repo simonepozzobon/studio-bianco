@@ -9,16 +9,23 @@
                     <div class="main-footer-bold-divider"></div>
                     <span class="main-footer-subtitle">Studio Bianco</span>
                     <p>
-                        Via Mazzini, 3 - Bergamo <br>
-                        3922594312 <br>
-                        <a href="mailto:info@studiobiancosc.it">info@studiobiancosc.it</a>
+                        Via Mazzini, 3 - Bergamo <br />
+                        +39 347 4150873 <br />
+                        <a href="mailto:info@studiobiancosc.it"
+                            >info@studiobiancosc.it</a
+                        >
                     </p>
                 </div>
             </div>
         </div>
         <div class="main-footer-container">
             <div class="main-footer-privacy">
-                <router-link tag="a" class="nav-link text-center" :to="{ path: '/privacy' }" exact-active-class="active">
+                <router-link
+                    tag="a"
+                    class="nav-link text-center"
+                    :to="{ path: '/privacy' }"
+                    exact-active-class="active"
+                >
                     Privacy
                 </router-link>
             </div>
@@ -27,33 +34,32 @@
 </template>
 
 <script>
-import { Logo } from '../ui'
+import { Logo } from "../ui";
 
 export default {
-    name: 'MainFooter',
+    name: "MainFooter",
     components: {
         Logo,
     },
-    data: function() {
+    data: function () {
         return {
-            logoSize: '180px'
-        }
+            logoSize: "180px",
+        };
     },
     watch: {
-        '$root.window': function(value) {
+        "$root.window": function (value) {
             if (this.$root.isMobile) {
-                this.logoSize = '140px'
+                this.logoSize = "140px";
             } else {
-                this.logoSize = '180px'
+                this.logoSize = "180px";
             }
-        }
-    }
-}
+        },
+    },
+};
 </script>
 
 <style lang="scss">
-@import '~styles/shared';
-
+@import "~styles/shared";
 
 .main-footer {
     @include make-container();
@@ -77,7 +83,7 @@ export default {
             > svg {
                 // margin-bottom: $spacer * 2;
 
-                @include media-breakpoint-down('xs') {
+                @include media-breakpoint-down("xs") {
                     margin-bottom: $spacer;
                 }
             }
@@ -96,7 +102,7 @@ export default {
             svg {
                 padding-right: $spacer * 4;
 
-                @include media-breakpoint-down('xs') {
+                @include media-breakpoint-down("xs") {
                     padding-right: $spacer;
                     width: 60%;
                     max-width: 120px;
@@ -110,7 +116,7 @@ export default {
             align-items: flex-start;
 
             &::before {
-                content: '';
+                content: "";
                 position: absolute;
                 width: 1px;
                 height: 150px;
@@ -121,7 +127,7 @@ export default {
         .main-footer-content {
             padding: $spacer * 4;
 
-            @include media-breakpoint-down('xs') {
+            @include media-breakpoint-down("xs") {
                 padding-left: $spacer;
                 padding-right: $spacer;
                 padding-top: $spacer * 4;
@@ -131,15 +137,14 @@ export default {
             }
 
             .main-footer-bold-divider {
-                content: '';
+                content: "";
                 width: 30px;
                 border-top: 6px solid $black;
                 margin-bottom: $spacer;
-
             }
 
             .main-footer-v-div {
-                content: '';
+                content: "";
                 height: 100px;
                 border-left: 1px solid $pink;
                 margin-bottom: $spacer;
@@ -175,5 +180,4 @@ export default {
         }
     }
 }
-
 </style>
